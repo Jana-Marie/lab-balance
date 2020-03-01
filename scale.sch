@@ -948,50 +948,6 @@ $EndComp
 Wire Wire Line
 	4350 1650 4350 1600
 $Comp
-L Connector:Screw_Terminal_01x01 J3
-U 1 1 5E732E49
-P 7650 4000
-F 0 "J3" H 7730 4042 50  0000 L CNN
-F 1 "DMS" H 7730 3951 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 7650 4000 50  0001 C CNN
-F 3 "~" H 7650 4000 50  0001 C CNN
-	1    7650 4000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x01 J4
-U 1 1 5E7349A0
-P 7650 4200
-F 0 "J4" H 7730 4242 50  0000 L CNN
-F 1 "DMS" H 7730 4151 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 7650 4200 50  0001 C CNN
-F 3 "~" H 7650 4200 50  0001 C CNN
-	1    7650 4200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0141
-U 1 1 5E7380DC
-P 7450 4000
-F 0 "#PWR0141" H 7450 3750 50  0001 C CNN
-F 1 "GND" V 7455 3872 50  0000 R CNN
-F 2 "" H 7450 4000 50  0001 C CNN
-F 3 "" H 7450 4000 50  0001 C CNN
-	1    7450 4000
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR0142
-U 1 1 5E738A77
-P 7450 4200
-F 0 "#PWR0142" H 7450 3950 50  0001 C CNN
-F 1 "GND" V 7455 4072 50  0000 R CNN
-F 2 "" H 7450 4200 50  0001 C CNN
-F 3 "" H 7450 4200 50  0001 C CNN
-	1    7450 4200
-	0    1    1    0   
-$EndComp
-$Comp
 L Connector_Generic:Conn_01x13 J5
 U 1 1 5E74644F
 P 7400 5700
