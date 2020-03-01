@@ -398,9 +398,9 @@ F 3 "" H 1650 4050 50  0001 C CNN
 	1    1650 4050
 	1    0    0    -1  
 $EndComp
-Text GLabel 1350 4050 0    50   Input ~ 0
+Text GLabel 1950 4150 2    50   Input ~ 0
 D+
-Text GLabel 1950 4050 2    50   Input ~ 0
+Text GLabel 1350 4050 0    50   Input ~ 0
 D-
 $Comp
 L power:GND #PWR0117
