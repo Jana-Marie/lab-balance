@@ -1,0 +1,2430 @@
+ARM GAS  /tmp/ccWCqnRG.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"stm32f0xx_hal_tsc.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.TSC_extract_groups,"ax",%progbits
+  16              		.align	1
+  17              		.syntax unified
+  18              		.code	16
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	TSC_extract_groups:
+  23              	.LFB57:
+  24              		.file 1 "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c"
+   1:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+   2:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   ******************************************************************************
+   3:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @file    stm32f0xx_hal_tsc.c
+   4:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @author  MCD Application Team
+   5:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief   This file provides firmware functions to manage the following
+   6:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *          functionalities of the Touch Sensing Controller (TSC) peripheral:
+   7:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *           + Initialization and De-initialization
+   8:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *           + Channel IOs, Shield IOs and Sampling IOs configuration
+   9:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *           + Start and Stop an acquisition
+  10:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *           + Read acquisition result
+  11:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *           + Interrupts and flags management
+  12:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *
+  13:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   @verbatim
+  14:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** ================================================================================
+  15:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                        ##### TSC specific features #####
+  16:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** ================================================================================
+  17:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
+  18:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Proven and robust surface charge transfer acquisition principle
+  19:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  20:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Supports up to 3 capacitive sensing channels per group
+  21:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  22:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Capacitive sensing channels can be acquired in parallel offering a very good
+  23:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       response time
+  24:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  25:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Spread spectrum feature to improve system robustness in noisy environments
+  26:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  27:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Full hardware management of the charge transfer acquisition sequence
+  28:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  29:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Programmable charge transfer frequency
+  30:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Programmable sampling capacitor I/O pin
+  32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Programmable channel I/O pin
+  34:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ARM GAS  /tmp/ccWCqnRG.s 			page 2
+
+
+  35:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Programmable max count value to avoid long acquisition when a channel is faulty
+  36:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  37:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Dedicated end of acquisition and max count error flags with interrupt capability
+  38:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  39:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) One sampling capacitor for up to 3 capacitive sensing channels to reduce the system
+  40:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       components
+  41:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  42:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Compatible with proximity, touchkey, linear and rotary touch sensor implementation
+  43:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  44:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                           ##### How to use this driver #####
+  45:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** ================================================================================
+  46:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
+  47:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     (#) Enable the TSC interface clock using __HAL_RCC_TSC_CLK_ENABLE() macro.
+  48:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  49:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     (#) GPIO pins configuration
+  50:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (++) Enable the clock for the TSC GPIOs using __HAL_RCC_GPIOx_CLK_ENABLE() macro.
+  51:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (++) Configure the TSC pins used as sampling IOs in alternate function output Open-Drain mode
+  52:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****            and TSC pins used as channel/shield IOs in alternate function output Push-Pull mode
+  53:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****            using HAL_GPIO_Init() function.
+  54:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  55:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     (#) Interrupts configuration
+  56:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (++) Configure the NVIC (if the interrupt model is used) using HAL_NVIC_SetPriority()
+  57:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****            and HAL_NVIC_EnableIRQ() and function.
+  58:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  59:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     (#) TSC configuration
+  60:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (++) Configure all TSC parameters and used TSC IOs using HAL_TSC_Init() function.
+  61:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  62:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  [..]   TSC peripheral alternate functions are mapped on AF9.
+  63:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  64:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *** Acquisition sequence ***
+  65:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   ===================================
+  66:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
+  67:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     (+) Discharge all IOs using HAL_TSC_IODischarge() function.
+  68:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     (+) Wait a certain time allowing a good discharge of all capacitors. This delay depends
+  69:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         of the sampling capacitor and electrodes design.
+  70:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     (+) Select the channel IOs to be acquired using HAL_TSC_IOConfig() function.
+  71:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     (+) Launch the acquisition using either HAL_TSC_Start() or HAL_TSC_Start_IT() function.
+  72:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         If the synchronized mode is selected, the acquisition will start as soon as the signal
+  73:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         is received on the synchro pin.
+  74:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     (+) Wait the end of acquisition using either HAL_TSC_PollForAcquisition() or
+  75:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         HAL_TSC_GetState() function or using WFI instruction for example.
+  76:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     (+) Check the group acquisition status using HAL_TSC_GroupGetStatus() function.
+  77:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     (+) Read the acquisition value using HAL_TSC_GroupGetValue() function.
+  78:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  79:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      *** Callback registration ***
+  80:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      =============================================
+  81:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  82:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
+  83:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      The compilation flag USE_HAL_TSC_REGISTER_CALLBACKS when set to 1
+  84:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      allows the user to configure dynamically the driver callbacks.
+  85:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      Use Functions @ref HAL_TSC_RegisterCallback() to register an interrupt callback.
+  86:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  87:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
+  88:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      Function @ref HAL_TSC_RegisterCallback() allows to register following callbacks:
+  89:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) ConvCpltCallback   : callback for conversion complete process.
+  90:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) ErrorCallback      : callback for error detection.
+  91:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) MspInitCallback    : callback for Msp Init.
+ARM GAS  /tmp/ccWCqnRG.s 			page 3
+
+
+  92:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) MspDeInitCallback  : callback for Msp DeInit.
+  93:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
+  94:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      This function takes as parameters the HAL peripheral handle, the Callback ID
+  95:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      and a pointer to the user callback function.
+  96:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  97:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
+  98:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      Use function @ref HAL_TSC_UnRegisterCallback to reset a callback to the default
+  99:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      weak function.
+ 100:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      @ref HAL_TSC_UnRegisterCallback takes as parameters the HAL peripheral handle,
+ 101:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      and the Callback ID.
+ 102:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
+ 103:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      This function allows to reset following callbacks:
+ 104:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) ConvCpltCallback   : callback for conversion complete process.
+ 105:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) ErrorCallback      : callback for error detection.
+ 106:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) MspInitCallback    : callback for Msp Init.
+ 107:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) MspDeInitCallback  : callback for Msp DeInit.
+ 108:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 109:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
+ 110:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      By default, after the @ref HAL_TSC_Init() and when the state is @ref HAL_TSC_STATE_RESET
+ 111:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      all callbacks are set to the corresponding weak functions:
+ 112:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      examples @ref HAL_TSC_ConvCpltCallback(), @ref HAL_TSC_ErrorCallback().
+ 113:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      Exception done for MspInit and MspDeInit functions that are
+ 114:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      reset to the legacy weak functions in the @ref HAL_TSC_Init()/ @ref HAL_TSC_DeInit() only when
+ 115:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      these callbacks are null (not registered beforehand).
+ 116:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      If MspInit or MspDeInit are not null, the @ref HAL_TSC_Init()/ @ref HAL_TSC_DeInit()
+ 117:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      keep and use the user MspInit/MspDeInit callbacks (registered beforehand) whatever the state.
+ 118:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 119:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
+ 120:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      Callbacks can be registered/unregistered in @ref HAL_TSC_STATE_READY state only.
+ 121:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      Exception done MspInit/MspDeInit functions that can be registered/unregistered
+ 122:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      in @ref HAL_TSC_STATE_READY or @ref HAL_TSC_STATE_RESET state,
+ 123:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      thus registered (user) MspInit/DeInit callbacks can be used during the Init/DeInit.
+ 124:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      Then, the user first registers the MspInit/MspDeInit user callbacks
+ 125:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      using @ref HAL_TSC_RegisterCallback() before calling @ref HAL_TSC_DeInit()
+ 126:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      or @ref HAL_TSC_Init() function.
+ 127:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 128:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
+ 129:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      When the compilation flag USE_HAL_TSC_REGISTER_CALLBACKS is set to 0 or
+ 130:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      not defined, the callback registration feature is not available and all callbacks
+ 131:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      are set to the corresponding weak functions.
+ 132:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 133:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   @endverbatim
+ 134:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   ******************************************************************************
+ 135:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   ******************************************************************************
+ 136:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @attention
+ 137:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *
+ 138:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * <h2><center>&copy; Copyright (c) 2016 STMicroelectronics.
+ 139:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * All rights reserved.</center></h2>
+ 140:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *
+ 141:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+ 142:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * the "License"; You may not use this file except in compliance with the
+ 143:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * License. You may obtain a copy of the License at:
+ 144:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *                        opensource.org/licenses/BSD-3-Clause
+ 145:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *
+ 146:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   ******************************************************************************
+ 147:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 148:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ARM GAS  /tmp/ccWCqnRG.s 			page 4
+
+
+ 149:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /* Includes ------------------------------------------------------------------*/
+ 150:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #include "stm32f0xx_hal.h"
+ 151:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 152:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if defined(TSC)
+ 153:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /** @addtogroup STM32F0xx_HAL_Driver
+ 154:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @{
+ 155:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 156:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 157:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /** @defgroup TSC TSC
+ 158:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief HAL TSC module driver
+ 159:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @{
+ 160:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 161:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 162:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #ifdef HAL_TSC_MODULE_ENABLED
+ 163:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 164:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /* Private typedef -----------------------------------------------------------*/
+ 165:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /* Private define ------------------------------------------------------------*/
+ 166:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /* Private macro -------------------------------------------------------------*/
+ 167:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /* Private variables ---------------------------------------------------------*/
+ 168:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /* Private function prototypes -----------------------------------------------*/
+ 169:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** static uint32_t TSC_extract_groups(uint32_t iomask);
+ 170:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 171:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /* Exported functions --------------------------------------------------------*/
+ 172:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 173:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /** @defgroup TSC_Exported_Functions TSC Exported Functions
+ 174:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @{
+ 175:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 176:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 177:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /** @defgroup TSC_Exported_Functions_Group1 Initialization and de-initialization functions
+ 178:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  *  @brief    Initialization and Configuration functions
+ 179:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  *
+ 180:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** @verbatim
+ 181:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  ===============================================================================
+ 182:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****               ##### Initialization and de-initialization functions #####
+ 183:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  ===============================================================================
+ 184:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     [..]  This section provides functions allowing to:
+ 185:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) Initialize and configure the TSC.
+ 186:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) De-initialize the TSC.
+ 187:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** @endverbatim
+ 188:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @{
+ 189:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 190:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 191:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 192:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Initialize the TSC peripheral according to the specified parameters
+ 193:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         in the TSC_InitTypeDef structure and initialize the associated handle.
+ 194:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc TSC handle
+ 195:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL status
+ 196:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 197:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_StatusTypeDef HAL_TSC_Init(TSC_HandleTypeDef *htsc)
+ 198:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 199:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check TSC handle allocation */
+ 200:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (htsc == NULL)
+ 201:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 202:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     return HAL_ERROR;
+ 203:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 204:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 205:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ARM GAS  /tmp/ccWCqnRG.s 			page 5
+
+
+ 206:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 207:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_CTPH(htsc->Init.CTPulseHighLength));
+ 208:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_CTPL(htsc->Init.CTPulseLowLength));
+ 209:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_SS(htsc->Init.SpreadSpectrum));
+ 210:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_SSD(htsc->Init.SpreadSpectrumDeviation));
+ 211:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_SS_PRESC(htsc->Init.SpreadSpectrumPrescaler));
+ 212:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_PG_PRESC(htsc->Init.PulseGeneratorPrescaler));
+ 213:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_MCV(htsc->Init.MaxCountValue));
+ 214:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_IODEF(htsc->Init.IODefaultMode));
+ 215:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_SYNC_POL(htsc->Init.SynchroPinPolarity));
+ 216:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ACQ_MODE(htsc->Init.AcquisitionMode));
+ 217:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_MCE_IT(htsc->Init.MaxCountInterrupt));
+ 218:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(htsc->Init.ChannelIOs));
+ 219:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(htsc->Init.ShieldIOs));
+ 220:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(htsc->Init.SamplingIOs));
+ 221:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 222:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (htsc->State == HAL_TSC_STATE_RESET)
+ 223:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 224:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Allocate lock resource and initialize it */
+ 225:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->Lock = HAL_UNLOCKED;
+ 226:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 227:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
+ 228:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Init the TSC Callback settings */
+ 229:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->ConvCpltCallback  = HAL_TSC_ConvCpltCallback; /* Legacy weak ConvCpltCallback     */
+ 230:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->ErrorCallback     = HAL_TSC_ErrorCallback;    /* Legacy weak ErrorCallback        */
+ 231:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 232:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     if (htsc->MspInitCallback == NULL)
+ 233:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
+ 234:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       htsc->MspInitCallback = HAL_TSC_MspInit; /* Legacy weak MspInit  */
+ 235:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     }
+ 236:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 237:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Init the low level hardware : GPIO, CLOCK, CORTEX...etc */
+ 238:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->MspInitCallback(htsc);
+ 239:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #else
+ 240:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Init the low level hardware : GPIO, CLOCK, CORTEX */
+ 241:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     HAL_TSC_MspInit(htsc);
+ 242:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
+ 243:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 244:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 245:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Initialize the TSC state */
+ 246:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->State = HAL_TSC_STATE_BUSY;
+ 247:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 248:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /*--------------------------------------------------------------------------*/
+ 249:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set TSC parameters */
+ 250:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 251:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Enable TSC */
+ 252:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->CR = TSC_CR_TSCE;
+ 253:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 254:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set all functions */
+ 255:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->CR |= (htsc->Init.CTPulseHighLength |
+ 256:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.CTPulseLowLength |
+ 257:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          (htsc->Init.SpreadSpectrumDeviation << TSC_CR_SSD_Pos) |
+ 258:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.SpreadSpectrumPrescaler |
+ 259:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.PulseGeneratorPrescaler |
+ 260:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.MaxCountValue |
+ 261:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.SynchroPinPolarity |
+ 262:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.AcquisitionMode);
+ARM GAS  /tmp/ccWCqnRG.s 			page 6
+
+
+ 263:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 264:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Spread spectrum */
+ 265:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (htsc->Init.SpreadSpectrum == ENABLE)
+ 266:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 267:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->Instance->CR |= TSC_CR_SSE;
+ 268:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 269:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 270:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Disable Schmitt trigger hysteresis on all used TSC IOs */
+ 271:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->IOHCR = (~(htsc->Init.ChannelIOs | htsc->Init.ShieldIOs | htsc->Init.SamplingIOs)
+ 272:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 273:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set channel and shield IOs */
+ 274:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->IOCCR = (htsc->Init.ChannelIOs | htsc->Init.ShieldIOs);
+ 275:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 276:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set sampling IOs */
+ 277:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->IOSCR = htsc->Init.SamplingIOs;
+ 278:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 279:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set the groups to be acquired */
+ 280:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->IOGCSR = TSC_extract_groups(htsc->Init.ChannelIOs);
+ 281:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 282:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Disable interrupts */
+ 283:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->IER &= (~(TSC_IT_EOA | TSC_IT_MCE));
+ 284:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 285:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Clear flags */
+ 286:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->ICR = (TSC_FLAG_EOA | TSC_FLAG_MCE);
+ 287:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 288:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /*--------------------------------------------------------------------------*/
+ 289:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 290:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Initialize the TSC state */
+ 291:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->State = HAL_TSC_STATE_READY;
+ 292:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 293:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return function status */
+ 294:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return HAL_OK;
+ 295:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 296:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 297:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 298:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Deinitialize the TSC peripheral registers to their default reset values.
+ 299:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc TSC handle
+ 300:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL status
+ 301:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 302:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_StatusTypeDef HAL_TSC_DeInit(TSC_HandleTypeDef *htsc)
+ 303:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 304:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check TSC handle allocation */
+ 305:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (htsc == NULL)
+ 306:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 307:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     return HAL_ERROR;
+ 308:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 309:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 310:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 311:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 312:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 313:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Change TSC state */
+ 314:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->State = HAL_TSC_STATE_BUSY;
+ 315:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 316:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
+ 317:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (htsc->MspDeInitCallback == NULL)
+ 318:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 319:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->MspDeInitCallback = HAL_TSC_MspDeInit; /* Legacy weak MspDeInit  */
+ARM GAS  /tmp/ccWCqnRG.s 			page 7
+
+
+ 320:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 321:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 322:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* DeInit the low level hardware: GPIO, CLOCK, NVIC */
+ 323:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->MspDeInitCallback(htsc);
+ 324:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #else
+ 325:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* DeInit the low level hardware */
+ 326:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   HAL_TSC_MspDeInit(htsc);
+ 327:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
+ 328:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 329:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Change TSC state */
+ 330:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->State = HAL_TSC_STATE_RESET;
+ 331:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 332:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process unlocked */
+ 333:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
+ 334:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 335:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return function status */
+ 336:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return HAL_OK;
+ 337:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 338:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 339:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 340:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Initialize the TSC MSP.
+ 341:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 342:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 343:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval None
+ 344:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 345:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** __weak void HAL_TSC_MspInit(TSC_HandleTypeDef *htsc)
+ 346:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 347:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
+ 348:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   UNUSED(htsc);
+ 349:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 350:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* NOTE : This function should not be modified, when the callback is needed,
+ 351:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****             the HAL_TSC_MspInit could be implemented in the user file.
+ 352:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****    */
+ 353:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 354:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 355:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 356:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  DeInitialize the TSC MSP.
+ 357:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 358:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 359:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval None
+ 360:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 361:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** __weak void HAL_TSC_MspDeInit(TSC_HandleTypeDef *htsc)
+ 362:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 363:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
+ 364:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   UNUSED(htsc);
+ 365:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 366:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* NOTE : This function should not be modified, when the callback is needed,
+ 367:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****             the HAL_TSC_MspDeInit could be implemented in the user file.
+ 368:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****    */
+ 369:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 370:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 371:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
+ 372:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 373:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Register a User TSC Callback
+ 374:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         To be used instead of the weak predefined callback
+ 375:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 376:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *                the configuration information for the specified TSC.
+ARM GAS  /tmp/ccWCqnRG.s 			page 8
+
+
+ 377:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  CallbackID ID of the callback to be registered
+ 378:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         This parameter can be one of the following values:
+ 379:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *          @arg @ref HAL_TSC_CONV_COMPLETE_CB_ID Conversion completed callback ID
+ 380:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *          @arg @ref HAL_TSC_ERROR_CB_ID Error callback ID
+ 381:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *          @arg @ref HAL_TSC_MSPINIT_CB_ID MspInit callback ID
+ 382:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *          @arg @ref HAL_TSC_MSPDEINIT_CB_ID MspDeInit callback ID
+ 383:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  pCallback pointer to the Callback function
+ 384:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL status
+ 385:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 386:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_StatusTypeDef HAL_TSC_RegisterCallback(TSC_HandleTypeDef *htsc, HAL_TSC_CallbackIDTypeDef Callb
+ 387:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 388:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 389:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 390:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (pCallback == NULL)
+ 391:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 392:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Update the error code */
+ 393:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->ErrorCode |= HAL_TSC_ERROR_INVALID_CALLBACK;
+ 394:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 395:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     return HAL_ERROR;
+ 396:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 397:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process locked */
+ 398:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_LOCK(htsc);
+ 399:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 400:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (HAL_TSC_STATE_READY == htsc->State)
+ 401:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 402:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     switch (CallbackID)
+ 403:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
+ 404:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_CONV_COMPLETE_CB_ID :
+ 405:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->ConvCpltCallback = pCallback;
+ 406:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 407:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 408:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_ERROR_CB_ID :
+ 409:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->ErrorCallback = pCallback;
+ 410:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 411:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 412:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_MSPINIT_CB_ID :
+ 413:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->MspInitCallback = pCallback;
+ 414:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 415:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 416:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_MSPDEINIT_CB_ID :
+ 417:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->MspDeInitCallback = pCallback;
+ 418:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 419:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 420:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       default :
+ 421:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         /* Update the error code */
+ 422:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->ErrorCode |= HAL_TSC_ERROR_INVALID_CALLBACK;
+ 423:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 424:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         /* Return error status */
+ 425:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         status =  HAL_ERROR;
+ 426:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 427:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     }
+ 428:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 429:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   else if (HAL_TSC_STATE_RESET == htsc->State)
+ 430:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 431:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     switch (CallbackID)
+ 432:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
+ 433:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_MSPINIT_CB_ID :
+ARM GAS  /tmp/ccWCqnRG.s 			page 9
+
+
+ 434:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->MspInitCallback = pCallback;
+ 435:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 436:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 437:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_MSPDEINIT_CB_ID :
+ 438:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->MspDeInitCallback = pCallback;
+ 439:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 440:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 441:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       default :
+ 442:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         /* Update the error code */
+ 443:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->ErrorCode |= HAL_TSC_ERROR_INVALID_CALLBACK;
+ 444:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 445:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         /* Return error status */
+ 446:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         status =  HAL_ERROR;
+ 447:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 448:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     }
+ 449:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 450:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   else
+ 451:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 452:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Update the error code */
+ 453:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->ErrorCode |= HAL_TSC_ERROR_INVALID_CALLBACK;
+ 454:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 455:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Return error status */
+ 456:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     status =  HAL_ERROR;
+ 457:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 458:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 459:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Release Lock */
+ 460:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
+ 461:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return status;
+ 462:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 463:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 464:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 465:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Unregister an TSC Callback
+ 466:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         TSC callback is redirected to the weak predefined callback
+ 467:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 468:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *                the configuration information for the specified TSC.
+ 469:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  CallbackID ID of the callback to be unregistered
+ 470:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         This parameter can be one of the following values:
+ 471:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         This parameter can be one of the following values:
+ 472:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *          @arg @ref HAL_TSC_CONV_COMPLETE_CB_ID Conversion completed callback ID
+ 473:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *          @arg @ref HAL_TSC_ERROR_CB_ID Error callback ID
+ 474:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *          @arg @ref HAL_TSC_MSPINIT_CB_ID MspInit callback ID
+ 475:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *          @arg @ref HAL_TSC_MSPDEINIT_CB_ID MspDeInit callback ID
+ 476:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL status
+ 477:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 478:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_StatusTypeDef HAL_TSC_UnRegisterCallback(TSC_HandleTypeDef *htsc, HAL_TSC_CallbackIDTypeDef Cal
+ 479:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 480:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 481:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 482:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process locked */
+ 483:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_LOCK(htsc);
+ 484:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 485:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (HAL_TSC_STATE_READY == htsc->State)
+ 486:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 487:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     switch (CallbackID)
+ 488:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
+ 489:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_CONV_COMPLETE_CB_ID :
+ 490:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->ConvCpltCallback = HAL_TSC_ConvCpltCallback;       /* Legacy weak ConvCpltCallback   
+ARM GAS  /tmp/ccWCqnRG.s 			page 10
+
+
+ 491:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 492:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 493:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_ERROR_CB_ID :
+ 494:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->ErrorCallback = HAL_TSC_ErrorCallback;               /* Legacy weak ErrorCallback    
+ 495:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 496:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 497:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_MSPINIT_CB_ID :
+ 498:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->MspInitCallback = HAL_TSC_MspInit;                   /* Legacy weak MspInit          
+ 499:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 500:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 501:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_MSPDEINIT_CB_ID :
+ 502:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->MspDeInitCallback = HAL_TSC_MspDeInit;               /* Legacy weak MspDeInit        
+ 503:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 504:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 505:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       default :
+ 506:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         /* Update the error code */
+ 507:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->ErrorCode |= HAL_TSC_ERROR_INVALID_CALLBACK;
+ 508:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 509:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         /* Return error status */
+ 510:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         status =  HAL_ERROR;
+ 511:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 512:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     }
+ 513:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 514:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   else if (HAL_TSC_STATE_RESET == htsc->State)
+ 515:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 516:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     switch (CallbackID)
+ 517:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
+ 518:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_MSPINIT_CB_ID :
+ 519:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->MspInitCallback = HAL_TSC_MspInit;                   /* Legacy weak MspInit          
+ 520:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 521:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 522:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_MSPDEINIT_CB_ID :
+ 523:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->MspDeInitCallback = HAL_TSC_MspDeInit;               /* Legacy weak MspDeInit        
+ 524:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 525:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 526:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       default :
+ 527:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         /* Update the error code */
+ 528:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->ErrorCode |= HAL_TSC_ERROR_INVALID_CALLBACK;
+ 529:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 530:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         /* Return error status */
+ 531:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         status =  HAL_ERROR;
+ 532:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
+ 533:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     }
+ 534:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 535:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   else
+ 536:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 537:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Update the error code */
+ 538:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->ErrorCode |= HAL_TSC_ERROR_INVALID_CALLBACK;
+ 539:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 540:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Return error status */
+ 541:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     status =  HAL_ERROR;
+ 542:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 543:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 544:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Release Lock */
+ 545:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
+ 546:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return status;
+ 547:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ARM GAS  /tmp/ccWCqnRG.s 			page 11
+
+
+ 548:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 549:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
+ 550:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 551:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 552:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @}
+ 553:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 554:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 555:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /** @defgroup TSC_Exported_Functions_Group2 Input and Output operation functions
+ 556:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  *  @brief    Input and Output operation functions
+ 557:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  *
+ 558:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** @verbatim
+ 559:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  ===============================================================================
+ 560:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****              ##### IO Operation functions #####
+ 561:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  ===============================================================================
+ 562:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     [..]  This section provides functions allowing to:
+ 563:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) Start acquisition in polling mode.
+ 564:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) Start acquisition in interrupt mode.
+ 565:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) Stop conversion in polling mode.
+ 566:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) Stop conversion in interrupt mode.
+ 567:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) Poll for acquisition completed.
+ 568:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) Get group acquisition status.
+ 569:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) Get group acquisition value.
+ 570:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** @endverbatim
+ 571:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @{
+ 572:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 573:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 574:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 575:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Start the acquisition.
+ 576:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 577:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 578:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL status
+ 579:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 580:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_StatusTypeDef HAL_TSC_Start(TSC_HandleTypeDef *htsc)
+ 581:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 582:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 583:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 584:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 585:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process locked */
+ 586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_LOCK(htsc);
+ 587:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 588:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Change TSC state */
+ 589:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->State = HAL_TSC_STATE_BUSY;
+ 590:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 591:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Clear interrupts */
+ 592:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_DISABLE_IT(htsc, (TSC_IT_EOA | TSC_IT_MCE));
+ 593:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 594:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Clear flags */
+ 595:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_CLEAR_FLAG(htsc, (TSC_FLAG_EOA | TSC_FLAG_MCE));
+ 596:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 597:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set touch sensing IOs not acquired to the specified IODefaultMode */
+ 598:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (htsc->Init.IODefaultMode == TSC_IODEF_OUT_PP_LOW)
+ 599:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 600:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_SET_IODEF_OUTPPLOW(htsc);
+ 601:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 602:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   else
+ 603:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 604:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_SET_IODEF_INFLOAT(htsc);
+ARM GAS  /tmp/ccWCqnRG.s 			page 12
+
+
+ 605:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 606:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 607:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Launch the acquisition */
+ 608:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_START_ACQ(htsc);
+ 609:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 610:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process unlocked */
+ 611:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
+ 612:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 613:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return function status */
+ 614:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return HAL_OK;
+ 615:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 616:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 617:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 618:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Start the acquisition in interrupt mode.
+ 619:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 620:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 621:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL status.
+ 622:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 623:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_StatusTypeDef HAL_TSC_Start_IT(TSC_HandleTypeDef *htsc)
+ 624:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 625:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 626:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 627:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_MCE_IT(htsc->Init.MaxCountInterrupt));
+ 628:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 629:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process locked */
+ 630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_LOCK(htsc);
+ 631:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 632:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Change TSC state */
+ 633:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->State = HAL_TSC_STATE_BUSY;
+ 634:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 635:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Enable end of acquisition interrupt */
+ 636:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_ENABLE_IT(htsc, TSC_IT_EOA);
+ 637:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 638:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Enable max count error interrupt (optional) */
+ 639:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (htsc->Init.MaxCountInterrupt == ENABLE)
+ 640:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 641:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_ENABLE_IT(htsc, TSC_IT_MCE);
+ 642:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 643:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   else
+ 644:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 645:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_DISABLE_IT(htsc, TSC_IT_MCE);
+ 646:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 647:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 648:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Clear flags */
+ 649:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_CLEAR_FLAG(htsc, (TSC_FLAG_EOA | TSC_FLAG_MCE));
+ 650:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 651:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set touch sensing IOs not acquired to the specified IODefaultMode */
+ 652:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (htsc->Init.IODefaultMode == TSC_IODEF_OUT_PP_LOW)
+ 653:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 654:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_SET_IODEF_OUTPPLOW(htsc);
+ 655:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 656:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   else
+ 657:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 658:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_SET_IODEF_INFLOAT(htsc);
+ 659:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 660:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 661:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Launch the acquisition */
+ARM GAS  /tmp/ccWCqnRG.s 			page 13
+
+
+ 662:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_START_ACQ(htsc);
+ 663:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 664:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process unlocked */
+ 665:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
+ 666:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 667:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return function status */
+ 668:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return HAL_OK;
+ 669:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 670:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 671:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 672:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Stop the acquisition previously launched in polling mode.
+ 673:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 674:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 675:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL status
+ 676:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 677:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_StatusTypeDef HAL_TSC_Stop(TSC_HandleTypeDef *htsc)
+ 678:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 679:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 680:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 681:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 682:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process locked */
+ 683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_LOCK(htsc);
+ 684:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 685:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Stop the acquisition */
+ 686:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_STOP_ACQ(htsc);
+ 687:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 688:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set touch sensing IOs in low power mode (output push-pull) */
+ 689:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_SET_IODEF_OUTPPLOW(htsc);
+ 690:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 691:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Clear flags */
+ 692:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_CLEAR_FLAG(htsc, (TSC_FLAG_EOA | TSC_FLAG_MCE));
+ 693:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 694:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Change TSC state */
+ 695:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->State = HAL_TSC_STATE_READY;
+ 696:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 697:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process unlocked */
+ 698:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
+ 699:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 700:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return function status */
+ 701:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return HAL_OK;
+ 702:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 703:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 704:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 705:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Stop the acquisition previously launched in interrupt mode.
+ 706:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 707:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 708:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL status
+ 709:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 710:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_StatusTypeDef HAL_TSC_Stop_IT(TSC_HandleTypeDef *htsc)
+ 711:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 712:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 713:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 714:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 715:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process locked */
+ 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_LOCK(htsc);
+ 717:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 718:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Stop the acquisition */
+ARM GAS  /tmp/ccWCqnRG.s 			page 14
+
+
+ 719:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_STOP_ACQ(htsc);
+ 720:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 721:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set touch sensing IOs in low power mode (output push-pull) */
+ 722:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_SET_IODEF_OUTPPLOW(htsc);
+ 723:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 724:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Disable interrupts */
+ 725:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_DISABLE_IT(htsc, (TSC_IT_EOA | TSC_IT_MCE));
+ 726:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 727:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Clear flags */
+ 728:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_CLEAR_FLAG(htsc, (TSC_FLAG_EOA | TSC_FLAG_MCE));
+ 729:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 730:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Change TSC state */
+ 731:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->State = HAL_TSC_STATE_READY;
+ 732:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 733:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process unlocked */
+ 734:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
+ 735:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 736:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return function status */
+ 737:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return HAL_OK;
+ 738:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 739:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 740:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 741:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Start acquisition and wait until completion.
+ 742:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @note   There is no need of a timeout parameter as the max count error is already
+ 743:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         managed by the TSC peripheral.
+ 744:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 745:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 746:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL state
+ 747:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 748:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_StatusTypeDef HAL_TSC_PollForAcquisition(TSC_HandleTypeDef *htsc)
+ 749:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 750:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 751:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 752:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 753:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process locked */
+ 754:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_LOCK(htsc);
+ 755:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 756:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check end of acquisition */
+ 757:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   while (HAL_TSC_GetState(htsc) == HAL_TSC_STATE_BUSY)
+ 758:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 759:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* The timeout (max count error) is managed by the TSC peripheral itself. */
+ 760:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 761:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 762:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process unlocked */
+ 763:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
+ 764:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 765:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return HAL_OK;
+ 766:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 767:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 768:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 769:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Get the acquisition status for a group.
+ 770:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 771:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 772:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  gx_index Index of the group
+ 773:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval Group status
+ 774:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 775:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** TSC_GroupStatusTypeDef HAL_TSC_GroupGetStatus(TSC_HandleTypeDef *htsc, uint32_t gx_index)
+ARM GAS  /tmp/ccWCqnRG.s 			page 15
+
+
+ 776:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 777:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 778:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 779:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP_INDEX(gx_index));
+ 780:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 781:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return the group status */
+ 782:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return (__HAL_TSC_GET_GROUP_STATUS(htsc, gx_index));
+ 783:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 784:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 785:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 786:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Get the acquisition measure for a group.
+ 787:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 788:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 789:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  gx_index Index of the group
+ 790:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval Acquisition measure
+ 791:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 792:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** uint32_t HAL_TSC_GroupGetValue(TSC_HandleTypeDef *htsc, uint32_t gx_index)
+ 793:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 794:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 795:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 796:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP_INDEX(gx_index));
+ 797:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 798:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return the group acquisition counter */
+ 799:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return htsc->Instance->IOGXCR[gx_index];
+ 800:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 801:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 802:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 803:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @}
+ 804:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 805:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 806:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /** @defgroup TSC_Exported_Functions_Group3 Peripheral Control functions
+ 807:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  *  @brief    Peripheral Control functions
+ 808:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  *
+ 809:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** @verbatim
+ 810:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  ===============================================================================
+ 811:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****              ##### Peripheral Control functions #####
+ 812:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  ===============================================================================
+ 813:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     [..]  This section provides functions allowing to:
+ 814:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) Configure TSC IOs
+ 815:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) Discharge TSC IOs
+ 816:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** @endverbatim
+ 817:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @{
+ 818:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 819:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 820:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 821:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Configure TSC IOs.
+ 822:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 823:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 824:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  config Pointer to the configuration structure.
+ 825:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL status
+ 826:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 827:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_StatusTypeDef HAL_TSC_IOConfig(TSC_HandleTypeDef *htsc, TSC_IOConfigTypeDef *config)
+ 828:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 829:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 830:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 831:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(config->ChannelIOs));
+ 832:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(config->ShieldIOs));
+ARM GAS  /tmp/ccWCqnRG.s 			page 16
+
+
+ 833:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(config->SamplingIOs));
+ 834:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 835:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process locked */
+ 836:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_LOCK(htsc);
+ 837:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 838:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Stop acquisition */
+ 839:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_STOP_ACQ(htsc);
+ 840:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 841:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Disable Schmitt trigger hysteresis on all used TSC IOs */
+ 842:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->IOHCR = (~(config->ChannelIOs | config->ShieldIOs | config->SamplingIOs));
+ 843:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 844:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set channel and shield IOs */
+ 845:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->IOCCR = (config->ChannelIOs | config->ShieldIOs);
+ 846:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 847:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set sampling IOs */
+ 848:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->IOSCR = config->SamplingIOs;
+ 849:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 850:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set groups to be acquired */
+ 851:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   htsc->Instance->IOGCSR = TSC_extract_groups(config->ChannelIOs);
+ 852:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 853:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process unlocked */
+ 854:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
+ 855:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 856:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return function status */
+ 857:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return HAL_OK;
+ 858:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 859:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 860:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 861:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Discharge TSC IOs.
+ 862:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 863:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 864:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  choice This parameter can be set to ENABLE or DISABLE.
+ 865:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL status
+ 866:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 867:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_StatusTypeDef HAL_TSC_IODischarge(TSC_HandleTypeDef *htsc, FunctionalState choice)
+ 868:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 869:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 870:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 871:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 872:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process locked */
+ 873:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_LOCK(htsc);
+ 874:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 875:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (choice == ENABLE)
+ 876:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 877:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_SET_IODEF_OUTPPLOW(htsc);
+ 878:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 879:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   else
+ 880:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 881:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_SET_IODEF_INFLOAT(htsc);
+ 882:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 883:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 884:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process unlocked */
+ 885:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
+ 886:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 887:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return the group acquisition counter */
+ 888:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return HAL_OK;
+ 889:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ARM GAS  /tmp/ccWCqnRG.s 			page 17
+
+
+ 890:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 891:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 892:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @}
+ 893:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 894:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 895:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /** @defgroup TSC_Exported_Functions_Group4 Peripheral State and Errors functions
+ 896:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  *  @brief   Peripheral State and Errors functions
+ 897:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  *
+ 898:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** @verbatim
+ 899:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  ===============================================================================
+ 900:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****             ##### State and Errors functions #####
+ 901:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  ===============================================================================
+ 902:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     [..]
+ 903:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     This subsection provides functions allowing to
+ 904:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       (+) Get TSC state.
+ 905:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 906:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** @endverbatim
+ 907:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @{
+ 908:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 909:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 910:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 911:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Return the TSC handle state.
+ 912:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 913:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 914:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval HAL state
+ 915:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 916:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** HAL_TSC_StateTypeDef HAL_TSC_GetState(TSC_HandleTypeDef *htsc)
+ 917:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 918:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 919:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 920:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 921:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (htsc->State == HAL_TSC_STATE_BUSY)
+ 922:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 923:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Check end of acquisition flag */
+ 924:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     if (__HAL_TSC_GET_FLAG(htsc, TSC_FLAG_EOA) != RESET)
+ 925:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
+ 926:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       /* Check max count error flag */
+ 927:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       if (__HAL_TSC_GET_FLAG(htsc, TSC_FLAG_MCE) != RESET)
+ 928:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       {
+ 929:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         /* Change TSC state */
+ 930:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->State = HAL_TSC_STATE_ERROR;
+ 931:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       }
+ 932:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       else
+ 933:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       {
+ 934:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         /* Change TSC state */
+ 935:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->State = HAL_TSC_STATE_READY;
+ 936:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       }
+ 937:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     }
+ 938:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 939:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 940:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return TSC state */
+ 941:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return htsc->State;
+ 942:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 943:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 944:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 945:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @}
+ 946:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ARM GAS  /tmp/ccWCqnRG.s 			page 18
+
+
+ 947:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 948:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /** @defgroup TSC_IRQ_Handler_and_Callbacks IRQ Handler and Callbacks
+ 949:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  * @{
+ 950:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  */
+ 951:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 952:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 953:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Handle TSC interrupt request.
+ 954:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+ 955:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+ 956:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval None
+ 957:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+ 958:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** void HAL_TSC_IRQHandler(TSC_HandleTypeDef *htsc)
+ 959:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+ 960:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 961:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ 962:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 963:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check if the end of acquisition occurred */
+ 964:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (__HAL_TSC_GET_FLAG(htsc, TSC_FLAG_EOA) != RESET)
+ 965:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 966:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Clear EOA flag */
+ 967:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_CLEAR_FLAG(htsc, TSC_FLAG_EOA);
+ 968:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 969:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 970:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check if max count error occurred */
+ 971:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (__HAL_TSC_GET_FLAG(htsc, TSC_FLAG_MCE) != RESET)
+ 972:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 973:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Clear MCE flag */
+ 974:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_CLEAR_FLAG(htsc, TSC_FLAG_MCE);
+ 975:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Change TSC state */
+ 976:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->State = HAL_TSC_STATE_ERROR;
+ 977:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
+ 978:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->ErrorCallback(htsc);
+ 979:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #else
+ 980:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Conversion completed callback */
+ 981:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     HAL_TSC_ErrorCallback(htsc);
+ 982:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
+ 983:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 984:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   else
+ 985:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 986:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Change TSC state */
+ 987:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->State = HAL_TSC_STATE_READY;
+ 988:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
+ 989:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->ConvCpltCallback(htsc);
+ 990:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #else
+ 991:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Conversion completed callback */
+ 992:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     HAL_TSC_ConvCpltCallback(htsc);
+ 993:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
+ 994:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 995:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 996:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 997:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ 998:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Acquisition completed callback in non-blocking mode.
+ 999:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+1000:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+1001:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval None
+1002:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+1003:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** __weak void HAL_TSC_ConvCpltCallback(TSC_HandleTypeDef *htsc)
+ARM GAS  /tmp/ccWCqnRG.s 			page 19
+
+
+1004:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+1005:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
+1006:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   UNUSED(htsc);
+1007:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+1008:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* NOTE : This function should not be modified, when the callback is needed,
+1009:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****             the HAL_TSC_ConvCpltCallback could be implemented in the user file.
+1010:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****    */
+1011:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+1012:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+1013:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+1014:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Error callback in non-blocking mode.
+1015:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
+1016:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
+1017:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval None
+1018:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+1019:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** __weak void HAL_TSC_ErrorCallback(TSC_HandleTypeDef *htsc)
+1020:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+1021:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
+1022:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   UNUSED(htsc);
+1023:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+1024:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* NOTE : This function should not be modified, when the callback is needed,
+1025:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****             the HAL_TSC_ErrorCallback could be implemented in the user file.
+1026:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****    */
+1027:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+1028:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+1029:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+1030:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @}
+1031:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+1032:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+1033:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+1034:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @}
+1035:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+1036:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+1037:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /* Private functions ---------------------------------------------------------*/
+1038:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /** @defgroup TSC_Private_Functions TSC Private Functions
+1039:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @{
+1040:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+1041:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+1042:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+1043:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Utility function used to set the acquired groups mask.
+1044:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  iomask Channels IOs mask
+1045:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval Acquired groups mask
+1046:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
+1047:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** static uint32_t TSC_extract_groups(uint32_t iomask)
+1048:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
+  25              		.loc 1 1048 0
+  26              		.cfi_startproc
+  27              		@ args = 0, pretend = 0, frame = 0
+  28              		@ frame_needed = 0, uses_anonymous_args = 0
+  29              	.LVL0:
+  30 0000 10B5     		push	{r4, lr}
+  31              	.LCFI0:
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 4, -8
+  34              		.cfi_offset 14, -4
+  35 0002 0400     		movs	r4, r0
+  36              	.LVL1:
+ARM GAS  /tmp/ccWCqnRG.s 			page 20
+
+
+1049:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   uint32_t groups = 0UL;
+1050:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   uint32_t idx;
+1051:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+1052:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   for (idx = 0UL; idx < (uint32_t)TSC_NB_OF_GROUPS; idx++)
+  37              		.loc 1 1052 0
+  38 0004 0023     		movs	r3, #0
+1049:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   uint32_t groups = 0UL;
+  39              		.loc 1 1049 0
+  40 0006 0020     		movs	r0, #0
+  41              	.LVL2:
+  42              		.loc 1 1052 0
+  43 0008 00E0     		b	.L2
+  44              	.LVL3:
+  45              	.L3:
+  46              		.loc 1 1052 0 is_stmt 0 discriminator 2
+  47 000a 0133     		adds	r3, r3, #1
+  48              	.LVL4:
+  49              	.L2:
+  50              		.loc 1 1052 0 discriminator 1
+  51 000c 072B     		cmp	r3, #7
+  52 000e 08D8     		bhi	.L5
+1053:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+1054:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     if ((iomask & (0x0FUL << (idx * 4UL))) != 0UL )
+  53              		.loc 1 1054 0 is_stmt 1
+  54 0010 9900     		lsls	r1, r3, #2
+  55 0012 0F22     		movs	r2, #15
+  56 0014 8A40     		lsls	r2, r2, r1
+  57 0016 1442     		tst	r4, r2
+  58 0018 F7D0     		beq	.L3
+1055:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
+1056:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       groups |= (1UL << idx);
+  59              		.loc 1 1056 0
+  60 001a 0122     		movs	r2, #1
+  61 001c 9A40     		lsls	r2, r2, r3
+  62 001e 1043     		orrs	r0, r2
+  63              	.LVL5:
+  64 0020 F3E7     		b	.L3
+  65              	.L5:
+1057:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     }
+1058:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+1059:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+1060:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return groups;
+1061:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+  66              		.loc 1 1061 0
+  67              		@ sp needed
+  68              	.LVL6:
+  69 0022 10BD     		pop	{r4, pc}
+  70              		.cfi_endproc
+  71              	.LFE57:
+  73              		.section	.text.HAL_TSC_MspInit,"ax",%progbits
+  74              		.align	1
+  75              		.weak	HAL_TSC_MspInit
+  76              		.syntax unified
+  77              		.code	16
+  78              		.thumb_func
+  79              		.fpu softvfp
+  81              	HAL_TSC_MspInit:
+ARM GAS  /tmp/ccWCqnRG.s 			page 21
+
+
+  82              	.LFB42:
+ 346:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
+  83              		.loc 1 346 0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		@ link register save eliminated.
+  88              	.LVL7:
+ 353:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+  89              		.loc 1 353 0
+  90              		@ sp needed
+  91 0000 7047     		bx	lr
+  92              		.cfi_endproc
+  93              	.LFE42:
+  95              		.section	.text.HAL_TSC_Init,"ax",%progbits
+  96              		.align	1
+  97              		.global	HAL_TSC_Init
+  98              		.syntax unified
+  99              		.code	16
+ 100              		.thumb_func
+ 101              		.fpu softvfp
+ 103              	HAL_TSC_Init:
+ 104              	.LFB40:
+ 198:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check TSC handle allocation */
+ 105              		.loc 1 198 0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109              	.LVL8:
+ 110 0000 70B5     		push	{r4, r5, r6, lr}
+ 111              	.LCFI1:
+ 112              		.cfi_def_cfa_offset 16
+ 113              		.cfi_offset 4, -16
+ 114              		.cfi_offset 5, -12
+ 115              		.cfi_offset 6, -8
+ 116              		.cfi_offset 14, -4
+ 117 0002 041E     		subs	r4, r0, #0
+ 200:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 118              		.loc 1 200 0
+ 119 0004 4ED0     		beq	.L11
+ 222:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 120              		.loc 1 222 0
+ 121 0006 3C23     		movs	r3, #60
+ 122 0008 C35C     		ldrb	r3, [r0, r3]
+ 123 000a 002B     		cmp	r3, #0
+ 124 000c 3DD0     		beq	.L12
+ 125              	.LVL9:
+ 126              	.L9:
+ 246:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 127              		.loc 1 246 0
+ 128 000e 3C23     		movs	r3, #60
+ 129 0010 0222     		movs	r2, #2
+ 130 0012 E254     		strb	r2, [r4, r3]
+ 252:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 131              		.loc 1 252 0
+ 132 0014 2368     		ldr	r3, [r4]
+ 133 0016 013A     		subs	r2, r2, #1
+ARM GAS  /tmp/ccWCqnRG.s 			page 22
+
+
+ 134 0018 1A60     		str	r2, [r3]
+ 255:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.CTPulseLowLength |
+ 135              		.loc 1 255 0
+ 136 001a 2068     		ldr	r0, [r4]
+ 137 001c 0268     		ldr	r2, [r0]
+ 138 001e 6368     		ldr	r3, [r4, #4]
+ 139 0020 A168     		ldr	r1, [r4, #8]
+ 140 0022 0B43     		orrs	r3, r1
+ 257:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.SpreadSpectrumPrescaler |
+ 141              		.loc 1 257 0
+ 142 0024 2169     		ldr	r1, [r4, #16]
+ 143 0026 4904     		lsls	r1, r1, #17
+ 256:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          (htsc->Init.SpreadSpectrumDeviation << TSC_CR_SSD_Pos) |
+ 144              		.loc 1 256 0
+ 145 0028 0B43     		orrs	r3, r1
+ 257:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.SpreadSpectrumPrescaler |
+ 146              		.loc 1 257 0
+ 147 002a 6169     		ldr	r1, [r4, #20]
+ 148 002c 0B43     		orrs	r3, r1
+ 258:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.PulseGeneratorPrescaler |
+ 149              		.loc 1 258 0
+ 150 002e A169     		ldr	r1, [r4, #24]
+ 151 0030 0B43     		orrs	r3, r1
+ 259:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.MaxCountValue |
+ 152              		.loc 1 259 0
+ 153 0032 E169     		ldr	r1, [r4, #28]
+ 154 0034 0B43     		orrs	r3, r1
+ 260:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.SynchroPinPolarity |
+ 155              		.loc 1 260 0
+ 156 0036 616A     		ldr	r1, [r4, #36]
+ 157 0038 0B43     		orrs	r3, r1
+ 261:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.AcquisitionMode);
+ 158              		.loc 1 261 0
+ 159 003a A16A     		ldr	r1, [r4, #40]
+ 160 003c 0B43     		orrs	r3, r1
+ 255:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.CTPulseLowLength |
+ 161              		.loc 1 255 0
+ 162 003e 1343     		orrs	r3, r2
+ 163 0040 0360     		str	r3, [r0]
+ 265:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 164              		.loc 1 265 0
+ 165 0042 237B     		ldrb	r3, [r4, #12]
+ 166 0044 012B     		cmp	r3, #1
+ 167 0046 26D0     		beq	.L13
+ 168              	.L10:
+ 271:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 169              		.loc 1 271 0
+ 170 0048 236B     		ldr	r3, [r4, #48]
+ 171 004a 626B     		ldr	r2, [r4, #52]
+ 172 004c 1343     		orrs	r3, r2
+ 173 004e A26B     		ldr	r2, [r4, #56]
+ 174 0050 1343     		orrs	r3, r2
+ 175 0052 2268     		ldr	r2, [r4]
+ 176 0054 DB43     		mvns	r3, r3
+ 177 0056 1361     		str	r3, [r2, #16]
+ 274:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 178              		.loc 1 274 0
+ARM GAS  /tmp/ccWCqnRG.s 			page 23
+
+
+ 179 0058 2268     		ldr	r2, [r4]
+ 180 005a 236B     		ldr	r3, [r4, #48]
+ 181 005c 616B     		ldr	r1, [r4, #52]
+ 182 005e 0B43     		orrs	r3, r1
+ 183 0060 9362     		str	r3, [r2, #40]
+ 277:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 184              		.loc 1 277 0
+ 185 0062 2368     		ldr	r3, [r4]
+ 186 0064 A26B     		ldr	r2, [r4, #56]
+ 187 0066 1A62     		str	r2, [r3, #32]
+ 280:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 188              		.loc 1 280 0
+ 189 0068 2568     		ldr	r5, [r4]
+ 190 006a 206B     		ldr	r0, [r4, #48]
+ 191 006c FFF7FEFF 		bl	TSC_extract_groups
+ 192              	.LVL10:
+ 193 0070 2863     		str	r0, [r5, #48]
+ 283:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 194              		.loc 1 283 0
+ 195 0072 2168     		ldr	r1, [r4]
+ 196 0074 4B68     		ldr	r3, [r1, #4]
+ 197 0076 0322     		movs	r2, #3
+ 198 0078 9343     		bics	r3, r2
+ 199 007a 4B60     		str	r3, [r1, #4]
+ 286:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 200              		.loc 1 286 0
+ 201 007c 2368     		ldr	r3, [r4]
+ 202 007e 9A60     		str	r2, [r3, #8]
+ 291:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 203              		.loc 1 291 0
+ 204 0080 3C23     		movs	r3, #60
+ 205 0082 023A     		subs	r2, r2, #2
+ 206 0084 E254     		strb	r2, [r4, r3]
+ 294:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 207              		.loc 1 294 0
+ 208 0086 0020     		movs	r0, #0
+ 209              	.L8:
+ 295:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 210              		.loc 1 295 0
+ 211              		@ sp needed
+ 212              	.LVL11:
+ 213 0088 70BD     		pop	{r4, r5, r6, pc}
+ 214              	.LVL12:
+ 215              	.L12:
+ 225:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 216              		.loc 1 225 0
+ 217 008a 3D33     		adds	r3, r3, #61
+ 218 008c 0022     		movs	r2, #0
+ 219 008e C254     		strb	r2, [r0, r3]
+ 241:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
+ 220              		.loc 1 241 0
+ 221 0090 FFF7FEFF 		bl	HAL_TSC_MspInit
+ 222              	.LVL13:
+ 223 0094 BBE7     		b	.L9
+ 224              	.L13:
+ 267:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 225              		.loc 1 267 0
+ARM GAS  /tmp/ccWCqnRG.s 			page 24
+
+
+ 226 0096 2268     		ldr	r2, [r4]
+ 227 0098 1168     		ldr	r1, [r2]
+ 228 009a 8023     		movs	r3, #128
+ 229 009c 5B02     		lsls	r3, r3, #9
+ 230 009e 0B43     		orrs	r3, r1
+ 231 00a0 1360     		str	r3, [r2]
+ 232 00a2 D1E7     		b	.L10
+ 233              	.LVL14:
+ 234              	.L11:
+ 202:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 235              		.loc 1 202 0
+ 236 00a4 0120     		movs	r0, #1
+ 237              	.LVL15:
+ 238 00a6 EFE7     		b	.L8
+ 239              		.cfi_endproc
+ 240              	.LFE40:
+ 242              		.section	.text.HAL_TSC_MspDeInit,"ax",%progbits
+ 243              		.align	1
+ 244              		.weak	HAL_TSC_MspDeInit
+ 245              		.syntax unified
+ 246              		.code	16
+ 247              		.thumb_func
+ 248              		.fpu softvfp
+ 250              	HAL_TSC_MspDeInit:
+ 251              	.LFB43:
+ 362:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
+ 252              		.loc 1 362 0
+ 253              		.cfi_startproc
+ 254              		@ args = 0, pretend = 0, frame = 0
+ 255              		@ frame_needed = 0, uses_anonymous_args = 0
+ 256              		@ link register save eliminated.
+ 257              	.LVL16:
+ 369:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 258              		.loc 1 369 0
+ 259              		@ sp needed
+ 260 0000 7047     		bx	lr
+ 261              		.cfi_endproc
+ 262              	.LFE43:
+ 264              		.section	.text.HAL_TSC_DeInit,"ax",%progbits
+ 265              		.align	1
+ 266              		.global	HAL_TSC_DeInit
+ 267              		.syntax unified
+ 268              		.code	16
+ 269              		.thumb_func
+ 270              		.fpu softvfp
+ 272              	HAL_TSC_DeInit:
+ 273              	.LFB41:
+ 303:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check TSC handle allocation */
+ 274              		.loc 1 303 0
+ 275              		.cfi_startproc
+ 276              		@ args = 0, pretend = 0, frame = 0
+ 277              		@ frame_needed = 0, uses_anonymous_args = 0
+ 278              	.LVL17:
+ 279 0000 70B5     		push	{r4, r5, r6, lr}
+ 280              	.LCFI2:
+ 281              		.cfi_def_cfa_offset 16
+ 282              		.cfi_offset 4, -16
+ARM GAS  /tmp/ccWCqnRG.s 			page 25
+
+
+ 283              		.cfi_offset 5, -12
+ 284              		.cfi_offset 6, -8
+ 285              		.cfi_offset 14, -4
+ 286 0002 041E     		subs	r4, r0, #0
+ 305:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 287              		.loc 1 305 0
+ 288 0004 0AD0     		beq	.L17
+ 314:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 289              		.loc 1 314 0
+ 290 0006 3C25     		movs	r5, #60
+ 291 0008 0223     		movs	r3, #2
+ 292 000a 4355     		strb	r3, [r0, r5]
+ 326:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
+ 293              		.loc 1 326 0
+ 294 000c FFF7FEFF 		bl	HAL_TSC_MspDeInit
+ 295              	.LVL18:
+ 330:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 296              		.loc 1 330 0
+ 297 0010 0023     		movs	r3, #0
+ 298 0012 6355     		strb	r3, [r4, r5]
+ 333:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 299              		.loc 1 333 0
+ 300 0014 3D22     		movs	r2, #61
+ 301 0016 A354     		strb	r3, [r4, r2]
+ 336:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 302              		.loc 1 336 0
+ 303 0018 0020     		movs	r0, #0
+ 304              	.L16:
+ 337:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 305              		.loc 1 337 0
+ 306              		@ sp needed
+ 307              	.LVL19:
+ 308 001a 70BD     		pop	{r4, r5, r6, pc}
+ 309              	.LVL20:
+ 310              	.L17:
+ 307:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 311              		.loc 1 307 0
+ 312 001c 0120     		movs	r0, #1
+ 313              	.LVL21:
+ 314 001e FCE7     		b	.L16
+ 315              		.cfi_endproc
+ 316              	.LFE41:
+ 318              		.section	.text.HAL_TSC_Start,"ax",%progbits
+ 319              		.align	1
+ 320              		.global	HAL_TSC_Start
+ 321              		.syntax unified
+ 322              		.code	16
+ 323              		.thumb_func
+ 324              		.fpu softvfp
+ 326              	HAL_TSC_Start:
+ 327              	.LFB44:
+ 581:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 328              		.loc 1 581 0
+ 329              		.cfi_startproc
+ 330              		@ args = 0, pretend = 0, frame = 0
+ 331              		@ frame_needed = 0, uses_anonymous_args = 0
+ 332              		@ link register save eliminated.
+ARM GAS  /tmp/ccWCqnRG.s 			page 26
+
+
+ 333              	.LVL22:
+ 586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 334              		.loc 1 586 0
+ 335 0000 3D23     		movs	r3, #61
+ 336 0002 C35C     		ldrb	r3, [r0, r3]
+ 337 0004 012B     		cmp	r3, #1
+ 338 0006 24D0     		beq	.L22
+ 586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 339              		.loc 1 586 0 is_stmt 0 discriminator 2
+ 340 0008 3D23     		movs	r3, #61
+ 341 000a 0122     		movs	r2, #1
+ 342 000c C254     		strb	r2, [r0, r3]
+ 589:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 343              		.loc 1 589 0 is_stmt 1 discriminator 2
+ 344 000e 013B     		subs	r3, r3, #1
+ 345 0010 0132     		adds	r2, r2, #1
+ 346 0012 C254     		strb	r2, [r0, r3]
+ 592:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 347              		.loc 1 592 0 discriminator 2
+ 348 0014 0168     		ldr	r1, [r0]
+ 349 0016 4B68     		ldr	r3, [r1, #4]
+ 350 0018 0132     		adds	r2, r2, #1
+ 351 001a 9343     		bics	r3, r2
+ 352 001c 4B60     		str	r3, [r1, #4]
+ 595:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 353              		.loc 1 595 0 discriminator 2
+ 354 001e 0368     		ldr	r3, [r0]
+ 355 0020 9A60     		str	r2, [r3, #8]
+ 598:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 356              		.loc 1 598 0 discriminator 2
+ 357 0022 036A     		ldr	r3, [r0, #32]
+ 358 0024 002B     		cmp	r3, #0
+ 359 0026 0ED1     		bne	.L20
+ 600:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 360              		.loc 1 600 0
+ 361 0028 0268     		ldr	r2, [r0]
+ 362 002a 1368     		ldr	r3, [r2]
+ 363 002c 1021     		movs	r1, #16
+ 364 002e 8B43     		bics	r3, r1
+ 365 0030 1360     		str	r3, [r2]
+ 366              	.L21:
+ 608:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 367              		.loc 1 608 0
+ 368 0032 0268     		ldr	r2, [r0]
+ 369 0034 1368     		ldr	r3, [r2]
+ 370 0036 0221     		movs	r1, #2
+ 371 0038 0B43     		orrs	r3, r1
+ 372 003a 1360     		str	r3, [r2]
+ 611:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 373              		.loc 1 611 0
+ 374 003c 3D23     		movs	r3, #61
+ 375 003e 0022     		movs	r2, #0
+ 376 0040 C254     		strb	r2, [r0, r3]
+ 614:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 377              		.loc 1 614 0
+ 378 0042 0020     		movs	r0, #0
+ 379              	.LVL23:
+ARM GAS  /tmp/ccWCqnRG.s 			page 27
+
+
+ 380              	.L19:
+ 615:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 381              		.loc 1 615 0
+ 382              		@ sp needed
+ 383 0044 7047     		bx	lr
+ 384              	.LVL24:
+ 385              	.L20:
+ 604:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 386              		.loc 1 604 0
+ 387 0046 0268     		ldr	r2, [r0]
+ 388 0048 1368     		ldr	r3, [r2]
+ 389 004a 1021     		movs	r1, #16
+ 390 004c 0B43     		orrs	r3, r1
+ 391 004e 1360     		str	r3, [r2]
+ 392 0050 EFE7     		b	.L21
+ 393              	.L22:
+ 586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 394              		.loc 1 586 0
+ 395 0052 0220     		movs	r0, #2
+ 396              	.LVL25:
+ 397 0054 F6E7     		b	.L19
+ 398              		.cfi_endproc
+ 399              	.LFE44:
+ 401              		.section	.text.HAL_TSC_Start_IT,"ax",%progbits
+ 402              		.align	1
+ 403              		.global	HAL_TSC_Start_IT
+ 404              		.syntax unified
+ 405              		.code	16
+ 406              		.thumb_func
+ 407              		.fpu softvfp
+ 409              	HAL_TSC_Start_IT:
+ 410              	.LFB45:
+ 624:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 411              		.loc 1 624 0
+ 412              		.cfi_startproc
+ 413              		@ args = 0, pretend = 0, frame = 0
+ 414              		@ frame_needed = 0, uses_anonymous_args = 0
+ 415              		@ link register save eliminated.
+ 416              	.LVL26:
+ 630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 417              		.loc 1 630 0
+ 418 0000 3D23     		movs	r3, #61
+ 419 0002 C35C     		ldrb	r3, [r0, r3]
+ 420 0004 012B     		cmp	r3, #1
+ 421 0006 33D0     		beq	.L29
+ 630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 422              		.loc 1 630 0 is_stmt 0 discriminator 2
+ 423 0008 0121     		movs	r1, #1
+ 424 000a 3D23     		movs	r3, #61
+ 425 000c C154     		strb	r1, [r0, r3]
+ 633:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 426              		.loc 1 633 0 is_stmt 1 discriminator 2
+ 427 000e 013B     		subs	r3, r3, #1
+ 428 0010 0222     		movs	r2, #2
+ 429 0012 C254     		strb	r2, [r0, r3]
+ 636:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 430              		.loc 1 636 0 discriminator 2
+ARM GAS  /tmp/ccWCqnRG.s 			page 28
+
+
+ 431 0014 0268     		ldr	r2, [r0]
+ 432 0016 5368     		ldr	r3, [r2, #4]
+ 433 0018 0B43     		orrs	r3, r1
+ 434 001a 5360     		str	r3, [r2, #4]
+ 639:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 435              		.loc 1 639 0 discriminator 2
+ 436 001c 2C23     		movs	r3, #44
+ 437 001e C35C     		ldrb	r3, [r0, r3]
+ 438 0020 012B     		cmp	r3, #1
+ 439 0022 19D0     		beq	.L30
+ 645:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 440              		.loc 1 645 0
+ 441 0024 0268     		ldr	r2, [r0]
+ 442 0026 5368     		ldr	r3, [r2, #4]
+ 443 0028 0221     		movs	r1, #2
+ 444 002a 8B43     		bics	r3, r1
+ 445 002c 5360     		str	r3, [r2, #4]
+ 446              	.L26:
+ 649:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 447              		.loc 1 649 0
+ 448 002e 0368     		ldr	r3, [r0]
+ 449 0030 0322     		movs	r2, #3
+ 450 0032 9A60     		str	r2, [r3, #8]
+ 652:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 451              		.loc 1 652 0
+ 452 0034 036A     		ldr	r3, [r0, #32]
+ 453 0036 002B     		cmp	r3, #0
+ 454 0038 14D1     		bne	.L27
+ 654:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 455              		.loc 1 654 0
+ 456 003a 0268     		ldr	r2, [r0]
+ 457 003c 1368     		ldr	r3, [r2]
+ 458 003e 1021     		movs	r1, #16
+ 459 0040 8B43     		bics	r3, r1
+ 460 0042 1360     		str	r3, [r2]
+ 461              	.L28:
+ 662:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 462              		.loc 1 662 0
+ 463 0044 0268     		ldr	r2, [r0]
+ 464 0046 1368     		ldr	r3, [r2]
+ 465 0048 0221     		movs	r1, #2
+ 466 004a 0B43     		orrs	r3, r1
+ 467 004c 1360     		str	r3, [r2]
+ 665:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 468              		.loc 1 665 0
+ 469 004e 3D23     		movs	r3, #61
+ 470 0050 0022     		movs	r2, #0
+ 471 0052 C254     		strb	r2, [r0, r3]
+ 668:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 472              		.loc 1 668 0
+ 473 0054 0020     		movs	r0, #0
+ 474              	.LVL27:
+ 475              	.L24:
+ 669:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 476              		.loc 1 669 0
+ 477              		@ sp needed
+ 478 0056 7047     		bx	lr
+ARM GAS  /tmp/ccWCqnRG.s 			page 29
+
+
+ 479              	.LVL28:
+ 480              	.L30:
+ 641:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 481              		.loc 1 641 0
+ 482 0058 0268     		ldr	r2, [r0]
+ 483 005a 5368     		ldr	r3, [r2, #4]
+ 484 005c 0131     		adds	r1, r1, #1
+ 485 005e 0B43     		orrs	r3, r1
+ 486 0060 5360     		str	r3, [r2, #4]
+ 487 0062 E4E7     		b	.L26
+ 488              	.L27:
+ 658:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 489              		.loc 1 658 0
+ 490 0064 0268     		ldr	r2, [r0]
+ 491 0066 1368     		ldr	r3, [r2]
+ 492 0068 1021     		movs	r1, #16
+ 493 006a 0B43     		orrs	r3, r1
+ 494 006c 1360     		str	r3, [r2]
+ 495 006e E9E7     		b	.L28
+ 496              	.L29:
+ 630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 497              		.loc 1 630 0
+ 498 0070 0220     		movs	r0, #2
+ 499              	.LVL29:
+ 500 0072 F0E7     		b	.L24
+ 501              		.cfi_endproc
+ 502              	.LFE45:
+ 504              		.section	.text.HAL_TSC_Stop,"ax",%progbits
+ 505              		.align	1
+ 506              		.global	HAL_TSC_Stop
+ 507              		.syntax unified
+ 508              		.code	16
+ 509              		.thumb_func
+ 510              		.fpu softvfp
+ 512              	HAL_TSC_Stop:
+ 513              	.LFB46:
+ 678:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 514              		.loc 1 678 0
+ 515              		.cfi_startproc
+ 516              		@ args = 0, pretend = 0, frame = 0
+ 517              		@ frame_needed = 0, uses_anonymous_args = 0
+ 518              	.LVL30:
+ 519 0000 30B5     		push	{r4, r5, lr}
+ 520              	.LCFI3:
+ 521              		.cfi_def_cfa_offset 12
+ 522              		.cfi_offset 4, -12
+ 523              		.cfi_offset 5, -8
+ 524              		.cfi_offset 14, -4
+ 683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 525              		.loc 1 683 0
+ 526 0002 3D23     		movs	r3, #61
+ 527 0004 C35C     		ldrb	r3, [r0, r3]
+ 528 0006 012B     		cmp	r3, #1
+ 529 0008 15D0     		beq	.L33
+ 683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 530              		.loc 1 683 0 is_stmt 0 discriminator 2
+ 531 000a 3D22     		movs	r2, #61
+ARM GAS  /tmp/ccWCqnRG.s 			page 30
+
+
+ 532 000c 0121     		movs	r1, #1
+ 533 000e 8154     		strb	r1, [r0, r2]
+ 686:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 534              		.loc 1 686 0 is_stmt 1 discriminator 2
+ 535 0010 0468     		ldr	r4, [r0]
+ 536 0012 2368     		ldr	r3, [r4]
+ 537 0014 0225     		movs	r5, #2
+ 538 0016 AB43     		bics	r3, r5
+ 539 0018 2360     		str	r3, [r4]
+ 689:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 540              		.loc 1 689 0 discriminator 2
+ 541 001a 0468     		ldr	r4, [r0]
+ 542 001c 2368     		ldr	r3, [r4]
+ 543 001e 0E35     		adds	r5, r5, #14
+ 544 0020 AB43     		bics	r3, r5
+ 545 0022 2360     		str	r3, [r4]
+ 692:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 546              		.loc 1 692 0 discriminator 2
+ 547 0024 0368     		ldr	r3, [r0]
+ 548 0026 0324     		movs	r4, #3
+ 549 0028 9C60     		str	r4, [r3, #8]
+ 695:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 550              		.loc 1 695 0 discriminator 2
+ 551 002a 3C23     		movs	r3, #60
+ 552 002c C154     		strb	r1, [r0, r3]
+ 698:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 553              		.loc 1 698 0 discriminator 2
+ 554 002e 0023     		movs	r3, #0
+ 555 0030 8354     		strb	r3, [r0, r2]
+ 701:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 556              		.loc 1 701 0 discriminator 2
+ 557 0032 0020     		movs	r0, #0
+ 558              	.LVL31:
+ 559              	.L32:
+ 702:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 560              		.loc 1 702 0
+ 561              		@ sp needed
+ 562 0034 30BD     		pop	{r4, r5, pc}
+ 563              	.LVL32:
+ 564              	.L33:
+ 683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 565              		.loc 1 683 0
+ 566 0036 0220     		movs	r0, #2
+ 567              	.LVL33:
+ 568 0038 FCE7     		b	.L32
+ 569              		.cfi_endproc
+ 570              	.LFE46:
+ 572              		.section	.text.HAL_TSC_Stop_IT,"ax",%progbits
+ 573              		.align	1
+ 574              		.global	HAL_TSC_Stop_IT
+ 575              		.syntax unified
+ 576              		.code	16
+ 577              		.thumb_func
+ 578              		.fpu softvfp
+ 580              	HAL_TSC_Stop_IT:
+ 581              	.LFB47:
+ 711:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ARM GAS  /tmp/ccWCqnRG.s 			page 31
+
+
+ 582              		.loc 1 711 0
+ 583              		.cfi_startproc
+ 584              		@ args = 0, pretend = 0, frame = 0
+ 585              		@ frame_needed = 0, uses_anonymous_args = 0
+ 586              	.LVL34:
+ 587 0000 30B5     		push	{r4, r5, lr}
+ 588              	.LCFI4:
+ 589              		.cfi_def_cfa_offset 12
+ 590              		.cfi_offset 4, -12
+ 591              		.cfi_offset 5, -8
+ 592              		.cfi_offset 14, -4
+ 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 593              		.loc 1 716 0
+ 594 0002 3D23     		movs	r3, #61
+ 595 0004 C35C     		ldrb	r3, [r0, r3]
+ 596 0006 012B     		cmp	r3, #1
+ 597 0008 19D0     		beq	.L36
+ 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 598              		.loc 1 716 0 is_stmt 0 discriminator 2
+ 599 000a 3D22     		movs	r2, #61
+ 600 000c 0121     		movs	r1, #1
+ 601 000e 8154     		strb	r1, [r0, r2]
+ 719:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 602              		.loc 1 719 0 is_stmt 1 discriminator 2
+ 603 0010 0468     		ldr	r4, [r0]
+ 604 0012 2368     		ldr	r3, [r4]
+ 605 0014 0225     		movs	r5, #2
+ 606 0016 AB43     		bics	r3, r5
+ 607 0018 2360     		str	r3, [r4]
+ 722:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 608              		.loc 1 722 0 discriminator 2
+ 609 001a 0468     		ldr	r4, [r0]
+ 610 001c 2368     		ldr	r3, [r4]
+ 611 001e 0E35     		adds	r5, r5, #14
+ 612 0020 AB43     		bics	r3, r5
+ 613 0022 2360     		str	r3, [r4]
+ 725:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 614              		.loc 1 725 0 discriminator 2
+ 615 0024 0568     		ldr	r5, [r0]
+ 616 0026 6B68     		ldr	r3, [r5, #4]
+ 617 0028 0324     		movs	r4, #3
+ 618 002a A343     		bics	r3, r4
+ 619 002c 6B60     		str	r3, [r5, #4]
+ 728:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 620              		.loc 1 728 0 discriminator 2
+ 621 002e 0368     		ldr	r3, [r0]
+ 622 0030 9C60     		str	r4, [r3, #8]
+ 731:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 623              		.loc 1 731 0 discriminator 2
+ 624 0032 3C23     		movs	r3, #60
+ 625 0034 C154     		strb	r1, [r0, r3]
+ 734:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 626              		.loc 1 734 0 discriminator 2
+ 627 0036 0023     		movs	r3, #0
+ 628 0038 8354     		strb	r3, [r0, r2]
+ 737:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 629              		.loc 1 737 0 discriminator 2
+ARM GAS  /tmp/ccWCqnRG.s 			page 32
+
+
+ 630 003a 0020     		movs	r0, #0
+ 631              	.LVL35:
+ 632              	.L35:
+ 738:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 633              		.loc 1 738 0
+ 634              		@ sp needed
+ 635 003c 30BD     		pop	{r4, r5, pc}
+ 636              	.LVL36:
+ 637              	.L36:
+ 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 638              		.loc 1 716 0
+ 639 003e 0220     		movs	r0, #2
+ 640              	.LVL37:
+ 641 0040 FCE7     		b	.L35
+ 642              		.cfi_endproc
+ 643              	.LFE47:
+ 645              		.section	.text.HAL_TSC_GroupGetStatus,"ax",%progbits
+ 646              		.align	1
+ 647              		.global	HAL_TSC_GroupGetStatus
+ 648              		.syntax unified
+ 649              		.code	16
+ 650              		.thumb_func
+ 651              		.fpu softvfp
+ 653              	HAL_TSC_GroupGetStatus:
+ 654              	.LFB49:
+ 776:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 655              		.loc 1 776 0
+ 656              		.cfi_startproc
+ 657              		@ args = 0, pretend = 0, frame = 0
+ 658              		@ frame_needed = 0, uses_anonymous_args = 0
+ 659              		@ link register save eliminated.
+ 660              	.LVL38:
+ 782:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 661              		.loc 1 782 0
+ 662 0000 0368     		ldr	r3, [r0]
+ 663 0002 1A6B     		ldr	r2, [r3, #48]
+ 664 0004 0F23     		movs	r3, #15
+ 665 0006 1940     		ands	r1, r3
+ 666              	.LVL39:
+ 667 0008 1031     		adds	r1, r1, #16
+ 668 000a 0120     		movs	r0, #1
+ 669              	.LVL40:
+ 670 000c 8840     		lsls	r0, r0, r1
+ 671 000e 9043     		bics	r0, r2
+ 672 0010 4342     		rsbs	r3, r0, #0
+ 673 0012 5841     		adcs	r0, r0, r3
+ 674 0014 C0B2     		uxtb	r0, r0
+ 783:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 675              		.loc 1 783 0
+ 676              		@ sp needed
+ 677 0016 7047     		bx	lr
+ 678              		.cfi_endproc
+ 679              	.LFE49:
+ 681              		.section	.text.HAL_TSC_GroupGetValue,"ax",%progbits
+ 682              		.align	1
+ 683              		.global	HAL_TSC_GroupGetValue
+ 684              		.syntax unified
+ARM GAS  /tmp/ccWCqnRG.s 			page 33
+
+
+ 685              		.code	16
+ 686              		.thumb_func
+ 687              		.fpu softvfp
+ 689              	HAL_TSC_GroupGetValue:
+ 690              	.LFB50:
+ 793:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 691              		.loc 1 793 0
+ 692              		.cfi_startproc
+ 693              		@ args = 0, pretend = 0, frame = 0
+ 694              		@ frame_needed = 0, uses_anonymous_args = 0
+ 695              		@ link register save eliminated.
+ 696              	.LVL41:
+ 799:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 697              		.loc 1 799 0
+ 698 0000 0368     		ldr	r3, [r0]
+ 699 0002 0C31     		adds	r1, r1, #12
+ 700              	.LVL42:
+ 701 0004 8900     		lsls	r1, r1, #2
+ 702              	.LVL43:
+ 703 0006 5918     		adds	r1, r3, r1
+ 704 0008 4868     		ldr	r0, [r1, #4]
+ 705              	.LVL44:
+ 800:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 706              		.loc 1 800 0
+ 707              		@ sp needed
+ 708 000a 7047     		bx	lr
+ 709              		.cfi_endproc
+ 710              	.LFE50:
+ 712              		.section	.text.HAL_TSC_IOConfig,"ax",%progbits
+ 713              		.align	1
+ 714              		.global	HAL_TSC_IOConfig
+ 715              		.syntax unified
+ 716              		.code	16
+ 717              		.thumb_func
+ 718              		.fpu softvfp
+ 720              	HAL_TSC_IOConfig:
+ 721              	.LFB51:
+ 828:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 722              		.loc 1 828 0
+ 723              		.cfi_startproc
+ 724              		@ args = 0, pretend = 0, frame = 0
+ 725              		@ frame_needed = 0, uses_anonymous_args = 0
+ 726              	.LVL45:
+ 727 0000 70B5     		push	{r4, r5, r6, lr}
+ 728              	.LCFI5:
+ 729              		.cfi_def_cfa_offset 16
+ 730              		.cfi_offset 4, -16
+ 731              		.cfi_offset 5, -12
+ 732              		.cfi_offset 6, -8
+ 733              		.cfi_offset 14, -4
+ 734 0002 0400     		movs	r4, r0
+ 836:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 735              		.loc 1 836 0
+ 736 0004 3D23     		movs	r3, #61
+ 737 0006 C35C     		ldrb	r3, [r0, r3]
+ 738 0008 012B     		cmp	r3, #1
+ 739 000a 20D0     		beq	.L41
+ARM GAS  /tmp/ccWCqnRG.s 			page 34
+
+
+ 836:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 740              		.loc 1 836 0 is_stmt 0 discriminator 2
+ 741 000c 3D25     		movs	r5, #61
+ 742 000e 0123     		movs	r3, #1
+ 743 0010 4355     		strb	r3, [r0, r5]
+ 839:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 744              		.loc 1 839 0 is_stmt 1 discriminator 2
+ 745 0012 0268     		ldr	r2, [r0]
+ 746 0014 1368     		ldr	r3, [r2]
+ 747 0016 0220     		movs	r0, #2
+ 748              	.LVL46:
+ 749 0018 8343     		bics	r3, r0
+ 750 001a 1360     		str	r3, [r2]
+ 842:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 751              		.loc 1 842 0 discriminator 2
+ 752 001c 0B68     		ldr	r3, [r1]
+ 753 001e 4A68     		ldr	r2, [r1, #4]
+ 754 0020 1343     		orrs	r3, r2
+ 755 0022 8A68     		ldr	r2, [r1, #8]
+ 756 0024 1343     		orrs	r3, r2
+ 757 0026 2268     		ldr	r2, [r4]
+ 758 0028 DB43     		mvns	r3, r3
+ 759 002a 1361     		str	r3, [r2, #16]
+ 845:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 760              		.loc 1 845 0 discriminator 2
+ 761 002c 2268     		ldr	r2, [r4]
+ 762 002e 0B68     		ldr	r3, [r1]
+ 763 0030 4868     		ldr	r0, [r1, #4]
+ 764 0032 0343     		orrs	r3, r0
+ 765 0034 9362     		str	r3, [r2, #40]
+ 848:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 766              		.loc 1 848 0 discriminator 2
+ 767 0036 2368     		ldr	r3, [r4]
+ 768 0038 8A68     		ldr	r2, [r1, #8]
+ 769 003a 1A62     		str	r2, [r3, #32]
+ 851:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 770              		.loc 1 851 0 discriminator 2
+ 771 003c 2668     		ldr	r6, [r4]
+ 772 003e 0868     		ldr	r0, [r1]
+ 773 0040 FFF7FEFF 		bl	TSC_extract_groups
+ 774              	.LVL47:
+ 775 0044 3063     		str	r0, [r6, #48]
+ 854:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 776              		.loc 1 854 0 discriminator 2
+ 777 0046 0023     		movs	r3, #0
+ 778 0048 6355     		strb	r3, [r4, r5]
+ 857:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 779              		.loc 1 857 0 discriminator 2
+ 780 004a 0020     		movs	r0, #0
+ 781              	.L40:
+ 858:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 782              		.loc 1 858 0
+ 783              		@ sp needed
+ 784              	.LVL48:
+ 785 004c 70BD     		pop	{r4, r5, r6, pc}
+ 786              	.LVL49:
+ 787              	.L41:
+ARM GAS  /tmp/ccWCqnRG.s 			page 35
+
+
+ 836:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 788              		.loc 1 836 0
+ 789 004e 0220     		movs	r0, #2
+ 790              	.LVL50:
+ 791 0050 FCE7     		b	.L40
+ 792              		.cfi_endproc
+ 793              	.LFE51:
+ 795              		.section	.text.HAL_TSC_IODischarge,"ax",%progbits
+ 796              		.align	1
+ 797              		.global	HAL_TSC_IODischarge
+ 798              		.syntax unified
+ 799              		.code	16
+ 800              		.thumb_func
+ 801              		.fpu softvfp
+ 803              	HAL_TSC_IODischarge:
+ 804              	.LFB52:
+ 868:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 805              		.loc 1 868 0
+ 806              		.cfi_startproc
+ 807              		@ args = 0, pretend = 0, frame = 0
+ 808              		@ frame_needed = 0, uses_anonymous_args = 0
+ 809              		@ link register save eliminated.
+ 810              	.LVL51:
+ 873:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 811              		.loc 1 873 0
+ 812 0000 3D23     		movs	r3, #61
+ 813 0002 C35C     		ldrb	r3, [r0, r3]
+ 814 0004 012B     		cmp	r3, #1
+ 815 0006 14D0     		beq	.L46
+ 873:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 816              		.loc 1 873 0 is_stmt 0 discriminator 2
+ 817 0008 3D23     		movs	r3, #61
+ 818 000a 0122     		movs	r2, #1
+ 819 000c C254     		strb	r2, [r0, r3]
+ 875:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 820              		.loc 1 875 0 is_stmt 1 discriminator 2
+ 821 000e 0129     		cmp	r1, #1
+ 822 0010 09D0     		beq	.L47
+ 881:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 823              		.loc 1 881 0
+ 824 0012 0268     		ldr	r2, [r0]
+ 825 0014 1368     		ldr	r3, [r2]
+ 826 0016 1021     		movs	r1, #16
+ 827              	.LVL52:
+ 828 0018 0B43     		orrs	r3, r1
+ 829 001a 1360     		str	r3, [r2]
+ 830              	.L45:
+ 885:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 831              		.loc 1 885 0
+ 832 001c 3D23     		movs	r3, #61
+ 833 001e 0022     		movs	r2, #0
+ 834 0020 C254     		strb	r2, [r0, r3]
+ 888:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 835              		.loc 1 888 0
+ 836 0022 0020     		movs	r0, #0
+ 837              	.LVL53:
+ 838              	.L43:
+ARM GAS  /tmp/ccWCqnRG.s 			page 36
+
+
+ 889:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 839              		.loc 1 889 0
+ 840              		@ sp needed
+ 841 0024 7047     		bx	lr
+ 842              	.LVL54:
+ 843              	.L47:
+ 877:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 844              		.loc 1 877 0
+ 845 0026 0268     		ldr	r2, [r0]
+ 846 0028 1368     		ldr	r3, [r2]
+ 847 002a 0F31     		adds	r1, r1, #15
+ 848              	.LVL55:
+ 849 002c 8B43     		bics	r3, r1
+ 850 002e 1360     		str	r3, [r2]
+ 851 0030 F4E7     		b	.L45
+ 852              	.LVL56:
+ 853              	.L46:
+ 873:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 854              		.loc 1 873 0
+ 855 0032 0220     		movs	r0, #2
+ 856              	.LVL57:
+ 857 0034 F6E7     		b	.L43
+ 858              		.cfi_endproc
+ 859              	.LFE52:
+ 861              		.section	.text.HAL_TSC_GetState,"ax",%progbits
+ 862              		.align	1
+ 863              		.global	HAL_TSC_GetState
+ 864              		.syntax unified
+ 865              		.code	16
+ 866              		.thumb_func
+ 867              		.fpu softvfp
+ 869              	HAL_TSC_GetState:
+ 870              	.LFB53:
+ 917:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 871              		.loc 1 917 0
+ 872              		.cfi_startproc
+ 873              		@ args = 0, pretend = 0, frame = 0
+ 874              		@ frame_needed = 0, uses_anonymous_args = 0
+ 875              		@ link register save eliminated.
+ 876              	.LVL58:
+ 921:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 877              		.loc 1 921 0
+ 878 0000 3C23     		movs	r3, #60
+ 879 0002 C35C     		ldrb	r3, [r0, r3]
+ 880 0004 022B     		cmp	r3, #2
+ 881 0006 03D0     		beq	.L51
+ 882              	.L49:
+ 941:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 883              		.loc 1 941 0
+ 884 0008 3C23     		movs	r3, #60
+ 885 000a C05C     		ldrb	r0, [r0, r3]
+ 886              	.LVL59:
+ 887 000c C0B2     		uxtb	r0, r0
+ 942:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 888              		.loc 1 942 0
+ 889              		@ sp needed
+ 890 000e 7047     		bx	lr
+ARM GAS  /tmp/ccWCqnRG.s 			page 37
+
+
+ 891              	.LVL60:
+ 892              	.L51:
+ 924:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
+ 893              		.loc 1 924 0
+ 894 0010 0368     		ldr	r3, [r0]
+ 895 0012 DA68     		ldr	r2, [r3, #12]
+ 896 0014 D207     		lsls	r2, r2, #31
+ 897 0016 F7D5     		bpl	.L49
+ 927:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       {
+ 898              		.loc 1 927 0
+ 899 0018 DB68     		ldr	r3, [r3, #12]
+ 900 001a 9B07     		lsls	r3, r3, #30
+ 901 001c 03D4     		bmi	.L52
+ 935:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       }
+ 902              		.loc 1 935 0
+ 903 001e 3C23     		movs	r3, #60
+ 904 0020 0122     		movs	r2, #1
+ 905 0022 C254     		strb	r2, [r0, r3]
+ 906 0024 F0E7     		b	.L49
+ 907              	.L52:
+ 930:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       }
+ 908              		.loc 1 930 0
+ 909 0026 3C23     		movs	r3, #60
+ 910 0028 0322     		movs	r2, #3
+ 911 002a C254     		strb	r2, [r0, r3]
+ 912 002c ECE7     		b	.L49
+ 913              		.cfi_endproc
+ 914              	.LFE53:
+ 916              		.section	.text.HAL_TSC_PollForAcquisition,"ax",%progbits
+ 917              		.align	1
+ 918              		.global	HAL_TSC_PollForAcquisition
+ 919              		.syntax unified
+ 920              		.code	16
+ 921              		.thumb_func
+ 922              		.fpu softvfp
+ 924              	HAL_TSC_PollForAcquisition:
+ 925              	.LFB48:
+ 749:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 926              		.loc 1 749 0
+ 927              		.cfi_startproc
+ 928              		@ args = 0, pretend = 0, frame = 0
+ 929              		@ frame_needed = 0, uses_anonymous_args = 0
+ 930              	.LVL61:
+ 931 0000 10B5     		push	{r4, lr}
+ 932              	.LCFI6:
+ 933              		.cfi_def_cfa_offset 8
+ 934              		.cfi_offset 4, -8
+ 935              		.cfi_offset 14, -4
+ 936 0002 0400     		movs	r4, r0
+ 754:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 937              		.loc 1 754 0
+ 938 0004 3D23     		movs	r3, #61
+ 939 0006 C35C     		ldrb	r3, [r0, r3]
+ 940 0008 012B     		cmp	r3, #1
+ 941 000a 0CD0     		beq	.L56
+ 754:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 942              		.loc 1 754 0 is_stmt 0 discriminator 2
+ARM GAS  /tmp/ccWCqnRG.s 			page 38
+
+
+ 943 000c 3D23     		movs	r3, #61
+ 944 000e 0122     		movs	r2, #1
+ 945 0010 C254     		strb	r2, [r0, r3]
+ 946              	.LVL62:
+ 947              	.L55:
+ 757:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 948              		.loc 1 757 0 is_stmt 1 discriminator 1
+ 949 0012 2000     		movs	r0, r4
+ 950 0014 FFF7FEFF 		bl	HAL_TSC_GetState
+ 951              	.LVL63:
+ 952 0018 0228     		cmp	r0, #2
+ 953 001a FAD0     		beq	.L55
+ 763:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 954              		.loc 1 763 0
+ 955 001c 3D23     		movs	r3, #61
+ 956 001e 0022     		movs	r2, #0
+ 957 0020 E254     		strb	r2, [r4, r3]
+ 765:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 958              		.loc 1 765 0
+ 959 0022 0020     		movs	r0, #0
+ 960              	.L54:
+ 766:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 961              		.loc 1 766 0
+ 962              		@ sp needed
+ 963              	.LVL64:
+ 964 0024 10BD     		pop	{r4, pc}
+ 965              	.LVL65:
+ 966              	.L56:
+ 754:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 967              		.loc 1 754 0
+ 968 0026 0220     		movs	r0, #2
+ 969              	.LVL66:
+ 970 0028 FCE7     		b	.L54
+ 971              		.cfi_endproc
+ 972              	.LFE48:
+ 974              		.section	.text.HAL_TSC_ConvCpltCallback,"ax",%progbits
+ 975              		.align	1
+ 976              		.weak	HAL_TSC_ConvCpltCallback
+ 977              		.syntax unified
+ 978              		.code	16
+ 979              		.thumb_func
+ 980              		.fpu softvfp
+ 982              	HAL_TSC_ConvCpltCallback:
+ 983              	.LFB55:
+1004:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
+ 984              		.loc 1 1004 0
+ 985              		.cfi_startproc
+ 986              		@ args = 0, pretend = 0, frame = 0
+ 987              		@ frame_needed = 0, uses_anonymous_args = 0
+ 988              		@ link register save eliminated.
+ 989              	.LVL67:
+1011:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 990              		.loc 1 1011 0
+ 991              		@ sp needed
+ 992 0000 7047     		bx	lr
+ 993              		.cfi_endproc
+ 994              	.LFE55:
+ARM GAS  /tmp/ccWCqnRG.s 			page 39
+
+
+ 996              		.section	.text.HAL_TSC_ErrorCallback,"ax",%progbits
+ 997              		.align	1
+ 998              		.weak	HAL_TSC_ErrorCallback
+ 999              		.syntax unified
+ 1000              		.code	16
+ 1001              		.thumb_func
+ 1002              		.fpu softvfp
+ 1004              	HAL_TSC_ErrorCallback:
+ 1005              	.LFB56:
+1020:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
+ 1006              		.loc 1 1020 0
+ 1007              		.cfi_startproc
+ 1008              		@ args = 0, pretend = 0, frame = 0
+ 1009              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1010              		@ link register save eliminated.
+ 1011              	.LVL68:
+1027:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1012              		.loc 1 1027 0
+ 1013              		@ sp needed
+ 1014 0000 7047     		bx	lr
+ 1015              		.cfi_endproc
+ 1016              	.LFE56:
+ 1018              		.section	.text.HAL_TSC_IRQHandler,"ax",%progbits
+ 1019              		.align	1
+ 1020              		.global	HAL_TSC_IRQHandler
+ 1021              		.syntax unified
+ 1022              		.code	16
+ 1023              		.thumb_func
+ 1024              		.fpu softvfp
+ 1026              	HAL_TSC_IRQHandler:
+ 1027              	.LFB54:
+ 959:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 1028              		.loc 1 959 0
+ 1029              		.cfi_startproc
+ 1030              		@ args = 0, pretend = 0, frame = 0
+ 1031              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1032              	.LVL69:
+ 1033 0000 10B5     		push	{r4, lr}
+ 1034              	.LCFI7:
+ 1035              		.cfi_def_cfa_offset 8
+ 1036              		.cfi_offset 4, -8
+ 1037              		.cfi_offset 14, -4
+ 964:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 1038              		.loc 1 964 0
+ 1039 0002 0368     		ldr	r3, [r0]
+ 1040 0004 DA68     		ldr	r2, [r3, #12]
+ 1041 0006 D207     		lsls	r2, r2, #31
+ 1042 0008 01D5     		bpl	.L60
+ 967:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 1043              		.loc 1 967 0
+ 1044 000a 0122     		movs	r2, #1
+ 1045 000c 9A60     		str	r2, [r3, #8]
+ 1046              	.L60:
+ 971:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 1047              		.loc 1 971 0
+ 1048 000e 0368     		ldr	r3, [r0]
+ 1049 0010 DA68     		ldr	r2, [r3, #12]
+ARM GAS  /tmp/ccWCqnRG.s 			page 40
+
+
+ 1050 0012 9207     		lsls	r2, r2, #30
+ 1051 0014 05D4     		bmi	.L63
+ 987:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
+ 1052              		.loc 1 987 0
+ 1053 0016 3C23     		movs	r3, #60
+ 1054 0018 0122     		movs	r2, #1
+ 1055 001a C254     		strb	r2, [r0, r3]
+ 992:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
+ 1056              		.loc 1 992 0
+ 1057 001c FFF7FEFF 		bl	HAL_TSC_ConvCpltCallback
+ 1058              	.LVL70:
+ 1059              	.L59:
+ 995:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1060              		.loc 1 995 0
+ 1061              		@ sp needed
+ 1062 0020 10BD     		pop	{r4, pc}
+ 1063              	.LVL71:
+ 1064              	.L63:
+ 974:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Change TSC state */
+ 1065              		.loc 1 974 0
+ 1066 0022 0222     		movs	r2, #2
+ 1067 0024 9A60     		str	r2, [r3, #8]
+ 976:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
+ 1068              		.loc 1 976 0
+ 1069 0026 3C23     		movs	r3, #60
+ 1070 0028 0132     		adds	r2, r2, #1
+ 1071 002a C254     		strb	r2, [r0, r3]
+ 981:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
+ 1072              		.loc 1 981 0
+ 1073 002c FFF7FEFF 		bl	HAL_TSC_ErrorCallback
+ 1074              	.LVL72:
+ 1075 0030 F6E7     		b	.L59
+ 1076              		.cfi_endproc
+ 1077              	.LFE54:
+ 1079              		.text
+ 1080              	.Letext0:
+ 1081              		.file 2 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machin
+ 1082              		.file 3 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_s
+ 1083              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
+ 1084              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
+ 1085              		.file 6 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h"
+ 1086              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+ 1087              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tsc.h"
+ 1088              		.file 9 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
+ARM GAS  /tmp/ccWCqnRG.s 			page 41
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f0xx_hal_tsc.c
+     /tmp/ccWCqnRG.s:16     .text.TSC_extract_groups:0000000000000000 $t
+     /tmp/ccWCqnRG.s:22     .text.TSC_extract_groups:0000000000000000 TSC_extract_groups
+     /tmp/ccWCqnRG.s:74     .text.HAL_TSC_MspInit:0000000000000000 $t
+     /tmp/ccWCqnRG.s:81     .text.HAL_TSC_MspInit:0000000000000000 HAL_TSC_MspInit
+     /tmp/ccWCqnRG.s:96     .text.HAL_TSC_Init:0000000000000000 $t
+     /tmp/ccWCqnRG.s:103    .text.HAL_TSC_Init:0000000000000000 HAL_TSC_Init
+     /tmp/ccWCqnRG.s:243    .text.HAL_TSC_MspDeInit:0000000000000000 $t
+     /tmp/ccWCqnRG.s:250    .text.HAL_TSC_MspDeInit:0000000000000000 HAL_TSC_MspDeInit
+     /tmp/ccWCqnRG.s:265    .text.HAL_TSC_DeInit:0000000000000000 $t
+     /tmp/ccWCqnRG.s:272    .text.HAL_TSC_DeInit:0000000000000000 HAL_TSC_DeInit
+     /tmp/ccWCqnRG.s:319    .text.HAL_TSC_Start:0000000000000000 $t
+     /tmp/ccWCqnRG.s:326    .text.HAL_TSC_Start:0000000000000000 HAL_TSC_Start
+     /tmp/ccWCqnRG.s:402    .text.HAL_TSC_Start_IT:0000000000000000 $t
+     /tmp/ccWCqnRG.s:409    .text.HAL_TSC_Start_IT:0000000000000000 HAL_TSC_Start_IT
+     /tmp/ccWCqnRG.s:505    .text.HAL_TSC_Stop:0000000000000000 $t
+     /tmp/ccWCqnRG.s:512    .text.HAL_TSC_Stop:0000000000000000 HAL_TSC_Stop
+     /tmp/ccWCqnRG.s:573    .text.HAL_TSC_Stop_IT:0000000000000000 $t
+     /tmp/ccWCqnRG.s:580    .text.HAL_TSC_Stop_IT:0000000000000000 HAL_TSC_Stop_IT
+     /tmp/ccWCqnRG.s:646    .text.HAL_TSC_GroupGetStatus:0000000000000000 $t
+     /tmp/ccWCqnRG.s:653    .text.HAL_TSC_GroupGetStatus:0000000000000000 HAL_TSC_GroupGetStatus
+     /tmp/ccWCqnRG.s:682    .text.HAL_TSC_GroupGetValue:0000000000000000 $t
+     /tmp/ccWCqnRG.s:689    .text.HAL_TSC_GroupGetValue:0000000000000000 HAL_TSC_GroupGetValue
+     /tmp/ccWCqnRG.s:713    .text.HAL_TSC_IOConfig:0000000000000000 $t
+     /tmp/ccWCqnRG.s:720    .text.HAL_TSC_IOConfig:0000000000000000 HAL_TSC_IOConfig
+     /tmp/ccWCqnRG.s:796    .text.HAL_TSC_IODischarge:0000000000000000 $t
+     /tmp/ccWCqnRG.s:803    .text.HAL_TSC_IODischarge:0000000000000000 HAL_TSC_IODischarge
+     /tmp/ccWCqnRG.s:862    .text.HAL_TSC_GetState:0000000000000000 $t
+     /tmp/ccWCqnRG.s:869    .text.HAL_TSC_GetState:0000000000000000 HAL_TSC_GetState
+     /tmp/ccWCqnRG.s:917    .text.HAL_TSC_PollForAcquisition:0000000000000000 $t
+     /tmp/ccWCqnRG.s:924    .text.HAL_TSC_PollForAcquisition:0000000000000000 HAL_TSC_PollForAcquisition
+     /tmp/ccWCqnRG.s:975    .text.HAL_TSC_ConvCpltCallback:0000000000000000 $t
+     /tmp/ccWCqnRG.s:982    .text.HAL_TSC_ConvCpltCallback:0000000000000000 HAL_TSC_ConvCpltCallback
+     /tmp/ccWCqnRG.s:997    .text.HAL_TSC_ErrorCallback:0000000000000000 $t
+     /tmp/ccWCqnRG.s:1004   .text.HAL_TSC_ErrorCallback:0000000000000000 HAL_TSC_ErrorCallback
+     /tmp/ccWCqnRG.s:1019   .text.HAL_TSC_IRQHandler:0000000000000000 $t
+     /tmp/ccWCqnRG.s:1026   .text.HAL_TSC_IRQHandler:0000000000000000 HAL_TSC_IRQHandler
+
+NO UNDEFINED SYMBOLS
