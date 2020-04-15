@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccV1sIex.s 			page 1
+ARM GAS  /tmp/cc1F2lYz.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
   31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****     (#) Configure the enable or disable of fast mode plus driving capability using the functions :
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****           (++) HAL_I2CEx_EnableFastModePlus()
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****           (++) HAL_I2CEx_DisableFastModePlus()
-ARM GAS  /tmp/ccV1sIex.s 			page 2
+ARM GAS  /tmp/cc1F2lYz.s 			page 2
 
 
   34:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****   @endverbatim
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
   88:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****   */
   89:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c **** 
   90:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c **** /**
-ARM GAS  /tmp/ccV1sIex.s 			page 3
+ARM GAS  /tmp/cc1F2lYz.s 			page 3
 
 
   91:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****   * @brief  Configure I2C Analog noise filter.
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
   59 0020 3368     		ldr	r3, [r6]
   60 0022 9343     		bics	r3, r2
   61 0024 3360     		str	r3, [r6]
-ARM GAS  /tmp/ccV1sIex.s 			page 4
+ARM GAS  /tmp/cc1F2lYz.s 			page 4
 
 
  112:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
   95              		.loc 1 132 0
   96              		@ sp needed
   97 004e F0BD     		pop	{r4, r5, r6, r7, pc}
-ARM GAS  /tmp/ccV1sIex.s 			page 5
+ARM GAS  /tmp/cc1F2lYz.s 			page 5
 
 
   98              	.LVL5:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
  136 0004 C35C     		ldrb	r3, [r0, r3]
  137 0006 202B     		cmp	r3, #32
  138 0008 1ED1     		bne	.L9
-ARM GAS  /tmp/ccV1sIex.s 			page 6
+ARM GAS  /tmp/cc1F2lYz.s 			page 6
 
 
  150:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****   {
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
  171:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****     __HAL_I2C_ENABLE(hi2c);
  172              		.loc 1 171 0 discriminator 2
  173 0034 0168     		ldr	r1, [r0]
-ARM GAS  /tmp/ccV1sIex.s 			page 7
+ARM GAS  /tmp/cc1F2lYz.s 			page 7
 
 
  174              	.LVL12:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
  215              		.code	16
  216              		.thumb_func
  217              		.fpu softvfp
-ARM GAS  /tmp/ccV1sIex.s 			page 8
+ARM GAS  /tmp/cc1F2lYz.s 			page 8
 
 
  219              	HAL_I2CEx_EnableWakeUp:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
  251              		.loc 1 206 0 discriminator 2
  252 001e 0568     		ldr	r5, [r0]
  253 0020 2B68     		ldr	r3, [r5]
-ARM GAS  /tmp/ccV1sIex.s 			page 9
+ARM GAS  /tmp/cc1F2lYz.s 			page 9
 
 
  254 0022 9343     		bics	r3, r2
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
  289              		.loc 1 201 0
  290 004a 0220     		movs	r0, #2
  291              	.LVL24:
-ARM GAS  /tmp/ccV1sIex.s 			page 10
+ARM GAS  /tmp/cc1F2lYz.s 			page 10
 
 
  292 004c FCE7     		b	.L14
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
  241:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c **** 
  242:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****     hi2c->State = HAL_I2C_STATE_BUSY;
  332              		.loc 1 242 0 is_stmt 1 discriminator 2
-ARM GAS  /tmp/ccV1sIex.s 			page 11
+ARM GAS  /tmp/cc1F2lYz.s 			page 11
 
 
  333 0018 4124     		movs	r4, #65
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
  262:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****   }
  263:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c **** }
  368              		.loc 1 263 0
-ARM GAS  /tmp/ccV1sIex.s 			page 12
+ARM GAS  /tmp/cc1F2lYz.s 			page 12
 
 
  369              		@ sp needed
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
  284:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****   /* Enable SYSCFG clock */
  285:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c ****   __HAL_RCC_SYSCFG_CLK_ENABLE();
  404              		.loc 1 285 0
-ARM GAS  /tmp/ccV1sIex.s 			page 13
+ARM GAS  /tmp/cc1F2lYz.s 			page 13
 
 
  405 0002 074A     		ldr	r2, .L24
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
  304:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c **** void HAL_I2CEx_DisableFastModePlus(uint32_t ConfigFastModePlus)
  305:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c **** {
  443              		.loc 1 305 0
-ARM GAS  /tmp/ccV1sIex.s 			page 14
+ARM GAS  /tmp/cc1F2lYz.s 			page 14
 
 
  444              		.cfi_startproc
@@ -828,35 +828,35 @@ ARM GAS  /tmp/ccV1sIex.s 			page 1
  479              	.LFE45:
  481              		.text
  482              	.Letext0:
- 483              		.file 2 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machin
- 484              		.file 3 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_s
+ 483              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 484              		.file 3 "/usr/include/newlib/sys/_stdint.h"
  485              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
  486              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
  487              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
  488              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
  489              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h"
  490              		.file 9 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
-ARM GAS  /tmp/ccV1sIex.s 			page 15
+ARM GAS  /tmp/cc1F2lYz.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f0xx_hal_i2c_ex.c
-     /tmp/ccV1sIex.s:16     .text.HAL_I2CEx_ConfigAnalogFilter:0000000000000000 $t
-     /tmp/ccV1sIex.s:23     .text.HAL_I2CEx_ConfigAnalogFilter:0000000000000000 HAL_I2CEx_ConfigAnalogFilter
-     /tmp/ccV1sIex.s:107    .text.HAL_I2CEx_ConfigAnalogFilter:0000000000000054 $d
-     /tmp/ccV1sIex.s:112    .text.HAL_I2CEx_ConfigDigitalFilter:0000000000000000 $t
-     /tmp/ccV1sIex.s:119    .text.HAL_I2CEx_ConfigDigitalFilter:0000000000000000 HAL_I2CEx_ConfigDigitalFilter
-     /tmp/ccV1sIex.s:207    .text.HAL_I2CEx_ConfigDigitalFilter:0000000000000050 $d
-     /tmp/ccV1sIex.s:212    .text.HAL_I2CEx_EnableWakeUp:0000000000000000 $t
-     /tmp/ccV1sIex.s:219    .text.HAL_I2CEx_EnableWakeUp:0000000000000000 HAL_I2CEx_EnableWakeUp
-     /tmp/ccV1sIex.s:297    .text.HAL_I2CEx_DisableWakeUp:0000000000000000 $t
-     /tmp/ccV1sIex.s:304    .text.HAL_I2CEx_DisableWakeUp:0000000000000000 HAL_I2CEx_DisableWakeUp
-     /tmp/ccV1sIex.s:380    .text.HAL_I2CEx_DisableWakeUp:000000000000004c $d
-     /tmp/ccV1sIex.s:385    .text.HAL_I2CEx_EnableFastModePlus:0000000000000000 $t
-     /tmp/ccV1sIex.s:392    .text.HAL_I2CEx_EnableFastModePlus:0000000000000000 HAL_I2CEx_EnableFastModePlus
-     /tmp/ccV1sIex.s:428    .text.HAL_I2CEx_EnableFastModePlus:0000000000000020 $d
-     /tmp/ccV1sIex.s:434    .text.HAL_I2CEx_DisableFastModePlus:0000000000000000 $t
-     /tmp/ccV1sIex.s:441    .text.HAL_I2CEx_DisableFastModePlus:0000000000000000 HAL_I2CEx_DisableFastModePlus
-     /tmp/ccV1sIex.s:476    .text.HAL_I2CEx_DisableFastModePlus:0000000000000020 $d
+     /tmp/cc1F2lYz.s:16     .text.HAL_I2CEx_ConfigAnalogFilter:0000000000000000 $t
+     /tmp/cc1F2lYz.s:23     .text.HAL_I2CEx_ConfigAnalogFilter:0000000000000000 HAL_I2CEx_ConfigAnalogFilter
+     /tmp/cc1F2lYz.s:107    .text.HAL_I2CEx_ConfigAnalogFilter:0000000000000054 $d
+     /tmp/cc1F2lYz.s:112    .text.HAL_I2CEx_ConfigDigitalFilter:0000000000000000 $t
+     /tmp/cc1F2lYz.s:119    .text.HAL_I2CEx_ConfigDigitalFilter:0000000000000000 HAL_I2CEx_ConfigDigitalFilter
+     /tmp/cc1F2lYz.s:207    .text.HAL_I2CEx_ConfigDigitalFilter:0000000000000050 $d
+     /tmp/cc1F2lYz.s:212    .text.HAL_I2CEx_EnableWakeUp:0000000000000000 $t
+     /tmp/cc1F2lYz.s:219    .text.HAL_I2CEx_EnableWakeUp:0000000000000000 HAL_I2CEx_EnableWakeUp
+     /tmp/cc1F2lYz.s:297    .text.HAL_I2CEx_DisableWakeUp:0000000000000000 $t
+     /tmp/cc1F2lYz.s:304    .text.HAL_I2CEx_DisableWakeUp:0000000000000000 HAL_I2CEx_DisableWakeUp
+     /tmp/cc1F2lYz.s:380    .text.HAL_I2CEx_DisableWakeUp:000000000000004c $d
+     /tmp/cc1F2lYz.s:385    .text.HAL_I2CEx_EnableFastModePlus:0000000000000000 $t
+     /tmp/cc1F2lYz.s:392    .text.HAL_I2CEx_EnableFastModePlus:0000000000000000 HAL_I2CEx_EnableFastModePlus
+     /tmp/cc1F2lYz.s:428    .text.HAL_I2CEx_EnableFastModePlus:0000000000000020 $d
+     /tmp/cc1F2lYz.s:434    .text.HAL_I2CEx_DisableFastModePlus:0000000000000000 $t
+     /tmp/cc1F2lYz.s:441    .text.HAL_I2CEx_DisableFastModePlus:0000000000000000 HAL_I2CEx_DisableFastModePlus
+     /tmp/cc1F2lYz.s:476    .text.HAL_I2CEx_DisableFastModePlus:0000000000000020 $d
 
 NO UNDEFINED SYMBOLS

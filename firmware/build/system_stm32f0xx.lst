@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccwlw6aa.s 			page 1
+ARM GAS  /tmp/ccBAjYNf.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccwlw6aa.s 			page 1
   31:Src/system_stm32f0xx.c ****   *        SYSCLK(Hz)                             | 8000000
   32:Src/system_stm32f0xx.c ****   *-----------------------------------------------------------------------------
   33:Src/system_stm32f0xx.c ****   *        HCLK(Hz)                               | 8000000
-ARM GAS  /tmp/ccwlw6aa.s 			page 2
+ARM GAS  /tmp/ccBAjYNf.s 			page 2
 
 
   34:Src/system_stm32f0xx.c ****   *-----------------------------------------------------------------------------
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccwlw6aa.s 			page 1
   88:Src/system_stm32f0xx.c **** #if !defined  (HSI_VALUE)
   89:Src/system_stm32f0xx.c ****   #define HSI_VALUE    ((uint32_t)8000000) /*!< Default value of the Internal oscillator in Hz.
   90:Src/system_stm32f0xx.c ****                                                 This value can be provided and adapted by the user 
-ARM GAS  /tmp/ccwlw6aa.s 			page 3
+ARM GAS  /tmp/ccBAjYNf.s 			page 3
 
 
   91:Src/system_stm32f0xx.c **** #endif /* HSI_VALUE */
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccwlw6aa.s 			page 1
  145:Src/system_stm32f0xx.c ****   */
  146:Src/system_stm32f0xx.c **** void SystemInit(void)
  147:Src/system_stm32f0xx.c **** {
-ARM GAS  /tmp/ccwlw6aa.s 			page 4
+ARM GAS  /tmp/ccBAjYNf.s 			page 4
 
 
   26              		.loc 1 147 0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccwlw6aa.s 			page 1
  182:Src/system_stm32f0xx.c ****   *              8 MHz), user has to ensure that HSE_VALUE is same as the real
  183:Src/system_stm32f0xx.c ****   *              frequency of the crystal used. Otherwise, this function may
  184:Src/system_stm32f0xx.c ****   *              have wrong result.
-ARM GAS  /tmp/ccwlw6aa.s 			page 5
+ARM GAS  /tmp/ccBAjYNf.s 			page 5
 
 
  185:Src/system_stm32f0xx.c ****   *
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccwlw6aa.s 			page 1
  216:Src/system_stm32f0xx.c ****         /* HSE used as PLL clock source : SystemCoreClock = HSE/PREDIV * PLLMUL */
  217:Src/system_stm32f0xx.c ****         SystemCoreClock = (HSE_VALUE/predivfactor) * pllmull;
  218:Src/system_stm32f0xx.c ****       }
-ARM GAS  /tmp/ccwlw6aa.s 			page 6
+ARM GAS  /tmp/ccBAjYNf.s 			page 6
 
 
  219:Src/system_stm32f0xx.c **** #if defined(STM32F042x6) || defined(STM32F048xx) || defined(STM32F072xB) || defined(STM32F078xx) ||
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccwlw6aa.s 			page 1
   95 002e 1D4A     		ldr	r2, .L14+12
   96 0030 D35C     		ldrb	r3, [r2, r3]
   97              	.LVL8:
-ARM GAS  /tmp/ccwlw6aa.s 			page 7
+ARM GAS  /tmp/ccBAjYNf.s 			page 7
 
 
  248:Src/system_stm32f0xx.c ****   /* HCLK clock frequency */
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccwlw6aa.s 			page 1
  142 005e 8022     		movs	r2, #128
  143 0060 5202     		lsls	r2, r2, #9
  144 0062 9342     		cmp	r3, r2
-ARM GAS  /tmp/ccwlw6aa.s 			page 8
+ARM GAS  /tmp/ccBAjYNf.s 			page 8
 
 
  145 0064 0AD0     		beq	.L12
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccwlw6aa.s 			page 1
  198              	SystemCoreClock:
  199 0000 00127A00 		.word	8000000
  200              		.section	.rodata.AHBPrescTable,"a",%progbits
-ARM GAS  /tmp/ccwlw6aa.s 			page 9
+ARM GAS  /tmp/ccBAjYNf.s 			page 9
 
 
  201              		.align	2
@@ -513,27 +513,27 @@ ARM GAS  /tmp/ccwlw6aa.s 			page 1
  234 0007 04       		.byte	4
  235              		.text
  236              	.Letext0:
- 237              		.file 2 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machin
- 238              		.file 3 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_s
+ 237              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 238              		.file 3 "/usr/include/newlib/sys/_stdint.h"
  239              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
  240              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
  241              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
-ARM GAS  /tmp/ccwlw6aa.s 			page 10
+ARM GAS  /tmp/ccBAjYNf.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 system_stm32f0xx.c
-     /tmp/ccwlw6aa.s:16     .text.SystemInit:0000000000000000 $t
-     /tmp/ccwlw6aa.s:23     .text.SystemInit:0000000000000000 SystemInit
-     /tmp/ccwlw6aa.s:39     .text.SystemCoreClockUpdate:0000000000000000 $t
-     /tmp/ccwlw6aa.s:46     .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
-     /tmp/ccwlw6aa.s:182    .text.SystemCoreClockUpdate:0000000000000098 $d
-     /tmp/ccwlw6aa.s:226    .rodata.APBPrescTable:0000000000000000 APBPrescTable
-     /tmp/ccwlw6aa.s:205    .rodata.AHBPrescTable:0000000000000000 AHBPrescTable
-     /tmp/ccwlw6aa.s:198    .data.SystemCoreClock:0000000000000000 SystemCoreClock
-     /tmp/ccwlw6aa.s:194    .data.SystemCoreClock:0000000000000000 $d
-     /tmp/ccwlw6aa.s:201    .rodata.AHBPrescTable:0000000000000000 $d
-     /tmp/ccwlw6aa.s:223    .rodata.APBPrescTable:0000000000000000 $d
+     /tmp/ccBAjYNf.s:16     .text.SystemInit:0000000000000000 $t
+     /tmp/ccBAjYNf.s:23     .text.SystemInit:0000000000000000 SystemInit
+     /tmp/ccBAjYNf.s:39     .text.SystemCoreClockUpdate:0000000000000000 $t
+     /tmp/ccBAjYNf.s:46     .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
+     /tmp/ccBAjYNf.s:182    .text.SystemCoreClockUpdate:0000000000000098 $d
+     /tmp/ccBAjYNf.s:226    .rodata.APBPrescTable:0000000000000000 APBPrescTable
+     /tmp/ccBAjYNf.s:205    .rodata.AHBPrescTable:0000000000000000 AHBPrescTable
+     /tmp/ccBAjYNf.s:198    .data.SystemCoreClock:0000000000000000 SystemCoreClock
+     /tmp/ccBAjYNf.s:194    .data.SystemCoreClock:0000000000000000 $d
+     /tmp/ccBAjYNf.s:201    .rodata.AHBPrescTable:0000000000000000 $d
+     /tmp/ccBAjYNf.s:223    .rodata.APBPrescTable:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_uidiv

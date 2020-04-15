@@ -22,17 +22,19 @@ void OnProjectLoad (void) {
   //
   // Dialog-generated settings
   //
-  Project.AddPathSubstitute ("/home/janhenrik/kiCAD/scale2/firmware", "$(ProjectDir)");
-  Project.AddPathSubstitute ("/home/janhenrik/kicad/scale2/firmware", "$(ProjectDir)");
   Project.SetDevice ("STM32F072C8");
   Project.SetHostIF ("USB", "");
   Project.SetTargetIF ("SWD");
-  Project.SetTIFSpeed ("1 MHz");
+  Project.SetTIFSpeed ("2 MHz");
+  Project.AddPathSubstitute ("/home/janhenrik/kiCAD/scale2/firmware", "$(ProjectDir)");
+  Project.AddPathSubstitute ("/home/janhenrik/kicad/scale2/firmware", "$(ProjectDir)");
   Project.AddSvdFile ("$(InstallDir)/Config/CPU/Cortex-M0.svd");
   Project.AddSvdFile ("/home/janhenrik/Downloads/STM32F072x.svd");
   //
   // User settings
   //
+  Edit.SysVar (VAR_HSS_SPEED, 1000000);
+  Edit.SysVar (VAR_ALLOW_BMA_EMULATION, 1);
   File.Open ("$(ProjectDir)/build/firmware.elf");
 }
 

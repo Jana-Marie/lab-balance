@@ -1,4 +1,4 @@
-build/main.o: Src/main.c Inc/main.h \
+build/graphics.o: Src/graphics.c Inc/graphics.h Inc/fonts.h Inc/main.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h \
  Inc/stm32f0xx_hal_conf.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h \
@@ -28,8 +28,11 @@ build/main.o: Src/main.c Inc/main.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi_ex.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h \
- Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tsc.h Inc/graphics.h \
- Inc/fonts.h Inc/main.h
+ Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tsc.h
+
+Inc/graphics.h:
+
+Inc/fonts.h:
 
 Inc/main.h:
 
@@ -96,9 +99,3 @@ Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h:
 Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h:
 
 Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tsc.h:
-
-Inc/graphics.h:
-
-Inc/fonts.h:
-
-Inc/main.h:

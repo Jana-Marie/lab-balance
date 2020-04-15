@@ -1,0 +1,2131 @@
+ARM GAS  /tmp/ccto0RGY.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"graphics.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.IPS_SetPixel_buf,"ax",%progbits
+  16              		.align	1
+  17              		.global	IPS_SetPixel_buf
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	IPS_SetPixel_buf:
+  24              	.LFB42:
+  25              		.file 1 "Src/graphics.c"
+   1:Src/graphics.c **** #include "graphics.h"
+   2:Src/graphics.c **** 
+   3:Src/graphics.c **** 
+   4:Src/graphics.c **** /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+   5:Src/graphics.c **** 
+   6:Src/graphics.c **** void IPS_DrawString_Buf(uint16_t x, uint16_t y, const char * pString, uint8_t len, sFONT* Font, uin
+   7:Src/graphics.c **** {
+   8:Src/graphics.c ****   uint16_t _x = x;
+   9:Src/graphics.c ****   uint16_t _y = y;
+  10:Src/graphics.c **** 
+  11:Src/graphics.c ****   if (x > IPS_WIDTH-1 || y > IPS_HEIGHT-1) return;
+  12:Src/graphics.c **** 
+  13:Src/graphics.c ****   while (* pString != '\0') {
+  14:Src/graphics.c ****     if ((_x + Font->Width ) > IPS_WIDTH-1 ) {
+  15:Src/graphics.c ****       _x = x;
+  16:Src/graphics.c ****       _y += Font->Height;
+  17:Src/graphics.c ****     }
+  18:Src/graphics.c ****     if ((_y  + Font->Height ) > IPS_HEIGHT-1 ) {
+  19:Src/graphics.c ****       _x = x;
+  20:Src/graphics.c ****       _y = y;
+  21:Src/graphics.c ****     }
+  22:Src/graphics.c **** 
+  23:Src/graphics.c ****     IPS_DrawChar_Buf(_x, _y, * pString, Font, Color_Background, Color_Foreground);
+  24:Src/graphics.c **** 
+  25:Src/graphics.c ****     pString++;
+  26:Src/graphics.c **** 
+  27:Src/graphics.c ****     _x += Font->Width;
+  28:Src/graphics.c ****   }
+  29:Src/graphics.c **** }
+  30:Src/graphics.c **** 
+  31:Src/graphics.c **** void IPS_DrawChar_Buf(uint16_t x, uint16_t y, const char c, sFONT* Font, uint16_t Color_Background,
+  32:Src/graphics.c **** {
+  33:Src/graphics.c ****   uint16_t Page, Column;
+ARM GAS  /tmp/ccto0RGY.s 			page 2
+
+
+  34:Src/graphics.c **** 
+  35:Src/graphics.c ****   if (x > IPS_WIDTH-1 || y > IPS_HEIGHT-1) return;
+  36:Src/graphics.c **** 
+  37:Src/graphics.c ****   uint32_t Char_Offset = (c - ' ') * Font->Height * (Font->Width / 8 + (Font->Width % 8 ? 1 : 0));
+  38:Src/graphics.c ****   const unsigned char *ptr = &Font->table[Char_Offset];
+  39:Src/graphics.c **** 
+  40:Src/graphics.c ****   for (Page = 0; Page < Font->Height; Page ++ ) {
+  41:Src/graphics.c ****     for (Column = 0; Column < Font->Width; Column ++ ) {
+  42:Src/graphics.c ****       if (*ptr & (0x80 >> (Column % 8))) IPS_SetPixel_buf(x + Column, y + Page, Color_Foreground);
+  43:Src/graphics.c ****       else IPS_SetPixel_buf(x + Column, y + Page, Color_Background);
+  44:Src/graphics.c ****       if (Column % 8 == 7) ptr++;
+  45:Src/graphics.c ****     }
+  46:Src/graphics.c ****     if (Font->Width % 8 != 0) ptr++;
+  47:Src/graphics.c ****   }
+  48:Src/graphics.c **** }
+  49:Src/graphics.c **** 
+  50:Src/graphics.c **** void IPS_SetPixel_buf(uint16_t Xpoint, uint16_t Ypoint, uint16_t Color)
+  51:Src/graphics.c **** {
+  26              		.loc 1 51 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              		@ link register save eliminated.
+  31              	.LVL0:
+  52:Src/graphics.c **** 		IPS.text_buf[((((17*8))-Xpoint) + ((23 - Ypoint)*(17*8)))] = Color;
+  32              		.loc 1 52 0
+  33 0000 8823     		movs	r3, #136
+  34 0002 181A     		subs	r0, r3, r0
+  35              	.LVL1:
+  36 0004 713B     		subs	r3, r3, #113
+  37 0006 5B1A     		subs	r3, r3, r1
+  38 0008 1901     		lsls	r1, r3, #4
+  39              	.LVL2:
+  40 000a C918     		adds	r1, r1, r3
+  41 000c CB00     		lsls	r3, r1, #3
+  42 000e C018     		adds	r0, r0, r3
+  43 0010 0430     		adds	r0, r0, #4
+  44 0012 4000     		lsls	r0, r0, #1
+  45 0014 014B     		ldr	r3, .L2
+  46 0016 1818     		adds	r0, r3, r0
+  47 0018 4280     		strh	r2, [r0, #2]
+  53:Src/graphics.c **** }
+  48              		.loc 1 53 0
+  49              		@ sp needed
+  50 001a 7047     		bx	lr
+  51              	.L3:
+  52              		.align	2
+  53              	.L2:
+  54 001c 00000000 		.word	IPS
+  55              		.cfi_endproc
+  56              	.LFE42:
+  58              		.section	.text.IPS_DrawChar_Buf,"ax",%progbits
+  59              		.align	1
+  60              		.global	IPS_DrawChar_Buf
+  61              		.syntax unified
+  62              		.code	16
+  63              		.thumb_func
+ARM GAS  /tmp/ccto0RGY.s 			page 3
+
+
+  64              		.fpu softvfp
+  66              	IPS_DrawChar_Buf:
+  67              	.LFB41:
+  32:Src/graphics.c ****   uint16_t Page, Column;
+  68              		.loc 1 32 0
+  69              		.cfi_startproc
+  70              		@ args = 8, pretend = 0, frame = 8
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72              	.LVL3:
+  73 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  74              	.LCFI0:
+  75              		.cfi_def_cfa_offset 20
+  76              		.cfi_offset 4, -20
+  77              		.cfi_offset 5, -16
+  78              		.cfi_offset 6, -12
+  79              		.cfi_offset 7, -8
+  80              		.cfi_offset 14, -4
+  81 0002 DE46     		mov	lr, fp
+  82 0004 5746     		mov	r7, r10
+  83 0006 4E46     		mov	r6, r9
+  84 0008 C0B5     		push	{r6, r7, lr}
+  85              	.LCFI1:
+  86              		.cfi_def_cfa_offset 32
+  87              		.cfi_offset 9, -32
+  88              		.cfi_offset 10, -28
+  89              		.cfi_offset 11, -24
+  90 000a 82B0     		sub	sp, sp, #8
+  91              	.LCFI2:
+  92              		.cfi_def_cfa_offset 40
+  93 000c 8246     		mov	r10, r0
+  94 000e 8B46     		mov	fp, r1
+  95 0010 9946     		mov	r9, r3
+  96 0012 0AAB     		add	r3, sp, #40
+  97              	.LVL4:
+  98 0014 1B88     		ldrh	r3, [r3]
+  99              	.LVL5:
+ 100 0016 0093     		str	r3, [sp]
+ 101 0018 0BAB     		add	r3, sp, #44
+ 102              	.LVL6:
+ 103 001a 1B88     		ldrh	r3, [r3]
+ 104              	.LVL7:
+ 105 001c 0193     		str	r3, [sp, #4]
+  35:Src/graphics.c **** 
+ 106              		.loc 1 35 0
+ 107 001e 9F28     		cmp	r0, #159
+ 108 0020 3ED8     		bhi	.L4
+  35:Src/graphics.c **** 
+ 109              		.loc 1 35 0 is_stmt 0 discriminator 1
+ 110 0022 4F29     		cmp	r1, #79
+ 111 0024 3CD8     		bhi	.L4
+  37:Src/graphics.c ****   const unsigned char *ptr = &Font->table[Char_Offset];
+ 112              		.loc 1 37 0 is_stmt 1
+ 113 0026 203A     		subs	r2, r2, #32
+ 114              	.LVL8:
+ 115 0028 4B46     		mov	r3, r9
+ 116 002a DE88     		ldrh	r6, [r3, #6]
+ 117 002c 7243     		muls	r2, r6
+ARM GAS  /tmp/ccto0RGY.s 			page 4
+
+
+ 118 002e 9988     		ldrh	r1, [r3, #4]
+ 119              	.LVL9:
+ 120 0030 CE08     		lsrs	r6, r1, #3
+ 121 0032 0723     		movs	r3, #7
+ 122 0034 0B40     		ands	r3, r1
+ 123 0036 591E     		subs	r1, r3, #1
+ 124 0038 8B41     		sbcs	r3, r3, r1
+ 125 003a F618     		adds	r6, r6, r3
+ 126 003c 5643     		muls	r6, r2
+ 127              	.LVL10:
+  38:Src/graphics.c **** 
+ 128              		.loc 1 38 0
+ 129 003e 4B46     		mov	r3, r9
+ 130 0040 1B68     		ldr	r3, [r3]
+ 131 0042 9C46     		mov	ip, r3
+ 132 0044 6644     		add	r6, r6, ip
+ 133              	.LVL11:
+  40:Src/graphics.c ****     for (Column = 0; Column < Font->Width; Column ++ ) {
+ 134              		.loc 1 40 0
+ 135 0046 0027     		movs	r7, #0
+ 136 0048 24E0     		b	.L6
+ 137              	.LVL12:
+ 138              	.L7:
+ 139              	.LBB2:
+  43:Src/graphics.c ****       if (Column % 8 == 7) ptr++;
+ 140              		.loc 1 43 0
+ 141 004a 5B46     		mov	r3, fp
+ 142 004c D919     		adds	r1, r3, r7
+ 143 004e 5346     		mov	r3, r10
+ 144 0050 1819     		adds	r0, r3, r4
+ 145 0052 009A     		ldr	r2, [sp]
+ 146 0054 FFF7FEFF 		bl	IPS_SetPixel_buf
+ 147              	.LVL13:
+ 148              	.L8:
+ 149              	.LBE2:
+  44:Src/graphics.c ****     }
+ 150              		.loc 1 44 0
+ 151 0058 072D     		cmp	r5, #7
+ 152 005a 14D0     		beq	.L14
+ 153              	.L9:
+  41:Src/graphics.c ****       if (*ptr & (0x80 >> (Column % 8))) IPS_SetPixel_buf(x + Column, y + Page, Color_Foreground);
+ 154              		.loc 1 41 0 discriminator 2
+ 155 005c 0134     		adds	r4, r4, #1
+ 156              	.LVL14:
+ 157 005e A4B2     		uxth	r4, r4
+ 158              	.LVL15:
+ 159              	.L12:
+  41:Src/graphics.c ****       if (*ptr & (0x80 >> (Column % 8))) IPS_SetPixel_buf(x + Column, y + Page, Color_Foreground);
+ 160              		.loc 1 41 0 is_stmt 0 discriminator 1
+ 161 0060 4B46     		mov	r3, r9
+ 162 0062 9B88     		ldrh	r3, [r3, #4]
+ 163 0064 A342     		cmp	r3, r4
+ 164 0066 10D9     		bls	.L15
+  42:Src/graphics.c ****       else IPS_SetPixel_buf(x + Column, y + Page, Color_Background);
+ 165              		.loc 1 42 0 is_stmt 1
+ 166 0068 3278     		ldrb	r2, [r6]
+ 167 006a 0725     		movs	r5, #7
+ARM GAS  /tmp/ccto0RGY.s 			page 5
+
+
+ 168 006c 2540     		ands	r5, r4
+ 169 006e 8023     		movs	r3, #128
+ 170 0070 2B41     		asrs	r3, r3, r5
+ 171 0072 1342     		tst	r3, r2
+ 172 0074 E9D0     		beq	.L7
+ 173              	.LBB3:
+  42:Src/graphics.c ****       else IPS_SetPixel_buf(x + Column, y + Page, Color_Background);
+ 174              		.loc 1 42 0 is_stmt 0 discriminator 1
+ 175 0076 5B46     		mov	r3, fp
+ 176 0078 D919     		adds	r1, r3, r7
+ 177 007a 5346     		mov	r3, r10
+ 178 007c 1819     		adds	r0, r3, r4
+ 179 007e 019A     		ldr	r2, [sp, #4]
+ 180 0080 FFF7FEFF 		bl	IPS_SetPixel_buf
+ 181              	.LVL16:
+ 182              	.LBE3:
+ 183 0084 E8E7     		b	.L8
+ 184              	.L14:
+  44:Src/graphics.c ****     }
+ 185              		.loc 1 44 0 is_stmt 1 discriminator 1
+ 186 0086 0136     		adds	r6, r6, #1
+ 187              	.LVL17:
+ 188 0088 E8E7     		b	.L9
+ 189              	.L15:
+  46:Src/graphics.c ****   }
+ 190              		.loc 1 46 0
+ 191 008a 5B07     		lsls	r3, r3, #29
+ 192 008c 00D0     		beq	.L11
+  46:Src/graphics.c ****   }
+ 193              		.loc 1 46 0 is_stmt 0 discriminator 1
+ 194 008e 0136     		adds	r6, r6, #1
+ 195              	.LVL18:
+ 196              	.L11:
+  40:Src/graphics.c ****     for (Column = 0; Column < Font->Width; Column ++ ) {
+ 197              		.loc 1 40 0 is_stmt 1 discriminator 2
+ 198 0090 0137     		adds	r7, r7, #1
+ 199              	.LVL19:
+ 200 0092 BFB2     		uxth	r7, r7
+ 201              	.LVL20:
+ 202              	.L6:
+  40:Src/graphics.c ****     for (Column = 0; Column < Font->Width; Column ++ ) {
+ 203              		.loc 1 40 0 is_stmt 0 discriminator 1
+ 204 0094 4B46     		mov	r3, r9
+ 205 0096 DB88     		ldrh	r3, [r3, #6]
+ 206 0098 BB42     		cmp	r3, r7
+ 207 009a 01D9     		bls	.L4
+  41:Src/graphics.c ****       if (*ptr & (0x80 >> (Column % 8))) IPS_SetPixel_buf(x + Column, y + Page, Color_Foreground);
+ 208              		.loc 1 41 0 is_stmt 1
+ 209 009c 0024     		movs	r4, #0
+ 210 009e DFE7     		b	.L12
+ 211              	.LVL21:
+ 212              	.L4:
+  48:Src/graphics.c **** 
+ 213              		.loc 1 48 0
+ 214 00a0 02B0     		add	sp, sp, #8
+ 215              		@ sp needed
+ 216              	.LVL22:
+ARM GAS  /tmp/ccto0RGY.s 			page 6
+
+
+ 217 00a2 1CBC     		pop	{r2, r3, r4}
+ 218 00a4 9146     		mov	r9, r2
+ 219 00a6 9A46     		mov	r10, r3
+ 220 00a8 A346     		mov	fp, r4
+ 221 00aa F0BD     		pop	{r4, r5, r6, r7, pc}
+ 222              		.cfi_endproc
+ 223              	.LFE41:
+ 225              		.section	.text.IPS_DrawString_Buf,"ax",%progbits
+ 226              		.align	1
+ 227              		.global	IPS_DrawString_Buf
+ 228              		.syntax unified
+ 229              		.code	16
+ 230              		.thumb_func
+ 231              		.fpu softvfp
+ 233              	IPS_DrawString_Buf:
+ 234              	.LFB40:
+   7:Src/graphics.c ****   uint16_t _x = x;
+ 235              		.loc 1 7 0
+ 236              		.cfi_startproc
+ 237              		@ args = 12, pretend = 0, frame = 8
+ 238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 239              	.LVL23:
+ 240 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 241              	.LCFI3:
+ 242              		.cfi_def_cfa_offset 20
+ 243              		.cfi_offset 4, -20
+ 244              		.cfi_offset 5, -16
+ 245              		.cfi_offset 6, -12
+ 246              		.cfi_offset 7, -8
+ 247              		.cfi_offset 14, -4
+ 248 0002 DE46     		mov	lr, fp
+ 249 0004 5746     		mov	r7, r10
+ 250 0006 80B5     		push	{r7, lr}
+ 251              	.LCFI4:
+ 252              		.cfi_def_cfa_offset 28
+ 253              		.cfi_offset 10, -28
+ 254              		.cfi_offset 11, -24
+ 255 0008 85B0     		sub	sp, sp, #20
+ 256              	.LCFI5:
+ 257              		.cfi_def_cfa_offset 48
+ 258 000a 0290     		str	r0, [sp, #8]
+ 259 000c 0391     		str	r1, [sp, #12]
+ 260 000e 1600     		movs	r6, r2
+ 261 0010 0CAB     		add	r3, sp, #48
+ 262              	.LVL24:
+ 263 0012 20CB     		ldmia	r3!, {r5}
+ 264              	.LVL25:
+ 265 0014 1B88     		ldrh	r3, [r3]
+ 266              	.LVL26:
+ 267 0016 9A46     		mov	r10, r3
+ 268 0018 0EAB     		add	r3, sp, #56
+ 269              	.LVL27:
+ 270 001a 1B88     		ldrh	r3, [r3]
+ 271              	.LVL28:
+ 272 001c 9B46     		mov	fp, r3
+ 273              	.LVL29:
+  11:Src/graphics.c **** 
+ARM GAS  /tmp/ccto0RGY.s 			page 7
+
+
+ 274              		.loc 1 11 0
+ 275 001e 9F28     		cmp	r0, #159
+ 276 0020 23D8     		bhi	.L16
+  11:Src/graphics.c **** 
+ 277              		.loc 1 11 0 is_stmt 0 discriminator 1
+ 278 0022 4F29     		cmp	r1, #79
+ 279 0024 21D8     		bhi	.L16
+   9:Src/graphics.c **** 
+ 280              		.loc 1 9 0 is_stmt 1
+ 281 0026 0F00     		movs	r7, r1
+   8:Src/graphics.c ****   uint16_t _y = y;
+ 282              		.loc 1 8 0
+ 283 0028 0400     		movs	r4, r0
+ 284 002a 0CE0     		b	.L18
+ 285              	.LVL30:
+ 286              	.L20:
+ 287              	.LBB4:
+  23:Src/graphics.c **** 
+ 288              		.loc 1 23 0
+ 289 002c 5B46     		mov	r3, fp
+ 290 002e 0193     		str	r3, [sp, #4]
+ 291 0030 5346     		mov	r3, r10
+ 292 0032 0093     		str	r3, [sp]
+ 293 0034 2B00     		movs	r3, r5
+ 294 0036 3900     		movs	r1, r7
+ 295 0038 2000     		movs	r0, r4
+ 296 003a FFF7FEFF 		bl	IPS_DrawChar_Buf
+ 297              	.LVL31:
+  25:Src/graphics.c **** 
+ 298              		.loc 1 25 0
+ 299 003e 0136     		adds	r6, r6, #1
+ 300              	.LVL32:
+  27:Src/graphics.c ****   }
+ 301              		.loc 1 27 0
+ 302 0040 AB88     		ldrh	r3, [r5, #4]
+ 303 0042 1C19     		adds	r4, r3, r4
+ 304              	.LVL33:
+ 305 0044 A4B2     		uxth	r4, r4
+ 306              	.LVL34:
+ 307              	.L18:
+ 308              	.LBE4:
+  13:Src/graphics.c ****     if ((_x + Font->Width ) > IPS_WIDTH-1 ) {
+ 309              		.loc 1 13 0
+ 310 0046 3278     		ldrb	r2, [r6]
+ 311 0048 002A     		cmp	r2, #0
+ 312 004a 0ED0     		beq	.L16
+ 313              	.LBB5:
+  14:Src/graphics.c ****       _x = x;
+ 314              		.loc 1 14 0
+ 315 004c AB88     		ldrh	r3, [r5, #4]
+ 316 004e E318     		adds	r3, r4, r3
+ 317 0050 9F2B     		cmp	r3, #159
+ 318 0052 03DD     		ble	.L19
+ 319              	.LVL35:
+  16:Src/graphics.c ****     }
+ 320              		.loc 1 16 0
+ 321 0054 EB88     		ldrh	r3, [r5, #6]
+ARM GAS  /tmp/ccto0RGY.s 			page 8
+
+
+ 322 0056 DF19     		adds	r7, r3, r7
+ 323              	.LVL36:
+ 324 0058 BFB2     		uxth	r7, r7
+ 325              	.LVL37:
+  15:Src/graphics.c ****       _y += Font->Height;
+ 326              		.loc 1 15 0
+ 327 005a 029C     		ldr	r4, [sp, #8]
+ 328              	.LVL38:
+ 329              	.L19:
+  18:Src/graphics.c ****       _x = x;
+ 330              		.loc 1 18 0
+ 331 005c EB88     		ldrh	r3, [r5, #6]
+ 332 005e FB18     		adds	r3, r7, r3
+ 333 0060 4F2B     		cmp	r3, #79
+ 334 0062 E3DD     		ble	.L20
+  20:Src/graphics.c ****     }
+ 335              		.loc 1 20 0
+ 336 0064 039F     		ldr	r7, [sp, #12]
+ 337              	.LVL39:
+  19:Src/graphics.c ****       _y = y;
+ 338              		.loc 1 19 0
+ 339 0066 029C     		ldr	r4, [sp, #8]
+ 340              	.LVL40:
+ 341 0068 E0E7     		b	.L20
+ 342              	.L16:
+ 343              	.LBE5:
+  29:Src/graphics.c **** 
+ 344              		.loc 1 29 0
+ 345 006a 05B0     		add	sp, sp, #20
+ 346              		@ sp needed
+ 347              	.LVL41:
+ 348 006c 0CBC     		pop	{r2, r3}
+ 349 006e 9246     		mov	r10, r2
+ 350 0070 9B46     		mov	fp, r3
+ 351 0072 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 352              		.cfi_endproc
+ 353              	.LFE40:
+ 355              		.section	.text.IPS_DrawString_R,"ax",%progbits
+ 356              		.align	1
+ 357              		.global	IPS_DrawString_R
+ 358              		.syntax unified
+ 359              		.code	16
+ 360              		.thumb_func
+ 361              		.fpu softvfp
+ 363              	IPS_DrawString_R:
+ 364              	.LFB44:
+  54:Src/graphics.c **** 
+  55:Src/graphics.c **** void IPS_WriteBuf(uint16_t x, uint16_t y)
+  56:Src/graphics.c **** {
+  57:Src/graphics.c **** 	IPS_SetCursor(x,y,x+(17*8)-1,y+24-1);
+  58:Src/graphics.c ****   HAL_GPIO_WritePin(IPS_CS_GPIO_Port, IPS_CS_Pin, 0);
+  59:Src/graphics.c ****   HAL_GPIO_WritePin(IPS_DC_GPIO_Port, IPS_DC_Pin, 1);
+  60:Src/graphics.c **** 	HAL_SPI_Transmit_DMA(&hspi1, (uint16_t *)&IPS.text_buf, ((24*(17*8))*2)-1);
+  61:Src/graphics.c **** }
+  62:Src/graphics.c **** 
+  63:Src/graphics.c **** void IPS_DrawString_R(uint16_t x, uint16_t y, const char * pString, uint8_t len, sFONT* Font, uint1
+  64:Src/graphics.c **** {
+ARM GAS  /tmp/ccto0RGY.s 			page 9
+
+
+ 365              		.loc 1 64 0
+ 366              		.cfi_startproc
+ 367              		@ args = 12, pretend = 0, frame = 0
+ 368              		@ frame_needed = 0, uses_anonymous_args = 0
+ 369              		@ link register save eliminated.
+ 370              	.LVL42:
+  65:Src/graphics.c ****   x -= (Font->Width*len);
+  66:Src/graphics.c **** 
+  67:Src/graphics.c **** }
+ 371              		.loc 1 67 0
+ 372              		@ sp needed
+ 373 0000 7047     		bx	lr
+ 374              		.cfi_endproc
+ 375              	.LFE44:
+ 377              		.section	.text.IPS_Reset,"ax",%progbits
+ 378              		.align	1
+ 379              		.global	IPS_Reset
+ 380              		.syntax unified
+ 381              		.code	16
+ 382              		.thumb_func
+ 383              		.fpu softvfp
+ 385              	IPS_Reset:
+ 386              	.LFB51:
+  68:Src/graphics.c **** 
+  69:Src/graphics.c **** void IPS_DrawString(uint16_t x, uint16_t y, const char * pString, sFONT* Font, uint16_t Color_Backg
+  70:Src/graphics.c **** {
+  71:Src/graphics.c ****   uint16_t _x = x;
+  72:Src/graphics.c ****   uint16_t _y = y;
+  73:Src/graphics.c **** 
+  74:Src/graphics.c ****   if (x > IPS_WIDTH-1 || y > IPS_HEIGHT-1) return;
+  75:Src/graphics.c **** 
+  76:Src/graphics.c ****   while (* pString != '\0') {
+  77:Src/graphics.c ****   if ((_x + Font->Width ) > IPS_WIDTH-1 ) {
+  78:Src/graphics.c ****   _x = x;
+  79:Src/graphics.c ****   _y += Font->Height;
+  80:Src/graphics.c ****   }
+  81:Src/graphics.c **** 
+  82:Src/graphics.c ****   if ((_y  + Font->Height ) > IPS_HEIGHT-1 ) {
+  83:Src/graphics.c ****   _x = x;
+  84:Src/graphics.c ****   _y = y;
+  85:Src/graphics.c ****   }
+  86:Src/graphics.c **** 
+  87:Src/graphics.c ****   IPS_DrawChar(_x, _y, * pString, Font, Color_Background, Color_Foreground);
+  88:Src/graphics.c **** 
+  89:Src/graphics.c ****   pString ++;
+  90:Src/graphics.c **** 
+  91:Src/graphics.c ****   _x += Font->Width;
+  92:Src/graphics.c ****   }
+  93:Src/graphics.c **** }
+  94:Src/graphics.c **** 
+  95:Src/graphics.c **** void IPS_DrawChar(uint16_t x, uint16_t y, const char c, sFONT* Font, uint16_t Color_Background, uin
+  96:Src/graphics.c **** {
+  97:Src/graphics.c ****   uint16_t Page, Column;
+  98:Src/graphics.c **** 
+  99:Src/graphics.c ****   if (x > IPS_WIDTH-1 || y > IPS_HEIGHT-1) return;
+ 100:Src/graphics.c **** 
+ 101:Src/graphics.c ****   uint32_t Char_Offset = (c - ' ') * Font->Height * (Font->Width / 8 + (Font->Width % 8 ? 1 : 0));
+ARM GAS  /tmp/ccto0RGY.s 			page 10
+
+
+ 102:Src/graphics.c ****   const unsigned char *ptr = &Font->table[Char_Offset];
+ 103:Src/graphics.c **** 
+ 104:Src/graphics.c ****   for (Page = 0; Page < Font->Height; Page ++ ) {
+ 105:Src/graphics.c ****     for (Column = 0; Column < Font->Width; Column ++ ) {
+ 106:Src/graphics.c **** 
+ 107:Src/graphics.c ****     if (FONT_BACKGROUND == Color_Background) {
+ 108:Src/graphics.c ****       if (*ptr & (0x80 >> (Column % 8))) IPS_SetPixel(x + Column, y + Page, Color_Foreground);
+ 109:Src/graphics.c ****     } else {
+ 110:Src/graphics.c ****       if (*ptr & (0x80 >> (Column % 8))) IPS_SetPixel(x + Column, y + Page, Color_Foreground);
+ 111:Src/graphics.c ****       else IPS_SetPixel(x + Column, y + Page, Color_Background);
+ 112:Src/graphics.c ****       }
+ 113:Src/graphics.c ****     if (Column % 8 == 7) ptr++;
+ 114:Src/graphics.c ****     }
+ 115:Src/graphics.c ****     if (Font->Width % 8 != 0) ptr++;
+ 116:Src/graphics.c ****   }
+ 117:Src/graphics.c **** }
+ 118:Src/graphics.c **** 
+ 119:Src/graphics.c **** void IPS_SetPixel(uint16_t Xpoint, uint16_t Ypoint, uint16_t Color)
+ 120:Src/graphics.c **** {
+ 121:Src/graphics.c ****   if(Xpoint > IPS_WIDTH-1 || Ypoint > IPS_HEIGHT-1) return;
+ 122:Src/graphics.c ****   IPS_SetUWORD((IPS_WIDTH-1 - Xpoint - 1), (IPS_HEIGHT-1 - Ypoint - 1), Color);
+ 123:Src/graphics.c **** }
+ 124:Src/graphics.c **** 
+ 125:Src/graphics.c **** void IPS_SetUWORD(uint16_t x, uint16_t y, uint16_t Color)
+ 126:Src/graphics.c **** {
+ 127:Src/graphics.c **** 	IPS_SetCursor(x,y,x,y);
+ 128:Src/graphics.c **** 	IPS_WriteData_Word(Color);
+ 129:Src/graphics.c **** }
+ 130:Src/graphics.c **** 
+ 131:Src/graphics.c **** void IPS_SetCursor(uint16_t Xstart, uint16_t Ystart, uint16_t Xend, uint16_t  Yend)
+ 132:Src/graphics.c **** {
+ 133:Src/graphics.c **** 	Xstart = Xstart + 1;
+ 134:Src/graphics.c **** 	Xend = Xend + 1;
+ 135:Src/graphics.c **** 	Ystart = Ystart + 26;
+ 136:Src/graphics.c **** 	Yend = Yend+26;
+ 137:Src/graphics.c **** 	IPS_WriteReg(0x2a);
+ 138:Src/graphics.c **** 	IPS_WriteData_Byte(Xstart>>8);
+ 139:Src/graphics.c **** 	IPS_WriteData_Byte(Xstart);
+ 140:Src/graphics.c **** 	IPS_WriteData_Byte(Xend >>8);
+ 141:Src/graphics.c **** 	IPS_WriteData_Byte(Xend );
+ 142:Src/graphics.c **** 
+ 143:Src/graphics.c **** 	IPS_WriteReg(0x2b);
+ 144:Src/graphics.c **** 	IPS_WriteData_Byte(Ystart>>8);
+ 145:Src/graphics.c **** 	IPS_WriteData_Byte(Ystart);
+ 146:Src/graphics.c **** 	IPS_WriteData_Byte(Yend>>8);
+ 147:Src/graphics.c **** 	IPS_WriteData_Byte(Yend);
+ 148:Src/graphics.c **** 
+ 149:Src/graphics.c **** 	IPS_WriteReg(0x2C);
+ 150:Src/graphics.c **** }
+ 151:Src/graphics.c **** 
+ 152:Src/graphics.c **** void IPS_Clear(uint16_t Color)
+ 153:Src/graphics.c **** {
+ 154:Src/graphics.c ****   IPS_SetCursor(0, 0, IPS_WIDTH-1, IPS_HEIGHT-1);
+ 155:Src/graphics.c ****   for(uint16_t i = 0; i < IPS_WIDTH; i++){
+ 156:Src/graphics.c ****     for(uint16_t j = 0; j < IPS_HEIGHT; j++){
+ 157:Src/graphics.c ****       IPS_WriteData_Word(Color);
+ 158:Src/graphics.c ****     }
+ARM GAS  /tmp/ccto0RGY.s 			page 11
+
+
+ 159:Src/graphics.c ****   }
+ 160:Src/graphics.c **** }
+ 161:Src/graphics.c **** 
+ 162:Src/graphics.c **** void IPS_Reset(void)
+ 163:Src/graphics.c **** {
+ 387              		.loc 1 163 0
+ 388              		.cfi_startproc
+ 389              		@ args = 0, pretend = 0, frame = 0
+ 390              		@ frame_needed = 0, uses_anonymous_args = 0
+ 391 0000 70B5     		push	{r4, r5, r6, lr}
+ 392              	.LCFI6:
+ 393              		.cfi_def_cfa_offset 16
+ 394              		.cfi_offset 4, -16
+ 395              		.cfi_offset 5, -12
+ 396              		.cfi_offset 6, -8
+ 397              		.cfi_offset 14, -4
+ 164:Src/graphics.c **** 	HAL_GPIO_WritePin(IPS_CS_GPIO_Port, IPS_CS_Pin,0);
+ 398              		.loc 1 164 0
+ 399 0002 0022     		movs	r2, #0
+ 400 0004 8021     		movs	r1, #128
+ 401 0006 0D48     		ldr	r0, .L25
+ 402 0008 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 403              	.LVL43:
+ 165:Src/graphics.c **** 	HAL_Delay(20);
+ 404              		.loc 1 165 0
+ 405 000c 1420     		movs	r0, #20
+ 406 000e FFF7FEFF 		bl	HAL_Delay
+ 407              	.LVL44:
+ 166:Src/graphics.c **** 	HAL_GPIO_WritePin(IPS_RESET_GPIO_Port, IPS_RESET_Pin,0);
+ 408              		.loc 1 166 0
+ 409 0012 8025     		movs	r5, #128
+ 410 0014 2D02     		lsls	r5, r5, #8
+ 411 0016 9024     		movs	r4, #144
+ 412 0018 E405     		lsls	r4, r4, #23
+ 413 001a 0022     		movs	r2, #0
+ 414 001c 2900     		movs	r1, r5
+ 415 001e 2000     		movs	r0, r4
+ 416 0020 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 417              	.LVL45:
+ 167:Src/graphics.c **** 	HAL_Delay(20);
+ 418              		.loc 1 167 0
+ 419 0024 1420     		movs	r0, #20
+ 420 0026 FFF7FEFF 		bl	HAL_Delay
+ 421              	.LVL46:
+ 168:Src/graphics.c **** 	HAL_GPIO_WritePin(IPS_RESET_GPIO_Port, IPS_RESET_Pin,1);
+ 422              		.loc 1 168 0
+ 423 002a 0122     		movs	r2, #1
+ 424 002c 2900     		movs	r1, r5
+ 425 002e 2000     		movs	r0, r4
+ 426 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 427              	.LVL47:
+ 169:Src/graphics.c **** 	HAL_Delay(20);
+ 428              		.loc 1 169 0
+ 429 0034 1420     		movs	r0, #20
+ 430 0036 FFF7FEFF 		bl	HAL_Delay
+ 431              	.LVL48:
+ 170:Src/graphics.c **** }
+ARM GAS  /tmp/ccto0RGY.s 			page 12
+
+
+ 432              		.loc 1 170 0
+ 433              		@ sp needed
+ 434 003a 70BD     		pop	{r4, r5, r6, pc}
+ 435              	.L26:
+ 436              		.align	2
+ 437              	.L25:
+ 438 003c 00040048 		.word	1207960576
+ 439              		.cfi_endproc
+ 440              	.LFE51:
+ 442              		.section	.text.IPS_WriteData_Byte,"ax",%progbits
+ 443              		.align	1
+ 444              		.global	IPS_WriteData_Byte
+ 445              		.syntax unified
+ 446              		.code	16
+ 447              		.thumb_func
+ 448              		.fpu softvfp
+ 450              	IPS_WriteData_Byte:
+ 451              	.LFB52:
+ 171:Src/graphics.c **** 
+ 172:Src/graphics.c **** void IPS_WriteData_Byte(uint8_t data)
+ 173:Src/graphics.c **** {
+ 452              		.loc 1 173 0
+ 453              		.cfi_startproc
+ 454              		@ args = 0, pretend = 0, frame = 8
+ 455              		@ frame_needed = 0, uses_anonymous_args = 0
+ 456              	.LVL49:
+ 457 0000 30B5     		push	{r4, r5, lr}
+ 458              	.LCFI7:
+ 459              		.cfi_def_cfa_offset 12
+ 460              		.cfi_offset 4, -12
+ 461              		.cfi_offset 5, -8
+ 462              		.cfi_offset 14, -4
+ 463 0002 83B0     		sub	sp, sp, #12
+ 464              	.LCFI8:
+ 465              		.cfi_def_cfa_offset 24
+ 466 0004 6B46     		mov	r3, sp
+ 467 0006 DC1D     		adds	r4, r3, #7
+ 468 0008 D871     		strb	r0, [r3, #7]
+ 174:Src/graphics.c **** 	HAL_GPIO_WritePin(IPS_CS_GPIO_Port, IPS_CS_Pin, 0);
+ 469              		.loc 1 174 0
+ 470 000a 094D     		ldr	r5, .L28
+ 471 000c 0022     		movs	r2, #0
+ 472 000e 8021     		movs	r1, #128
+ 473 0010 2800     		movs	r0, r5
+ 474              	.LVL50:
+ 475 0012 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 476              	.LVL51:
+ 175:Src/graphics.c **** 	HAL_GPIO_WritePin(IPS_DC_GPIO_Port, IPS_DC_Pin, 1);
+ 477              		.loc 1 175 0
+ 478 0016 0122     		movs	r2, #1
+ 479 0018 4021     		movs	r1, #64
+ 480 001a 2800     		movs	r0, r5
+ 481 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 482              	.LVL52:
+ 176:Src/graphics.c **** 	HAL_SPI_Transmit_DMA(&hspi1, (uint8_t *)&data, 1);
+ 483              		.loc 1 176 0
+ 484 0020 0122     		movs	r2, #1
+ARM GAS  /tmp/ccto0RGY.s 			page 13
+
+
+ 485 0022 2100     		movs	r1, r4
+ 486 0024 0348     		ldr	r0, .L28+4
+ 487 0026 FFF7FEFF 		bl	HAL_SPI_Transmit_DMA
+ 488              	.LVL53:
+ 177:Src/graphics.c **** }
+ 489              		.loc 1 177 0
+ 490 002a 03B0     		add	sp, sp, #12
+ 491              		@ sp needed
+ 492 002c 30BD     		pop	{r4, r5, pc}
+ 493              	.L29:
+ 494 002e C046     		.align	2
+ 495              	.L28:
+ 496 0030 00040048 		.word	1207960576
+ 497 0034 00000000 		.word	hspi1
+ 498              		.cfi_endproc
+ 499              	.LFE52:
+ 501              		.section	.text.IPS_WriteData_Word,"ax",%progbits
+ 502              		.align	1
+ 503              		.global	IPS_WriteData_Word
+ 504              		.syntax unified
+ 505              		.code	16
+ 506              		.thumb_func
+ 507              		.fpu softvfp
+ 509              	IPS_WriteData_Word:
+ 510              	.LFB53:
+ 178:Src/graphics.c **** 
+ 179:Src/graphics.c ****  void IPS_WriteData_Word(uint16_t data)
+ 180:Src/graphics.c **** {
+ 511              		.loc 1 180 0
+ 512              		.cfi_startproc
+ 513              		@ args = 0, pretend = 0, frame = 8
+ 514              		@ frame_needed = 0, uses_anonymous_args = 0
+ 515              	.LVL54:
+ 516 0000 30B5     		push	{r4, r5, lr}
+ 517              	.LCFI9:
+ 518              		.cfi_def_cfa_offset 12
+ 519              		.cfi_offset 4, -12
+ 520              		.cfi_offset 5, -8
+ 521              		.cfi_offset 14, -4
+ 522 0002 83B0     		sub	sp, sp, #12
+ 523              	.LCFI10:
+ 524              		.cfi_def_cfa_offset 24
+ 525 0004 6B46     		mov	r3, sp
+ 526 0006 9C1D     		adds	r4, r3, #6
+ 527 0008 D880     		strh	r0, [r3, #6]
+ 181:Src/graphics.c **** 	HAL_GPIO_WritePin(IPS_CS_GPIO_Port, IPS_CS_Pin, 0);
+ 528              		.loc 1 181 0
+ 529 000a 094D     		ldr	r5, .L31
+ 530 000c 0022     		movs	r2, #0
+ 531 000e 8021     		movs	r1, #128
+ 532 0010 2800     		movs	r0, r5
+ 533              	.LVL55:
+ 534 0012 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 535              	.LVL56:
+ 182:Src/graphics.c **** 	HAL_GPIO_WritePin(IPS_DC_GPIO_Port, IPS_DC_Pin, 1);
+ 536              		.loc 1 182 0
+ 537 0016 0122     		movs	r2, #1
+ARM GAS  /tmp/ccto0RGY.s 			page 14
+
+
+ 538 0018 4021     		movs	r1, #64
+ 539 001a 2800     		movs	r0, r5
+ 540 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 541              	.LVL57:
+ 183:Src/graphics.c **** 	HAL_SPI_Transmit_DMA(&hspi1, (uint16_t *)&data, 2);
+ 542              		.loc 1 183 0
+ 543 0020 0222     		movs	r2, #2
+ 544 0022 2100     		movs	r1, r4
+ 545 0024 0348     		ldr	r0, .L31+4
+ 546 0026 FFF7FEFF 		bl	HAL_SPI_Transmit_DMA
+ 547              	.LVL58:
+ 184:Src/graphics.c **** }
+ 548              		.loc 1 184 0
+ 549 002a 03B0     		add	sp, sp, #12
+ 550              		@ sp needed
+ 551 002c 30BD     		pop	{r4, r5, pc}
+ 552              	.L32:
+ 553 002e C046     		.align	2
+ 554              	.L31:
+ 555 0030 00040048 		.word	1207960576
+ 556 0034 00000000 		.word	hspi1
+ 557              		.cfi_endproc
+ 558              	.LFE53:
+ 560              		.section	.text.IPS_WriteReg,"ax",%progbits
+ 561              		.align	1
+ 562              		.global	IPS_WriteReg
+ 563              		.syntax unified
+ 564              		.code	16
+ 565              		.thumb_func
+ 566              		.fpu softvfp
+ 568              	IPS_WriteReg:
+ 569              	.LFB54:
+ 185:Src/graphics.c **** 
+ 186:Src/graphics.c **** void IPS_WriteReg(uint8_t data)
+ 187:Src/graphics.c **** {
+ 570              		.loc 1 187 0
+ 571              		.cfi_startproc
+ 572              		@ args = 0, pretend = 0, frame = 8
+ 573              		@ frame_needed = 0, uses_anonymous_args = 0
+ 574              	.LVL59:
+ 575 0000 30B5     		push	{r4, r5, lr}
+ 576              	.LCFI11:
+ 577              		.cfi_def_cfa_offset 12
+ 578              		.cfi_offset 4, -12
+ 579              		.cfi_offset 5, -8
+ 580              		.cfi_offset 14, -4
+ 581 0002 83B0     		sub	sp, sp, #12
+ 582              	.LCFI12:
+ 583              		.cfi_def_cfa_offset 24
+ 584 0004 6B46     		mov	r3, sp
+ 585 0006 DC1D     		adds	r4, r3, #7
+ 586 0008 D871     		strb	r0, [r3, #7]
+ 188:Src/graphics.c **** 	HAL_GPIO_WritePin(IPS_CS_GPIO_Port, IPS_CS_Pin, 0);
+ 587              		.loc 1 188 0
+ 588 000a 094D     		ldr	r5, .L34
+ 589 000c 0022     		movs	r2, #0
+ 590 000e 8021     		movs	r1, #128
+ARM GAS  /tmp/ccto0RGY.s 			page 15
+
+
+ 591 0010 2800     		movs	r0, r5
+ 592              	.LVL60:
+ 593 0012 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 594              	.LVL61:
+ 189:Src/graphics.c **** 	HAL_GPIO_WritePin(IPS_DC_GPIO_Port, IPS_DC_Pin, 0);
+ 595              		.loc 1 189 0
+ 596 0016 0022     		movs	r2, #0
+ 597 0018 4021     		movs	r1, #64
+ 598 001a 2800     		movs	r0, r5
+ 599 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 600              	.LVL62:
+ 190:Src/graphics.c **** 	HAL_SPI_Transmit_DMA(&hspi1, (uint8_t *)&data, 1);
+ 601              		.loc 1 190 0
+ 602 0020 0122     		movs	r2, #1
+ 603 0022 2100     		movs	r1, r4
+ 604 0024 0348     		ldr	r0, .L34+4
+ 605 0026 FFF7FEFF 		bl	HAL_SPI_Transmit_DMA
+ 606              	.LVL63:
+ 191:Src/graphics.c **** }
+ 607              		.loc 1 191 0
+ 608 002a 03B0     		add	sp, sp, #12
+ 609              		@ sp needed
+ 610 002c 30BD     		pop	{r4, r5, pc}
+ 611              	.L35:
+ 612 002e C046     		.align	2
+ 613              	.L34:
+ 614 0030 00040048 		.word	1207960576
+ 615 0034 00000000 		.word	hspi1
+ 616              		.cfi_endproc
+ 617              	.LFE54:
+ 619              		.section	.text.IPS_SetCursor,"ax",%progbits
+ 620              		.align	1
+ 621              		.global	IPS_SetCursor
+ 622              		.syntax unified
+ 623              		.code	16
+ 624              		.thumb_func
+ 625              		.fpu softvfp
+ 627              	IPS_SetCursor:
+ 628              	.LFB49:
+ 132:Src/graphics.c **** 	Xstart = Xstart + 1;
+ 629              		.loc 1 132 0
+ 630              		.cfi_startproc
+ 631              		@ args = 0, pretend = 0, frame = 0
+ 632              		@ frame_needed = 0, uses_anonymous_args = 0
+ 633              	.LVL64:
+ 634 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 635              	.LCFI13:
+ 636              		.cfi_def_cfa_offset 24
+ 637              		.cfi_offset 3, -24
+ 638              		.cfi_offset 4, -20
+ 639              		.cfi_offset 5, -16
+ 640              		.cfi_offset 6, -12
+ 641              		.cfi_offset 7, -8
+ 642              		.cfi_offset 14, -4
+ 133:Src/graphics.c **** 	Xend = Xend + 1;
+ 643              		.loc 1 133 0
+ 644 0002 0130     		adds	r0, r0, #1
+ARM GAS  /tmp/ccto0RGY.s 			page 16
+
+
+ 645              	.LVL65:
+ 646 0004 87B2     		uxth	r7, r0
+ 647              	.LVL66:
+ 134:Src/graphics.c **** 	Ystart = Ystart + 26;
+ 648              		.loc 1 134 0
+ 649 0006 0132     		adds	r2, r2, #1
+ 650              	.LVL67:
+ 651 0008 96B2     		uxth	r6, r2
+ 652              	.LVL68:
+ 135:Src/graphics.c **** 	Yend = Yend+26;
+ 653              		.loc 1 135 0
+ 654 000a 1A31     		adds	r1, r1, #26
+ 655              	.LVL69:
+ 656 000c 8DB2     		uxth	r5, r1
+ 657              	.LVL70:
+ 136:Src/graphics.c **** 	IPS_WriteReg(0x2a);
+ 658              		.loc 1 136 0
+ 659 000e 1A33     		adds	r3, r3, #26
+ 660              	.LVL71:
+ 661 0010 9CB2     		uxth	r4, r3
+ 662              	.LVL72:
+ 137:Src/graphics.c **** 	IPS_WriteData_Byte(Xstart>>8);
+ 663              		.loc 1 137 0
+ 664 0012 2A20     		movs	r0, #42
+ 665 0014 FFF7FEFF 		bl	IPS_WriteReg
+ 666              	.LVL73:
+ 138:Src/graphics.c **** 	IPS_WriteData_Byte(Xstart);
+ 667              		.loc 1 138 0
+ 668 0018 380A     		lsrs	r0, r7, #8
+ 669 001a FFF7FEFF 		bl	IPS_WriteData_Byte
+ 670              	.LVL74:
+ 139:Src/graphics.c **** 	IPS_WriteData_Byte(Xend >>8);
+ 671              		.loc 1 139 0
+ 672 001e F8B2     		uxtb	r0, r7
+ 673 0020 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 674              	.LVL75:
+ 140:Src/graphics.c **** 	IPS_WriteData_Byte(Xend );
+ 675              		.loc 1 140 0
+ 676 0024 300A     		lsrs	r0, r6, #8
+ 677 0026 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 678              	.LVL76:
+ 141:Src/graphics.c **** 
+ 679              		.loc 1 141 0
+ 680 002a F0B2     		uxtb	r0, r6
+ 681 002c FFF7FEFF 		bl	IPS_WriteData_Byte
+ 682              	.LVL77:
+ 143:Src/graphics.c **** 	IPS_WriteData_Byte(Ystart>>8);
+ 683              		.loc 1 143 0
+ 684 0030 2B20     		movs	r0, #43
+ 685 0032 FFF7FEFF 		bl	IPS_WriteReg
+ 686              	.LVL78:
+ 144:Src/graphics.c **** 	IPS_WriteData_Byte(Ystart);
+ 687              		.loc 1 144 0
+ 688 0036 280A     		lsrs	r0, r5, #8
+ 689 0038 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 690              	.LVL79:
+ 145:Src/graphics.c **** 	IPS_WriteData_Byte(Yend>>8);
+ARM GAS  /tmp/ccto0RGY.s 			page 17
+
+
+ 691              		.loc 1 145 0
+ 692 003c E8B2     		uxtb	r0, r5
+ 693 003e FFF7FEFF 		bl	IPS_WriteData_Byte
+ 694              	.LVL80:
+ 146:Src/graphics.c **** 	IPS_WriteData_Byte(Yend);
+ 695              		.loc 1 146 0
+ 696 0042 200A     		lsrs	r0, r4, #8
+ 697 0044 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 698              	.LVL81:
+ 147:Src/graphics.c **** 
+ 699              		.loc 1 147 0
+ 700 0048 E0B2     		uxtb	r0, r4
+ 701 004a FFF7FEFF 		bl	IPS_WriteData_Byte
+ 702              	.LVL82:
+ 149:Src/graphics.c **** }
+ 703              		.loc 1 149 0
+ 704 004e 2C20     		movs	r0, #44
+ 705 0050 FFF7FEFF 		bl	IPS_WriteReg
+ 706              	.LVL83:
+ 150:Src/graphics.c **** 
+ 707              		.loc 1 150 0
+ 708              		@ sp needed
+ 709              	.LVL84:
+ 710              	.LVL85:
+ 711              	.LVL86:
+ 712              	.LVL87:
+ 713 0054 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 714              		.cfi_endproc
+ 715              	.LFE49:
+ 717              		.section	.text.IPS_WriteBuf,"ax",%progbits
+ 718              		.align	1
+ 719              		.global	IPS_WriteBuf
+ 720              		.syntax unified
+ 721              		.code	16
+ 722              		.thumb_func
+ 723              		.fpu softvfp
+ 725              	IPS_WriteBuf:
+ 726              	.LFB43:
+  56:Src/graphics.c **** 	IPS_SetCursor(x,y,x+(17*8)-1,y+24-1);
+ 727              		.loc 1 56 0
+ 728              		.cfi_startproc
+ 729              		@ args = 0, pretend = 0, frame = 0
+ 730              		@ frame_needed = 0, uses_anonymous_args = 0
+ 731              	.LVL88:
+ 732 0000 10B5     		push	{r4, lr}
+ 733              	.LCFI14:
+ 734              		.cfi_def_cfa_offset 8
+ 735              		.cfi_offset 4, -8
+ 736              		.cfi_offset 14, -4
+  57:Src/graphics.c ****   HAL_GPIO_WritePin(IPS_CS_GPIO_Port, IPS_CS_Pin, 0);
+ 737              		.loc 1 57 0
+ 738 0002 0B00     		movs	r3, r1
+ 739 0004 1733     		adds	r3, r3, #23
+ 740 0006 9BB2     		uxth	r3, r3
+ 741 0008 0200     		movs	r2, r0
+ 742 000a 8732     		adds	r2, r2, #135
+ 743 000c 92B2     		uxth	r2, r2
+ARM GAS  /tmp/ccto0RGY.s 			page 18
+
+
+ 744 000e FFF7FEFF 		bl	IPS_SetCursor
+ 745              	.LVL89:
+  58:Src/graphics.c ****   HAL_GPIO_WritePin(IPS_DC_GPIO_Port, IPS_DC_Pin, 1);
+ 746              		.loc 1 58 0
+ 747 0012 084C     		ldr	r4, .L38
+ 748 0014 0022     		movs	r2, #0
+ 749 0016 8021     		movs	r1, #128
+ 750 0018 2000     		movs	r0, r4
+ 751 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 752              	.LVL90:
+  59:Src/graphics.c **** 	HAL_SPI_Transmit_DMA(&hspi1, (uint16_t *)&IPS.text_buf, ((24*(17*8))*2)-1);
+ 753              		.loc 1 59 0
+ 754 001e 0122     		movs	r2, #1
+ 755 0020 4021     		movs	r1, #64
+ 756 0022 2000     		movs	r0, r4
+ 757 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 758              	.LVL91:
+  60:Src/graphics.c **** }
+ 759              		.loc 1 60 0
+ 760 0028 034A     		ldr	r2, .L38+4
+ 761 002a 0449     		ldr	r1, .L38+8
+ 762 002c 0448     		ldr	r0, .L38+12
+ 763 002e FFF7FEFF 		bl	HAL_SPI_Transmit_DMA
+ 764              	.LVL92:
+  61:Src/graphics.c **** 
+ 765              		.loc 1 61 0
+ 766              		@ sp needed
+ 767 0032 10BD     		pop	{r4, pc}
+ 768              	.L39:
+ 769              		.align	2
+ 770              	.L38:
+ 771 0034 00040048 		.word	1207960576
+ 772 0038 7F190000 		.word	6527
+ 773 003c 0A000000 		.word	IPS+10
+ 774 0040 00000000 		.word	hspi1
+ 775              		.cfi_endproc
+ 776              	.LFE43:
+ 778              		.section	.text.IPS_SetUWORD,"ax",%progbits
+ 779              		.align	1
+ 780              		.global	IPS_SetUWORD
+ 781              		.syntax unified
+ 782              		.code	16
+ 783              		.thumb_func
+ 784              		.fpu softvfp
+ 786              	IPS_SetUWORD:
+ 787              	.LFB48:
+ 126:Src/graphics.c **** 	IPS_SetCursor(x,y,x,y);
+ 788              		.loc 1 126 0
+ 789              		.cfi_startproc
+ 790              		@ args = 0, pretend = 0, frame = 0
+ 791              		@ frame_needed = 0, uses_anonymous_args = 0
+ 792              	.LVL93:
+ 793 0000 10B5     		push	{r4, lr}
+ 794              	.LCFI15:
+ 795              		.cfi_def_cfa_offset 8
+ 796              		.cfi_offset 4, -8
+ 797              		.cfi_offset 14, -4
+ARM GAS  /tmp/ccto0RGY.s 			page 19
+
+
+ 798 0002 1400     		movs	r4, r2
+ 127:Src/graphics.c **** 	IPS_WriteData_Word(Color);
+ 799              		.loc 1 127 0
+ 800 0004 0B00     		movs	r3, r1
+ 801 0006 0200     		movs	r2, r0
+ 802              	.LVL94:
+ 803 0008 FFF7FEFF 		bl	IPS_SetCursor
+ 804              	.LVL95:
+ 128:Src/graphics.c **** }
+ 805              		.loc 1 128 0
+ 806 000c 2000     		movs	r0, r4
+ 807 000e FFF7FEFF 		bl	IPS_WriteData_Word
+ 808              	.LVL96:
+ 129:Src/graphics.c **** 
+ 809              		.loc 1 129 0
+ 810              		@ sp needed
+ 811 0012 10BD     		pop	{r4, pc}
+ 812              		.cfi_endproc
+ 813              	.LFE48:
+ 815              		.section	.text.IPS_SetPixel,"ax",%progbits
+ 816              		.align	1
+ 817              		.global	IPS_SetPixel
+ 818              		.syntax unified
+ 819              		.code	16
+ 820              		.thumb_func
+ 821              		.fpu softvfp
+ 823              	IPS_SetPixel:
+ 824              	.LFB47:
+ 120:Src/graphics.c ****   if(Xpoint > IPS_WIDTH-1 || Ypoint > IPS_HEIGHT-1) return;
+ 825              		.loc 1 120 0
+ 826              		.cfi_startproc
+ 827              		@ args = 0, pretend = 0, frame = 0
+ 828              		@ frame_needed = 0, uses_anonymous_args = 0
+ 829              	.LVL97:
+ 830 0000 10B5     		push	{r4, lr}
+ 831              	.LCFI16:
+ 832              		.cfi_def_cfa_offset 8
+ 833              		.cfi_offset 4, -8
+ 834              		.cfi_offset 14, -4
+ 121:Src/graphics.c ****   IPS_SetUWORD((IPS_WIDTH-1 - Xpoint - 1), (IPS_HEIGHT-1 - Ypoint - 1), Color);
+ 835              		.loc 1 121 0
+ 836 0002 9F28     		cmp	r0, #159
+ 837 0004 01D8     		bhi	.L41
+ 121:Src/graphics.c ****   IPS_SetUWORD((IPS_WIDTH-1 - Xpoint - 1), (IPS_HEIGHT-1 - Ypoint - 1), Color);
+ 838              		.loc 1 121 0 is_stmt 0 discriminator 1
+ 839 0006 4F29     		cmp	r1, #79
+ 840 0008 00D9     		bls	.L43
+ 841              	.LVL98:
+ 842              	.L41:
+ 123:Src/graphics.c **** 
+ 843              		.loc 1 123 0 is_stmt 1
+ 844              		@ sp needed
+ 845 000a 10BD     		pop	{r4, pc}
+ 846              	.LVL99:
+ 847              	.L43:
+ 122:Src/graphics.c **** }
+ 848              		.loc 1 122 0
+ARM GAS  /tmp/ccto0RGY.s 			page 20
+
+
+ 849 000c 4E23     		movs	r3, #78
+ 850 000e 591A     		subs	r1, r3, r1
+ 851              	.LVL100:
+ 852 0010 89B2     		uxth	r1, r1
+ 853 0012 9E23     		movs	r3, #158
+ 854 0014 181A     		subs	r0, r3, r0
+ 855              	.LVL101:
+ 856 0016 80B2     		uxth	r0, r0
+ 857 0018 FFF7FEFF 		bl	IPS_SetUWORD
+ 858              	.LVL102:
+ 859 001c F5E7     		b	.L41
+ 860              		.cfi_endproc
+ 861              	.LFE47:
+ 863              		.section	.text.IPS_DrawChar,"ax",%progbits
+ 864              		.align	1
+ 865              		.global	IPS_DrawChar
+ 866              		.syntax unified
+ 867              		.code	16
+ 868              		.thumb_func
+ 869              		.fpu softvfp
+ 871              	IPS_DrawChar:
+ 872              	.LFB46:
+  96:Src/graphics.c ****   uint16_t Page, Column;
+ 873              		.loc 1 96 0
+ 874              		.cfi_startproc
+ 875              		@ args = 8, pretend = 0, frame = 8
+ 876              		@ frame_needed = 0, uses_anonymous_args = 0
+ 877              	.LVL103:
+ 878 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 879              	.LCFI17:
+ 880              		.cfi_def_cfa_offset 20
+ 881              		.cfi_offset 4, -20
+ 882              		.cfi_offset 5, -16
+ 883              		.cfi_offset 6, -12
+ 884              		.cfi_offset 7, -8
+ 885              		.cfi_offset 14, -4
+ 886 0002 DE46     		mov	lr, fp
+ 887 0004 5746     		mov	r7, r10
+ 888 0006 4E46     		mov	r6, r9
+ 889 0008 C0B5     		push	{r6, r7, lr}
+ 890              	.LCFI18:
+ 891              		.cfi_def_cfa_offset 32
+ 892              		.cfi_offset 9, -32
+ 893              		.cfi_offset 10, -28
+ 894              		.cfi_offset 11, -24
+ 895 000a 82B0     		sub	sp, sp, #8
+ 896              	.LCFI19:
+ 897              		.cfi_def_cfa_offset 40
+ 898 000c 8246     		mov	r10, r0
+ 899 000e 8B46     		mov	fp, r1
+ 900 0010 1F00     		movs	r7, r3
+ 901 0012 0AAB     		add	r3, sp, #40
+ 902              	.LVL104:
+ 903 0014 1B88     		ldrh	r3, [r3]
+ 904              	.LVL105:
+ 905 0016 9946     		mov	r9, r3
+ 906 0018 0BAB     		add	r3, sp, #44
+ARM GAS  /tmp/ccto0RGY.s 			page 21
+
+
+ 907              	.LVL106:
+ 908 001a 1B88     		ldrh	r3, [r3]
+ 909              	.LVL107:
+ 910 001c 0193     		str	r3, [sp, #4]
+  99:Src/graphics.c **** 
+ 911              		.loc 1 99 0
+ 912 001e 9F28     		cmp	r0, #159
+ 913 0020 55D8     		bhi	.L44
+  99:Src/graphics.c **** 
+ 914              		.loc 1 99 0 is_stmt 0 discriminator 1
+ 915 0022 4F29     		cmp	r1, #79
+ 916 0024 53D8     		bhi	.L44
+ 101:Src/graphics.c ****   const unsigned char *ptr = &Font->table[Char_Offset];
+ 917              		.loc 1 101 0 is_stmt 1
+ 918 0026 203A     		subs	r2, r2, #32
+ 919              	.LVL108:
+ 920 0028 FD88     		ldrh	r5, [r7, #6]
+ 921 002a 6A43     		muls	r2, r5
+ 922 002c B988     		ldrh	r1, [r7, #4]
+ 923              	.LVL109:
+ 924 002e CD08     		lsrs	r5, r1, #3
+ 925 0030 0723     		movs	r3, #7
+ 926 0032 0B40     		ands	r3, r1
+ 927 0034 591E     		subs	r1, r3, #1
+ 928 0036 8B41     		sbcs	r3, r3, r1
+ 929 0038 ED18     		adds	r5, r5, r3
+ 930 003a 5543     		muls	r5, r2
+ 931              	.LVL110:
+ 102:Src/graphics.c **** 
+ 932              		.loc 1 102 0
+ 933 003c 3B68     		ldr	r3, [r7]
+ 934 003e 9C46     		mov	ip, r3
+ 935 0040 6544     		add	r5, r5, ip
+ 936              	.LVL111:
+ 104:Src/graphics.c ****     for (Column = 0; Column < Font->Width; Column ++ ) {
+ 937              		.loc 1 104 0
+ 938 0042 0026     		movs	r6, #0
+ 939 0044 3EE0     		b	.L46
+ 940              	.LVL112:
+ 941              	.L57:
+ 108:Src/graphics.c ****     } else {
+ 942              		.loc 1 108 0
+ 943 0046 2978     		ldrb	r1, [r5]
+ 944 0048 0722     		movs	r2, #7
+ 945 004a 2240     		ands	r2, r4
+ 946 004c 8023     		movs	r3, #128
+ 947 004e 1341     		asrs	r3, r3, r2
+ 948 0050 0B42     		tst	r3, r1
+ 949 0052 12D0     		beq	.L48
+ 108:Src/graphics.c ****     } else {
+ 950              		.loc 1 108 0 is_stmt 0 discriminator 1
+ 951 0054 5B46     		mov	r3, fp
+ 952 0056 F118     		adds	r1, r6, r3
+ 953 0058 89B2     		uxth	r1, r1
+ 954 005a 5346     		mov	r3, r10
+ 955 005c E018     		adds	r0, r4, r3
+ 956 005e 80B2     		uxth	r0, r0
+ARM GAS  /tmp/ccto0RGY.s 			page 22
+
+
+ 957 0060 019A     		ldr	r2, [sp, #4]
+ 958 0062 FFF7FEFF 		bl	IPS_SetPixel
+ 959              	.LVL113:
+ 960 0066 08E0     		b	.L48
+ 961              	.L49:
+ 111:Src/graphics.c ****       }
+ 962              		.loc 1 111 0 is_stmt 1
+ 963 0068 5B46     		mov	r3, fp
+ 964 006a F118     		adds	r1, r6, r3
+ 965 006c 89B2     		uxth	r1, r1
+ 966 006e 5346     		mov	r3, r10
+ 967 0070 E018     		adds	r0, r4, r3
+ 968 0072 80B2     		uxth	r0, r0
+ 969 0074 4A46     		mov	r2, r9
+ 970 0076 FFF7FEFF 		bl	IPS_SetPixel
+ 971              	.LVL114:
+ 972              	.L48:
+ 113:Src/graphics.c ****     }
+ 973              		.loc 1 113 0
+ 974 007a 0723     		movs	r3, #7
+ 975 007c 2340     		ands	r3, r4
+ 976 007e 072B     		cmp	r3, #7
+ 977 0080 19D0     		beq	.L55
+ 978              	.L50:
+ 105:Src/graphics.c **** 
+ 979              		.loc 1 105 0 discriminator 2
+ 980 0082 0134     		adds	r4, r4, #1
+ 981              	.LVL115:
+ 982 0084 A4B2     		uxth	r4, r4
+ 983              	.LVL116:
+ 984              	.L53:
+ 105:Src/graphics.c **** 
+ 985              		.loc 1 105 0 is_stmt 0 discriminator 1
+ 986 0086 BB88     		ldrh	r3, [r7, #4]
+ 987 0088 A342     		cmp	r3, r4
+ 988 008a 16D9     		bls	.L56
+ 107:Src/graphics.c ****       if (*ptr & (0x80 >> (Column % 8))) IPS_SetPixel(x + Column, y + Page, Color_Foreground);
+ 989              		.loc 1 107 0 is_stmt 1
+ 990 008c FC23     		movs	r3, #252
+ 991 008e DB00     		lsls	r3, r3, #3
+ 992 0090 9945     		cmp	r9, r3
+ 993 0092 D8D0     		beq	.L57
+ 110:Src/graphics.c ****       else IPS_SetPixel(x + Column, y + Page, Color_Background);
+ 994              		.loc 1 110 0
+ 995 0094 2978     		ldrb	r1, [r5]
+ 996 0096 0722     		movs	r2, #7
+ 997 0098 2240     		ands	r2, r4
+ 998 009a 8023     		movs	r3, #128
+ 999 009c 1341     		asrs	r3, r3, r2
+ 1000 009e 0B42     		tst	r3, r1
+ 1001 00a0 E2D0     		beq	.L49
+ 110:Src/graphics.c ****       else IPS_SetPixel(x + Column, y + Page, Color_Background);
+ 1002              		.loc 1 110 0 is_stmt 0 discriminator 1
+ 1003 00a2 5B46     		mov	r3, fp
+ 1004 00a4 F118     		adds	r1, r6, r3
+ 1005 00a6 89B2     		uxth	r1, r1
+ 1006 00a8 5346     		mov	r3, r10
+ARM GAS  /tmp/ccto0RGY.s 			page 23
+
+
+ 1007 00aa E018     		adds	r0, r4, r3
+ 1008 00ac 80B2     		uxth	r0, r0
+ 1009 00ae 019A     		ldr	r2, [sp, #4]
+ 1010 00b0 FFF7FEFF 		bl	IPS_SetPixel
+ 1011              	.LVL117:
+ 1012 00b4 E1E7     		b	.L48
+ 1013              	.L55:
+ 113:Src/graphics.c ****     }
+ 1014              		.loc 1 113 0 is_stmt 1 discriminator 1
+ 1015 00b6 0135     		adds	r5, r5, #1
+ 1016              	.LVL118:
+ 1017 00b8 E3E7     		b	.L50
+ 1018              	.L56:
+ 115:Src/graphics.c ****   }
+ 1019              		.loc 1 115 0
+ 1020 00ba 5B07     		lsls	r3, r3, #29
+ 1021 00bc 00D0     		beq	.L52
+ 115:Src/graphics.c ****   }
+ 1022              		.loc 1 115 0 is_stmt 0 discriminator 1
+ 1023 00be 0135     		adds	r5, r5, #1
+ 1024              	.LVL119:
+ 1025              	.L52:
+ 104:Src/graphics.c ****     for (Column = 0; Column < Font->Width; Column ++ ) {
+ 1026              		.loc 1 104 0 is_stmt 1 discriminator 2
+ 1027 00c0 0136     		adds	r6, r6, #1
+ 1028              	.LVL120:
+ 1029 00c2 B6B2     		uxth	r6, r6
+ 1030              	.LVL121:
+ 1031              	.L46:
+ 104:Src/graphics.c ****     for (Column = 0; Column < Font->Width; Column ++ ) {
+ 1032              		.loc 1 104 0 is_stmt 0 discriminator 1
+ 1033 00c4 FB88     		ldrh	r3, [r7, #6]
+ 1034 00c6 B342     		cmp	r3, r6
+ 1035 00c8 01D9     		bls	.L44
+ 105:Src/graphics.c **** 
+ 1036              		.loc 1 105 0 is_stmt 1
+ 1037 00ca 0024     		movs	r4, #0
+ 1038 00cc DBE7     		b	.L53
+ 1039              	.LVL122:
+ 1040              	.L44:
+ 117:Src/graphics.c **** 
+ 1041              		.loc 1 117 0
+ 1042 00ce 02B0     		add	sp, sp, #8
+ 1043              		@ sp needed
+ 1044              	.LVL123:
+ 1045 00d0 1CBC     		pop	{r2, r3, r4}
+ 1046 00d2 9146     		mov	r9, r2
+ 1047 00d4 9A46     		mov	r10, r3
+ 1048 00d6 A346     		mov	fp, r4
+ 1049 00d8 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1050              		.cfi_endproc
+ 1051              	.LFE46:
+ 1053              		.section	.text.IPS_DrawString,"ax",%progbits
+ 1054              		.align	1
+ 1055              		.global	IPS_DrawString
+ 1056              		.syntax unified
+ 1057              		.code	16
+ARM GAS  /tmp/ccto0RGY.s 			page 24
+
+
+ 1058              		.thumb_func
+ 1059              		.fpu softvfp
+ 1061              	IPS_DrawString:
+ 1062              	.LFB45:
+  70:Src/graphics.c ****   uint16_t _x = x;
+ 1063              		.loc 1 70 0
+ 1064              		.cfi_startproc
+ 1065              		@ args = 8, pretend = 0, frame = 8
+ 1066              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1067              	.LVL124:
+ 1068 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1069              	.LCFI20:
+ 1070              		.cfi_def_cfa_offset 20
+ 1071              		.cfi_offset 4, -20
+ 1072              		.cfi_offset 5, -16
+ 1073              		.cfi_offset 6, -12
+ 1074              		.cfi_offset 7, -8
+ 1075              		.cfi_offset 14, -4
+ 1076 0002 DE46     		mov	lr, fp
+ 1077 0004 5746     		mov	r7, r10
+ 1078 0006 80B5     		push	{r7, lr}
+ 1079              	.LCFI21:
+ 1080              		.cfi_def_cfa_offset 28
+ 1081              		.cfi_offset 10, -28
+ 1082              		.cfi_offset 11, -24
+ 1083 0008 85B0     		sub	sp, sp, #20
+ 1084              	.LCFI22:
+ 1085              		.cfi_def_cfa_offset 48
+ 1086 000a 0290     		str	r0, [sp, #8]
+ 1087 000c 0391     		str	r1, [sp, #12]
+ 1088 000e 1600     		movs	r6, r2
+ 1089 0010 1D00     		movs	r5, r3
+ 1090 0012 0CAB     		add	r3, sp, #48
+ 1091              	.LVL125:
+ 1092 0014 1B88     		ldrh	r3, [r3]
+ 1093              	.LVL126:
+ 1094 0016 9A46     		mov	r10, r3
+ 1095 0018 0DAB     		add	r3, sp, #52
+ 1096              	.LVL127:
+ 1097 001a 1B88     		ldrh	r3, [r3]
+ 1098              	.LVL128:
+ 1099 001c 9B46     		mov	fp, r3
+ 1100              	.LVL129:
+  74:Src/graphics.c **** 
+ 1101              		.loc 1 74 0
+ 1102 001e 9F28     		cmp	r0, #159
+ 1103 0020 23D8     		bhi	.L58
+  74:Src/graphics.c **** 
+ 1104              		.loc 1 74 0 is_stmt 0 discriminator 1
+ 1105 0022 4F29     		cmp	r1, #79
+ 1106 0024 21D8     		bhi	.L58
+  72:Src/graphics.c **** 
+ 1107              		.loc 1 72 0 is_stmt 1
+ 1108 0026 0F00     		movs	r7, r1
+  71:Src/graphics.c ****   uint16_t _y = y;
+ 1109              		.loc 1 71 0
+ 1110 0028 0400     		movs	r4, r0
+ARM GAS  /tmp/ccto0RGY.s 			page 25
+
+
+ 1111 002a 0CE0     		b	.L60
+ 1112              	.LVL130:
+ 1113              	.L62:
+  87:Src/graphics.c **** 
+ 1114              		.loc 1 87 0
+ 1115 002c 5B46     		mov	r3, fp
+ 1116 002e 0193     		str	r3, [sp, #4]
+ 1117 0030 5346     		mov	r3, r10
+ 1118 0032 0093     		str	r3, [sp]
+ 1119 0034 2B00     		movs	r3, r5
+ 1120 0036 3900     		movs	r1, r7
+ 1121 0038 2000     		movs	r0, r4
+ 1122 003a FFF7FEFF 		bl	IPS_DrawChar
+ 1123              	.LVL131:
+  89:Src/graphics.c **** 
+ 1124              		.loc 1 89 0
+ 1125 003e 0136     		adds	r6, r6, #1
+ 1126              	.LVL132:
+  91:Src/graphics.c ****   }
+ 1127              		.loc 1 91 0
+ 1128 0040 AB88     		ldrh	r3, [r5, #4]
+ 1129 0042 1C19     		adds	r4, r3, r4
+ 1130              	.LVL133:
+ 1131 0044 A4B2     		uxth	r4, r4
+ 1132              	.LVL134:
+ 1133              	.L60:
+  76:Src/graphics.c ****   if ((_x + Font->Width ) > IPS_WIDTH-1 ) {
+ 1134              		.loc 1 76 0
+ 1135 0046 3278     		ldrb	r2, [r6]
+ 1136 0048 002A     		cmp	r2, #0
+ 1137 004a 0ED0     		beq	.L58
+  77:Src/graphics.c ****   _x = x;
+ 1138              		.loc 1 77 0
+ 1139 004c AB88     		ldrh	r3, [r5, #4]
+ 1140 004e E318     		adds	r3, r4, r3
+ 1141 0050 9F2B     		cmp	r3, #159
+ 1142 0052 03DD     		ble	.L61
+ 1143              	.LVL135:
+  79:Src/graphics.c ****   }
+ 1144              		.loc 1 79 0
+ 1145 0054 EB88     		ldrh	r3, [r5, #6]
+ 1146 0056 DF19     		adds	r7, r3, r7
+ 1147              	.LVL136:
+ 1148 0058 BFB2     		uxth	r7, r7
+ 1149              	.LVL137:
+  78:Src/graphics.c ****   _y += Font->Height;
+ 1150              		.loc 1 78 0
+ 1151 005a 029C     		ldr	r4, [sp, #8]
+ 1152              	.LVL138:
+ 1153              	.L61:
+  82:Src/graphics.c ****   _x = x;
+ 1154              		.loc 1 82 0
+ 1155 005c EB88     		ldrh	r3, [r5, #6]
+ 1156 005e FB18     		adds	r3, r7, r3
+ 1157 0060 4F2B     		cmp	r3, #79
+ 1158 0062 E3DD     		ble	.L62
+  84:Src/graphics.c ****   }
+ARM GAS  /tmp/ccto0RGY.s 			page 26
+
+
+ 1159              		.loc 1 84 0
+ 1160 0064 039F     		ldr	r7, [sp, #12]
+ 1161              	.LVL139:
+  83:Src/graphics.c ****   _y = y;
+ 1162              		.loc 1 83 0
+ 1163 0066 029C     		ldr	r4, [sp, #8]
+ 1164              	.LVL140:
+ 1165 0068 E0E7     		b	.L62
+ 1166              	.L58:
+  93:Src/graphics.c **** 
+ 1167              		.loc 1 93 0
+ 1168 006a 05B0     		add	sp, sp, #20
+ 1169              		@ sp needed
+ 1170              	.LVL141:
+ 1171              	.LVL142:
+ 1172 006c 0CBC     		pop	{r2, r3}
+ 1173 006e 9246     		mov	r10, r2
+ 1174 0070 9B46     		mov	fp, r3
+ 1175 0072 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1176              		.cfi_endproc
+ 1177              	.LFE45:
+ 1179              		.section	.text.IPS_Clear,"ax",%progbits
+ 1180              		.align	1
+ 1181              		.global	IPS_Clear
+ 1182              		.syntax unified
+ 1183              		.code	16
+ 1184              		.thumb_func
+ 1185              		.fpu softvfp
+ 1187              	IPS_Clear:
+ 1188              	.LFB50:
+ 153:Src/graphics.c ****   IPS_SetCursor(0, 0, IPS_WIDTH-1, IPS_HEIGHT-1);
+ 1189              		.loc 1 153 0
+ 1190              		.cfi_startproc
+ 1191              		@ args = 0, pretend = 0, frame = 0
+ 1192              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1193              	.LVL143:
+ 1194 0000 70B5     		push	{r4, r5, r6, lr}
+ 1195              	.LCFI23:
+ 1196              		.cfi_def_cfa_offset 16
+ 1197              		.cfi_offset 4, -16
+ 1198              		.cfi_offset 5, -12
+ 1199              		.cfi_offset 6, -8
+ 1200              		.cfi_offset 14, -4
+ 1201 0002 0500     		movs	r5, r0
+ 154:Src/graphics.c ****   for(uint16_t i = 0; i < IPS_WIDTH; i++){
+ 1202              		.loc 1 154 0
+ 1203 0004 4F23     		movs	r3, #79
+ 1204 0006 9F22     		movs	r2, #159
+ 1205 0008 0021     		movs	r1, #0
+ 1206 000a 0020     		movs	r0, #0
+ 1207              	.LVL144:
+ 1208 000c FFF7FEFF 		bl	IPS_SetCursor
+ 1209              	.LVL145:
+ 1210              	.LBB6:
+ 155:Src/graphics.c ****     for(uint16_t j = 0; j < IPS_HEIGHT; j++){
+ 1211              		.loc 1 155 0
+ 1212 0010 0026     		movs	r6, #0
+ARM GAS  /tmp/ccto0RGY.s 			page 27
+
+
+ 1213 0012 08E0     		b	.L66
+ 1214              	.LVL146:
+ 1215              	.L67:
+ 1216              	.LBB7:
+ 157:Src/graphics.c ****     }
+ 1217              		.loc 1 157 0 discriminator 3
+ 1218 0014 2800     		movs	r0, r5
+ 1219 0016 FFF7FEFF 		bl	IPS_WriteData_Word
+ 1220              	.LVL147:
+ 156:Src/graphics.c ****       IPS_WriteData_Word(Color);
+ 1221              		.loc 1 156 0 discriminator 3
+ 1222 001a 0134     		adds	r4, r4, #1
+ 1223              	.LVL148:
+ 1224 001c A4B2     		uxth	r4, r4
+ 1225              	.LVL149:
+ 1226              	.L68:
+ 156:Src/graphics.c ****       IPS_WriteData_Word(Color);
+ 1227              		.loc 1 156 0 is_stmt 0 discriminator 1
+ 1228 001e 4F2C     		cmp	r4, #79
+ 1229 0020 F8D9     		bls	.L67
+ 1230              	.LBE7:
+ 155:Src/graphics.c ****     for(uint16_t j = 0; j < IPS_HEIGHT; j++){
+ 1231              		.loc 1 155 0 is_stmt 1 discriminator 2
+ 1232 0022 0136     		adds	r6, r6, #1
+ 1233              	.LVL150:
+ 1234 0024 B6B2     		uxth	r6, r6
+ 1235              	.LVL151:
+ 1236              	.L66:
+ 155:Src/graphics.c ****     for(uint16_t j = 0; j < IPS_HEIGHT; j++){
+ 1237              		.loc 1 155 0 is_stmt 0 discriminator 1
+ 1238 0026 9F2E     		cmp	r6, #159
+ 1239 0028 01D8     		bhi	.L70
+ 1240              	.LBB8:
+ 156:Src/graphics.c ****       IPS_WriteData_Word(Color);
+ 1241              		.loc 1 156 0 is_stmt 1
+ 1242 002a 0024     		movs	r4, #0
+ 1243 002c F7E7     		b	.L68
+ 1244              	.L70:
+ 1245              	.LBE8:
+ 1246              	.LBE6:
+ 160:Src/graphics.c **** 
+ 1247              		.loc 1 160 0
+ 1248              		@ sp needed
+ 1249              	.LVL152:
+ 1250 002e 70BD     		pop	{r4, r5, r6, pc}
+ 1251              		.cfi_endproc
+ 1252              	.LFE50:
+ 1254              		.section	.text.IPS_Init,"ax",%progbits
+ 1255              		.align	1
+ 1256              		.global	IPS_Init
+ 1257              		.syntax unified
+ 1258              		.code	16
+ 1259              		.thumb_func
+ 1260              		.fpu softvfp
+ 1262              	IPS_Init:
+ 1263              	.LFB55:
+ 192:Src/graphics.c **** 
+ARM GAS  /tmp/ccto0RGY.s 			page 28
+
+
+ 193:Src/graphics.c **** void IPS_Init(void)
+ 194:Src/graphics.c **** {
+ 1264              		.loc 1 194 0
+ 1265              		.cfi_startproc
+ 1266              		@ args = 0, pretend = 0, frame = 0
+ 1267              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1268 0000 10B5     		push	{r4, lr}
+ 1269              	.LCFI24:
+ 1270              		.cfi_def_cfa_offset 8
+ 1271              		.cfi_offset 4, -8
+ 1272              		.cfi_offset 14, -4
+ 195:Src/graphics.c **** 	IPS_Reset();
+ 1273              		.loc 1 195 0
+ 1274 0002 FFF7FEFF 		bl	IPS_Reset
+ 1275              	.LVL153:
+ 196:Src/graphics.c **** 
+ 197:Src/graphics.c **** 	IPS_WriteReg(0x11);//Sleep exit
+ 1276              		.loc 1 197 0
+ 1277 0006 1120     		movs	r0, #17
+ 1278 0008 FFF7FEFF 		bl	IPS_WriteReg
+ 1279              	.LVL154:
+ 198:Src/graphics.c **** 	HAL_Delay (120);
+ 1280              		.loc 1 198 0
+ 1281 000c 7820     		movs	r0, #120
+ 1282 000e FFF7FEFF 		bl	HAL_Delay
+ 1283              	.LVL155:
+ 199:Src/graphics.c **** 
+ 200:Src/graphics.c ****   IPS_WriteReg(0x21);
+ 1284              		.loc 1 200 0
+ 1285 0012 2120     		movs	r0, #33
+ 1286 0014 FFF7FEFF 		bl	IPS_WriteReg
+ 1287              	.LVL156:
+ 201:Src/graphics.c ****   IPS_WriteReg(0x21);
+ 1288              		.loc 1 201 0
+ 1289 0018 2120     		movs	r0, #33
+ 1290 001a FFF7FEFF 		bl	IPS_WriteReg
+ 1291              	.LVL157:
+ 202:Src/graphics.c **** 
+ 203:Src/graphics.c ****   IPS_WriteReg(0xB1);
+ 1292              		.loc 1 203 0
+ 1293 001e B120     		movs	r0, #177
+ 1294 0020 FFF7FEFF 		bl	IPS_WriteReg
+ 1295              	.LVL158:
+ 204:Src/graphics.c ****   IPS_WriteData_Byte(0x05);
+ 1296              		.loc 1 204 0
+ 1297 0024 0520     		movs	r0, #5
+ 1298 0026 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1299              	.LVL159:
+ 205:Src/graphics.c ****   IPS_WriteData_Byte(0x3A);
+ 1300              		.loc 1 205 0
+ 1301 002a 3A20     		movs	r0, #58
+ 1302 002c FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1303              	.LVL160:
+ 206:Src/graphics.c ****   IPS_WriteData_Byte(0x3A);
+ 1304              		.loc 1 206 0
+ 1305 0030 3A20     		movs	r0, #58
+ 1306 0032 FFF7FEFF 		bl	IPS_WriteData_Byte
+ARM GAS  /tmp/ccto0RGY.s 			page 29
+
+
+ 1307              	.LVL161:
+ 207:Src/graphics.c **** 
+ 208:Src/graphics.c ****   IPS_WriteReg(0xB2);
+ 1308              		.loc 1 208 0
+ 1309 0036 B220     		movs	r0, #178
+ 1310 0038 FFF7FEFF 		bl	IPS_WriteReg
+ 1311              	.LVL162:
+ 209:Src/graphics.c ****   IPS_WriteData_Byte(0x05);
+ 1312              		.loc 1 209 0
+ 1313 003c 0520     		movs	r0, #5
+ 1314 003e FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1315              	.LVL163:
+ 210:Src/graphics.c ****   IPS_WriteData_Byte(0x3A);
+ 1316              		.loc 1 210 0
+ 1317 0042 3A20     		movs	r0, #58
+ 1318 0044 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1319              	.LVL164:
+ 211:Src/graphics.c ****   IPS_WriteData_Byte(0x3A);
+ 1320              		.loc 1 211 0
+ 1321 0048 3A20     		movs	r0, #58
+ 1322 004a FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1323              	.LVL165:
+ 212:Src/graphics.c **** 
+ 213:Src/graphics.c ****   IPS_WriteReg(0xB3);
+ 1324              		.loc 1 213 0
+ 1325 004e B320     		movs	r0, #179
+ 1326 0050 FFF7FEFF 		bl	IPS_WriteReg
+ 1327              	.LVL166:
+ 214:Src/graphics.c ****   IPS_WriteData_Byte(0x05);
+ 1328              		.loc 1 214 0
+ 1329 0054 0520     		movs	r0, #5
+ 1330 0056 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1331              	.LVL167:
+ 215:Src/graphics.c ****   IPS_WriteData_Byte(0x3A);
+ 1332              		.loc 1 215 0
+ 1333 005a 3A20     		movs	r0, #58
+ 1334 005c FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1335              	.LVL168:
+ 216:Src/graphics.c ****   IPS_WriteData_Byte(0x3A);
+ 1336              		.loc 1 216 0
+ 1337 0060 3A20     		movs	r0, #58
+ 1338 0062 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1339              	.LVL169:
+ 217:Src/graphics.c ****   IPS_WriteData_Byte(0x05);
+ 1340              		.loc 1 217 0
+ 1341 0066 0520     		movs	r0, #5
+ 1342 0068 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1343              	.LVL170:
+ 218:Src/graphics.c ****   IPS_WriteData_Byte(0x3A);
+ 1344              		.loc 1 218 0
+ 1345 006c 3A20     		movs	r0, #58
+ 1346 006e FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1347              	.LVL171:
+ 219:Src/graphics.c ****   IPS_WriteData_Byte(0x3A);
+ 1348              		.loc 1 219 0
+ 1349 0072 3A20     		movs	r0, #58
+ 1350 0074 FFF7FEFF 		bl	IPS_WriteData_Byte
+ARM GAS  /tmp/ccto0RGY.s 			page 30
+
+
+ 1351              	.LVL172:
+ 220:Src/graphics.c **** 
+ 221:Src/graphics.c ****   IPS_WriteReg(0xB4);
+ 1352              		.loc 1 221 0
+ 1353 0078 B420     		movs	r0, #180
+ 1354 007a FFF7FEFF 		bl	IPS_WriteReg
+ 1355              	.LVL173:
+ 222:Src/graphics.c ****   IPS_WriteData_Byte(0x03);
+ 1356              		.loc 1 222 0
+ 1357 007e 0320     		movs	r0, #3
+ 1358 0080 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1359              	.LVL174:
+ 223:Src/graphics.c **** 
+ 224:Src/graphics.c ****   IPS_WriteReg(0xC0);
+ 1360              		.loc 1 224 0
+ 1361 0084 C020     		movs	r0, #192
+ 1362 0086 FFF7FEFF 		bl	IPS_WriteReg
+ 1363              	.LVL175:
+ 225:Src/graphics.c ****   IPS_WriteData_Byte(0x62);
+ 1364              		.loc 1 225 0
+ 1365 008a 6220     		movs	r0, #98
+ 1366 008c FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1367              	.LVL176:
+ 226:Src/graphics.c ****   IPS_WriteData_Byte(0x02);
+ 1368              		.loc 1 226 0
+ 1369 0090 0220     		movs	r0, #2
+ 1370 0092 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1371              	.LVL177:
+ 227:Src/graphics.c ****   IPS_WriteData_Byte(0x04);
+ 1372              		.loc 1 227 0
+ 1373 0096 0420     		movs	r0, #4
+ 1374 0098 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1375              	.LVL178:
+ 228:Src/graphics.c **** 
+ 229:Src/graphics.c ****   IPS_WriteReg(0xC1);
+ 1376              		.loc 1 229 0
+ 1377 009c C120     		movs	r0, #193
+ 1378 009e FFF7FEFF 		bl	IPS_WriteReg
+ 1379              	.LVL179:
+ 230:Src/graphics.c ****   IPS_WriteData_Byte(0xC0);
+ 1380              		.loc 1 230 0
+ 1381 00a2 C020     		movs	r0, #192
+ 1382 00a4 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1383              	.LVL180:
+ 231:Src/graphics.c **** 
+ 232:Src/graphics.c ****   IPS_WriteReg(0xC2);
+ 1384              		.loc 1 232 0
+ 1385 00a8 C220     		movs	r0, #194
+ 1386 00aa FFF7FEFF 		bl	IPS_WriteReg
+ 1387              	.LVL181:
+ 233:Src/graphics.c ****   IPS_WriteData_Byte(0x0D);
+ 1388              		.loc 1 233 0
+ 1389 00ae 0D20     		movs	r0, #13
+ 1390 00b0 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1391              	.LVL182:
+ 234:Src/graphics.c ****   IPS_WriteData_Byte(0x00);
+ 1392              		.loc 1 234 0
+ARM GAS  /tmp/ccto0RGY.s 			page 31
+
+
+ 1393 00b4 0020     		movs	r0, #0
+ 1394 00b6 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1395              	.LVL183:
+ 235:Src/graphics.c **** 
+ 236:Src/graphics.c ****   IPS_WriteReg(0xC3);
+ 1396              		.loc 1 236 0
+ 1397 00ba C320     		movs	r0, #195
+ 1398 00bc FFF7FEFF 		bl	IPS_WriteReg
+ 1399              	.LVL184:
+ 237:Src/graphics.c ****   IPS_WriteData_Byte(0x8D);
+ 1400              		.loc 1 237 0
+ 1401 00c0 8D20     		movs	r0, #141
+ 1402 00c2 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1403              	.LVL185:
+ 238:Src/graphics.c ****   IPS_WriteData_Byte(0x6A);
+ 1404              		.loc 1 238 0
+ 1405 00c6 6A20     		movs	r0, #106
+ 1406 00c8 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1407              	.LVL186:
+ 239:Src/graphics.c **** 
+ 240:Src/graphics.c ****   IPS_WriteReg(0xC4);
+ 1408              		.loc 1 240 0
+ 1409 00cc C420     		movs	r0, #196
+ 1410 00ce FFF7FEFF 		bl	IPS_WriteReg
+ 1411              	.LVL187:
+ 241:Src/graphics.c ****   IPS_WriteData_Byte(0x8D);
+ 1412              		.loc 1 241 0
+ 1413 00d2 8D20     		movs	r0, #141
+ 1414 00d4 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1415              	.LVL188:
+ 242:Src/graphics.c ****   IPS_WriteData_Byte(0xEE);
+ 1416              		.loc 1 242 0
+ 1417 00d8 EE20     		movs	r0, #238
+ 1418 00da FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1419              	.LVL189:
+ 243:Src/graphics.c **** 
+ 244:Src/graphics.c ****   IPS_WriteReg(0xC5);
+ 1420              		.loc 1 244 0
+ 1421 00de C520     		movs	r0, #197
+ 1422 00e0 FFF7FEFF 		bl	IPS_WriteReg
+ 1423              	.LVL190:
+ 245:Src/graphics.c ****   IPS_WriteData_Byte(0x0E);
+ 1424              		.loc 1 245 0
+ 1425 00e4 0E20     		movs	r0, #14
+ 1426 00e6 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1427              	.LVL191:
+ 246:Src/graphics.c **** 
+ 247:Src/graphics.c ****   IPS_WriteReg(0xE0);
+ 1428              		.loc 1 247 0
+ 1429 00ea E020     		movs	r0, #224
+ 1430 00ec FFF7FEFF 		bl	IPS_WriteReg
+ 1431              	.LVL192:
+ 248:Src/graphics.c ****   IPS_WriteData_Byte(0x10);
+ 1432              		.loc 1 248 0
+ 1433 00f0 1020     		movs	r0, #16
+ 1434 00f2 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1435              	.LVL193:
+ARM GAS  /tmp/ccto0RGY.s 			page 32
+
+
+ 249:Src/graphics.c ****   IPS_WriteData_Byte(0x0E);
+ 1436              		.loc 1 249 0
+ 1437 00f6 0E20     		movs	r0, #14
+ 1438 00f8 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1439              	.LVL194:
+ 250:Src/graphics.c ****   IPS_WriteData_Byte(0x02);
+ 1440              		.loc 1 250 0
+ 1441 00fc 0220     		movs	r0, #2
+ 1442 00fe FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1443              	.LVL195:
+ 251:Src/graphics.c ****   IPS_WriteData_Byte(0x03);
+ 1444              		.loc 1 251 0
+ 1445 0102 0320     		movs	r0, #3
+ 1446 0104 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1447              	.LVL196:
+ 252:Src/graphics.c ****   IPS_WriteData_Byte(0x07);
+ 1448              		.loc 1 252 0
+ 1449 0108 0720     		movs	r0, #7
+ 1450 010a FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1451              	.LVL197:
+ 253:Src/graphics.c ****   IPS_WriteData_Byte(0x0E);
+ 1452              		.loc 1 253 0
+ 1453 010e 0E20     		movs	r0, #14
+ 1454 0110 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1455              	.LVL198:
+ 254:Src/graphics.c ****   IPS_WriteData_Byte(0x07);
+ 1456              		.loc 1 254 0
+ 1457 0114 0720     		movs	r0, #7
+ 1458 0116 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1459              	.LVL199:
+ 255:Src/graphics.c ****   IPS_WriteData_Byte(0x02);
+ 1460              		.loc 1 255 0
+ 1461 011a 0220     		movs	r0, #2
+ 1462 011c FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1463              	.LVL200:
+ 256:Src/graphics.c ****   IPS_WriteData_Byte(0x0A);
+ 1464              		.loc 1 256 0
+ 1465 0120 0A20     		movs	r0, #10
+ 1466 0122 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1467              	.LVL201:
+ 257:Src/graphics.c ****   IPS_WriteData_Byte(0x12);
+ 1468              		.loc 1 257 0
+ 1469 0126 1220     		movs	r0, #18
+ 1470 0128 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1471              	.LVL202:
+ 258:Src/graphics.c ****   IPS_WriteData_Byte(0x27);
+ 1472              		.loc 1 258 0
+ 1473 012c 2720     		movs	r0, #39
+ 1474 012e FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1475              	.LVL203:
+ 259:Src/graphics.c ****   IPS_WriteData_Byte(0x37);
+ 1476              		.loc 1 259 0
+ 1477 0132 3720     		movs	r0, #55
+ 1478 0134 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1479              	.LVL204:
+ 260:Src/graphics.c ****   IPS_WriteData_Byte(0x00);
+ 1480              		.loc 1 260 0
+ARM GAS  /tmp/ccto0RGY.s 			page 33
+
+
+ 1481 0138 0020     		movs	r0, #0
+ 1482 013a FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1483              	.LVL205:
+ 261:Src/graphics.c ****   IPS_WriteData_Byte(0x0D);
+ 1484              		.loc 1 261 0
+ 1485 013e 0D20     		movs	r0, #13
+ 1486 0140 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1487              	.LVL206:
+ 262:Src/graphics.c ****   IPS_WriteData_Byte(0x0E);
+ 1488              		.loc 1 262 0
+ 1489 0144 0E20     		movs	r0, #14
+ 1490 0146 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1491              	.LVL207:
+ 263:Src/graphics.c ****   IPS_WriteData_Byte(0x10);
+ 1492              		.loc 1 263 0
+ 1493 014a 1020     		movs	r0, #16
+ 1494 014c FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1495              	.LVL208:
+ 264:Src/graphics.c **** 
+ 265:Src/graphics.c ****   IPS_WriteReg(0xE1);
+ 1496              		.loc 1 265 0
+ 1497 0150 E120     		movs	r0, #225
+ 1498 0152 FFF7FEFF 		bl	IPS_WriteReg
+ 1499              	.LVL209:
+ 266:Src/graphics.c ****   IPS_WriteData_Byte(0x10);
+ 1500              		.loc 1 266 0
+ 1501 0156 1020     		movs	r0, #16
+ 1502 0158 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1503              	.LVL210:
+ 267:Src/graphics.c ****   IPS_WriteData_Byte(0x0E);
+ 1504              		.loc 1 267 0
+ 1505 015c 0E20     		movs	r0, #14
+ 1506 015e FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1507              	.LVL211:
+ 268:Src/graphics.c ****   IPS_WriteData_Byte(0x03);
+ 1508              		.loc 1 268 0
+ 1509 0162 0320     		movs	r0, #3
+ 1510 0164 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1511              	.LVL212:
+ 269:Src/graphics.c ****   IPS_WriteData_Byte(0x03);
+ 1512              		.loc 1 269 0
+ 1513 0168 0320     		movs	r0, #3
+ 1514 016a FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1515              	.LVL213:
+ 270:Src/graphics.c ****   IPS_WriteData_Byte(0x0F);
+ 1516              		.loc 1 270 0
+ 1517 016e 0F20     		movs	r0, #15
+ 1518 0170 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1519              	.LVL214:
+ 271:Src/graphics.c ****   IPS_WriteData_Byte(0x06);
+ 1520              		.loc 1 271 0
+ 1521 0174 0620     		movs	r0, #6
+ 1522 0176 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1523              	.LVL215:
+ 272:Src/graphics.c ****   IPS_WriteData_Byte(0x02);
+ 1524              		.loc 1 272 0
+ 1525 017a 0220     		movs	r0, #2
+ARM GAS  /tmp/ccto0RGY.s 			page 34
+
+
+ 1526 017c FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1527              	.LVL216:
+ 273:Src/graphics.c ****   IPS_WriteData_Byte(0x08);
+ 1528              		.loc 1 273 0
+ 1529 0180 0820     		movs	r0, #8
+ 1530 0182 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1531              	.LVL217:
+ 274:Src/graphics.c ****   IPS_WriteData_Byte(0x0A);
+ 1532              		.loc 1 274 0
+ 1533 0186 0A20     		movs	r0, #10
+ 1534 0188 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1535              	.LVL218:
+ 275:Src/graphics.c ****   IPS_WriteData_Byte(0x13);
+ 1536              		.loc 1 275 0
+ 1537 018c 1320     		movs	r0, #19
+ 1538 018e FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1539              	.LVL219:
+ 276:Src/graphics.c ****   IPS_WriteData_Byte(0x26);
+ 1540              		.loc 1 276 0
+ 1541 0192 2620     		movs	r0, #38
+ 1542 0194 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1543              	.LVL220:
+ 277:Src/graphics.c ****   IPS_WriteData_Byte(0x36);
+ 1544              		.loc 1 277 0
+ 1545 0198 3620     		movs	r0, #54
+ 1546 019a FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1547              	.LVL221:
+ 278:Src/graphics.c ****   IPS_WriteData_Byte(0x00);
+ 1548              		.loc 1 278 0
+ 1549 019e 0020     		movs	r0, #0
+ 1550 01a0 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1551              	.LVL222:
+ 279:Src/graphics.c ****   IPS_WriteData_Byte(0x0D);
+ 1552              		.loc 1 279 0
+ 1553 01a4 0D20     		movs	r0, #13
+ 1554 01a6 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1555              	.LVL223:
+ 280:Src/graphics.c ****   IPS_WriteData_Byte(0x0E);
+ 1556              		.loc 1 280 0
+ 1557 01aa 0E20     		movs	r0, #14
+ 1558 01ac FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1559              	.LVL224:
+ 281:Src/graphics.c ****   IPS_WriteData_Byte(0x10);
+ 1560              		.loc 1 281 0
+ 1561 01b0 1020     		movs	r0, #16
+ 1562 01b2 FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1563              	.LVL225:
+ 282:Src/graphics.c **** 
+ 283:Src/graphics.c ****   IPS_WriteReg(0x3A);
+ 1564              		.loc 1 283 0
+ 1565 01b6 3A20     		movs	r0, #58
+ 1566 01b8 FFF7FEFF 		bl	IPS_WriteReg
+ 1567              	.LVL226:
+ 284:Src/graphics.c ****   IPS_WriteData_Byte(0x05);
+ 1568              		.loc 1 284 0
+ 1569 01bc 0520     		movs	r0, #5
+ 1570 01be FFF7FEFF 		bl	IPS_WriteData_Byte
+ARM GAS  /tmp/ccto0RGY.s 			page 35
+
+
+ 1571              	.LVL227:
+ 285:Src/graphics.c **** 
+ 286:Src/graphics.c ****   IPS_WriteReg(0x36);
+ 1572              		.loc 1 286 0
+ 1573 01c2 3620     		movs	r0, #54
+ 1574 01c4 FFF7FEFF 		bl	IPS_WriteReg
+ 1575              	.LVL228:
+ 287:Src/graphics.c ****   IPS_WriteData_Byte(0xA8);
+ 1576              		.loc 1 287 0
+ 1577 01c8 A820     		movs	r0, #168
+ 1578 01ca FFF7FEFF 		bl	IPS_WriteData_Byte
+ 1579              	.LVL229:
+ 288:Src/graphics.c **** 
+ 289:Src/graphics.c ****   IPS_WriteReg(0x29);
+ 1580              		.loc 1 289 0
+ 1581 01ce 2920     		movs	r0, #41
+ 1582 01d0 FFF7FEFF 		bl	IPS_WriteReg
+ 1583              	.LVL230:
+ 290:Src/graphics.c **** }
+ 1584              		.loc 1 290 0
+ 1585              		@ sp needed
+ 1586 01d4 10BD     		pop	{r4, pc}
+ 1587              		.cfi_endproc
+ 1588              	.LFE55:
+ 1590              		.comm	IPS,6540,4
+ 1591              		.text
+ 1592              	.Letext0:
+ 1593              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 1594              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 1595              		.file 4 "Inc/fonts.h"
+ 1596              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
+ 1597              		.file 6 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
+ 1598              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+ 1599              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
+ 1600              		.file 9 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi.h"
+ 1601              		.file 10 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
+ 1602              		.file 11 "Inc/graphics.h"
+ 1603              		.file 12 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h"
+ARM GAS  /tmp/ccto0RGY.s 			page 36
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 graphics.c
+     /tmp/ccto0RGY.s:16     .text.IPS_SetPixel_buf:0000000000000000 $t
+     /tmp/ccto0RGY.s:23     .text.IPS_SetPixel_buf:0000000000000000 IPS_SetPixel_buf
+     /tmp/ccto0RGY.s:54     .text.IPS_SetPixel_buf:000000000000001c $d
+                            *COM*:000000000000198c IPS
+     /tmp/ccto0RGY.s:59     .text.IPS_DrawChar_Buf:0000000000000000 $t
+     /tmp/ccto0RGY.s:66     .text.IPS_DrawChar_Buf:0000000000000000 IPS_DrawChar_Buf
+     /tmp/ccto0RGY.s:226    .text.IPS_DrawString_Buf:0000000000000000 $t
+     /tmp/ccto0RGY.s:233    .text.IPS_DrawString_Buf:0000000000000000 IPS_DrawString_Buf
+     /tmp/ccto0RGY.s:356    .text.IPS_DrawString_R:0000000000000000 $t
+     /tmp/ccto0RGY.s:363    .text.IPS_DrawString_R:0000000000000000 IPS_DrawString_R
+     /tmp/ccto0RGY.s:378    .text.IPS_Reset:0000000000000000 $t
+     /tmp/ccto0RGY.s:385    .text.IPS_Reset:0000000000000000 IPS_Reset
+     /tmp/ccto0RGY.s:438    .text.IPS_Reset:000000000000003c $d
+     /tmp/ccto0RGY.s:443    .text.IPS_WriteData_Byte:0000000000000000 $t
+     /tmp/ccto0RGY.s:450    .text.IPS_WriteData_Byte:0000000000000000 IPS_WriteData_Byte
+     /tmp/ccto0RGY.s:496    .text.IPS_WriteData_Byte:0000000000000030 $d
+     /tmp/ccto0RGY.s:502    .text.IPS_WriteData_Word:0000000000000000 $t
+     /tmp/ccto0RGY.s:509    .text.IPS_WriteData_Word:0000000000000000 IPS_WriteData_Word
+     /tmp/ccto0RGY.s:555    .text.IPS_WriteData_Word:0000000000000030 $d
+     /tmp/ccto0RGY.s:561    .text.IPS_WriteReg:0000000000000000 $t
+     /tmp/ccto0RGY.s:568    .text.IPS_WriteReg:0000000000000000 IPS_WriteReg
+     /tmp/ccto0RGY.s:614    .text.IPS_WriteReg:0000000000000030 $d
+     /tmp/ccto0RGY.s:620    .text.IPS_SetCursor:0000000000000000 $t
+     /tmp/ccto0RGY.s:627    .text.IPS_SetCursor:0000000000000000 IPS_SetCursor
+     /tmp/ccto0RGY.s:718    .text.IPS_WriteBuf:0000000000000000 $t
+     /tmp/ccto0RGY.s:725    .text.IPS_WriteBuf:0000000000000000 IPS_WriteBuf
+     /tmp/ccto0RGY.s:771    .text.IPS_WriteBuf:0000000000000034 $d
+     /tmp/ccto0RGY.s:779    .text.IPS_SetUWORD:0000000000000000 $t
+     /tmp/ccto0RGY.s:786    .text.IPS_SetUWORD:0000000000000000 IPS_SetUWORD
+     /tmp/ccto0RGY.s:816    .text.IPS_SetPixel:0000000000000000 $t
+     /tmp/ccto0RGY.s:823    .text.IPS_SetPixel:0000000000000000 IPS_SetPixel
+     /tmp/ccto0RGY.s:864    .text.IPS_DrawChar:0000000000000000 $t
+     /tmp/ccto0RGY.s:871    .text.IPS_DrawChar:0000000000000000 IPS_DrawChar
+     /tmp/ccto0RGY.s:1054   .text.IPS_DrawString:0000000000000000 $t
+     /tmp/ccto0RGY.s:1061   .text.IPS_DrawString:0000000000000000 IPS_DrawString
+     /tmp/ccto0RGY.s:1180   .text.IPS_Clear:0000000000000000 $t
+     /tmp/ccto0RGY.s:1187   .text.IPS_Clear:0000000000000000 IPS_Clear
+     /tmp/ccto0RGY.s:1255   .text.IPS_Init:0000000000000000 $t
+     /tmp/ccto0RGY.s:1262   .text.IPS_Init:0000000000000000 IPS_Init
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+HAL_Delay
+HAL_SPI_Transmit_DMA
+hspi1

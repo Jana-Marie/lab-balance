@@ -1,19 +1,35 @@
 
-OpenDocument="stm32f0xx_hal_pcd_ex.c", FilePath="/home/janhenrik/kiCAD/scale2/firmware/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c", Line=247
-OpenDocument="startup_stm32f072xb.s", FilePath="/home/janhenrik/kiCAD/scale2/firmware/startup_stm32f072xb.s", Line=38
-OpenDocument="main.c", FilePath="/home/janhenrik/kiCAD/scale2/firmware/Src/main.c", Line=29
+
+Breakpoint=66050146: 124: 0, State=BP_STATE_DISABLED
+GraphedExpression="HX711.weight_g"
+OpenDocument="main.c", FilePath="/home/janhenrik/kiCAD/scale2/firmware/Src/main.c", Line=52
+OpenDocument="graphics.c", FilePath="/home/janhenrik/kiCAD/scale2/firmware/Src/graphics.c", Line=5
+OpenDocument="stm32f0xx_hal_gpio.c", FilePath="/home/janhenrik/kiCAD/scale2/firmware/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c", Line=232
+OpenDocument="stm32f0xx_hal_tim_ex.c", FilePath="/home/janhenrik/kiCAD/scale2/firmware/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c", Line=1688
+OpenDocument="stm32f0xx_hal.c", FilePath="/home/janhenrik/kiCAD/scale2/firmware/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c", Line=275
+OpenDocument="stm32f0xx_it.c", FilePath="/home/janhenrik/kiCAD/scale2/firmware/Src/stm32f0xx_it.c", Line=68
+OpenDocument="stm32f0xx_hal_spi.c", FilePath="/home/janhenrik/kiCAD/scale2/firmware/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c", Line=3872
+OpenDocument="stm32f0xx_hal_pcd.c", FilePath="/home/janhenrik/kiCAD/scale2/firmware/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c", Line=107
+OpenDocument="stm32f0xx_hal_pcd_ex.c", FilePath="/home/janhenrik/kiCAD/scale2/firmware/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c", Line=245
+OpenDocument="startup_stm32f072xb.s", FilePath="/home/janhenrik/kiCAD/scale2/firmware/startup_stm32f072xb.s", Line=34
 OpenToolbar="Debug", Floating=0, x=0, y=0
-OpenWindow="Registers 1", DockArea=RIGHT, x=0, y=2, w=805, h=191, FilterBarShown=0, ToolBarShown=0, FilteredItems=[], RefreshRate=1
-OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=0, w=805, h=191, FilterBarShown=0, ToolBarShown=0, ExecCountersShown=0, InstEncodingsShown=0
+OpenWindow="Registers 1", DockArea=RIGHT, x=0, y=2, w=870, h=152, FilterBarShown=0, ToolBarShown=0, FilteredItems=[], RefreshRate=1
+OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=0, w=870, h=394, FilterBarShown=0, ToolBarShown=0, ExecCountersShown=0, InstEncodingsShown=0
 OpenWindow="Source", x=0, y=0, w=0, h=0, FilterBarShown=0, ToolBarShown=0, ExecCountersShown=0
-OpenWindow="Watched Data", DockArea=RIGHT, x=0, y=1, w=805, h=461, FilterBarShown=0, ToolBarShown=0
-OpenWindow="Functions", DockArea=LEFT, x=0, y=0, w=86, h=855, FilterBarShown=1, ToolBarShown=0
-OpenWindow="Data Graph", DockArea=BOTTOM, x=0, y=0, w=1484, h=125, FilterBarShown=0, ToolBarShown=0, VisibleTab=0, SamplingFreq=1 kHz, ClearEvent=RESUME, LegendShown=0, UniformSampleSpacing=0, PinCursor=-1, TimePerDiv=1000000
-OpenWindow="Console", DockArea=BOTTOM, x=1, y=0, w=377, h=125, FilterBarShown=0, ToolBarShown=0
-TableHeader="Watched Data", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Refresh"], ColWidths=[314;299;68;124]
+OpenWindow="Watched Data", DockArea=RIGHT, x=0, y=1, w=870, h=524, FilterBarShown=0, ToolBarShown=0
+OpenWindow="Functions", DockArea=LEFT, x=0, y=0, w=86, h=1082, FilterBarShown=1, ToolBarShown=0
+OpenWindow="Data Sampling", DockArea=BOTTOM, x=0, y=0, w=1993, h=258, FilterBarShown=0, ToolBarShown=0, VisibleTab=0, UniformSampleSpacing=0
+OpenWindow="Console", DockArea=BOTTOM, x=1, y=0, w=506, h=258, FilterBarShown=0, ToolBarShown=0
+TableHeader="Watched Data", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Refresh"], ColWidths=[314;299;68;174]
 TableHeader="Functions", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Address";"Size";"#Insts";"Source"], ColWidths=[27;27;27;27;203]
-TableHeader="Data Graph", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time                    "], ColWidths=[27;73]
-TableHeader="Data Graph", SortCol="Expression", SortOrder="DESCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[217;51;55;44;48;70;83;93;823]
-TableHeader="Power Graph", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Channel 0"], ColWidths=[84;119;126]
-TableHeader="Registers 1", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Description"], ColWidths=[120;92;578]
+TableHeader="Data Sampling Table", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";" HX711.weight_g"], ColWidths=[100;100;100]
+TableHeader="Data Sampling Setup", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[112;51;55;44;48;70;83;93;1437]
+TableHeader="Power Sampling", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Ch 0"], ColWidths=[100;100;100]
+TableHeader="Registers 1", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Description"], ColWidths=[120;92;643]
+TableHeader="RegisterSelectionDialog", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Auto";"Name";"Address";"Description"], ColWidths=[27;27;27;27]
+WatchedExpression="__x", RefreshRate=5
+WatchedExpression="__y", RefreshRate=5
+WatchedExpression="__c", RefreshRate=5
+WatchedExpression="IPS", RefreshRate=5
 WatchedExpression="HX711", RefreshRate=5
+WatchedExpression="_ms", RefreshRate=5

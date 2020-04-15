@@ -1,10 +1,13 @@
 
 #include "main.h"
+#include "graphics.h"
 
 #define HX_GAIN_128 25
 #define HX_GAIN_64  27
 #define HX_GAIN_32  26
 #define MULTIPLIER (72000000/4000000)
+
+#define DATAFILT 0.99f
 
 I2C_HandleTypeDef hi2c2;
 
@@ -15,6 +18,7 @@ TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim16;
 
 TSC_HandleTypeDef htsc;
+TSC_IOConfigTypeDef IoConfig;
 
 PCD_HandleTypeDef hpcd_USB_FS;
 
@@ -28,16 +32,39 @@ static void MX_TIM16_Init(void);
 static void MX_TSC_Init(void);
 static void MX_USB_PCD_Init(void);
 
-uint32_t HX_Get_Value(uint8_t gain);
+void HX_Get_Value(uint8_t gain);
 void HX_Delay(uint32_t u);
 
 struct HX711_t{
-  uint32_t rawData;
-  int32_t weight_ug;
+  int32_t raw_data;
+  int32_t raw_data_avg;
+  int32_t delta;
+  float weight_g;
   uint8_t gain;
   uint8_t rate;
   uint8_t clock;
-} HX711;
+} HX711 = {.gain = HX_GAIN_128};
+
+struct cal_t{
+  float tara;
+  float g_100;
+  float g_0;
+  float g_cal;
+  uint8_t tara_active;
+  uint8_t g_100_active;
+} cal = {.g_cal = 100.0f, .g_100 = 1973725.0f, .tara = 0.0f, .g_0 = -138500.0f};
+
+struct touch_t{
+  uint8_t button[2];
+  uint16_t offset[2];
+  uint16_t value[2];
+  uint8_t idx_bank;
+} t = {};
+
+extern struct IPS_t IPS = {.backlight = 999, .update_time = 10};
+
+uint32_t start = 0;
+uint32_t _ms;
 
 int main(void)
 {
@@ -55,35 +82,131 @@ int main(void)
 
   HAL_GPIO_WritePin(GPIOB,HX_CLK_Pin,0);
 
+  IPS_Init();
+  HAL_TIM_Base_Start(&htim16);
+  HAL_TIM_PWM_Start(&htim16, TIM_CHANNEL_1);
+  __HAL_TIM_SET_COMPARE(&htim16, TIM_CHANNEL_1, IPS.backlight);
+  IPS_Clear(BLACK);
+  IPS.update = HAL_GetTick();
+
+  HAL_TSC_Start_IT(&htsc);
+
   while (1)
   {
+    if(t.button[1]) cal.tara_active = 1;
+    if(t.button[0]) cal.g_100_active = 1;
+
+    if(cal.tara_active){
+      if(abs(HX711.delta) < 5) cal.tara_active++;
+      else cal.tara_active = 1;
+      if(cal.tara_active > 20) cal.g_0 = HX711.raw_data_avg;
+    }
+
+    if(cal.g_100_active){
+      if(abs(HX711.delta) < 5) cal.g_100_active++;
+      else cal.g_100_active = 1;
+      if(cal.g_100_active > 20) cal.g_100 = HX711.raw_data_avg;
+    }
+
     if(!HAL_GPIO_ReadPin(GPIOB,HX_INT_Pin)){
-      HX_Get_Value(HX_GAIN_128);
+      HX_Get_Value(HX711.gain);
       HAL_GPIO_TogglePin(GPIOA, LED_Pin);
+      _ms = HAL_GetTick()-start;
+      start = HAL_GetTick();
     } else {
       HAL_Delay(1);
-      HAL_GPIO_WritePin(GPIOB,HX_SPS_Pin,HX711.rate);
+      HAL_GPIO_WritePin(GPIOB,HX_SPS_Pin, HX711.rate);
+    }
+
+    if(HAL_GetTick() + IPS.update_time > IPS.update){
+      if(HX711.weight_g > -999.9 && HX711.weight_g < 999.9){
+        sprintf(IPS.buf,"%03d.%03dg", abs((int)HX711.weight_g), abs((int)((HX711.weight_g-(int)HX711.weight_g)*1000.0f))); // HX711.weight_g > 0 ? ' ' : '-',
+        //sprintf(IPS.buf,"%d", HX711.raw_data_avg); // HX711.weight_g > 0 ? ' ' : '-',
+        IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
+        IPS_WriteBuf(10,45);
+      }
+      IPS.update = HAL_GetTick();
     }
   }
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-uint32_t HX_Get_Value(uint8_t gain) {
+float y1 = 20.0; // calibrated mass to be added
+long x1 = 0L;
+long x0 = 0L;
+float avg_size = 10.0; // amount of averages for each mass measurement
+
+void HX_Get_Value(uint8_t gain) {
+
+  int32_t last_data = HX711.raw_data_avg;
+  HX711.raw_data = 0;
+
   for(int i = 0; i < gain; i++){
     HAL_GPIO_WritePin(GPIOB,HX_CLK_Pin,1);
-    HX_Delay(1);
+    HX_Delay(2);
     HAL_GPIO_WritePin(GPIOB,HX_CLK_Pin,0);
     if(i < 24){
-      HX711.rawData |= (HAL_GPIO_ReadPin(GPIOB,HX_DATA_Pin) << (24 - i));
+      HX711.raw_data |= (HAL_GPIO_ReadPin(GPIOB,HX_DATA_Pin) << (24 - i));
     }
-    HX_Delay(1);
+    if (HX711.raw_data & 0x00800000) HX711.raw_data |= 0xFF000000 ;
+    HX_Delay(2);
   }
+
+  if(abs(HX711.delta) > 1000) {
+    HX711.rate = 1;
+    HX711.raw_data_avg = HX711.raw_data;
+  }
+  else if(abs(HX711.delta) > 30) {
+    HX711.rate = 0;
+    HX711.raw_data_avg = HX711.raw_data;
+  }
+  else {
+    HX711.rate = 0;
+    //HX711.raw_data_avg = HX711.raw_data;
+  }
+
+
+  HX711.raw_data_avg = (HX711.raw_data_avg * DATAFILT + (HX711.raw_data * (1.0f - DATAFILT)));
+  HX711.delta = last_data - HX711.raw_data_avg;
+  HX711.weight_g = (cal.g_cal*((HX711.raw_data_avg-cal.g_0)/(cal.g_100-cal.g_0)));
 }
 
 void HX_Delay(uint32_t u) {
     u = u * MULTIPLIER - 10;
     while (u--);
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+void TSC_task(void) {
+  if (HAL_TSC_GroupGetStatus(&htsc, TSC_GROUP1_IDX) == TSC_GROUP_COMPLETED) {
+    t.value[t.idx_bank] = HAL_TSC_GroupGetValue(&htsc, TSC_GROUP1_IDX);
+    HAL_TSC_IOConfig(&htsc, &IoConfig);
+    HAL_TSC_IODischarge(&htsc, ENABLE);
+    __HAL_TSC_CLEAR_FLAG(&htsc, (TSC_FLAG_EOA | TSC_FLAG_MCE));
+    HAL_TSC_Start_IT(&htsc);
+    if(t.value[t.idx_bank] < 3000) t.button[t.idx_bank] = 1;
+    else t.button[t.idx_bank] = 0;
+  }
+
+
+  switch (t.idx_bank)
+  {
+  case 0:
+    IoConfig.ChannelIOs = TSC_GROUP1_IO2;
+    t.idx_bank = 1;
+    break;
+  case 1:
+    IoConfig.ChannelIOs = TSC_GROUP1_IO3;
+    t.idx_bank = 0;
+    break;
+  default:
+    break;
+  }
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 void SystemClock_Config(void)
 {
@@ -168,7 +291,7 @@ static void MX_TIM1_Init(void)
   HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig);
 
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
+  sConfigOC.Pulse = 500;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
@@ -198,12 +321,12 @@ static void MX_TIM16_Init(void)
   htim16.Init.Period = 1000;
   htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim16.Init.RepetitionCounter = 0;
-  htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   HAL_TIM_Base_Init(&htim16);
   HAL_TIM_PWM_Init(&htim16);
 
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 500;
+  sConfigOC.Pulse = 100;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
@@ -224,9 +347,10 @@ static void MX_TIM16_Init(void)
 
 static void MX_TSC_Init(void)
 {
+
   htsc.Instance = TSC;
-  htsc.Init.CTPulseHighLength = TSC_CTPH_2CYCLES;
-  htsc.Init.CTPulseLowLength = TSC_CTPL_2CYCLES;
+  htsc.Init.CTPulseHighLength = TSC_CTPH_1CYCLE;
+  htsc.Init.CTPulseLowLength = TSC_CTPL_1CYCLE;
   htsc.Init.SpreadSpectrum = ENABLE;
   htsc.Init.SpreadSpectrumDeviation = 32;
   htsc.Init.SpreadSpectrumPrescaler = TSC_SS_PRESC_DIV1;
@@ -240,6 +364,12 @@ static void MX_TSC_Init(void)
   htsc.Init.ShieldIOs = 0;
   htsc.Init.SamplingIOs = TSC_GROUP1_IO1;
   HAL_TSC_Init(&htsc);
+
+  IoConfig.ChannelIOs  = TSC_GROUP1_IO2; // Start with the first channel
+  IoConfig.SamplingIOs = TSC_GROUP1_IO1;
+  IoConfig.ShieldIOs   = 0;
+  HAL_TSC_IOConfig(&htsc, &IoConfig);
+
 }
 
 static void MX_USB_PCD_Init(void)

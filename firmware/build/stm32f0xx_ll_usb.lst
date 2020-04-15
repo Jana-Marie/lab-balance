@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccjFarmU.s 			page 1
+ARM GAS  /tmp/ccs0exxu.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
   31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   *
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * This software component is licensed by ST under BSD 3-Clause license,
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * the "License"; You may not use this file except in compliance with the
-ARM GAS  /tmp/ccjFarmU.s 			page 2
+ARM GAS  /tmp/ccs0exxu.s 			page 2
 
 
   34:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * License. You may obtain a copy of the License at:
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
   76:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c **** }
   38              		.loc 1 76 0
   39 0008 0020     		movs	r0, #0
-ARM GAS  /tmp/ccjFarmU.s 			page 3
+ARM GAS  /tmp/ccs0exxu.s 			page 3
 
 
   40              	.LVL1:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
   74 000e 7047     		bx	lr
   75              	.L4:
   76              		.align	2
-ARM GAS  /tmp/ccjFarmU.s 			page 4
+ARM GAS  /tmp/ccs0exxu.s 			page 4
 
 
   77              	.L3:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  111              	.L6:
  112 0010 7F400000 		.word	16511
  113              		.cfi_endproc
-ARM GAS  /tmp/ccjFarmU.s 			page 5
+ARM GAS  /tmp/ccs0exxu.s 			page 5
 
 
  114              	.LFE42:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  143:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c **** /**
  144:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * @brief  USB_DevInit : Initializes the USB controller registers
  145:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   *         for device mode
-ARM GAS  /tmp/ccjFarmU.s 			page 6
+ARM GAS  /tmp/ccs0exxu.s 			page 6
 
 
  146:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * @param  USBx : Selected device
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  179              		.loc 1 170 0
  180 001c FFF7FEFF 		bl	USB_EnableGlobalInt
  181              	.LVL9:
-ARM GAS  /tmp/ccjFarmU.s 			page 7
+ARM GAS  /tmp/ccs0exxu.s 			page 7
 
 
  171:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c **** 
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  214              	.LFE45:
  216              		.section	.text.USB_FlushTxFifo,"ax",%progbits
  217              		.align	1
-ARM GAS  /tmp/ccjFarmU.s 			page 8
+ARM GAS  /tmp/ccs0exxu.s 			page 8
 
 
  218              		.global	USB_FlushTxFifo
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  220:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * @param  USBx : Selected device
  221:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * @retval HAL status
  222:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   */
-ARM GAS  /tmp/ccjFarmU.s 			page 9
+ARM GAS  /tmp/ccs0exxu.s 			page 9
 
 
  223:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c **** HAL_StatusTypeDef USB_FlushRxFifo(USB_TypeDef *USBx)
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  285              		.cfi_offset 7, -8
  286              		.cfi_offset 14, -4
  287              	.LVL17:
-ARM GAS  /tmp/ccjFarmU.s 			page 10
+ARM GAS  /tmp/ccs0exxu.s 			page 10
 
 
  244:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   HAL_StatusTypeDef ret = HAL_OK;
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  271:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   }
  272:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c **** 
  273:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   PCD_SET_ENDPOINT(USBx, ep->num, wEpRegVal | USB_EP_CTR_RX | USB_EP_CTR_TX);
-ARM GAS  /tmp/ccjFarmU.s 			page 11
+ARM GAS  /tmp/ccs0exxu.s 			page 11
 
 
  314              		.loc 1 273 0
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  359 0062 D200     		lsls	r2, r2, #3
  360 0064 9446     		mov	ip, r2
  361 0066 6344     		add	r3, r3, ip
-ARM GAS  /tmp/ccjFarmU.s 			page 12
+ARM GAS  /tmp/ccs0exxu.s 			page 12
 
 
  362              	.LVL26:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  410 00a0 8C4B     		ldr	r3, .L39+4
  411 00a2 1343     		orrs	r3, r2
  412 00a4 9BB2     		uxth	r3, r3
-ARM GAS  /tmp/ccjFarmU.s 			page 13
+ARM GAS  /tmp/ccs0exxu.s 			page 13
 
 
  413 00a6 0380     		strh	r3, [r0]
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  453 00cc C018     		adds	r0, r0, r3
  454              	.LVL40:
  455 00ce 0388     		ldrh	r3, [r0]
-ARM GAS  /tmp/ccjFarmU.s 			page 14
+ARM GAS  /tmp/ccs0exxu.s 			page 14
 
 
  456 00d0 834A     		ldr	r2, .L39+16
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  502 0108 0A69     		ldr	r2, [r1, #16]
  503 010a 002A     		cmp	r2, #0
  504 010c 21D1     		bne	.L24
-ARM GAS  /tmp/ccjFarmU.s 			page 15
+ARM GAS  /tmp/ccs0exxu.s 			page 15
 
 
  505              		.loc 1 301 0 is_stmt 0 discriminator 1
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  556 014a 9BB2     		uxth	r3, r3
  557 014c 0380     		strh	r3, [r0]
  558              	.LVL59:
-ARM GAS  /tmp/ccjFarmU.s 			page 16
+ARM GAS  /tmp/ccs0exxu.s 			page 16
 
 
  559              	.L23:
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  567              	.L24:
  568              	.LBB15:
  569              	.LBB11:
-ARM GAS  /tmp/ccjFarmU.s 			page 17
+ARM GAS  /tmp/ccs0exxu.s 			page 17
 
 
  301:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****       PCD_CLEAR_RX_DTOG(USBx, ep->num);
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  616 0182 1540     		ands	r5, r2
  617              	.LVL69:
  618 0184 5D4A     		ldr	r2, .L39+44
-ARM GAS  /tmp/ccjFarmU.s 			page 18
+ARM GAS  /tmp/ccs0exxu.s 			page 18
 
 
  619 0186 2A43     		orrs	r2, r5
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  670              		.loc 1 318 0
  671 01c6 0B78     		ldrb	r3, [r1]
  672 01c8 9B00     		lsls	r3, r3, #2
-ARM GAS  /tmp/ccjFarmU.s 			page 19
+ARM GAS  /tmp/ccs0exxu.s 			page 19
 
 
  673 01ca C318     		adds	r3, r0, r3
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  723 0202 354D     		ldr	r5, .L39+8
  724 0204 1540     		ands	r5, r2
  725              	.LVL89:
-ARM GAS  /tmp/ccjFarmU.s 			page 20
+ARM GAS  /tmp/ccs0exxu.s 			page 20
 
 
  726 0206 354A     		ldr	r2, .L39+12
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  777 0246 06D5     		bpl	.L33
  778              	.LVL99:
  779              	.LBB27:
-ARM GAS  /tmp/ccjFarmU.s 			page 21
+ARM GAS  /tmp/ccs0exxu.s 			page 21
 
 
  330:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****       PCD_CLEAR_TX_DTOG(USBx, ep->num);
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  830              	.LBE30:
  334:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****       {
  831              		.loc 1 334 0
-ARM GAS  /tmp/ccjFarmU.s 			page 22
+ARM GAS  /tmp/ccs0exxu.s 			page 22
 
 
  832 0284 CB78     		ldrb	r3, [r1, #3]
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  883 02c4 034A     		ldr	r2, .L39+4
  884 02c6 2A43     		orrs	r2, r5
  885 02c8 92B2     		uxth	r2, r2
-ARM GAS  /tmp/ccjFarmU.s 			page 23
+ARM GAS  /tmp/ccs0exxu.s 			page 23
 
 
  886 02ca 1A80     		strh	r2, [r3]
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  362:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****     if (ep->is_in != 0U)
  931              		.loc 1 362 0
  932 0008 4B78     		ldrb	r3, [r1, #1]
-ARM GAS  /tmp/ccjFarmU.s 			page 24
+ARM GAS  /tmp/ccs0exxu.s 			page 24
 
 
  933 000a 002B     		cmp	r3, #0
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  374:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   }
  375:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   /*Double Buffer*/
  376:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   else
-ARM GAS  /tmp/ccjFarmU.s 			page 25
+ARM GAS  /tmp/ccs0exxu.s 			page 25
 
 
  377:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   {
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1001 0058 1A80     		strh	r2, [r3]
  1002              	.LVL128:
  1003              	.L46:
-ARM GAS  /tmp/ccjFarmU.s 			page 26
+ARM GAS  /tmp/ccs0exxu.s 			page 26
 
 
  1004              	.LBE38:
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1053              		.loc 1 382 0 is_stmt 1
  1054 0090 0B78     		ldrb	r3, [r1]
  1055 0092 9B00     		lsls	r3, r3, #2
-ARM GAS  /tmp/ccjFarmU.s 			page 27
+ARM GAS  /tmp/ccs0exxu.s 			page 27
 
 
  1056 0094 C318     		adds	r3, r0, r3
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  388:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****     }
  1107              		.loc 1 388 0
  1108 00d2 0B78     		ldrb	r3, [r1]
-ARM GAS  /tmp/ccjFarmU.s 			page 28
+ARM GAS  /tmp/ccs0exxu.s 			page 28
 
 
  1109 00d4 9B00     		lsls	r3, r3, #2
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1159              		.loc 1 394 0 is_stmt 0 discriminator 1
  1160 010c 1A88     		ldrh	r2, [r3]
  1161 010e 124C     		ldr	r4, .L52
-ARM GAS  /tmp/ccjFarmU.s 			page 29
+ARM GAS  /tmp/ccs0exxu.s 			page 29
 
 
  1162 0110 1440     		ands	r4, r2
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1213 014e 1A43     		orrs	r2, r3
  1214 0150 92B2     		uxth	r2, r2
  1215 0152 0280     		strh	r2, [r0]
-ARM GAS  /tmp/ccjFarmU.s 			page 30
+ARM GAS  /tmp/ccs0exxu.s 			page 30
 
 
  1216 0154 72E7     		b	.L45
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  436:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****     }
  437:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****     else
  438:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****     {
-ARM GAS  /tmp/ccjFarmU.s 			page 31
+ARM GAS  /tmp/ccs0exxu.s 			page 31
 
 
  439:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****       /* Write the data to the USB endpoint */
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  493:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * @param  USBx : Selected device
  494:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * @param  src :  pointer to source buffer
  495:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * @param  ch_ep_num : endpoint or host channel number
-ARM GAS  /tmp/ccjFarmU.s 			page 32
+ARM GAS  /tmp/ccs0exxu.s 			page 32
 
 
  496:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * @param  len : Number of bytes to write
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1269              	.LVL165:
  523:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   /* Prevent unused argument(s) compilation warning */
  524:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   UNUSED(USBx);
-ARM GAS  /tmp/ccjFarmU.s 			page 33
+ARM GAS  /tmp/ccs0exxu.s 			page 33
 
 
  525:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   UNUSED(dest);
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1302 000a C018     		adds	r0, r0, r3
  1303              	.LVL168:
  1304 000c 0288     		ldrh	r2, [r0]
-ARM GAS  /tmp/ccjFarmU.s 			page 34
+ARM GAS  /tmp/ccs0exxu.s 			page 34
 
 
  1305 000e 0C4B     		ldr	r3, .L60
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1355              		.global	USB_EPClearStall
  1356              		.syntax unified
  1357              		.code	16
-ARM GAS  /tmp/ccjFarmU.s 			page 35
+ARM GAS  /tmp/ccs0exxu.s 			page 35
 
 
  1358              		.thumb_func
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1399 0024 92B2     		uxth	r2, r2
  1400 0026 1A80     		strh	r2, [r3]
  1401              	.LVL180:
-ARM GAS  /tmp/ccjFarmU.s 			page 36
+ARM GAS  /tmp/ccs0exxu.s 			page 36
 
 
  1402              	.L65:
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1446 005a 0D4A     		ldr	r2, .L67+16
  1447 005c 2243     		orrs	r2, r4
  1448 005e 92B2     		uxth	r2, r2
-ARM GAS  /tmp/ccjFarmU.s 			page 37
+ARM GAS  /tmp/ccs0exxu.s 			page 37
 
 
  1449 0060 1A80     		strh	r2, [r3]
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1496              		.thumb_func
  1497              		.fpu softvfp
  1499              	USB_StopDevice:
-ARM GAS  /tmp/ccjFarmU.s 			page 38
+ARM GAS  /tmp/ccs0exxu.s 			page 38
 
 
  1500              	.LFB55:
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  605:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c **** /**
  606:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * @brief  USB_SetDevAddress : Stop the usb device mode
  607:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * @param  USBx : Selected device
-ARM GAS  /tmp/ccjFarmU.s 			page 39
+ARM GAS  /tmp/ccs0exxu.s 			page 39
 
 
  608:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   * @param  address : new device address to be assigned
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1570              		@ args = 0, pretend = 0, frame = 0
  1571              		@ frame_needed = 0, uses_anonymous_args = 0
  1572              		@ link register save eliminated.
-ARM GAS  /tmp/ccjFarmU.s 			page 40
+ARM GAS  /tmp/ccs0exxu.s 			page 40
 
 
  1573              	.LVL197:
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1614 0008 8352     		strh	r3, [r0, r2]
  645:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c **** 
  646:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   return HAL_OK;
-ARM GAS  /tmp/ccjFarmU.s 			page 41
+ARM GAS  /tmp/ccs0exxu.s 			page 41
 
 
  647:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c **** }
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1659              	USB_ReadDevAllOutEpInterrupt:
  1660              	.LFB60:
  661:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c **** 
-ARM GAS  /tmp/ccjFarmU.s 			page 42
+ARM GAS  /tmp/ccs0exxu.s 			page 42
 
 
  662:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c **** /**
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  688:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****               only by USB OTG FS peripheral.
  689:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****             - This function is added to ensure compatibility across platforms.
  690:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****    */
-ARM GAS  /tmp/ccjFarmU.s 			page 43
+ARM GAS  /tmp/ccs0exxu.s 			page 43
 
 
  691:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   return (0);
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1727              		.code	16
  1728              		.thumb_func
  1729              		.fpu softvfp
-ARM GAS  /tmp/ccjFarmU.s 			page 44
+ARM GAS  /tmp/ccs0exxu.s 			page 44
 
 
  1731              	USB_ReadDevInEPInterrupt:
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1759              		@ args = 0, pretend = 0, frame = 0
  1760              		@ frame_needed = 0, uses_anonymous_args = 0
  1761              		@ link register save eliminated.
-ARM GAS  /tmp/ccjFarmU.s 			page 45
+ARM GAS  /tmp/ccs0exxu.s 			page 45
 
 
  1762              	.LVL212:
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1793              		.section	.text.USB_ActivateRemoteWakeup,"ax",%progbits
  1794              		.align	1
  1795              		.global	USB_ActivateRemoteWakeup
-ARM GAS  /tmp/ccjFarmU.s 			page 46
+ARM GAS  /tmp/ccs0exxu.s 			page 46
 
 
  1796              		.syntax unified
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1833              		.loc 1 785 0
  1834              		.cfi_startproc
  1835              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccjFarmU.s 			page 47
+ARM GAS  /tmp/ccs0exxu.s 			page 47
 
 
  1836              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1877              	.LVL221:
  801:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   uint32_t BaseAddr = (uint32_t)USBx;
  802:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   uint32_t i, temp1, temp2;
-ARM GAS  /tmp/ccjFarmU.s 			page 48
+ARM GAS  /tmp/ccs0exxu.s 			page 48
 
 
  803:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   __IO uint16_t *pdwVal;
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1912              		.loc 1 808 0 is_stmt 0 discriminator 1
  1913 0022 002B     		cmp	r3, #0
  1914 0024 F5D1     		bne	.L87
-ARM GAS  /tmp/ccjFarmU.s 			page 49
+ARM GAS  /tmp/ccs0exxu.s 			page 49
 
 
  821:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   }
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  1964 001c 002A     		cmp	r2, #0
  1965 001e 00D0     		beq	.LCB1936
  1966 0020 E9E0     		b	.L112	@long jump
-ARM GAS  /tmp/ccjFarmU.s 			page 50
+ARM GAS  /tmp/ccs0exxu.s 			page 50
 
 
  1967              	.LCB1936:
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2018              	.LVL244:
  2019              	.L109:
  2020              	.LBE65:
-ARM GAS  /tmp/ccjFarmU.s 			page 51
+ARM GAS  /tmp/ccs0exxu.s 			page 51
 
 
  488:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c **** 
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2068              	.LVL253:
  2069              	.LBB68:
  2070 0096 002B     		cmp	r3, #0
-ARM GAS  /tmp/ccjFarmU.s 			page 52
+ARM GAS  /tmp/ccs0exxu.s 			page 52
 
 
  2071 0098 1CD1     		bne	.L96
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2120              	.LVL262:
  2121              	.L96:
  2122              	.LBB72:
-ARM GAS  /tmp/ccjFarmU.s 			page 53
+ARM GAS  /tmp/ccs0exxu.s 			page 53
 
 
  2123              	.LBB70:
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2169 0100 D200     		lsls	r2, r2, #3
  2170 0102 5218     		adds	r2, r2, r1
  2171 0104 6A49     		ldr	r1, .L130
-ARM GAS  /tmp/ccjFarmU.s 			page 54
+ARM GAS  /tmp/ccs0exxu.s 			page 54
 
 
  2172              	.LVL271:
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2221 013e 3022     		movs	r2, #48
  2222 0140 5A40     		eors	r2, r3
  2223              	.LVL281:
-ARM GAS  /tmp/ccjFarmU.s 			page 55
+ARM GAS  /tmp/ccs0exxu.s 			page 55
 
 
  2224 0142 5F4B     		ldr	r3, .L130+16
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2272              	.L106:
  449:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****         pmabuffer = ep->pmaaddr0;
  2273              		.loc 1 449 0 discriminator 9
-ARM GAS  /tmp/ccjFarmU.s 			page 56
+ARM GAS  /tmp/ccs0exxu.s 			page 56
 
 
  2274 017e 8902     		lsls	r1, r1, #10
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  453:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****     }
  2323              		.loc 1 453 0 discriminator 2
  2324 01ae 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccjFarmU.s 			page 57
+ARM GAS  /tmp/ccs0exxu.s 			page 57
 
 
  2325 01b0 BFD1     		bne	.L93
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2372              	.L115:
  476:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****     }
  2373              		.loc 1 476 0 discriminator 4
-ARM GAS  /tmp/ccjFarmU.s 			page 58
+ARM GAS  /tmp/ccs0exxu.s 			page 58
 
 
  2374 01e2 5909     		lsrs	r1, r3, #5
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2423 021a 1180     		strh	r1, [r2]
  2424              	.LVL318:
  2425              	.L118:
-ARM GAS  /tmp/ccjFarmU.s 			page 59
+ARM GAS  /tmp/ccs0exxu.s 			page 59
 
 
  2426              	.LBE81:
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2475              	.LVL326:
  481:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****     }
  2476              		.loc 1 481 0 discriminator 7
-ARM GAS  /tmp/ccjFarmU.s 			page 60
+ARM GAS  /tmp/ccs0exxu.s 			page 60
 
 
  2477 0250 0131     		adds	r1, r1, #1
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2524              	.L126:
  481:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****     }
  2525              		.loc 1 481 0 discriminator 24
-ARM GAS  /tmp/ccjFarmU.s 			page 61
+ARM GAS  /tmp/ccs0exxu.s 			page 61
 
 
  2526 0278 8902     		lsls	r1, r1, #10
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2575 02ae C046     		.align	2
  2576              	.L130:
  2577 02b0 06040000 		.word	1030
-ARM GAS  /tmp/ccjFarmU.s 			page 62
+ARM GAS  /tmp/ccs0exxu.s 			page 62
 
 
  2578 02b4 FF83FFFF 		.word	-31745
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2616 0004 1218     		adds	r2, r2, r0
  2617              	.LVL350:
  2618 0006 8020     		movs	r0, #128
-ARM GAS  /tmp/ccjFarmU.s 			page 63
+ARM GAS  /tmp/ccs0exxu.s 			page 63
 
 
  2619              	.LVL351:
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2655              	.LVL360:
  857:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****   {
  858:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c ****     temp = *pdwVal;
-ARM GAS  /tmp/ccjFarmU.s 			page 64
+ARM GAS  /tmp/ccs0exxu.s 			page 64
 
 
  2656              		.loc 1 858 0
@@ -3799,88 +3799,88 @@ ARM GAS  /tmp/ccjFarmU.s 			page 1
  2668              	.LFE69:
  2670              		.text
  2671              	.Letext0:
- 2672              		.file 2 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machin
- 2673              		.file 3 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_s
+ 2672              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 2673              		.file 3 "/usr/include/newlib/sys/_stdint.h"
  2674              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
  2675              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
  2676              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
  2677              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_usb.h"
  2678              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
-ARM GAS  /tmp/ccjFarmU.s 			page 65
+ARM GAS  /tmp/ccs0exxu.s 			page 65
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f0xx_ll_usb.c
-     /tmp/ccjFarmU.s:16     .text.USB_CoreInit:0000000000000000 $t
-     /tmp/ccjFarmU.s:23     .text.USB_CoreInit:0000000000000000 USB_CoreInit
-     /tmp/ccjFarmU.s:48     .text.USB_EnableGlobalInt:0000000000000000 $t
-     /tmp/ccjFarmU.s:55     .text.USB_EnableGlobalInt:0000000000000000 USB_EnableGlobalInt
-     /tmp/ccjFarmU.s:78     .text.USB_EnableGlobalInt:0000000000000010 $d
-     /tmp/ccjFarmU.s:83     .text.USB_DisableGlobalInt:0000000000000000 $t
-     /tmp/ccjFarmU.s:90     .text.USB_DisableGlobalInt:0000000000000000 USB_DisableGlobalInt
-     /tmp/ccjFarmU.s:112    .text.USB_DisableGlobalInt:0000000000000010 $d
-     /tmp/ccjFarmU.s:117    .text.USB_SetCurrentMode:0000000000000000 $t
-     /tmp/ccjFarmU.s:124    .text.USB_SetCurrentMode:0000000000000000 USB_SetCurrentMode
-     /tmp/ccjFarmU.s:141    .text.USB_DevInit:0000000000000000 $t
-     /tmp/ccjFarmU.s:148    .text.USB_DevInit:0000000000000000 USB_DevInit
-     /tmp/ccjFarmU.s:193    .text.USB_SetDevSpeed:0000000000000000 $t
-     /tmp/ccjFarmU.s:200    .text.USB_SetDevSpeed:0000000000000000 USB_SetDevSpeed
-     /tmp/ccjFarmU.s:217    .text.USB_FlushTxFifo:0000000000000000 $t
-     /tmp/ccjFarmU.s:224    .text.USB_FlushTxFifo:0000000000000000 USB_FlushTxFifo
-     /tmp/ccjFarmU.s:241    .text.USB_FlushRxFifo:0000000000000000 $t
-     /tmp/ccjFarmU.s:248    .text.USB_FlushRxFifo:0000000000000000 USB_FlushRxFifo
-     /tmp/ccjFarmU.s:265    .text.USB_ActivateEndpoint:0000000000000000 $t
-     /tmp/ccjFarmU.s:272    .text.USB_ActivateEndpoint:0000000000000000 USB_ActivateEndpoint
-     /tmp/ccjFarmU.s:891    .text.USB_ActivateEndpoint:00000000000002d0 $d
-     /tmp/ccjFarmU.s:908    .text.USB_DeactivateEndpoint:0000000000000000 $t
-     /tmp/ccjFarmU.s:915    .text.USB_DeactivateEndpoint:0000000000000000 USB_DeactivateEndpoint
-     /tmp/ccjFarmU.s:1220   .text.USB_DeactivateEndpoint:0000000000000158 $d
-     /tmp/ccjFarmU.s:1231   .text.USB_WritePacket:0000000000000000 $t
-     /tmp/ccjFarmU.s:1238   .text.USB_WritePacket:0000000000000000 USB_WritePacket
-     /tmp/ccjFarmU.s:1255   .text.USB_ReadPacket:0000000000000000 $t
-     /tmp/ccjFarmU.s:1262   .text.USB_ReadPacket:0000000000000000 USB_ReadPacket
-     /tmp/ccjFarmU.s:1279   .text.USB_EPSetStall:0000000000000000 $t
-     /tmp/ccjFarmU.s:1286   .text.USB_EPSetStall:0000000000000000 USB_EPSetStall
-     /tmp/ccjFarmU.s:1347   .text.USB_EPSetStall:0000000000000040 $d
-     /tmp/ccjFarmU.s:1354   .text.USB_EPClearStall:0000000000000000 $t
-     /tmp/ccjFarmU.s:1361   .text.USB_EPClearStall:0000000000000000 USB_EPClearStall
-     /tmp/ccjFarmU.s:1482   .text.USB_EPClearStall:0000000000000080 $d
-     /tmp/ccjFarmU.s:1492   .text.USB_StopDevice:0000000000000000 $t
-     /tmp/ccjFarmU.s:1499   .text.USB_StopDevice:0000000000000000 USB_StopDevice
-     /tmp/ccjFarmU.s:1527   .text.USB_SetDevAddress:0000000000000000 $t
-     /tmp/ccjFarmU.s:1534   .text.USB_SetDevAddress:0000000000000000 USB_SetDevAddress
-     /tmp/ccjFarmU.s:1559   .text.USB_DevConnect:0000000000000000 $t
-     /tmp/ccjFarmU.s:1566   .text.USB_DevConnect:0000000000000000 USB_DevConnect
-     /tmp/ccjFarmU.s:1589   .text.USB_DevConnect:0000000000000010 $d
-     /tmp/ccjFarmU.s:1594   .text.USB_DevDisconnect:0000000000000000 $t
-     /tmp/ccjFarmU.s:1601   .text.USB_DevDisconnect:0000000000000000 USB_DevDisconnect
-     /tmp/ccjFarmU.s:1624   .text.USB_ReadInterrupts:0000000000000000 $t
-     /tmp/ccjFarmU.s:1631   .text.USB_ReadInterrupts:0000000000000000 USB_ReadInterrupts
-     /tmp/ccjFarmU.s:1652   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 $t
-     /tmp/ccjFarmU.s:1659   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 USB_ReadDevAllOutEpInterrupt
-     /tmp/ccjFarmU.s:1676   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 $t
-     /tmp/ccjFarmU.s:1683   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 USB_ReadDevAllInEpInterrupt
-     /tmp/ccjFarmU.s:1700   .text.USB_ReadDevOutEPInterrupt:0000000000000000 $t
-     /tmp/ccjFarmU.s:1707   .text.USB_ReadDevOutEPInterrupt:0000000000000000 USB_ReadDevOutEPInterrupt
-     /tmp/ccjFarmU.s:1724   .text.USB_ReadDevInEPInterrupt:0000000000000000 $t
-     /tmp/ccjFarmU.s:1731   .text.USB_ReadDevInEPInterrupt:0000000000000000 USB_ReadDevInEPInterrupt
-     /tmp/ccjFarmU.s:1748   .text.USB_ClearInterrupts:0000000000000000 $t
-     /tmp/ccjFarmU.s:1755   .text.USB_ClearInterrupts:0000000000000000 USB_ClearInterrupts
-ARM GAS  /tmp/ccjFarmU.s 			page 66
+     /tmp/ccs0exxu.s:16     .text.USB_CoreInit:0000000000000000 $t
+     /tmp/ccs0exxu.s:23     .text.USB_CoreInit:0000000000000000 USB_CoreInit
+     /tmp/ccs0exxu.s:48     .text.USB_EnableGlobalInt:0000000000000000 $t
+     /tmp/ccs0exxu.s:55     .text.USB_EnableGlobalInt:0000000000000000 USB_EnableGlobalInt
+     /tmp/ccs0exxu.s:78     .text.USB_EnableGlobalInt:0000000000000010 $d
+     /tmp/ccs0exxu.s:83     .text.USB_DisableGlobalInt:0000000000000000 $t
+     /tmp/ccs0exxu.s:90     .text.USB_DisableGlobalInt:0000000000000000 USB_DisableGlobalInt
+     /tmp/ccs0exxu.s:112    .text.USB_DisableGlobalInt:0000000000000010 $d
+     /tmp/ccs0exxu.s:117    .text.USB_SetCurrentMode:0000000000000000 $t
+     /tmp/ccs0exxu.s:124    .text.USB_SetCurrentMode:0000000000000000 USB_SetCurrentMode
+     /tmp/ccs0exxu.s:141    .text.USB_DevInit:0000000000000000 $t
+     /tmp/ccs0exxu.s:148    .text.USB_DevInit:0000000000000000 USB_DevInit
+     /tmp/ccs0exxu.s:193    .text.USB_SetDevSpeed:0000000000000000 $t
+     /tmp/ccs0exxu.s:200    .text.USB_SetDevSpeed:0000000000000000 USB_SetDevSpeed
+     /tmp/ccs0exxu.s:217    .text.USB_FlushTxFifo:0000000000000000 $t
+     /tmp/ccs0exxu.s:224    .text.USB_FlushTxFifo:0000000000000000 USB_FlushTxFifo
+     /tmp/ccs0exxu.s:241    .text.USB_FlushRxFifo:0000000000000000 $t
+     /tmp/ccs0exxu.s:248    .text.USB_FlushRxFifo:0000000000000000 USB_FlushRxFifo
+     /tmp/ccs0exxu.s:265    .text.USB_ActivateEndpoint:0000000000000000 $t
+     /tmp/ccs0exxu.s:272    .text.USB_ActivateEndpoint:0000000000000000 USB_ActivateEndpoint
+     /tmp/ccs0exxu.s:891    .text.USB_ActivateEndpoint:00000000000002d0 $d
+     /tmp/ccs0exxu.s:908    .text.USB_DeactivateEndpoint:0000000000000000 $t
+     /tmp/ccs0exxu.s:915    .text.USB_DeactivateEndpoint:0000000000000000 USB_DeactivateEndpoint
+     /tmp/ccs0exxu.s:1220   .text.USB_DeactivateEndpoint:0000000000000158 $d
+     /tmp/ccs0exxu.s:1231   .text.USB_WritePacket:0000000000000000 $t
+     /tmp/ccs0exxu.s:1238   .text.USB_WritePacket:0000000000000000 USB_WritePacket
+     /tmp/ccs0exxu.s:1255   .text.USB_ReadPacket:0000000000000000 $t
+     /tmp/ccs0exxu.s:1262   .text.USB_ReadPacket:0000000000000000 USB_ReadPacket
+     /tmp/ccs0exxu.s:1279   .text.USB_EPSetStall:0000000000000000 $t
+     /tmp/ccs0exxu.s:1286   .text.USB_EPSetStall:0000000000000000 USB_EPSetStall
+     /tmp/ccs0exxu.s:1347   .text.USB_EPSetStall:0000000000000040 $d
+     /tmp/ccs0exxu.s:1354   .text.USB_EPClearStall:0000000000000000 $t
+     /tmp/ccs0exxu.s:1361   .text.USB_EPClearStall:0000000000000000 USB_EPClearStall
+     /tmp/ccs0exxu.s:1482   .text.USB_EPClearStall:0000000000000080 $d
+     /tmp/ccs0exxu.s:1492   .text.USB_StopDevice:0000000000000000 $t
+     /tmp/ccs0exxu.s:1499   .text.USB_StopDevice:0000000000000000 USB_StopDevice
+     /tmp/ccs0exxu.s:1527   .text.USB_SetDevAddress:0000000000000000 $t
+     /tmp/ccs0exxu.s:1534   .text.USB_SetDevAddress:0000000000000000 USB_SetDevAddress
+     /tmp/ccs0exxu.s:1559   .text.USB_DevConnect:0000000000000000 $t
+     /tmp/ccs0exxu.s:1566   .text.USB_DevConnect:0000000000000000 USB_DevConnect
+     /tmp/ccs0exxu.s:1589   .text.USB_DevConnect:0000000000000010 $d
+     /tmp/ccs0exxu.s:1594   .text.USB_DevDisconnect:0000000000000000 $t
+     /tmp/ccs0exxu.s:1601   .text.USB_DevDisconnect:0000000000000000 USB_DevDisconnect
+     /tmp/ccs0exxu.s:1624   .text.USB_ReadInterrupts:0000000000000000 $t
+     /tmp/ccs0exxu.s:1631   .text.USB_ReadInterrupts:0000000000000000 USB_ReadInterrupts
+     /tmp/ccs0exxu.s:1652   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 $t
+     /tmp/ccs0exxu.s:1659   .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 USB_ReadDevAllOutEpInterrupt
+     /tmp/ccs0exxu.s:1676   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 $t
+     /tmp/ccs0exxu.s:1683   .text.USB_ReadDevAllInEpInterrupt:0000000000000000 USB_ReadDevAllInEpInterrupt
+     /tmp/ccs0exxu.s:1700   .text.USB_ReadDevOutEPInterrupt:0000000000000000 $t
+     /tmp/ccs0exxu.s:1707   .text.USB_ReadDevOutEPInterrupt:0000000000000000 USB_ReadDevOutEPInterrupt
+     /tmp/ccs0exxu.s:1724   .text.USB_ReadDevInEPInterrupt:0000000000000000 $t
+     /tmp/ccs0exxu.s:1731   .text.USB_ReadDevInEPInterrupt:0000000000000000 USB_ReadDevInEPInterrupt
+     /tmp/ccs0exxu.s:1748   .text.USB_ClearInterrupts:0000000000000000 $t
+     /tmp/ccs0exxu.s:1755   .text.USB_ClearInterrupts:0000000000000000 USB_ClearInterrupts
+ARM GAS  /tmp/ccs0exxu.s 			page 66
 
 
-     /tmp/ccjFarmU.s:1770   .text.USB_EP0_OutStart:0000000000000000 $t
-     /tmp/ccjFarmU.s:1777   .text.USB_EP0_OutStart:0000000000000000 USB_EP0_OutStart
-     /tmp/ccjFarmU.s:1794   .text.USB_ActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccjFarmU.s:1801   .text.USB_ActivateRemoteWakeup:0000000000000000 USB_ActivateRemoteWakeup
-     /tmp/ccjFarmU.s:1824   .text.USB_DeActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccjFarmU.s:1831   .text.USB_DeActivateRemoteWakeup:0000000000000000 USB_DeActivateRemoteWakeup
-     /tmp/ccjFarmU.s:1854   .text.USB_WritePMA:0000000000000000 $t
-     /tmp/ccjFarmU.s:1861   .text.USB_WritePMA:0000000000000000 USB_WritePMA
-     /tmp/ccjFarmU.s:1922   .text.USB_EPStartXfer:0000000000000000 $t
-     /tmp/ccjFarmU.s:1929   .text.USB_EPStartXfer:0000000000000000 USB_EPStartXfer
-     /tmp/ccjFarmU.s:2577   .text.USB_EPStartXfer:00000000000002b0 $d
-     /tmp/ccjFarmU.s:2592   .text.USB_ReadPMA:0000000000000000 $t
-     /tmp/ccjFarmU.s:2599   .text.USB_ReadPMA:0000000000000000 USB_ReadPMA
+     /tmp/ccs0exxu.s:1770   .text.USB_EP0_OutStart:0000000000000000 $t
+     /tmp/ccs0exxu.s:1777   .text.USB_EP0_OutStart:0000000000000000 USB_EP0_OutStart
+     /tmp/ccs0exxu.s:1794   .text.USB_ActivateRemoteWakeup:0000000000000000 $t
+     /tmp/ccs0exxu.s:1801   .text.USB_ActivateRemoteWakeup:0000000000000000 USB_ActivateRemoteWakeup
+     /tmp/ccs0exxu.s:1824   .text.USB_DeActivateRemoteWakeup:0000000000000000 $t
+     /tmp/ccs0exxu.s:1831   .text.USB_DeActivateRemoteWakeup:0000000000000000 USB_DeActivateRemoteWakeup
+     /tmp/ccs0exxu.s:1854   .text.USB_WritePMA:0000000000000000 $t
+     /tmp/ccs0exxu.s:1861   .text.USB_WritePMA:0000000000000000 USB_WritePMA
+     /tmp/ccs0exxu.s:1922   .text.USB_EPStartXfer:0000000000000000 $t
+     /tmp/ccs0exxu.s:1929   .text.USB_EPStartXfer:0000000000000000 USB_EPStartXfer
+     /tmp/ccs0exxu.s:2577   .text.USB_EPStartXfer:00000000000002b0 $d
+     /tmp/ccs0exxu.s:2592   .text.USB_ReadPMA:0000000000000000 $t
+     /tmp/ccs0exxu.s:2599   .text.USB_ReadPMA:0000000000000000 USB_ReadPMA
 
 NO UNDEFINED SYMBOLS

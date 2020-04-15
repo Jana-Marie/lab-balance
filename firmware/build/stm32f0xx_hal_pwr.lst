@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccksyBZb.s 			page 1
+ARM GAS  /tmp/ccT9iIu2.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
   31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   */
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c **** 
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c **** /** @defgroup PWR PWR
-ARM GAS  /tmp/ccksyBZb.s 			page 2
+ARM GAS  /tmp/ccT9iIu2.s 			page 2
 
 
   34:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   * @brief PWR HAL module driver
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
   36 0008 0A43     		orrs	r2, r1
   37 000a 1A61     		str	r2, [r3, #16]
   78:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   __HAL_RCC_PWR_RELEASE_RESET();
-ARM GAS  /tmp/ccksyBZb.s 			page 3
+ARM GAS  /tmp/ccT9iIu2.s 			page 3
 
 
   38              		.loc 1 78 0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
   81              	.L5:
   82 0010 00700040 		.word	1073770496
   83              		.cfi_endproc
-ARM GAS  /tmp/ccksyBZb.s 			page 4
+ARM GAS  /tmp/ccT9iIu2.s 			page 4
 
 
   84              	.LFE41:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  106:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   * @}
  107:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   */
  108:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c **** 
-ARM GAS  /tmp/ccksyBZb.s 			page 5
+ARM GAS  /tmp/ccT9iIu2.s 			page 5
 
 
  109:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c **** /** @defgroup PWR_Exported_Functions_Group2 Peripheral Control functions 
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  163:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c **** 
  164:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****       (+) Entry:
  165:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****           The Stop mode is entered using the HAL_PWR_EnterSTOPMode(PWR_MAINREGULATOR_ON, PWR_STOPEN
-ARM GAS  /tmp/ccksyBZb.s 			page 6
+ARM GAS  /tmp/ccT9iIu2.s 			page 6
 
 
  166:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****              function with:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  220:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c **** @endverbatim
  221:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   * @{
  222:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   */
-ARM GAS  /tmp/ccksyBZb.s 			page 7
+ARM GAS  /tmp/ccT9iIu2.s 			page 7
 
 
  223:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c **** 
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  247:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c **** {
  160              		.loc 1 247 0
  161              		.cfi_startproc
-ARM GAS  /tmp/ccksyBZb.s 			page 8
+ARM GAS  /tmp/ccT9iIu2.s 			page 8
 
 
  162              		@ args = 0, pretend = 0, frame = 0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  195              		@ link register save eliminated.
  196              	.LVL3:
  271:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   /* Check the parameters */
-ARM GAS  /tmp/ccksyBZb.s 			page 9
+ARM GAS  /tmp/ccT9iIu2.s 			page 9
 
 
  272:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   assert_param(IS_PWR_REGULATOR(Regulator));
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  230 0016 30BF     		wfi
  231              	@ 0 "" 2
  232              		.thumb
-ARM GAS  /tmp/ccksyBZb.s 			page 10
+ARM GAS  /tmp/ccT9iIu2.s 			page 10
 
 
  233              		.syntax unified
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  318:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   assert_param(IS_PWR_STOP_ENTRY(STOPEntry));
  319:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c **** 
  320:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   /* Select the regulator state in STOP mode ---------------------------------*/
-ARM GAS  /tmp/ccksyBZb.s 			page 11
+ARM GAS  /tmp/ccT9iIu2.s 			page 11
 
 
  321:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   tmpreg = PWR->CR;
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  292              		.loc 1 345 0
  293              	@ 345 "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c" 1
  294 001e 20BF     		wfe
-ARM GAS  /tmp/ccksyBZb.s 			page 12
+ARM GAS  /tmp/ccT9iIu2.s 			page 12
 
 
  295              	@ 0 "" 2
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  355:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   * @note  In Standby mode, all I/O pins are high impedance except for:
  356:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   *          - Reset pad (still available)
  357:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   *          - RTC alternate function pins if configured for tamper, time-stamp, RTC
-ARM GAS  /tmp/ccksyBZb.s 			page 13
+ARM GAS  /tmp/ccT9iIu2.s 			page 13
 
 
  358:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   *            Alarm out, or RTC clock calibration out.
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  371 0018 00700040 		.word	1073770496
  372 001c 00ED00E0 		.word	-536810240
  373              		.cfi_endproc
-ARM GAS  /tmp/ccksyBZb.s 			page 14
+ARM GAS  /tmp/ccT9iIu2.s 			page 14
 
 
  374              	.LFE47:
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  397:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c **** 
  398:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c **** /**
  399:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   * @brief Disables Sleep-On-Exit feature when returning from Handler mode to Thread mode. 
-ARM GAS  /tmp/ccksyBZb.s 			page 15
+ARM GAS  /tmp/ccT9iIu2.s 			page 15
 
 
  400:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   * @note Clears SLEEPONEXIT bit of SCR register. When this bit is set, the processor 
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  420:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   /* Set SEVONPEND bit of Cortex System Control Register */
  421:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c ****   SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SEVONPEND_Msk));
  453              		.loc 1 421 0
-ARM GAS  /tmp/ccksyBZb.s 			page 16
+ARM GAS  /tmp/ccT9iIu2.s 			page 16
 
 
  454 0000 024A     		ldr	r2, .L38
@@ -958,57 +958,57 @@ ARM GAS  /tmp/ccksyBZb.s 			page 1
  496 000c 00ED00E0 		.word	-536810240
  497              		.cfi_endproc
  498              	.LFE51:
-ARM GAS  /tmp/ccksyBZb.s 			page 17
+ARM GAS  /tmp/ccT9iIu2.s 			page 17
 
 
  500              		.text
  501              	.Letext0:
- 502              		.file 2 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machin
- 503              		.file 3 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_s
+ 502              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 503              		.file 3 "/usr/include/newlib/sys/_stdint.h"
  504              		.file 4 "Drivers/CMSIS/Include/core_cm0.h"
  505              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
  506              		.file 6 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
  507              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
-ARM GAS  /tmp/ccksyBZb.s 			page 18
+ARM GAS  /tmp/ccT9iIu2.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f0xx_hal_pwr.c
-     /tmp/ccksyBZb.s:16     .text.HAL_PWR_DeInit:0000000000000000 $t
-     /tmp/ccksyBZb.s:23     .text.HAL_PWR_DeInit:0000000000000000 HAL_PWR_DeInit
-     /tmp/ccksyBZb.s:49     .text.HAL_PWR_DeInit:0000000000000018 $d
-     /tmp/ccksyBZb.s:55     .text.HAL_PWR_EnableBkUpAccess:0000000000000000 $t
-     /tmp/ccksyBZb.s:62     .text.HAL_PWR_EnableBkUpAccess:0000000000000000 HAL_PWR_EnableBkUpAccess
-     /tmp/ccksyBZb.s:82     .text.HAL_PWR_EnableBkUpAccess:0000000000000010 $d
-     /tmp/ccksyBZb.s:87     .text.HAL_PWR_DisableBkUpAccess:0000000000000000 $t
-     /tmp/ccksyBZb.s:94     .text.HAL_PWR_DisableBkUpAccess:0000000000000000 HAL_PWR_DisableBkUpAccess
-     /tmp/ccksyBZb.s:113    .text.HAL_PWR_DisableBkUpAccess:000000000000000c $d
-     /tmp/ccksyBZb.s:119    .text.HAL_PWR_EnableWakeUpPin:0000000000000000 $t
-     /tmp/ccksyBZb.s:126    .text.HAL_PWR_EnableWakeUpPin:0000000000000000 HAL_PWR_EnableWakeUpPin
-     /tmp/ccksyBZb.s:146    .text.HAL_PWR_EnableWakeUpPin:000000000000000c $d
-     /tmp/ccksyBZb.s:151    .text.HAL_PWR_DisableWakeUpPin:0000000000000000 $t
-     /tmp/ccksyBZb.s:158    .text.HAL_PWR_DisableWakeUpPin:0000000000000000 HAL_PWR_DisableWakeUpPin
-     /tmp/ccksyBZb.s:177    .text.HAL_PWR_DisableWakeUpPin:000000000000000c $d
-     /tmp/ccksyBZb.s:182    .text.HAL_PWR_EnterSLEEPMode:0000000000000000 $t
-     /tmp/ccksyBZb.s:189    .text.HAL_PWR_EnterSLEEPMode:0000000000000000 HAL_PWR_EnterSLEEPMode
-     /tmp/ccksyBZb.s:238    .text.HAL_PWR_EnterSLEEPMode:000000000000001c $d
-     /tmp/ccksyBZb.s:243    .text.HAL_PWR_EnterSTOPMode:0000000000000000 $t
-     /tmp/ccksyBZb.s:250    .text.HAL_PWR_EnterSTOPMode:0000000000000000 HAL_PWR_EnterSTOPMode
-     /tmp/ccksyBZb.s:326    .text.HAL_PWR_EnterSTOPMode:0000000000000034 $d
-     /tmp/ccksyBZb.s:332    .text.HAL_PWR_EnterSTANDBYMode:0000000000000000 $t
-     /tmp/ccksyBZb.s:339    .text.HAL_PWR_EnterSTANDBYMode:0000000000000000 HAL_PWR_EnterSTANDBYMode
-     /tmp/ccksyBZb.s:371    .text.HAL_PWR_EnterSTANDBYMode:0000000000000018 $d
-     /tmp/ccksyBZb.s:377    .text.HAL_PWR_EnableSleepOnExit:0000000000000000 $t
-     /tmp/ccksyBZb.s:384    .text.HAL_PWR_EnableSleepOnExit:0000000000000000 HAL_PWR_EnableSleepOnExit
-     /tmp/ccksyBZb.s:403    .text.HAL_PWR_EnableSleepOnExit:000000000000000c $d
-     /tmp/ccksyBZb.s:408    .text.HAL_PWR_DisableSleepOnExit:0000000000000000 $t
-     /tmp/ccksyBZb.s:415    .text.HAL_PWR_DisableSleepOnExit:0000000000000000 HAL_PWR_DisableSleepOnExit
-     /tmp/ccksyBZb.s:434    .text.HAL_PWR_DisableSleepOnExit:000000000000000c $d
-     /tmp/ccksyBZb.s:439    .text.HAL_PWR_EnableSEVOnPend:0000000000000000 $t
-     /tmp/ccksyBZb.s:446    .text.HAL_PWR_EnableSEVOnPend:0000000000000000 HAL_PWR_EnableSEVOnPend
-     /tmp/ccksyBZb.s:465    .text.HAL_PWR_EnableSEVOnPend:000000000000000c $d
-     /tmp/ccksyBZb.s:470    .text.HAL_PWR_DisableSEVOnPend:0000000000000000 $t
-     /tmp/ccksyBZb.s:477    .text.HAL_PWR_DisableSEVOnPend:0000000000000000 HAL_PWR_DisableSEVOnPend
-     /tmp/ccksyBZb.s:496    .text.HAL_PWR_DisableSEVOnPend:000000000000000c $d
+     /tmp/ccT9iIu2.s:16     .text.HAL_PWR_DeInit:0000000000000000 $t
+     /tmp/ccT9iIu2.s:23     .text.HAL_PWR_DeInit:0000000000000000 HAL_PWR_DeInit
+     /tmp/ccT9iIu2.s:49     .text.HAL_PWR_DeInit:0000000000000018 $d
+     /tmp/ccT9iIu2.s:55     .text.HAL_PWR_EnableBkUpAccess:0000000000000000 $t
+     /tmp/ccT9iIu2.s:62     .text.HAL_PWR_EnableBkUpAccess:0000000000000000 HAL_PWR_EnableBkUpAccess
+     /tmp/ccT9iIu2.s:82     .text.HAL_PWR_EnableBkUpAccess:0000000000000010 $d
+     /tmp/ccT9iIu2.s:87     .text.HAL_PWR_DisableBkUpAccess:0000000000000000 $t
+     /tmp/ccT9iIu2.s:94     .text.HAL_PWR_DisableBkUpAccess:0000000000000000 HAL_PWR_DisableBkUpAccess
+     /tmp/ccT9iIu2.s:113    .text.HAL_PWR_DisableBkUpAccess:000000000000000c $d
+     /tmp/ccT9iIu2.s:119    .text.HAL_PWR_EnableWakeUpPin:0000000000000000 $t
+     /tmp/ccT9iIu2.s:126    .text.HAL_PWR_EnableWakeUpPin:0000000000000000 HAL_PWR_EnableWakeUpPin
+     /tmp/ccT9iIu2.s:146    .text.HAL_PWR_EnableWakeUpPin:000000000000000c $d
+     /tmp/ccT9iIu2.s:151    .text.HAL_PWR_DisableWakeUpPin:0000000000000000 $t
+     /tmp/ccT9iIu2.s:158    .text.HAL_PWR_DisableWakeUpPin:0000000000000000 HAL_PWR_DisableWakeUpPin
+     /tmp/ccT9iIu2.s:177    .text.HAL_PWR_DisableWakeUpPin:000000000000000c $d
+     /tmp/ccT9iIu2.s:182    .text.HAL_PWR_EnterSLEEPMode:0000000000000000 $t
+     /tmp/ccT9iIu2.s:189    .text.HAL_PWR_EnterSLEEPMode:0000000000000000 HAL_PWR_EnterSLEEPMode
+     /tmp/ccT9iIu2.s:238    .text.HAL_PWR_EnterSLEEPMode:000000000000001c $d
+     /tmp/ccT9iIu2.s:243    .text.HAL_PWR_EnterSTOPMode:0000000000000000 $t
+     /tmp/ccT9iIu2.s:250    .text.HAL_PWR_EnterSTOPMode:0000000000000000 HAL_PWR_EnterSTOPMode
+     /tmp/ccT9iIu2.s:326    .text.HAL_PWR_EnterSTOPMode:0000000000000034 $d
+     /tmp/ccT9iIu2.s:332    .text.HAL_PWR_EnterSTANDBYMode:0000000000000000 $t
+     /tmp/ccT9iIu2.s:339    .text.HAL_PWR_EnterSTANDBYMode:0000000000000000 HAL_PWR_EnterSTANDBYMode
+     /tmp/ccT9iIu2.s:371    .text.HAL_PWR_EnterSTANDBYMode:0000000000000018 $d
+     /tmp/ccT9iIu2.s:377    .text.HAL_PWR_EnableSleepOnExit:0000000000000000 $t
+     /tmp/ccT9iIu2.s:384    .text.HAL_PWR_EnableSleepOnExit:0000000000000000 HAL_PWR_EnableSleepOnExit
+     /tmp/ccT9iIu2.s:403    .text.HAL_PWR_EnableSleepOnExit:000000000000000c $d
+     /tmp/ccT9iIu2.s:408    .text.HAL_PWR_DisableSleepOnExit:0000000000000000 $t
+     /tmp/ccT9iIu2.s:415    .text.HAL_PWR_DisableSleepOnExit:0000000000000000 HAL_PWR_DisableSleepOnExit
+     /tmp/ccT9iIu2.s:434    .text.HAL_PWR_DisableSleepOnExit:000000000000000c $d
+     /tmp/ccT9iIu2.s:439    .text.HAL_PWR_EnableSEVOnPend:0000000000000000 $t
+     /tmp/ccT9iIu2.s:446    .text.HAL_PWR_EnableSEVOnPend:0000000000000000 HAL_PWR_EnableSEVOnPend
+     /tmp/ccT9iIu2.s:465    .text.HAL_PWR_EnableSEVOnPend:000000000000000c $d
+     /tmp/ccT9iIu2.s:470    .text.HAL_PWR_DisableSEVOnPend:0000000000000000 $t
+     /tmp/ccT9iIu2.s:477    .text.HAL_PWR_DisableSEVOnPend:0000000000000000 HAL_PWR_DisableSEVOnPend
+     /tmp/ccT9iIu2.s:496    .text.HAL_PWR_DisableSEVOnPend:000000000000000c $d
 
 NO UNDEFINED SYMBOLS

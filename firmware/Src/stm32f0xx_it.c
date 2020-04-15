@@ -32,7 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
- 
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -59,11 +59,12 @@
 extern DMA_HandleTypeDef hdma_spi1_tx;
 extern TSC_HandleTypeDef htsc;
 /* USER CODE BEGIN EV */
+extern void TSC_task(void);
 
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M0 Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M0 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -146,6 +147,7 @@ void SysTick_Handler(void)
 void TSC_IRQHandler(void)
 {
   /* USER CODE BEGIN TSC_IRQn 0 */
+  TSC_task();
 
   /* USER CODE END TSC_IRQn 0 */
   HAL_TSC_IRQHandler(&htsc);

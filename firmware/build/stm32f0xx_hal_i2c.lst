@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc7EHvsj.s 			page 1
+ARM GAS  /tmp/ccjltdQT.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****             (+++) Enable the DMAx interface clock using
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****             (+++) Configure the DMA handle parameters
   34:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****             (+++) Configure the DMA Tx or Rx channel
-ARM GAS  /tmp/cc7EHvsj.s 			page 2
+ARM GAS  /tmp/ccjltdQT.s 			page 2
 
 
   35:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****             (+++) Associate the initialized DMA handle to the hi2c DMA Tx or Rx handle
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
   89:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     ==========================================================
   90:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     [..]
   91:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       (@) These interfaces allow to manage a sequential transfer with a repeated start condition
-ARM GAS  /tmp/cc7EHvsj.s 			page 3
+ARM GAS  /tmp/ccjltdQT.s 			page 3
 
 
   92:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****           when a direction change during transfer
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  146:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       (++) Sequential receive in slave I2C mode an amount of data in non-blocking mode using @ref H
  147:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****             or using @ref HAL_I2C_Slave_Seq_Receive_DMA()
  148:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       (+++) At reception end of current frame transfer, @ref HAL_I2C_SlaveRxCpltCallback() is execu
-ARM GAS  /tmp/cc7EHvsj.s 			page 4
+ARM GAS  /tmp/ccjltdQT.s 			page 4
 
 
  149:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****            add his own code by customization of function pointer @ref HAL_I2C_SlaveRxCpltCallback()
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  203:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       (+) Read an amount of data in non-blocking mode with DMA from a specific memory address using
  204:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****           @ref HAL_I2C_Mem_Read_DMA()
  205:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       (+) At Memory end of read transfer, @ref HAL_I2C_MemRxCpltCallback() is executed and user can
-ARM GAS  /tmp/cc7EHvsj.s 			page 5
+ARM GAS  /tmp/ccjltdQT.s 			page 5
 
 
  206:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****            add his own code by customization of function pointer @ref HAL_I2C_MemRxCpltCallback()
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  260:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****        (+) MemRxCpltCallback    : callback for Memory reception end of transfer.
  261:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****        (+) ErrorCallback        : callback for error detection.
  262:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****        (+) AbortCpltCallback    : callback for abort completion process.
-ARM GAS  /tmp/cc7EHvsj.s 			page 6
+ARM GAS  /tmp/ccjltdQT.s 			page 6
 
 
  263:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****        (+) MspInitCallback      : callback for Msp Init.
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  317:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
  318:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  319:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** #ifdef HAL_I2C_MODULE_ENABLED
-ARM GAS  /tmp/cc7EHvsj.s 			page 7
+ARM GAS  /tmp/ccjltdQT.s 			page 7
 
 
  320:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  374:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
  375:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** /* Private functions to handle DMA transfer */
  376:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** static void I2C_DMAMasterTransmitCplt(DMA_HandleTypeDef *hdma);
-ARM GAS  /tmp/cc7EHvsj.s 			page 8
+ARM GAS  /tmp/ccjltdQT.s 			page 8
 
 
  377:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** static void I2C_DMAMasterReceiveCplt(DMA_HandleTypeDef *hdma);
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  431:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** /** @defgroup I2C_Exported_Functions_Group1 Initialization and de-initialization functions
  432:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****  *  @brief    Initialization and Configuration functions
  433:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****  *
-ARM GAS  /tmp/cc7EHvsj.s 			page 9
+ARM GAS  /tmp/ccjltdQT.s 			page 9
 
 
  434:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** @verbatim
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  488:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
  489:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Allocate lock resource and initialize it */
  490:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->Lock = HAL_UNLOCKED;
-ARM GAS  /tmp/cc7EHvsj.s 			page 10
+ARM GAS  /tmp/ccjltdQT.s 			page 10
 
 
  491:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  545:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->Instance->CR2 = (I2C_CR2_ADD10);
  546:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
  547:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   /* Enable the AUTOEND by default, and enable NACK (should be disable only during Slave process */
-ARM GAS  /tmp/cc7EHvsj.s 			page 11
+ARM GAS  /tmp/ccjltdQT.s 			page 11
 
 
  548:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   hi2c->Instance->CR2 |= (I2C_CR2_AUTOEND | I2C_CR2_NACK);
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  602:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** #else
  603:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   /* DeInit the low level hardware: GPIO, CLOCK, NVIC */
  604:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   HAL_I2C_MspDeInit(hi2c);
-ARM GAS  /tmp/cc7EHvsj.s 			page 12
+ARM GAS  /tmp/ccjltdQT.s 			page 12
 
 
  605:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** #endif /* USE_HAL_I2C_REGISTER_CALLBACKS */
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  659:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   *          @arg @ref HAL_I2C_MASTER_RX_COMPLETE_CB_ID Master Rx Transfer completed callback ID
  660:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   *          @arg @ref HAL_I2C_SLAVE_TX_COMPLETE_CB_ID Slave Tx Transfer completed callback ID
  661:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   *          @arg @ref HAL_I2C_SLAVE_RX_COMPLETE_CB_ID Slave Rx Transfer completed callback ID
-ARM GAS  /tmp/cc7EHvsj.s 			page 13
+ARM GAS  /tmp/ccjltdQT.s 			page 13
 
 
  662:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   *          @arg @ref HAL_I2C_LISTEN_COMPLETE_CB_ID Listen Complete callback ID
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         break;
  717:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  718:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       case HAL_I2C_ERROR_CB_ID :
-ARM GAS  /tmp/cc7EHvsj.s 			page 14
+ARM GAS  /tmp/ccjltdQT.s 			page 14
 
 
  719:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         hi2c->ErrorCallback = pCallback;
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  773:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   /* Release Lock */
  774:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   __HAL_UNLOCK(hi2c);
  775:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   return status;
-ARM GAS  /tmp/cc7EHvsj.s 			page 15
+ARM GAS  /tmp/ccjltdQT.s 			page 15
 
 
  776:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** }
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  830:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       case HAL_I2C_MEM_TX_COMPLETE_CB_ID :
  831:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         hi2c->MemTxCpltCallback = HAL_I2C_MemTxCpltCallback;       /* Legacy weak MemTxCpltCallback
  832:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         break;
-ARM GAS  /tmp/cc7EHvsj.s 			page 16
+ARM GAS  /tmp/ccjltdQT.s 			page 16
 
 
  833:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  887:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->ErrorCode |= HAL_I2C_ERROR_INVALID_CALLBACK;
  888:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  889:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Return error status */
-ARM GAS  /tmp/cc7EHvsj.s 			page 17
+ARM GAS  /tmp/ccjltdQT.s 			page 17
 
 
  890:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     status =  HAL_ERROR;
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  944:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
  945:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** HAL_StatusTypeDef HAL_I2C_UnRegisterAddrCallback(I2C_HandleTypeDef *hi2c)
  946:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** {
-ARM GAS  /tmp/cc7EHvsj.s 			page 18
+ARM GAS  /tmp/ccjltdQT.s 			page 18
 
 
  947:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   HAL_StatusTypeDef status = HAL_OK;
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1001:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         (++) HAL_I2C_Slave_Receive()
 1002:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         (++) HAL_I2C_Mem_Write()
 1003:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         (++) HAL_I2C_Mem_Read()
-ARM GAS  /tmp/cc7EHvsj.s 			page 19
+ARM GAS  /tmp/ccjltdQT.s 			page 19
 
 
 1004:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         (++) HAL_I2C_IsDeviceReady()
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1058:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @retval HAL status
 1059:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
 1060:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pD
-ARM GAS  /tmp/cc7EHvsj.s 			page 20
+ARM GAS  /tmp/ccjltdQT.s 			page 20
 
 
 1061:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** {
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1115:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       if ((hi2c->XferCount != 0U) && (hi2c->XferSize == 0U))
 1116:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       {
 1117:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Wait until TCR flag is set */
-ARM GAS  /tmp/cc7EHvsj.s 			page 21
+ARM GAS  /tmp/ccjltdQT.s 			page 21
 
 
 1118:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         if (I2C_WaitOnFlagUntilTimeout(hi2c, I2C_FLAG_TCR, RESET, Timeout, tickstart) != HAL_OK)
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1172:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @retval HAL status
 1173:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
 1174:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** HAL_StatusTypeDef HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pDa
-ARM GAS  /tmp/cc7EHvsj.s 			page 22
+ARM GAS  /tmp/ccjltdQT.s 			page 22
 
 
 1175:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** {
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1229:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 1230:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       if ((hi2c->XferCount != 0U) && (hi2c->XferSize == 0U))
 1231:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       {
-ARM GAS  /tmp/cc7EHvsj.s 			page 23
+ARM GAS  /tmp/ccjltdQT.s 			page 23
 
 
 1232:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Wait until TCR flag is set */
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1286:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
 1287:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** HAL_StatusTypeDef HAL_I2C_Slave_Transmit(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, ui
 1288:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** {
-ARM GAS  /tmp/cc7EHvsj.s 			page 24
+ARM GAS  /tmp/ccjltdQT.s 			page 24
 
 
 1289:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   uint32_t tickstart;
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1343:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if (I2C_WaitOnFlagUntilTimeout(hi2c, I2C_FLAG_DIR, RESET, Timeout, tickstart) != HAL_OK)
 1344:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
 1345:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Disable Address Acknowledge */
-ARM GAS  /tmp/cc7EHvsj.s 			page 25
+ARM GAS  /tmp/ccjltdQT.s 			page 25
 
 
 1346:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->Instance->CR2 |= I2C_CR2_NACK;
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1400:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 1401:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->State = HAL_I2C_STATE_READY;
 1402:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->Mode  = HAL_I2C_MODE_NONE;
-ARM GAS  /tmp/cc7EHvsj.s 			page 26
+ARM GAS  /tmp/ccjltdQT.s 			page 26
 
 
 1403:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1457:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->Instance->CR2 |= I2C_CR2_NACK;
 1458:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       return HAL_ERROR;
 1459:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
-ARM GAS  /tmp/cc7EHvsj.s 			page 27
+ARM GAS  /tmp/ccjltdQT.s 			page 27
 
 
 1460:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1514:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 1515:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Wait until BUSY flag is reset */
 1516:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if (I2C_WaitOnFlagUntilTimeout(hi2c, I2C_FLAG_BUSY, SET, Timeout, tickstart) != HAL_OK)
-ARM GAS  /tmp/cc7EHvsj.s 			page 28
+ARM GAS  /tmp/ccjltdQT.s 			page 28
 
 
 1517:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1571:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferOptions = I2C_NO_OPTION_FRAME;
 1572:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferISR     = I2C_Master_ISR_IT;
 1573:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 29
+ARM GAS  /tmp/ccjltdQT.s 			page 29
 
 
 1574:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if (hi2c->XferCount > MAX_NBYTE_SIZE)
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1628:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
 1629:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 1630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Process Locked */
-ARM GAS  /tmp/cc7EHvsj.s 			page 30
+ARM GAS  /tmp/ccjltdQT.s 			page 30
 
 
 1631:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     __HAL_LOCK(hi2c);
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1685:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
 1686:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size)
 1687:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** {
-ARM GAS  /tmp/cc7EHvsj.s 			page 31
+ARM GAS  /tmp/ccjltdQT.s 			page 31
 
 
 1688:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   if (hi2c->State == HAL_I2C_STATE_READY)
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1742:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->State       = HAL_I2C_STATE_BUSY_RX;
 1743:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->Mode        = HAL_I2C_MODE_SLAVE;
 1744:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->ErrorCode   = HAL_I2C_ERROR_NONE;
-ARM GAS  /tmp/cc7EHvsj.s 			page 32
+ARM GAS  /tmp/ccjltdQT.s 			page 32
 
 
 1745:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1799:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     __HAL_LOCK(hi2c);
 1800:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 1801:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->State       = HAL_I2C_STATE_BUSY_TX;
-ARM GAS  /tmp/cc7EHvsj.s 			page 33
+ARM GAS  /tmp/ccjltdQT.s 			page 33
 
 
 1802:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->Mode        = HAL_I2C_MODE_MASTER;
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1856:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Send Slave Address */
 1857:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Set NBYTES to write and reload if hi2c->XferCount > MAX_NBYTE_SIZE and generate RESTART 
 1858:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         I2C_TransferConfig(hi2c, DevAddress, (uint8_t)hi2c->XferSize, xfermode, I2C_GENERATE_START_
-ARM GAS  /tmp/cc7EHvsj.s 			page 34
+ARM GAS  /tmp/ccjltdQT.s 			page 34
 
 
 1859:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1913:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   else
 1914:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
 1915:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     return HAL_BUSY;
-ARM GAS  /tmp/cc7EHvsj.s 			page 35
+ARM GAS  /tmp/ccjltdQT.s 			page 35
 
 
 1916:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1970:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         hi2c->hdmarx->XferCpltCallback = I2C_DMAMasterReceiveCplt;
 1971:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 1972:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Set the DMA error callback */
-ARM GAS  /tmp/cc7EHvsj.s 			page 36
+ARM GAS  /tmp/ccjltdQT.s 			page 36
 
 
 1973:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         hi2c->hdmarx->XferErrorCallback = I2C_DMAError;
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2027:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Process Unlocked */
 2028:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         __HAL_UNLOCK(hi2c);
 2029:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 37
+ARM GAS  /tmp/ccjltdQT.s 			page 37
 
 
 2030:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         return HAL_ERROR;
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2084:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->State       = HAL_I2C_STATE_BUSY_TX;
 2085:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->Mode        = HAL_I2C_MODE_SLAVE;
 2086:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->ErrorCode   = HAL_I2C_ERROR_NONE;
-ARM GAS  /tmp/cc7EHvsj.s 			page 38
+ARM GAS  /tmp/ccjltdQT.s 			page 38
 
 
 2087:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2141:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
 2142:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     else
 2143:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
-ARM GAS  /tmp/cc7EHvsj.s 			page 39
+ARM GAS  /tmp/ccjltdQT.s 			page 39
 
 
 2144:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Update I2C state */
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2198:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if (hi2c->hdmarx != NULL)
 2199:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
 2200:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Set the I2C DMA transfer complete callback */
-ARM GAS  /tmp/cc7EHvsj.s 			page 40
+ARM GAS  /tmp/ccjltdQT.s 			page 40
 
 
 2201:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->hdmarx->XferCpltCallback = I2C_DMASlaveReceiveCplt;
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2255:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       __HAL_UNLOCK(hi2c);
 2256:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 2257:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       return HAL_ERROR;
-ARM GAS  /tmp/cc7EHvsj.s 			page 41
+ARM GAS  /tmp/ccjltdQT.s 			page 41
 
 
 2258:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2312:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferCount = Size;
 2313:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferISR   = NULL;
 2314:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 42
+ARM GAS  /tmp/ccjltdQT.s 			page 42
 
 
 2315:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Send Slave Address and Memory Address */
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2369:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         }
 2370:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       }
 2371:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 43
+ARM GAS  /tmp/ccjltdQT.s 			page 43
 
 
 2372:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2426:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->ErrorCode = HAL_I2C_ERROR_INVALID_PARAM;
 2427:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       return  HAL_ERROR;
 2428:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
-ARM GAS  /tmp/cc7EHvsj.s 			page 44
+ARM GAS  /tmp/ccjltdQT.s 			page 44
 
 
 2429:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2483:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->pBuffPtr++;
 2484:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 2485:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->XferSize--;
-ARM GAS  /tmp/cc7EHvsj.s 			page 45
+ARM GAS  /tmp/ccjltdQT.s 			page 45
 
 
 2486:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->XferCount--;
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2540:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  DevAddress Target device address: The device 7 bits address value
 2541:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   *         in datasheet must be shifted to the left before calling the interface
 2542:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  MemAddress Internal memory address
-ARM GAS  /tmp/cc7EHvsj.s 			page 46
+ARM GAS  /tmp/ccjltdQT.s 			page 46
 
 
 2543:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  MemAddSize Size of internal memory address
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2597:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if (I2C_RequestMemoryWrite(hi2c, DevAddress, MemAddress, MemAddSize, I2C_TIMEOUT_FLAG, tickstar
 2598:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
 2599:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Process Unlocked */
-ARM GAS  /tmp/cc7EHvsj.s 			page 47
+ARM GAS  /tmp/ccjltdQT.s 			page 47
 
 
 2600:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       __HAL_UNLOCK(hi2c);
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2654:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 2655:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if (__HAL_I2C_GET_FLAG(hi2c, I2C_FLAG_BUSY) == SET)
 2656:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
-ARM GAS  /tmp/cc7EHvsj.s 			page 48
+ARM GAS  /tmp/ccjltdQT.s 			page 48
 
 
 2657:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       return HAL_BUSY;
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2711:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
 2712:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   else
 2713:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
-ARM GAS  /tmp/cc7EHvsj.s 			page 49
+ARM GAS  /tmp/ccjltdQT.s 			page 49
 
 
 2714:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     return HAL_BUSY;
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2768:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
 2769:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->XferSize = MAX_NBYTE_SIZE;
 2770:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       xfermode = I2C_RELOAD_MODE;
-ARM GAS  /tmp/cc7EHvsj.s 			page 50
+ARM GAS  /tmp/ccjltdQT.s 			page 50
 
 
 2771:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2825:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 2826:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Process Unlocked */
 2827:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       __HAL_UNLOCK(hi2c);
-ARM GAS  /tmp/cc7EHvsj.s 			page 51
+ARM GAS  /tmp/ccjltdQT.s 			page 51
 
 
 2828:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2882:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   if (hi2c->State == HAL_I2C_STATE_READY)
 2883:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
 2884:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if ((pData == NULL) || (Size == 0U))
-ARM GAS  /tmp/cc7EHvsj.s 			page 52
+ARM GAS  /tmp/ccjltdQT.s 			page 52
 
 
 2885:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2939:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->hdmarx->XferHalfCpltCallback = NULL;
 2940:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->hdmarx->XferAbortCallback = NULL;
 2941:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 53
+ARM GAS  /tmp/ccjltdQT.s 			page 53
 
 
 2942:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Enable the DMA channel */
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2996:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
 2997:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   else
 2998:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
-ARM GAS  /tmp/cc7EHvsj.s 			page 54
+ARM GAS  /tmp/ccjltdQT.s 			page 54
 
 
 2999:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     return HAL_BUSY;
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3053:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****           {
 3054:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****             /* Update I2C state */
 3055:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****             hi2c->State = HAL_I2C_STATE_READY;
-ARM GAS  /tmp/cc7EHvsj.s 			page 55
+ARM GAS  /tmp/ccjltdQT.s 			page 55
 
 
 3056:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3110:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         hi2c->Instance->CR2 |= I2C_CR2_STOP;
 3111:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 3112:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Wait until STOPF flag is reset */
-ARM GAS  /tmp/cc7EHvsj.s 			page 56
+ARM GAS  /tmp/ccjltdQT.s 			page 56
 
 
 3113:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         if (I2C_WaitOnFlagUntilTimeout(hi2c, I2C_FLAG_STOPF, RESET, Timeout, tickstart) != HAL_OK)
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3167:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     __HAL_LOCK(hi2c);
 3168:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 3169:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->State     = HAL_I2C_STATE_BUSY_TX;
-ARM GAS  /tmp/cc7EHvsj.s 			page 57
+ARM GAS  /tmp/ccjltdQT.s 			page 57
 
 
 3170:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->Mode      = HAL_I2C_MODE_MASTER;
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3224:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     return HAL_BUSY;
 3225:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
 3226:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** }
-ARM GAS  /tmp/cc7EHvsj.s 			page 58
+ARM GAS  /tmp/ccjltdQT.s 			page 58
 
 
 3227:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3281:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
 3282:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     else
 3283:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
-ARM GAS  /tmp/cc7EHvsj.s 			page 59
+ARM GAS  /tmp/ccjltdQT.s 			page 59
 
 
 3284:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Convert OTHER_xxx XferOptions if any */
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3338:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****                   to avoid the risk of I2C interrupt handle execution before current
 3339:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****                   process unlock */
 3340:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Enable ERR and NACK interrupts */
-ARM GAS  /tmp/cc7EHvsj.s 			page 60
+ARM GAS  /tmp/ccjltdQT.s 			page 60
 
 
 3341:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         I2C_Enable_IRQ(hi2c, I2C_XFER_ERROR_IT);
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3395:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  DevAddress Target device address: The device 7 bits address value
 3396:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   *         in datasheet must be shifted to the left before calling the interface
 3397:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  pData Pointer to data buffer
-ARM GAS  /tmp/cc7EHvsj.s 			page 61
+ARM GAS  /tmp/ccjltdQT.s 			page 61
 
 
 3398:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  Size Amount of data to be sent
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3452:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       }
 3453:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
 3454:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 62
+ARM GAS  /tmp/ccjltdQT.s 			page 62
 
 
 3455:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Send Slave Address and set NBYTES to read */
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3509:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 3510:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* If hi2c->XferCount > MAX_NBYTE_SIZE, use reload mode */
 3511:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if (hi2c->XferCount > MAX_NBYTE_SIZE)
-ARM GAS  /tmp/cc7EHvsj.s 			page 63
+ARM GAS  /tmp/ccjltdQT.s 			page 63
 
 
 3512:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3566:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Process Unlocked */
 3567:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         __HAL_UNLOCK(hi2c);
 3568:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 64
+ARM GAS  /tmp/ccjltdQT.s 			page 64
 
 
 3569:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         return HAL_ERROR;
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3623:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* possible to enable all of these */
 3624:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* I2C_IT_ERRI | I2C_IT_TCI| I2C_IT_STOPI| I2C_IT_NACKI | I2C_IT_ADDRI | I2C_IT_RXI | I2C_IT_
 3625:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       I2C_Enable_IRQ(hi2c, I2C_XFER_TX_IT);
-ARM GAS  /tmp/cc7EHvsj.s 			page 65
+ARM GAS  /tmp/ccjltdQT.s 			page 65
 
 
 3626:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3680:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****            will lead to call HAL_I2C_ErrorCallback() at end of DMA abort procedure */
 3681:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****           hi2c->hdmarx->XferAbortCallback = I2C_DMAAbort;
 3682:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 66
+ARM GAS  /tmp/ccjltdQT.s 			page 66
 
 
 3683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****           /* Abort DMA RX */
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3737:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  Size Amount of data to be sent
 3738:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  XferOptions Options of Transfer, value of @ref I2C_XFEROPTIONS
 3739:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @retval HAL status
-ARM GAS  /tmp/cc7EHvsj.s 			page 67
+ARM GAS  /tmp/ccjltdQT.s 			page 67
 
 
 3740:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3794:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 3795:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Abort DMA Xfer if any */
 3796:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         if (hi2c->hdmatx != NULL)
-ARM GAS  /tmp/cc7EHvsj.s 			page 68
+ARM GAS  /tmp/ccjltdQT.s 			page 68
 
 
 3797:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         {
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3851:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Update I2C error code */
 3852:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->ErrorCode |= HAL_I2C_ERROR_DMA_PARAM;
 3853:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 69
+ARM GAS  /tmp/ccjltdQT.s 			page 69
 
 
 3854:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Process Unlocked */
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3908:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** }
 3909:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 3910:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** /**
-ARM GAS  /tmp/cc7EHvsj.s 			page 70
+ARM GAS  /tmp/ccjltdQT.s 			page 70
 
 
 3911:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @brief  Sequential receive in slave/device I2C mode an amount of data in non-blocking mode with
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3965:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
 3966:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 3967:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->State     = HAL_I2C_STATE_BUSY_RX_LISTEN;
-ARM GAS  /tmp/cc7EHvsj.s 			page 71
+ARM GAS  /tmp/ccjltdQT.s 			page 71
 
 
 3968:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->Mode      = HAL_I2C_MODE_SLAVE;
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4022:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   if (((uint32_t)hi2c->State & (uint32_t)HAL_I2C_STATE_LISTEN) == (uint32_t)HAL_I2C_STATE_LISTEN)
 4023:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
 4024:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if ((pData == NULL) || (Size == 0U))
-ARM GAS  /tmp/cc7EHvsj.s 			page 72
+ARM GAS  /tmp/ccjltdQT.s 			page 72
 
 
 4025:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4079:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****             /* Call Directly XferAbortCallback function in case of error */
 4080:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****             hi2c->hdmarx->XferAbortCallback(hi2c->hdmarx);
 4081:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****           }
-ARM GAS  /tmp/cc7EHvsj.s 			page 73
+ARM GAS  /tmp/ccjltdQT.s 			page 73
 
 
 4082:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         }
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4136:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Update XferCount value */
 4137:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->XferCount -= hi2c->XferSize;
 4138:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 74
+ARM GAS  /tmp/ccjltdQT.s 			page 74
 
 
 4139:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Reset XferSize */
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4193:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
 4194:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->State = HAL_I2C_STATE_LISTEN;
 4195:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferISR = I2C_Slave_ISR_IT;
-ARM GAS  /tmp/cc7EHvsj.s 			page 75
+ARM GAS  /tmp/ccjltdQT.s 			page 75
 
 
 4196:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4250:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
 4251:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Process Locked */
 4252:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     __HAL_LOCK(hi2c);
-ARM GAS  /tmp/cc7EHvsj.s 			page 76
+ARM GAS  /tmp/ccjltdQT.s 			page 76
 
 
 4253:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4307:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
 4308:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** }
 4309:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 77
+ARM GAS  /tmp/ccjltdQT.s 			page 77
 
 
 4310:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** /**
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4364:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
 4365:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** __weak void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c)
 4366:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** {
-ARM GAS  /tmp/cc7EHvsj.s 			page 78
+ARM GAS  /tmp/ccjltdQT.s 			page 78
 
 
 4367:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   /* Prevent unused argument(s) compilation warning */
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4421:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 4422:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** /**
 4423:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @brief  Slave Address Match callback.
-ARM GAS  /tmp/cc7EHvsj.s 			page 79
+ARM GAS  /tmp/ccjltdQT.s 			page 79
 
 
 4424:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  hi2c Pointer to a I2C_HandleTypeDef structure that contains
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4478:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @retval None
 4479:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
 4480:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** __weak void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef *hi2c)
-ARM GAS  /tmp/cc7EHvsj.s 			page 80
+ARM GAS  /tmp/ccjltdQT.s 			page 80
 
 
 4481:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** {
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4535:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     and the data flow.
 4536:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 4537:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** @endverbatim
-ARM GAS  /tmp/cc7EHvsj.s 			page 81
+ARM GAS  /tmp/ccjltdQT.s 			page 81
 
 
 4538:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @{
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4592:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  ITSources Interrupt sources enabled.
 4593:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @retval HAL status
 4594:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
-ARM GAS  /tmp/cc7EHvsj.s 			page 82
+ARM GAS  /tmp/ccjltdQT.s 			page 82
 
 
 4595:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** static HAL_StatusTypeDef I2C_Master_ISR_IT(struct __I2C_HandleTypeDef *hi2c, uint32_t ITFlags, uint
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4649:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         hi2c->XferSize = MAX_NBYTE_SIZE;
 4650:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         I2C_TransferConfig(hi2c, devaddress, (uint8_t)hi2c->XferSize, I2C_RELOAD_MODE, I2C_NO_START
 4651:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       }
-ARM GAS  /tmp/cc7EHvsj.s 			page 83
+ARM GAS  /tmp/ccjltdQT.s 			page 83
 
 
 4652:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       else
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4706:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
 4707:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   else
 4708:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
-ARM GAS  /tmp/cc7EHvsj.s 			page 84
+ARM GAS  /tmp/ccjltdQT.s 			page 84
 
 
 4709:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Nothing to do */
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4763:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         __HAL_I2C_CLEAR_FLAG(hi2c, I2C_FLAG_AF);
 4764:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 4765:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Flush TX register */
-ARM GAS  /tmp/cc7EHvsj.s 			page 85
+ARM GAS  /tmp/ccjltdQT.s 			page 85
 
 
 4766:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         I2C_Flush_TXDR(hi2c);
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4820:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
 4821:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Write data to TXDR only if XferCount not reach "0" */
 4822:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* A TXIS flag can be set, during STOP treatment      */
-ARM GAS  /tmp/cc7EHvsj.s 			page 86
+ARM GAS  /tmp/ccjltdQT.s 			page 86
 
 
 4823:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Check if all Datas have already been sent */
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4877:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 4878:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Set corresponding Error Code */
 4879:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->ErrorCode |= HAL_I2C_ERROR_AF;
-ARM GAS  /tmp/cc7EHvsj.s 			page 87
+ARM GAS  /tmp/ccjltdQT.s 			page 87
 
 
 4880:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4934:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     else
 4935:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
 4936:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Call TxCpltCallback() if no stop mode is set */
-ARM GAS  /tmp/cc7EHvsj.s 			page 88
+ARM GAS  /tmp/ccjltdQT.s 			page 88
 
 
 4937:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       if (I2C_GET_STOP_MODE(hi2c) != I2C_AUTOEND_MODE)
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4991:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 4992:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** /**
 4993:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @brief  Interrupt Sub-Routine which handle the Interrupt Flags Slave Mode with DMA.
-ARM GAS  /tmp/cc7EHvsj.s 			page 89
+ARM GAS  /tmp/ccjltdQT.s 			page 89
 
 
 4994:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  hi2c Pointer to a I2C_HandleTypeDef structure that contains
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5048:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       if (treatdmanack == 1U)
 5049:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       {
 5050:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         if ((hi2c->State == HAL_I2C_STATE_LISTEN) && (tmpoptions == I2C_FIRST_AND_LAST_FRAME)) /* S
-ARM GAS  /tmp/cc7EHvsj.s 			page 90
+ARM GAS  /tmp/ccjltdQT.s 			page 90
 
 
 5051:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         {
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5105:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   __HAL_UNLOCK(hi2c);
 5106:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 5107:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   return HAL_OK;
-ARM GAS  /tmp/cc7EHvsj.s 			page 91
+ARM GAS  /tmp/ccjltdQT.s 			page 91
 
 
 5108:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** }
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5162:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 5163:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** /**
 5164:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @brief  Master sends target device address followed by internal memory address for read request
-ARM GAS  /tmp/cc7EHvsj.s 			page 92
+ARM GAS  /tmp/ccjltdQT.s 			page 92
 
 
 5165:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  hi2c Pointer to a I2C_HandleTypeDef structure that contains
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5219:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  ITFlags Interrupt flags to handle.
 5220:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @retval None
 5221:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
-ARM GAS  /tmp/cc7EHvsj.s 			page 93
+ARM GAS  /tmp/ccjltdQT.s 			page 93
 
 
 5222:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** static void I2C_ITAddrCplt(I2C_HandleTypeDef *hi2c, uint32_t ITFlags)
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5276:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Call Slave Addr callback */
 5277:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** #if (USE_HAL_I2C_REGISTER_CALLBACKS == 1)
 5278:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         hi2c->AddrCallback(hi2c, transferdirection, slaveaddrcode);
-ARM GAS  /tmp/cc7EHvsj.s 			page 94
+ARM GAS  /tmp/ccjltdQT.s 			page 94
 
 
 5279:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** #else
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5333:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Process Unlocked */
 5334:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     __HAL_UNLOCK(hi2c);
 5335:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 95
+ARM GAS  /tmp/ccjltdQT.s 			page 95
 
 
 5336:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Call the corresponding callback to inform upper layer of End of Transfer */
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5390:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** #else
 5391:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     HAL_I2C_SlaveTxCpltCallback(hi2c);
 5392:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** #endif /* USE_HAL_I2C_REGISTER_CALLBACKS */
-ARM GAS  /tmp/cc7EHvsj.s 			page 96
+ARM GAS  /tmp/ccjltdQT.s 			page 96
 
 
 5393:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5447:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->ErrorCode |= HAL_I2C_ERROR_AF;
 5448:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
 5449:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 97
+ARM GAS  /tmp/ccjltdQT.s 			page 97
 
 
 5450:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   /* Flush TX register */
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5504:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if (hi2c->Mode == HAL_I2C_MODE_MEM)
 5505:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
 5506:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->Mode = HAL_I2C_MODE_NONE;
-ARM GAS  /tmp/cc7EHvsj.s 			page 98
+ARM GAS  /tmp/ccjltdQT.s 			page 98
 
 
 5507:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5561:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 5562:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   /* Flush TX register */
 5563:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   I2C_Flush_TXDR(hi2c);
-ARM GAS  /tmp/cc7EHvsj.s 			page 99
+ARM GAS  /tmp/ccjltdQT.s 			page 99
 
 
 5564:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5618:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     I2C_ITError(hi2c, hi2c->ErrorCode);
 5619:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 5620:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Call the Listen Complete callback, to inform upper layer of the end of Listen usecase */
-ARM GAS  /tmp/cc7EHvsj.s 			page 100
+ARM GAS  /tmp/ccjltdQT.s 			page 100
 
 
 5621:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if (hi2c->State == HAL_I2C_STATE_LISTEN)
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5675:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 5676:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** /**
 5677:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @brief  I2C Listen complete process.
-ARM GAS  /tmp/cc7EHvsj.s 			page 101
+ARM GAS  /tmp/ccjltdQT.s 			page 101
 
 
 5678:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  hi2c I2C handle.
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5732:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
 5733:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** static void I2C_ITError(I2C_HandleTypeDef *hi2c, uint32_t ErrorCode)
 5734:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** {
-ARM GAS  /tmp/cc7EHvsj.s 			page 102
+ARM GAS  /tmp/ccjltdQT.s 			page 102
 
 
 5735:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   HAL_I2C_StateTypeDef tmpstate = hi2c->State;
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5789:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       if (HAL_DMA_Abort_IT(hi2c->hdmatx) != HAL_OK)
 5790:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       {
 5791:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Call Directly XferAbortCallback function in case of error */
-ARM GAS  /tmp/cc7EHvsj.s 			page 103
+ARM GAS  /tmp/ccjltdQT.s 			page 103
 
 
 5792:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         hi2c->hdmatx->XferAbortCallback(hi2c->hdmatx);
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5846:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** /**
 5847:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @brief  I2C Tx data register flush process.
 5848:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  hi2c I2C handle.
-ARM GAS  /tmp/cc7EHvsj.s 			page 104
+ARM GAS  /tmp/ccjltdQT.s 			page 104
 
 
 5849:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @retval None
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
   64              	I2C_TransferConfig:
   65              	.LFB114:
 5866:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 105
+ARM GAS  /tmp/ccjltdQT.s 			page 105
 
 
 5867:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** /**
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5921:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** {
 5922:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   I2C_HandleTypeDef *hi2c = (I2C_HandleTypeDef *)(((DMA_HandleTypeDef *)hdma)->Parent); /* Derogati
 5923:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   uint32_t tmpoptions = hi2c->XferOptions;
-ARM GAS  /tmp/cc7EHvsj.s 			page 106
+ARM GAS  /tmp/ccjltdQT.s 			page 106
 
 
 5924:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5978:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
 5979:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       /* Call the corresponding callback to inform upper layer of End of Transfer */
 5980:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       I2C_ITError(hi2c, HAL_I2C_ERROR_DMA);
-ARM GAS  /tmp/cc7EHvsj.s 			page 107
+ARM GAS  /tmp/ccjltdQT.s 			page 107
 
 
 5981:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6035:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   *        (To be called at end of DMA Abort procedure).
 6036:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param hdma DMA handle.
 6037:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @retval None
-ARM GAS  /tmp/cc7EHvsj.s 			page 108
+ARM GAS  /tmp/ccjltdQT.s 			page 108
 
 
 6038:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   */
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6092:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 6093:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Process Unlocked */
 6094:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         __HAL_UNLOCK(hi2c);
-ARM GAS  /tmp/cc7EHvsj.s 			page 109
+ARM GAS  /tmp/ccjltdQT.s 			page 109
 
 
 6095:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         return HAL_ERROR;
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6149:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   while (__HAL_I2C_GET_FLAG(hi2c, I2C_FLAG_STOPF) == RESET)
 6150:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
 6151:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     /* Check if a NACK is detected */
-ARM GAS  /tmp/cc7EHvsj.s 			page 110
+ARM GAS  /tmp/ccjltdQT.s 			page 110
 
 
 6152:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if (I2C_IsAcknowledgeFailed(hi2c, Timeout, Tickstart) != HAL_OK)
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6206:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 6207:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         /* Clear Configuration Register 2 */
 6208:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         I2C_RESET_CR2(hi2c);
-ARM GAS  /tmp/cc7EHvsj.s 			page 111
+ARM GAS  /tmp/ccjltdQT.s 			page 111
 
 
 6209:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6263:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 6264:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****           return HAL_ERROR;
 6265:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         }
-ARM GAS  /tmp/cc7EHvsj.s 			page 112
+ARM GAS  /tmp/ccjltdQT.s 			page 112
 
 
 6266:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       }
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
   72              	.LCFI0:
   73              		.cfi_def_cfa_offset 20
   74              		.cfi_offset 4, -20
-ARM GAS  /tmp/cc7EHvsj.s 			page 113
+ARM GAS  /tmp/ccjltdQT.s 			page 113
 
 
   75              		.cfi_offset 5, -16
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6324:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** /**
 6325:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @brief  Manage the enabling of Interrupts.
 6326:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   * @param  hi2c Pointer to a I2C_HandleTypeDef structure that contains
-ARM GAS  /tmp/cc7EHvsj.s 			page 114
+ARM GAS  /tmp/ccjltdQT.s 			page 114
 
 
 6327:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   *                the configuration information for the specified I2C.
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  137 000e 4B07     		lsls	r3, r1, #29
  138 0010 2AD4     		bmi	.L18
 6333:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   uint32_t tmpisr = 0U;
-ARM GAS  /tmp/cc7EHvsj.s 			page 115
+ARM GAS  /tmp/ccjltdQT.s 			page 115
 
 
  139              		.loc 1 6333 0
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  170              		.loc 1 6333 0
  171 0032 0023     		movs	r3, #0
  172              	.L10:
-ARM GAS  /tmp/cc7EHvsj.s 			page 116
+ARM GAS  /tmp/ccjltdQT.s 			page 116
 
 
  173              	.LVL12:
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6353:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
  214              		.loc 1 6353 0
  215 005c 0E32     		adds	r2, r2, #14
-ARM GAS  /tmp/cc7EHvsj.s 			page 117
+ARM GAS  /tmp/ccjltdQT.s 			page 117
 
 
  216 005e 1343     		orrs	r3, r2
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  259 0000 30B5     		push	{r4, r5, lr}
  260              	.LCFI1:
  261              		.cfi_def_cfa_offset 12
-ARM GAS  /tmp/cc7EHvsj.s 			page 118
+ARM GAS  /tmp/ccjltdQT.s 			page 118
 
 
  262              		.cfi_offset 4, -12
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  296              	.LVL29:
 6422:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
 6423:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     if (((uint32_t)hi2c->State & (uint32_t)HAL_I2C_STATE_LISTEN) != (uint32_t)HAL_I2C_STATE_LISTEN)
-ARM GAS  /tmp/cc7EHvsj.s 			page 119
+ARM GAS  /tmp/ccjltdQT.s 			page 119
 
 
  297              		.loc 1 6423 0
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6445:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     tmpisr |= I2C_IT_STOPI;
 6446:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
 6447:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 120
+ARM GAS  /tmp/ccjltdQT.s 			page 120
 
 
 6448:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   if ((InterruptRequest & I2C_XFER_RELOAD_IT) == I2C_XFER_RELOAD_IT)
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  370              		.section	.text.I2C_ConvertOtherXferOptions,"ax",%progbits
  371              		.align	1
  372              		.syntax unified
-ARM GAS  /tmp/cc7EHvsj.s 			page 121
+ARM GAS  /tmp/ccjltdQT.s 			page 121
 
 
  373              		.code	16
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6472:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
  400              		.loc 1 6472 0
  401 0012 0023     		movs	r3, #0
-ARM GAS  /tmp/cc7EHvsj.s 			page 122
+ARM GAS  /tmp/ccjltdQT.s 			page 122
 
 
  402 0014 C362     		str	r3, [r0, #44]
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6255:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         {
  453              		.loc 1 6255 0
  454 001c FFF7FEFF 		bl	HAL_GetTick
-ARM GAS  /tmp/cc7EHvsj.s 			page 123
+ARM GAS  /tmp/ccjltdQT.s 			page 123
 
 
  455              	.LVL42:
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  499 0054 FFF7FEFF 		bl	I2C_Flush_TXDR
  500              	.LVL47:
 6279:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 124
+ARM GAS  /tmp/ccjltdQT.s 			page 124
 
 
  501              		.loc 1 6279 0
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  550              	.LVL50:
  551 0000 70B5     		push	{r4, r5, r6, lr}
  552              	.LCFI3:
-ARM GAS  /tmp/cc7EHvsj.s 			page 125
+ARM GAS  /tmp/ccjltdQT.s 			page 125
 
 
  553              		.cfi_def_cfa_offset 16
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  599 003e 2232     		adds	r2, r2, #34
  600 0040 A354     		strb	r3, [r4, r2]
 6130:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 126
+ARM GAS  /tmp/ccjltdQT.s 			page 126
 
 
  601              		.loc 1 6130 0
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  652              	.LVL59:
  653              	.L64:
 6082:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
-ARM GAS  /tmp/cc7EHvsj.s 			page 127
+ARM GAS  /tmp/ccjltdQT.s 			page 127
 
 
  654              		.loc 1 6082 0
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6100:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  699              		.loc 1 6100 0
  700              		@ sp needed
-ARM GAS  /tmp/cc7EHvsj.s 			page 128
+ARM GAS  /tmp/ccjltdQT.s 			page 128
 
 
  701              	.LVL61:
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  754 0026 1ED1     		bne	.L73
 5133:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
  755              		.loc 1 5133 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 129
+ARM GAS  /tmp/ccjltdQT.s 			page 129
 
 
  756 0028 012D     		cmp	r5, #1
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  802              	.LVL72:
  803 006a 70BD     		pop	{r4, r5, r6, pc}
  804              	.LVL73:
-ARM GAS  /tmp/cc7EHvsj.s 			page 130
+ARM GAS  /tmp/ccjltdQT.s 			page 130
 
 
  805              	.L74:
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  857              	.LVL78:
  858 0020 0028     		cmp	r0, #0
  859 0022 1ED1     		bne	.L81
-ARM GAS  /tmp/cc7EHvsj.s 			page 131
+ARM GAS  /tmp/ccjltdQT.s 			page 131
 
 
 5186:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  905 0064 02B0     		add	sp, sp, #8
  906              		@ sp needed
  907              	.LVL81:
-ARM GAS  /tmp/cc7EHvsj.s 			page 132
+ARM GAS  /tmp/ccjltdQT.s 			page 132
 
 
  908 0066 70BD     		pop	{r4, r5, r6, pc}
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6158:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
  960              		.loc 1 6158 0
  961 001e FFF7FEFF 		bl	HAL_GetTick
-ARM GAS  /tmp/cc7EHvsj.s 			page 133
+ARM GAS  /tmp/ccjltdQT.s 			page 133
 
 
  962              	.LVL86:
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1008              		.syntax unified
  1009              		.code	16
  1010              		.thumb_func
-ARM GAS  /tmp/cc7EHvsj.s 			page 134
+ARM GAS  /tmp/ccjltdQT.s 			page 134
 
 
  1011              		.fpu softvfp
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6224:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->State = HAL_I2C_STATE_READY;
  1060              		.loc 1 6224 0 is_stmt 1
  1061 0034 636C     		ldr	r3, [r4, #68]
-ARM GAS  /tmp/cc7EHvsj.s 			page 135
+ARM GAS  /tmp/ccjltdQT.s 			page 135
 
 
  1062 0036 2022     		movs	r2, #32
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1106 006a 6254     		strb	r2, [r4, r1]
 6212:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  1107              		.loc 1 6212 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 136
+ARM GAS  /tmp/ccjltdQT.s 			page 136
 
 
  1108 006c 2232     		adds	r2, r2, #34
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1159              		.fpu softvfp
  1161              	HAL_I2C_Init:
  1162              	.LFB40:
-ARM GAS  /tmp/cc7EHvsj.s 			page 137
+ARM GAS  /tmp/ccjltdQT.s 			page 137
 
 
  470:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   /* Check the I2C handle allocation */
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  538:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   }
  1209              		.loc 1 538 0
  1210 0038 2268     		ldr	r2, [r4]
-ARM GAS  /tmp/cc7EHvsj.s 			page 138
+ARM GAS  /tmp/ccjltdQT.s 			page 138
 
 
  1211 003a 8423     		movs	r3, #132
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  565:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   hi2c->PreviousState = I2C_STATE_NONE;
  1258              		.loc 1 565 0
  1259 0086 4122     		movs	r2, #65
-ARM GAS  /tmp/cc7EHvsj.s 			page 139
+ARM GAS  /tmp/ccjltdQT.s 			page 139
 
 
  1260 0088 1F31     		adds	r1, r1, #31
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1305 00bc EAE7     		b	.L106
  1306              	.L116:
  1307 00be C046     		.align	2
-ARM GAS  /tmp/cc7EHvsj.s 			page 140
+ARM GAS  /tmp/ccjltdQT.s 			page 140
 
 
  1308              	.L115:
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  589:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  1362              		.loc 1 589 0
  1363 0006 4125     		movs	r5, #65
-ARM GAS  /tmp/cc7EHvsj.s 			page 141
+ARM GAS  /tmp/ccjltdQT.s 			page 141
 
 
  1364 0008 2423     		movs	r3, #36
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1409              		.thumb_func
  1410              		.fpu softvfp
  1412              	HAL_I2C_Master_Transmit:
-ARM GAS  /tmp/cc7EHvsj.s 			page 142
+ARM GAS  /tmp/ccjltdQT.s 			page 142
 
 
  1413              	.LFB44:
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1461 002e 0090     		str	r0, [sp]
  1462 0030 1923     		movs	r3, #25
  1463 0032 0122     		movs	r2, #1
-ARM GAS  /tmp/cc7EHvsj.s 			page 143
+ARM GAS  /tmp/ccjltdQT.s 			page 143
 
 
  1464 0034 0902     		lsls	r1, r1, #8
@@ -8578,7 +8578,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1509              	.L123:
 1095:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       I2C_TransferConfig(hi2c, DevAddress, (uint8_t)hi2c->XferSize, I2C_AUTOEND_MODE, I2C_GENERATE_
  1510              		.loc 1 1095 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 144
+ARM GAS  /tmp/ccjltdQT.s 			page 144
 
 
  1511 0078 6A8D     		ldrh	r2, [r5, #42]
@@ -8638,7 +8638,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1110:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  1559              		.loc 1 1110 0
  1560 00c8 6B6A     		ldr	r3, [r5, #36]
-ARM GAS  /tmp/cc7EHvsj.s 			page 145
+ARM GAS  /tmp/ccjltdQT.s 			page 145
 
 
  1561 00ca 0133     		adds	r3, r3, #1
@@ -8698,7 +8698,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1607 0116 FFF7FEFF 		bl	I2C_TransferConfig
  1608              	.LVL125:
  1609 011a C6E7     		b	.L125
-ARM GAS  /tmp/cc7EHvsj.s 			page 146
+ARM GAS  /tmp/ccjltdQT.s 			page 146
 
 
  1610              	.L135:
@@ -8758,7 +8758,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1655              	.L130:
 1067:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  1656              		.loc 1 1067 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 147
+ARM GAS  /tmp/ccjltdQT.s 			page 147
 
 
  1657 0150 0220     		movs	r0, #2
@@ -8818,7 +8818,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1708 0002 85B0     		sub	sp, sp, #20
  1709              	.LCFI16:
  1710              		.cfi_def_cfa_offset 40
-ARM GAS  /tmp/cc7EHvsj.s 			page 148
+ARM GAS  /tmp/ccjltdQT.s 			page 148
 
 
  1711 0004 0500     		movs	r5, r0
@@ -8878,7 +8878,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1758              		.loc 1 1192 0
  1759 0048 0133     		adds	r3, r3, #1
  1760 004a 123A     		subs	r2, r2, #18
-ARM GAS  /tmp/cc7EHvsj.s 			page 149
+ARM GAS  /tmp/ccjltdQT.s 			page 149
 
 
  1761 004c EA54     		strb	r2, [r5, r3]
@@ -8938,7 +8938,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1806              	.L144:
 1245:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****           I2C_TransferConfig(hi2c, DevAddress, (uint8_t)hi2c->XferSize, I2C_AUTOEND_MODE, I2C_NO_ST
  1807              		.loc 1 1245 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 150
+ARM GAS  /tmp/ccjltdQT.s 			page 150
 
 
  1808 0092 6A8D     		ldrh	r2, [r5, #42]
@@ -8998,7 +8998,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  1854              		.loc 1 1230 0
  1855 00de 6A8D     		ldrh	r2, [r5, #42]
  1856 00e0 92B2     		uxth	r2, r2
-ARM GAS  /tmp/cc7EHvsj.s 			page 151
+ARM GAS  /tmp/ccjltdQT.s 			page 151
 
 
  1857 00e2 002A     		cmp	r2, #0
@@ -9058,7 +9058,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1262:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  1904              		.loc 1 1262 0
  1905 0130 2968     		ldr	r1, [r5]
-ARM GAS  /tmp/cc7EHvsj.s 			page 152
+ARM GAS  /tmp/ccjltdQT.s 			page 152
 
 
  1906 0132 4B68     		ldr	r3, [r1, #4]
@@ -9118,7 +9118,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1235:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         }
  1951              		.loc 1 1235 0
  1952 015c 0120     		movs	r0, #1
-ARM GAS  /tmp/cc7EHvsj.s 			page 153
+ARM GAS  /tmp/ccjltdQT.s 			page 153
 
 
  1953 015e F5E7     		b	.L139
@@ -9178,7 +9178,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2005 0016 0029     		cmp	r1, #0
  2006 0018 4CD0     		beq	.L157
 1293:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
-ARM GAS  /tmp/cc7EHvsj.s 			page 154
+ARM GAS  /tmp/ccjltdQT.s 			page 154
 
 
  2007              		.loc 1 1293 0 is_stmt 0 discriminator 1
@@ -9238,7 +9238,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2050              		.loc 1 1317 0 discriminator 2
  2051 0054 0090     		str	r0, [sp]
  2052 0056 039B     		ldr	r3, [sp, #12]
-ARM GAS  /tmp/cc7EHvsj.s 			page 155
+ARM GAS  /tmp/ccjltdQT.s 			page 155
 
 
  2053 0058 0022     		movs	r2, #0
@@ -9298,7 +9298,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2100              		.loc 1 1364 0
  2101 00a4 736A     		ldr	r3, [r6, #36]
  2102 00a6 0133     		adds	r3, r3, #1
-ARM GAS  /tmp/cc7EHvsj.s 			page 156
+ARM GAS  /tmp/ccjltdQT.s 			page 156
 
 
  2103 00a8 7362     		str	r3, [r6, #36]
@@ -9358,7 +9358,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2149              		.loc 1 1334 0
  2150 00e8 3268     		ldr	r2, [r6]
  2151 00ea 5168     		ldr	r1, [r2, #4]
-ARM GAS  /tmp/cc7EHvsj.s 			page 157
+ARM GAS  /tmp/ccjltdQT.s 			page 157
 
 
  2152 00ec 8023     		movs	r3, #128
@@ -9418,7 +9418,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2198 0132 736C     		ldr	r3, [r6, #68]
  2199 0134 042B     		cmp	r3, #4
  2200 0136 01D0     		beq	.L176
-ARM GAS  /tmp/cc7EHvsj.s 			page 158
+ARM GAS  /tmp/ccjltdQT.s 			page 158
 
 
 1383:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       }
@@ -9478,7 +9478,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2245              		.loc 1 1394 0
  2246 0178 3268     		ldr	r2, [r6]
  2247 017a 5168     		ldr	r1, [r2, #4]
-ARM GAS  /tmp/cc7EHvsj.s 			page 159
+ARM GAS  /tmp/ccjltdQT.s 			page 159
 
 
  2248 017c 8023     		movs	r3, #128
@@ -9538,7 +9538,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2299              		.cfi_offset 5, -16
  2300              		.cfi_offset 6, -12
  2301              		.cfi_offset 7, -8
-ARM GAS  /tmp/cc7EHvsj.s 			page 160
+ARM GAS  /tmp/ccjltdQT.s 			page 160
 
 
  2302              		.cfi_offset 14, -4
@@ -9598,7 +9598,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2348 003e F254     		strb	r2, [r6, r3]
 1443:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  2349              		.loc 1 1443 0 discriminator 2
-ARM GAS  /tmp/cc7EHvsj.s 			page 161
+ARM GAS  /tmp/ccjltdQT.s 			page 161
 
 
  2350 0040 0023     		movs	r3, #0
@@ -9658,7 +9658,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2395              	.LVL187:
  2396              	.L184:
 1462:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 162
+ARM GAS  /tmp/ccjltdQT.s 			page 162
 
 
  2397              		.loc 1 1462 0
@@ -9718,7 +9718,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2443              		.loc 1 1475 0
  2444 00c8 3A00     		movs	r2, r7
  2445 00ca 0399     		ldr	r1, [sp, #12]
-ARM GAS  /tmp/cc7EHvsj.s 			page 163
+ARM GAS  /tmp/ccjltdQT.s 			page 163
 
 
  2446 00cc 3000     		movs	r0, r6
@@ -9778,7 +9778,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2492 0116 1B02     		lsls	r3, r3, #8
  2493 0118 0B43     		orrs	r3, r1
  2494 011a 5360     		str	r3, [r2, #4]
-ARM GAS  /tmp/cc7EHvsj.s 			page 164
+ARM GAS  /tmp/ccjltdQT.s 			page 164
 
 
 1509:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
@@ -9838,7 +9838,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2540 0160 0B43     		orrs	r3, r1
  2541 0162 5360     		str	r3, [r2, #4]
 1520:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
-ARM GAS  /tmp/cc7EHvsj.s 			page 165
+ARM GAS  /tmp/ccjltdQT.s 			page 165
 
 
  2542              		.loc 1 1520 0
@@ -9898,7 +9898,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2593              		.cfi_offset 4, -12
  2594              		.cfi_offset 5, -8
  2595              		.cfi_offset 14, -4
-ARM GAS  /tmp/cc7EHvsj.s 			page 166
+ARM GAS  /tmp/ccjltdQT.s 			page 166
 
 
  2596 0002 83B0     		sub	sp, sp, #12
@@ -9958,7 +9958,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1572:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  2640              		.loc 1 1572 0 discriminator 2
  2641 003c 134B     		ldr	r3, .L204+4
-ARM GAS  /tmp/cc7EHvsj.s 			page 167
+ARM GAS  /tmp/ccjltdQT.s 			page 167
 
 
  2642 003e 6363     		str	r3, [r4, #52]
@@ -10018,7 +10018,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2687 0076 9B04     		lsls	r3, r3, #18
  2688 0078 EAE7     		b	.L200
  2689              	.LVL211:
-ARM GAS  /tmp/cc7EHvsj.s 			page 168
+ARM GAS  /tmp/ccjltdQT.s 			page 168
 
 
  2690              	.L201:
@@ -10078,7 +10078,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2741              		.cfi_def_cfa_offset 24
  2742 0004 0400     		movs	r4, r0
 1623:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
-ARM GAS  /tmp/cc7EHvsj.s 			page 169
+ARM GAS  /tmp/ccjltdQT.s 			page 169
 
 
  2743              		.loc 1 1623 0
@@ -10138,7 +10138,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2786              		.loc 1 1643 0 discriminator 2
  2787 0040 638D     		ldrh	r3, [r4, #42]
  2788 0042 9BB2     		uxth	r3, r3
-ARM GAS  /tmp/cc7EHvsj.s 			page 170
+ARM GAS  /tmp/ccjltdQT.s 			page 170
 
 
  2789 0044 FF2B     		cmp	r3, #255
@@ -10198,7 +10198,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2834              		.loc 1 1674 0
  2835 007a 0220     		movs	r0, #2
  2836              	.LVL228:
-ARM GAS  /tmp/cc7EHvsj.s 			page 171
+ARM GAS  /tmp/ccjltdQT.s 			page 171
 
 
  2837              	.L207:
@@ -10258,7 +10258,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2888 0006 202B     		cmp	r3, #32
  2889 0008 21D1     		bne	.L217
 1691:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 172
+ARM GAS  /tmp/ccjltdQT.s 			page 172
 
 
  2890              		.loc 1 1691 0
@@ -10318,7 +10318,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2932 0044 0521     		movs	r1, #5
  2933              	.LVL232:
  2934 0046 FFF7FEFF 		bl	I2C_Enable_IRQ
-ARM GAS  /tmp/cc7EHvsj.s 			page 173
+ARM GAS  /tmp/ccjltdQT.s 			page 173
 
 
  2935              	.LVL233:
@@ -10378,7 +10378,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  2986              		.cfi_offset 14, -4
 1737:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
  2987              		.loc 1 1737 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 174
+ARM GAS  /tmp/ccjltdQT.s 			page 174
 
 
  2988 0002 4123     		movs	r3, #65
@@ -10438,7 +10438,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1757:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  3031              		.loc 1 1757 0 discriminator 2
  3032 0042 0555     		strb	r5, [r0, r4]
-ARM GAS  /tmp/cc7EHvsj.s 			page 175
+ARM GAS  /tmp/ccjltdQT.s 			page 175
 
 
 1766:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -10498,7 +10498,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3083              		.cfi_offset 4, -20
  3084              		.cfi_offset 5, -16
  3085              		.cfi_offset 6, -12
-ARM GAS  /tmp/cc7EHvsj.s 			page 176
+ARM GAS  /tmp/ccjltdQT.s 			page 176
 
 
  3086              		.cfi_offset 7, -8
@@ -10558,7 +10558,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1806:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferCount   = Size;
  3133              		.loc 1 1806 0 discriminator 2
  3134 003e 6162     		str	r1, [r4, #36]
-ARM GAS  /tmp/cc7EHvsj.s 			page 177
+ARM GAS  /tmp/ccjltdQT.s 			page 177
 
 
 1807:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferOptions = I2C_NO_OPTION_FRAME;
@@ -10618,7 +10618,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1834:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  3178              		.loc 1 1834 0
  3179 0076 A26B     		ldr	r2, [r4, #56]
-ARM GAS  /tmp/cc7EHvsj.s 			page 178
+ARM GAS  /tmp/ccjltdQT.s 			page 178
 
 
  3180 0078 5363     		str	r3, [r2, #52]
@@ -10678,7 +10678,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3224 00b0 4123     		movs	r3, #65
  3225 00b2 2022     		movs	r2, #32
  3226 00b4 E254     		strb	r2, [r4, r3]
-ARM GAS  /tmp/cc7EHvsj.s 			page 179
+ARM GAS  /tmp/ccjltdQT.s 			page 179
 
 
 1843:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -10738,7 +10738,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3272 00f6 2268     		ldr	r2, [r4]
  3273 00f8 1168     		ldr	r1, [r2]
  3274 00fa 8023     		movs	r3, #128
-ARM GAS  /tmp/cc7EHvsj.s 			page 180
+ARM GAS  /tmp/ccjltdQT.s 			page 180
 
 
  3275 00fc DB01     		lsls	r3, r3, #7
@@ -10798,7 +10798,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1795:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
  3322              		.loc 1 1795 0
  3323 0134 0225     		movs	r5, #2
-ARM GAS  /tmp/cc7EHvsj.s 			page 181
+ARM GAS  /tmp/ccjltdQT.s 			page 181
 
 
  3324 0136 FAE7     		b	.L228
@@ -10858,7 +10858,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 1936:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
  3377              		.loc 1 1936 0
  3378 0012 0168     		ldr	r1, [r0]
-ARM GAS  /tmp/cc7EHvsj.s 			page 182
+ARM GAS  /tmp/ccjltdQT.s 			page 182
 
 
  3379 0014 8969     		ldr	r1, [r1, #24]
@@ -10918,7 +10918,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3423 004e 29D9     		bls	.L244
 1956:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       xfermode = I2C_RELOAD_MODE;
  3424              		.loc 1 1956 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 183
+ARM GAS  /tmp/ccjltdQT.s 			page 183
 
 
  3425 0050 FF23     		movs	r3, #255
@@ -10978,7 +10978,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3469 008c E254     		strb	r2, [r4, r3]
 2022:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  3470              		.loc 1 2022 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 184
+ARM GAS  /tmp/ccjltdQT.s 			page 184
 
 
  3471 008e 0022     		movs	r2, #0
@@ -11038,7 +11038,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3515              		.loc 1 1994 0
  3516 00c6 0125     		movs	r5, #1
  3517 00c8 30E0     		b	.L243
-ARM GAS  /tmp/cc7EHvsj.s 			page 185
+ARM GAS  /tmp/ccjltdQT.s 			page 185
 
 
  3518              	.LVL286:
@@ -11098,7 +11098,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3565              	.LVL292:
  3566 010e 9B04     		lsls	r3, r3, #18
  3567 0110 3100     		movs	r1, r6
-ARM GAS  /tmp/cc7EHvsj.s 			page 186
+ARM GAS  /tmp/ccjltdQT.s 			page 186
 
 
  3568 0112 2000     		movs	r0, r4
@@ -11158,7 +11158,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3616              		.section	.text.HAL_I2C_Slave_Transmit_DMA,"ax",%progbits
  3617              		.align	1
  3618              		.global	HAL_I2C_Slave_Transmit_DMA
-ARM GAS  /tmp/cc7EHvsj.s 			page 187
+ARM GAS  /tmp/ccjltdQT.s 			page 187
 
 
  3619              		.syntax unified
@@ -11218,7 +11218,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3666 002a 0138     		subs	r0, r0, #1
  3667 002c E054     		strb	r0, [r4, r3]
 2086:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 188
+ARM GAS  /tmp/ccjltdQT.s 			page 188
 
 
  3668              		.loc 1 2086 0 discriminator 2
@@ -11278,7 +11278,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3711              	.LVL303:
 2125:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
  3712              		.loc 1 2125 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 189
+ARM GAS  /tmp/ccjltdQT.s 			page 189
 
 
  3713 006a 20D0     		beq	.L267
@@ -11338,7 +11338,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3757 00a2 0B43     		orrs	r3, r1
  3758 00a4 6364     		str	r3, [r4, #68]
 2120:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 190
+ARM GAS  /tmp/ccjltdQT.s 			page 190
 
 
  3759              		.loc 1 2120 0
@@ -11398,7 +11398,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2082:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  3805              		.loc 1 2082 0
  3806 00da 0225     		movs	r5, #2
-ARM GAS  /tmp/cc7EHvsj.s 			page 191
+ARM GAS  /tmp/ccjltdQT.s 			page 191
 
 
  3807 00dc FBE7     		b	.L258
@@ -11458,7 +11458,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2185:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  3858              		.loc 1 2185 0 is_stmt 0 discriminator 2
  3859 001c 4023     		movs	r3, #64
-ARM GAS  /tmp/cc7EHvsj.s 			page 192
+ARM GAS  /tmp/ccjltdQT.s 			page 192
 
 
  3860 001e 0120     		movs	r0, #1
@@ -11518,7 +11518,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3902 0056 D362     		str	r3, [r2, #44]
 2208:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  3903              		.loc 1 2208 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 193
+ARM GAS  /tmp/ccjltdQT.s 			page 193
 
 
  3904 0058 E26B     		ldr	r2, [r4, #60]
@@ -11578,7 +11578,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3949              	.L274:
 2216:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->Mode      = HAL_I2C_MODE_NONE;
  3950              		.loc 1 2216 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 194
+ARM GAS  /tmp/ccjltdQT.s 			page 194
 
 
  3951 0096 4123     		movs	r3, #65
@@ -11638,7 +11638,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  3996              		.loc 1 2260 0
  3997 00d6 00E0     		b	.L271
  3998              	.LVL328:
-ARM GAS  /tmp/cc7EHvsj.s 			page 195
+ARM GAS  /tmp/ccjltdQT.s 			page 195
 
 
  3999              	.L277:
@@ -11698,7 +11698,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4051 0004 0500     		movs	r5, r0
  4052 0006 0391     		str	r1, [sp, #12]
  4053 0008 0492     		str	r2, [sp, #16]
-ARM GAS  /tmp/cc7EHvsj.s 			page 196
+ARM GAS  /tmp/ccjltdQT.s 			page 196
 
 
  4054 000a 0593     		str	r3, [sp, #20]
@@ -11758,7 +11758,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4101 004a 0028     		cmp	r0, #0
  4102 004c 06D0     		beq	.L299
 2303:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
-ARM GAS  /tmp/cc7EHvsj.s 			page 197
+ARM GAS  /tmp/ccjltdQT.s 			page 197
 
 
  4103              		.loc 1 2303 0
@@ -11818,7 +11818,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4147              		.loc 1 2324 0
  4148 0088 6B8D     		ldrh	r3, [r5, #42]
  4149 008a 9BB2     		uxth	r3, r3
-ARM GAS  /tmp/cc7EHvsj.s 			page 198
+ARM GAS  /tmp/ccjltdQT.s 			page 198
 
 
  4150 008c FF2B     		cmp	r3, #255
@@ -11878,7 +11878,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4196 00d2 8023     		movs	r3, #128
  4197 00d4 D2B2     		uxtb	r2, r2
  4198 00d6 0021     		movs	r1, #0
-ARM GAS  /tmp/cc7EHvsj.s 			page 199
+ARM GAS  /tmp/ccjltdQT.s 			page 199
 
 
  4199 00d8 0091     		str	r1, [sp]
@@ -11938,7 +11938,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4245 0120 002B     		cmp	r3, #0
  4246 0122 DFD1     		bne	.L290
 2355:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         {
-ARM GAS  /tmp/cc7EHvsj.s 			page 200
+ARM GAS  /tmp/ccjltdQT.s 			page 200
 
 
  4247              		.loc 1 2355 0 is_stmt 1
@@ -11998,7 +11998,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2388:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->Mode  = HAL_I2C_MODE_NONE;
  4295              		.loc 1 2388 0
  4296 0174 4123     		movs	r3, #65
-ARM GAS  /tmp/cc7EHvsj.s 			page 201
+ARM GAS  /tmp/ccjltdQT.s 			page 201
 
 
  4297 0176 EA54     		strb	r2, [r5, r3]
@@ -12058,7 +12058,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4342              	.LFE56:
  4344              		.section	.text.HAL_I2C_Mem_Read,"ax",%progbits
  4345              		.align	1
-ARM GAS  /tmp/cc7EHvsj.s 			page 202
+ARM GAS  /tmp/ccjltdQT.s 			page 202
 
 
  4346              		.global	HAL_I2C_Mem_Read
@@ -12118,7 +12118,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4396 0028 012B     		cmp	r3, #1
  4397 002a 00D1     		bne	.LCB4373
  4398 002c AFE0     		b	.L315	@long jump
-ARM GAS  /tmp/cc7EHvsj.s 			page 203
+ARM GAS  /tmp/ccjltdQT.s 			page 203
 
 
  4399              	.LCB4373:
@@ -12178,7 +12178,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2443:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  4445              		.loc 1 2443 0
  4446 0068 0023     		movs	r3, #0
-ARM GAS  /tmp/cc7EHvsj.s 			page 204
+ARM GAS  /tmp/ccjltdQT.s 			page 204
 
 
  4447 006a 6364     		str	r3, [r4, #68]
@@ -12238,7 +12238,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4492 00b0 6BE0     		b	.L305
  4493              	.L309:
 2467:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       I2C_TransferConfig(hi2c, DevAddress, (uint8_t)hi2c->XferSize, I2C_AUTOEND_MODE, I2C_GENERATE_
-ARM GAS  /tmp/cc7EHvsj.s 			page 205
+ARM GAS  /tmp/ccjltdQT.s 			page 205
 
 
  4494              		.loc 1 2467 0
@@ -12298,7 +12298,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4542 00fe 2368     		ldr	r3, [r4]
  4543 0100 5B6A     		ldr	r3, [r3, #36]
  4544 0102 626A     		ldr	r2, [r4, #36]
-ARM GAS  /tmp/cc7EHvsj.s 			page 206
+ARM GAS  /tmp/ccjltdQT.s 			page 206
 
 
  4545 0104 1370     		strb	r3, [r2]
@@ -12358,7 +12358,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4590 014c 5B04     		lsls	r3, r3, #17
  4591 014e FF32     		adds	r2, r2, #255
  4592 0150 0399     		ldr	r1, [sp, #12]
-ARM GAS  /tmp/cc7EHvsj.s 			page 207
+ARM GAS  /tmp/ccjltdQT.s 			page 207
 
 
  4593 0152 2000     		movs	r0, r4
@@ -12418,7 +12418,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4638 018c F0BD     		pop	{r4, r5, r6, r7, pc}
  4639              	.LVL381:
  4640              	.L315:
-ARM GAS  /tmp/cc7EHvsj.s 			page 208
+ARM GAS  /tmp/ccjltdQT.s 			page 208
 
 
 2431:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -12478,7 +12478,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4692 0004 0400     		movs	r4, r0
  4693 0006 0391     		str	r1, [sp, #12]
  4694 0008 0492     		str	r2, [sp, #16]
-ARM GAS  /tmp/cc7EHvsj.s 			page 209
+ARM GAS  /tmp/ccjltdQT.s 			page 209
 
 
  4695 000a 0593     		str	r3, [sp, #20]
@@ -12538,7 +12538,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4739 0048 6364     		str	r3, [r4, #68]
 2580:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferCount   = Size;
  4740              		.loc 1 2580 0 discriminator 2
-ARM GAS  /tmp/cc7EHvsj.s 			page 210
+ARM GAS  /tmp/ccjltdQT.s 			page 210
 
 
  4741 004a 6762     		str	r7, [r4, #36]
@@ -12598,7 +12598,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2560:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       return  HAL_ERROR;
  4786              		.loc 1 2560 0
  4787 0086 8023     		movs	r3, #128
-ARM GAS  /tmp/cc7EHvsj.s 			page 211
+ARM GAS  /tmp/ccjltdQT.s 			page 211
 
 
  4788 0088 9B00     		lsls	r3, r3, #2
@@ -12658,7 +12658,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4833 00be 07B0     		add	sp, sp, #28
  4834              		@ sp needed
  4835              	.LVL401:
-ARM GAS  /tmp/cc7EHvsj.s 			page 212
+ARM GAS  /tmp/ccjltdQT.s 			page 212
 
 
  4836 00c0 F0BD     		pop	{r4, r5, r6, r7, pc}
@@ -12718,7 +12718,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2647:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
  4889              		.loc 1 2647 0
  4890 0012 4123     		movs	r3, #65
-ARM GAS  /tmp/cc7EHvsj.s 			page 213
+ARM GAS  /tmp/ccjltdQT.s 			page 213
 
 
  4891              	.LVL406:
@@ -12778,7 +12778,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4933 004e 1F4B     		ldr	r3, .L347
  4934 0050 F362     		str	r3, [r6, #44]
 2674:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 214
+ARM GAS  /tmp/ccjltdQT.s 			page 214
 
 
  4935              		.loc 1 2674 0 discriminator 2
@@ -12838,7 +12838,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  4981              	.LVL413:
  4982              	.L341:
 2683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       xfermode = I2C_AUTOEND_MODE;
-ARM GAS  /tmp/cc7EHvsj.s 			page 215
+ARM GAS  /tmp/ccjltdQT.s 			page 215
 
 
  4983              		.loc 1 2683 0
@@ -12898,7 +12898,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5029 00c4 0225     		movs	r5, #2
  5030 00c6 FAE7     		b	.L338
  5031              	.L346:
-ARM GAS  /tmp/cc7EHvsj.s 			page 216
+ARM GAS  /tmp/ccjltdQT.s 			page 216
 
 
 2661:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -12958,7 +12958,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5085 0016 4123     		movs	r3, #65
  5086              	.LVL425:
  5087 0018 C35C     		ldrb	r3, [r0, r3]
-ARM GAS  /tmp/cc7EHvsj.s 			page 217
+ARM GAS  /tmp/ccjltdQT.s 			page 217
 
 
  5088 001a 202B     		cmp	r3, #32
@@ -13018,7 +13018,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5131              		.loc 1 2763 0 discriminator 2
  5132 0056 6785     		strh	r7, [r4, #42]
 2764:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferISR     = I2C_Master_ISR_DMA;
-ARM GAS  /tmp/cc7EHvsj.s 			page 218
+ARM GAS  /tmp/ccjltdQT.s 			page 218
 
 
  5133              		.loc 1 2764 0 discriminator 2
@@ -13078,7 +13078,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5178              		.loc 1 2796 0
  5179 0098 A26B     		ldr	r2, [r4, #56]
  5180 009a 0023     		movs	r3, #0
-ARM GAS  /tmp/cc7EHvsj.s 			page 219
+ARM GAS  /tmp/ccjltdQT.s 			page 219
 
 
  5181 009c D362     		str	r3, [r2, #44]
@@ -13138,7 +13138,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5225              	.LVL434:
  5226              	.L353:
 2774:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       xfermode = I2C_AUTOEND_MODE;
-ARM GAS  /tmp/cc7EHvsj.s 			page 220
+ARM GAS  /tmp/ccjltdQT.s 			page 220
 
 
  5227              		.loc 1 2774 0
@@ -13198,7 +13198,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5272 0114 4B46     		mov	r3, r9
  5273 0116 0399     		ldr	r1, [sp, #12]
  5274 0118 2000     		movs	r0, r4
-ARM GAS  /tmp/cc7EHvsj.s 			page 221
+ARM GAS  /tmp/ccjltdQT.s 			page 221
 
 
  5275              	.LVL438:
@@ -13258,7 +13258,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2752:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  5321              		.loc 1 2752 0
  5322 0152 0226     		movs	r6, #2
-ARM GAS  /tmp/cc7EHvsj.s 			page 222
+ARM GAS  /tmp/ccjltdQT.s 			page 222
 
 
  5323 0154 F6E7     		b	.L350
@@ -13318,7 +13318,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5377 0018 C35C     		ldrb	r3, [r0, r3]
  5378 001a 202B     		cmp	r3, #32
  5379 001c 00D0     		beq	.LCB5451
-ARM GAS  /tmp/cc7EHvsj.s 			page 223
+ARM GAS  /tmp/ccjltdQT.s 			page 223
 
 
  5380 001e 91E0     		b	.L377	@long jump
@@ -13378,7 +13378,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2908:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferISR     = I2C_Master_ISR_DMA;
  5423              		.loc 1 2908 0 discriminator 2
  5424 0058 3F4B     		ldr	r3, .L383
-ARM GAS  /tmp/cc7EHvsj.s 			page 224
+ARM GAS  /tmp/ccjltdQT.s 			page 224
 
 
  5425 005a E362     		str	r3, [r4, #44]
@@ -13438,7 +13438,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5470 009a 0023     		movs	r3, #0
  5471 009c D362     		str	r3, [r2, #44]
 2940:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 225
+ARM GAS  /tmp/ccjltdQT.s 			page 225
 
 
  5472              		.loc 1 2940 0
@@ -13498,7 +13498,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 2918:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       xfermode = I2C_AUTOEND_MODE;
  5517              		.loc 1 2918 0
  5518 00da 638D     		ldrh	r3, [r4, #42]
-ARM GAS  /tmp/cc7EHvsj.s 			page 226
+ARM GAS  /tmp/ccjltdQT.s 			page 226
 
 
  5519 00dc 2385     		strh	r3, [r4, #40]
@@ -13558,7 +13558,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5564 0118 2000     		movs	r0, r4
  5565              	.LVL461:
  5566 011a FFF7FEFF 		bl	I2C_TransferConfig
-ARM GAS  /tmp/cc7EHvsj.s 			page 227
+ARM GAS  /tmp/ccjltdQT.s 			page 227
 
 
  5567              	.LVL462:
@@ -13618,7 +13618,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5612              		.loc 1 2896 0
  5613 0154 0226     		movs	r6, #2
  5614 0156 F6E7     		b	.L368
-ARM GAS  /tmp/cc7EHvsj.s 			page 228
+ARM GAS  /tmp/ccjltdQT.s 			page 228
 
 
  5615              	.L384:
@@ -13678,7 +13678,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5667              		.loc 1 3025 0
  5668 001a 0368     		ldr	r3, [r0]
  5669 001c 9B69     		ldr	r3, [r3, #24]
-ARM GAS  /tmp/cc7EHvsj.s 			page 229
+ARM GAS  /tmp/ccjltdQT.s 			page 229
 
 
  5670 001e 1B04     		lsls	r3, r3, #16
@@ -13738,7 +13738,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5715              		.loc 1 3045 0 discriminator 4
  5716 005a 3268     		ldr	r2, [r6]
  5717 005c 9169     		ldr	r1, [r2, #24]
-ARM GAS  /tmp/cc7EHvsj.s 			page 230
+ARM GAS  /tmp/ccjltdQT.s 			page 230
 
 
  5718 005e 2023     		movs	r3, #32
@@ -13798,7 +13798,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5766 009e 13D1     		bne	.L403
 3050:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         {
  5767              		.loc 1 3050 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 231
+ARM GAS  /tmp/ccjltdQT.s 			page 231
 
 
  5768 00a0 7B1C     		adds	r3, r7, #1
@@ -13858,7 +13858,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5813              		.loc 1 3100 0
  5814 00e2 3368     		ldr	r3, [r6]
  5815 00e4 1022     		movs	r2, #16
-ARM GAS  /tmp/cc7EHvsj.s 			page 232
+ARM GAS  /tmp/ccjltdQT.s 			page 232
 
 
  5816 00e6 DA61     		str	r2, [r3, #28]
@@ -13918,7 +13918,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5861 0126 22D1     		bne	.L399
 3081:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  5862              		.loc 1 3081 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 233
+ARM GAS  /tmp/ccjltdQT.s 			page 233
 
 
  5863 0128 3268     		ldr	r2, [r6]
@@ -13978,7 +13978,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5909              	.LVL493:
  5910 0164 F0BD     		pop	{r4, r5, r6, r7, pc}
  5911              	.LVL494:
-ARM GAS  /tmp/cc7EHvsj.s 			page 234
+ARM GAS  /tmp/ccjltdQT.s 			page 234
 
 
  5912              	.L397:
@@ -14038,7 +14038,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  5962              		.cfi_offset 5, -12
  5963              		.cfi_offset 6, -8
  5964              		.cfi_offset 14, -4
-ARM GAS  /tmp/cc7EHvsj.s 			page 235
+ARM GAS  /tmp/ccjltdQT.s 			page 235
 
 
  5965 0002 82B0     		sub	sp, sp, #8
@@ -14098,7 +14098,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6009 0038 6363     		str	r3, [r4, #52]
 3180:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
  6010              		.loc 1 3180 0 discriminator 2
-ARM GAS  /tmp/cc7EHvsj.s 			page 236
+ARM GAS  /tmp/ccjltdQT.s 			page 236
 
 
  6011 003a 638D     		ldrh	r3, [r4, #42]
@@ -14158,7 +14158,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6056              	.LVL511:
 3203:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       {
  6057              		.loc 1 3203 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 237
+ARM GAS  /tmp/ccjltdQT.s 			page 237
 
 
  6058 0072 638D     		ldrh	r3, [r4, #42]
@@ -14218,7 +14218,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6103 00a6 02B0     		add	sp, sp, #8
  6104              		@ sp needed
  6105              	.LVL520:
-ARM GAS  /tmp/cc7EHvsj.s 			page 238
+ARM GAS  /tmp/ccjltdQT.s 			page 238
 
 
  6106 00a8 70BD     		pop	{r4, r5, r6, pc}
@@ -14278,7 +14278,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3252:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  6159              		.loc 1 3252 0
  6160 0014 2032     		adds	r2, r2, #32
-ARM GAS  /tmp/cc7EHvsj.s 			page 239
+ARM GAS  /tmp/ccjltdQT.s 			page 239
 
 
  6161 0016 825C     		ldrb	r2, [r0, r2]
@@ -14338,7 +14338,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6204 004c 8027     		movs	r7, #128
  6205 004e 7F04     		lsls	r7, r7, #17
  6206              	.LVL530:
-ARM GAS  /tmp/cc7EHvsj.s 			page 240
+ARM GAS  /tmp/ccjltdQT.s 			page 240
 
 
  6207              	.L423:
@@ -14398,7 +14398,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6251              	.LVL536:
 3294:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
  6252              		.loc 1 3294 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 241
+ARM GAS  /tmp/ccjltdQT.s 			page 241
 
 
  6253 0084 228D     		ldrh	r2, [r4, #40]
@@ -14458,7 +14458,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6297 00c6 0B43     		orrs	r3, r1
  6298 00c8 6364     		str	r3, [r4, #68]
 3356:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 242
+ARM GAS  /tmp/ccjltdQT.s 			page 242
 
 
  6299              		.loc 1 3356 0
@@ -14518,7 +14518,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6344              		.loc 1 3332 0
  6345 0102 638D     		ldrh	r3, [r4, #42]
  6346 0104 228D     		ldrh	r2, [r4, #40]
-ARM GAS  /tmp/cc7EHvsj.s 			page 243
+ARM GAS  /tmp/ccjltdQT.s 			page 243
 
 
  6347 0106 9B1A     		subs	r3, r3, r2
@@ -14578,7 +14578,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6393              	.LVL549:
  6394 014e 00E0     		b	.L421
  6395              	.LVL550:
-ARM GAS  /tmp/cc7EHvsj.s 			page 244
+ARM GAS  /tmp/ccjltdQT.s 			page 244
 
 
  6396              	.L430:
@@ -14638,7 +14638,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6448              		.cfi_def_cfa_offset 24
  6449 0004 0400     		movs	r4, r0
  6450 0006 0D00     		movs	r5, r1
-ARM GAS  /tmp/cc7EHvsj.s 			page 245
+ARM GAS  /tmp/ccjltdQT.s 			page 245
 
 
  6451              	.LVL556:
@@ -14698,7 +14698,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6494 003e FF2B     		cmp	r3, #255
  6495 0040 10D9     		bls	.L440
 3428:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       xfermode = I2C_RELOAD_MODE;
-ARM GAS  /tmp/cc7EHvsj.s 			page 246
+ARM GAS  /tmp/ccjltdQT.s 			page 246
 
 
  6496              		.loc 1 3428 0
@@ -14758,7 +14758,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6541 0076 FE2B     		cmp	r3, #254
  6542 0078 12D8     		bhi	.L447
 3451:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       }
-ARM GAS  /tmp/cc7EHvsj.s 			page 247
+ARM GAS  /tmp/ccjltdQT.s 			page 247
 
 
  6543              		.loc 1 3451 0
@@ -14818,7 +14818,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6589              	.L445:
 3413:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  6590              		.loc 1 3413 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 248
+ARM GAS  /tmp/ccjltdQT.s 			page 248
 
 
  6591 00aa 0220     		movs	r0, #2
@@ -14878,7 +14878,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6644 001a 00D1     		bne	.LCB6768
  6645 001c 9CE0     		b	.L461	@long jump
  6646              	.LCB6768:
-ARM GAS  /tmp/cc7EHvsj.s 			page 249
+ARM GAS  /tmp/ccjltdQT.s 			page 249
 
 
 3498:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -14938,7 +14938,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6689              		.loc 1 3524 0
  6690 0050 236B     		ldr	r3, [r4, #48]
  6691 0052 122B     		cmp	r3, #18
-ARM GAS  /tmp/cc7EHvsj.s 			page 250
+ARM GAS  /tmp/ccjltdQT.s 			page 250
 
 
  6692 0054 0DD1     		bne	.L454
@@ -14998,7 +14998,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6736 0088 4ED0     		beq	.L456
 3542:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       {
  6737              		.loc 1 3542 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 251
+ARM GAS  /tmp/ccjltdQT.s 			page 251
 
 
  6738 008a E36B     		ldr	r3, [r4, #60]
@@ -15058,7 +15058,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6782 00cc E254     		strb	r2, [r4, r3]
 3604:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       }
  6783              		.loc 1 3604 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 252
+ARM GAS  /tmp/ccjltdQT.s 			page 252
 
 
  6784 00ce 0125     		movs	r5, #1
@@ -15118,7 +15118,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6830 010a 6385     		strh	r3, [r4, #42]
 3581:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  6831              		.loc 1 3581 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 253
+ARM GAS  /tmp/ccjltdQT.s 			page 253
 
 
  6832 010c 4023     		movs	r3, #64
@@ -15178,7 +15178,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6878              		.loc 1 3632 0
  6879 0150 0225     		movs	r5, #2
  6880              	.LVL607:
-ARM GAS  /tmp/cc7EHvsj.s 			page 254
+ARM GAS  /tmp/ccjltdQT.s 			page 254
 
 
  6881              	.L451:
@@ -15238,7 +15238,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6933              		.loc 1 3651 0
  6934 000a 4123     		movs	r3, #65
  6935              	.LVL612:
-ARM GAS  /tmp/cc7EHvsj.s 			page 255
+ARM GAS  /tmp/ccjltdQT.s 			page 255
 
 
  6936 000c C35C     		ldrb	r3, [r0, r3]
@@ -15298,7 +15298,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  6981              		.loc 1 3663 0 is_stmt 0 discriminator 2
  6982 003a 4023     		movs	r3, #64
  6983 003c 0122     		movs	r2, #1
-ARM GAS  /tmp/cc7EHvsj.s 			page 256
+ARM GAS  /tmp/ccjltdQT.s 			page 256
 
 
  6984 003e FA54     		strb	r2, [r7, r3]
@@ -15358,7 +15358,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7026 0078 0822     		movs	r2, #8
  7027 007a DA61     		str	r2, [r3, #28]
  7028              	.L473:
-ARM GAS  /tmp/cc7EHvsj.s 			page 257
+ARM GAS  /tmp/ccjltdQT.s 			page 257
 
 
 3715:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -15418,7 +15418,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7073 00be 9847     		blx	r3
  7074              	.LVL626:
  7075 00c0 C2E7     		b	.L472
-ARM GAS  /tmp/cc7EHvsj.s 			page 258
+ARM GAS  /tmp/ccjltdQT.s 			page 258
 
 
  7076              	.L475:
@@ -15478,7 +15478,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7128              	.LVL630:
  7129              	.L481:
 3908:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 259
+ARM GAS  /tmp/ccjltdQT.s 			page 259
 
 
  7130              		.loc 1 3908 0
@@ -15538,7 +15538,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7175              		.loc 1 3817 0
  7176 0050 0133     		adds	r3, r3, #1
  7177 0052 093A     		subs	r2, r2, #9
-ARM GAS  /tmp/cc7EHvsj.s 			page 260
+ARM GAS  /tmp/ccjltdQT.s 			page 260
 
 
  7178 0054 E254     		strb	r2, [r4, r3]
@@ -15598,7 +15598,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7219 008c 2268     		ldr	r2, [r4]
  7220 008e 2832     		adds	r2, r2, #40
  7221 0090 238D     		ldrh	r3, [r4, #40]
-ARM GAS  /tmp/cc7EHvsj.s 			page 261
+ARM GAS  /tmp/ccjltdQT.s 			page 261
 
 
  7222 0092 2900     		movs	r1, r5
@@ -15658,7 +15658,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7267 00d0 8023     		movs	r3, #128
  7268 00d2 9B00     		lsls	r3, r3, #2
  7269 00d4 6364     		str	r3, [r4, #68]
-ARM GAS  /tmp/cc7EHvsj.s 			page 262
+ARM GAS  /tmp/ccjltdQT.s 			page 262
 
 
 3753:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
@@ -15718,7 +15718,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7315 0116 98D5     		bpl	.L485
 3793:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  7316              		.loc 1 3793 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 263
+ARM GAS  /tmp/ccjltdQT.s 			page 263
 
 
  7317 0118 1A68     		ldr	r2, [r3]
@@ -15778,7 +15778,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7362              	.L497:
 3871:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       hi2c->Mode      = HAL_I2C_MODE_NONE;
  7363              		.loc 1 3871 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 264
+ARM GAS  /tmp/ccjltdQT.s 			page 264
 
 
  7364 0158 4123     		movs	r3, #65
@@ -15838,7 +15838,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3921:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   /* Check the parameters */
  7414              		.loc 1 3921 0
  7415              		.cfi_startproc
-ARM GAS  /tmp/cc7EHvsj.s 			page 265
+ARM GAS  /tmp/ccjltdQT.s 			page 265
 
 
  7416              		@ args = 0, pretend = 0, frame = 0
@@ -15898,7 +15898,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3930:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
  7464              		.loc 1 3930 0
  7465 0028 0120     		movs	r0, #1
-ARM GAS  /tmp/cc7EHvsj.s 			page 266
+ARM GAS  /tmp/ccjltdQT.s 			page 266
 
 
  7466              	.LVL658:
@@ -15958,7 +15958,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7510 0064 7D85     		strh	r5, [r7, #42]
 3977:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferOptions = XferOptions;
  7511              		.loc 1 3977 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 267
+ARM GAS  /tmp/ccjltdQT.s 			page 267
 
 
  7512 0066 7B8D     		ldrh	r3, [r7, #42]
@@ -16018,7 +16018,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 3951:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****         {
  7556              		.loc 1 3951 0
  7557 00a6 BB6B     		ldr	r3, [r7, #56]
-ARM GAS  /tmp/cc7EHvsj.s 			page 268
+ARM GAS  /tmp/ccjltdQT.s 			page 268
 
 
  7558 00a8 002B     		cmp	r3, #0
@@ -16078,7 +16078,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7609              		.cfi_offset 5, -16
  7610              		.cfi_offset 6, -12
  7611              		.cfi_offset 7, -8
-ARM GAS  /tmp/cc7EHvsj.s 			page 269
+ARM GAS  /tmp/ccjltdQT.s 			page 269
 
 
  7612              		.cfi_offset 14, -4
@@ -16138,7 +16138,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4034:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  7658              		.loc 1 4034 0
  7659 0034 4023     		movs	r3, #64
-ARM GAS  /tmp/cc7EHvsj.s 			page 270
+ARM GAS  /tmp/ccjltdQT.s 			page 270
 
 
  7660 0036 E35C     		ldrb	r3, [r4, r3]
@@ -16198,7 +16198,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4101:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     hi2c->XferISR     = I2C_Slave_ISR_DMA;
  7704              		.loc 1 4101 0
  7705 0076 E762     		str	r7, [r4, #44]
-ARM GAS  /tmp/cc7EHvsj.s 			page 271
+ARM GAS  /tmp/ccjltdQT.s 			page 271
 
 
 4102:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -16258,7 +16258,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7749 00b6 2368     		ldr	r3, [r4]
  7750 00b8 9A69     		ldr	r2, [r3, #24]
  7751 00ba D203     		lsls	r2, r2, #15
-ARM GAS  /tmp/cc7EHvsj.s 			page 272
+ARM GAS  /tmp/ccjltdQT.s 			page 272
 
 
  7752 00bc 5AD5     		bpl	.L521
@@ -16318,7 +16318,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7797 00fc 5A63     		str	r2, [r3, #52]
 4055:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****           {
  7798              		.loc 1 4055 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 273
+ARM GAS  /tmp/ccjltdQT.s 			page 273
 
 
  7799 00fe A06B     		ldr	r0, [r4, #56]
@@ -16378,7 +16378,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4123:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  7845              		.loc 1 4123 0
  7846 0142 0022     		movs	r2, #0
-ARM GAS  /tmp/cc7EHvsj.s 			page 274
+ARM GAS  /tmp/ccjltdQT.s 			page 274
 
 
  7847 0144 0133     		adds	r3, r3, #1
@@ -16438,7 +16438,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7891              	.LVL688:
  7892 017c 4CE7     		b	.L513
  7893              	.L531:
-ARM GAS  /tmp/cc7EHvsj.s 			page 275
+ARM GAS  /tmp/ccjltdQT.s 			page 275
 
 
  7894 017e C046     		.align	2
@@ -16498,7 +16498,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7944 0014 034B     		ldr	r3, .L536
  7945 0016 4363     		str	r3, [r0, #52]
 4198:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 276
+ARM GAS  /tmp/ccjltdQT.s 			page 276
 
 
  7946              		.loc 1 4198 0
@@ -16558,7 +16558,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  7996              		.loc 1 4222 0
  7997 000e 4124     		movs	r4, #65
  7998 0010 025D     		ldrb	r2, [r0, r4]
-ARM GAS  /tmp/cc7EHvsj.s 			page 277
+ARM GAS  /tmp/ccjltdQT.s 			page 277
 
 
  7999              	.LVL696:
@@ -16618,7 +16618,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8048 0002 82B0     		sub	sp, sp, #8
  8049              	.LCFI64:
  8050              		.cfi_def_cfa_offset 24
-ARM GAS  /tmp/cc7EHvsj.s 			page 278
+ARM GAS  /tmp/ccjltdQT.s 			page 278
 
 
  8051 0004 0400     		movs	r4, r0
@@ -16678,7 +16678,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8096 003e 9B04     		lsls	r3, r3, #18
  8097 0040 0122     		movs	r2, #1
  8098 0042 2900     		movs	r1, r5
-ARM GAS  /tmp/cc7EHvsj.s 			page 279
+ARM GAS  /tmp/ccjltdQT.s 			page 279
 
 
  8099 0044 2000     		movs	r0, r4
@@ -16738,7 +16738,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8149              	.LVL711:
 4301:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  8150              		.loc 1 4301 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 280
+ARM GAS  /tmp/ccjltdQT.s 			page 280
 
 
  8151 0006 1A68     		ldr	r2, [r3]
@@ -16798,7 +16798,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8203              		@ link register save eliminated.
  8204              	.LVL715:
 4389:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 281
+ARM GAS  /tmp/ccjltdQT.s 			page 281
 
 
  8205              		.loc 1 4389 0
@@ -16858,7 +16858,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8254 0022 FFF7FEFF 		bl	I2C_Disable_IRQ
  8255              	.LVL717:
 5354:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 282
+ARM GAS  /tmp/ccjltdQT.s 			page 282
 
 
  8256              		.loc 1 5354 0
@@ -16918,7 +16918,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8304              	.LFB78:
 4397:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   /* Prevent unused argument(s) compilation warning */
  8305              		.loc 1 4397 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 283
+ARM GAS  /tmp/ccjltdQT.s 			page 283
 
 
  8306              		.cfi_startproc
@@ -16978,7 +16978,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8359              		.loc 1 5373 0
  8360 0004 4223     		movs	r3, #66
  8361 0006 0022     		movs	r2, #0
-ARM GAS  /tmp/cc7EHvsj.s 			page 284
+ARM GAS  /tmp/ccjltdQT.s 			page 284
 
 
  8362 0008 C254     		strb	r2, [r0, r3]
@@ -17038,7 +17038,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5399:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  8407              		.loc 1 5399 0
  8408 0040 1F3B     		subs	r3, r3, #31
-ARM GAS  /tmp/cc7EHvsj.s 			page 285
+ARM GAS  /tmp/ccjltdQT.s 			page 285
 
 
  8409 0042 0363     		str	r3, [r0, #48]
@@ -17098,7 +17098,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5925:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
  8457              		.loc 1 5925 0 is_stmt 0 discriminator 1
  8458 000e 002B     		cmp	r3, #0
-ARM GAS  /tmp/cc7EHvsj.s 			page 286
+ARM GAS  /tmp/ccjltdQT.s 			page 286
 
 
  8459 0010 06D1     		bne	.L564
@@ -17158,7 +17158,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8508 0006 C36B     		ldr	r3, [r0, #60]
  8509 0008 1B68     		ldr	r3, [r3]
  8510 000a 5B68     		ldr	r3, [r3, #4]
-ARM GAS  /tmp/cc7EHvsj.s 			page 287
+ARM GAS  /tmp/ccjltdQT.s 			page 287
 
 
  8511 000c 002B     		cmp	r3, #0
@@ -17218,7 +17218,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8562              		.align	1
  8563              		.syntax unified
  8564              		.code	16
-ARM GAS  /tmp/cc7EHvsj.s 			page 288
+ARM GAS  /tmp/ccjltdQT.s 			page 288
 
 
  8565              		.thumb_func
@@ -17278,7 +17278,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8614              	.LVL749:
 5236:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     ownadd1code       = I2C_GET_OWN_ADDRESS1(hi2c);
  8615              		.loc 1 5236 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 289
+ARM GAS  /tmp/ccjltdQT.s 			page 289
 
 
  8616 0028 9A69     		ldr	r2, [r3, #24]
@@ -17338,7 +17338,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8661 0062 E154     		strb	r1, [r4, r3]
 5262:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** #endif /* USE_HAL_I2C_REGISTER_CALLBACKS */
  8662              		.loc 1 5262 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 290
+ARM GAS  /tmp/ccjltdQT.s 			page 290
 
 
  8663 0064 3100     		movs	r1, r6
@@ -17398,7 +17398,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8712              		.thumb_func
  8713              		.fpu softvfp
  8715              	HAL_I2C_ListenCpltCallback:
-ARM GAS  /tmp/cc7EHvsj.s 			page 291
+ARM GAS  /tmp/ccjltdQT.s 			page 291
 
 
  8716              	.LFB81:
@@ -17458,7 +17458,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8764 0016 6363     		str	r3, [r4, #52]
 5692:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
  8765              		.loc 1 5692 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 292
+ARM GAS  /tmp/ccjltdQT.s 			page 292
 
 
  8766 0018 4B07     		lsls	r3, r1, #29
@@ -17518,7 +17518,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8810 0058 2000     		movs	r0, r4
  8811 005a FFF7FEFF 		bl	HAL_I2C_ListenCpltCallback
  8812              	.LVL769:
-ARM GAS  /tmp/cc7EHvsj.s 			page 293
+ARM GAS  /tmp/ccjltdQT.s 			page 293
 
 
 5725:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -17578,7 +17578,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8866              	.LFE83:
  8868              		.section	.text.HAL_I2C_ErrorCallback,"ax",%progbits
  8869              		.align	1
-ARM GAS  /tmp/cc7EHvsj.s 			page 294
+ARM GAS  /tmp/ccjltdQT.s 			page 294
 
 
  8870              		.weak	HAL_I2C_ErrorCallback
@@ -17638,7 +17638,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8924              		@ frame_needed = 0, uses_anonymous_args = 0
  8925              	.LVL775:
  8926 0000 10B5     		push	{r4, lr}
-ARM GAS  /tmp/cc7EHvsj.s 			page 295
+ARM GAS  /tmp/ccjltdQT.s 			page 295
 
 
  8927              	.LCFI72:
@@ -17698,7 +17698,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  8970              		.loc 1 5756 0
  8971 0034 2C4B     		ldr	r3, .L598+4
  8972 0036 6363     		str	r3, [r4, #52]
-ARM GAS  /tmp/cc7EHvsj.s 			page 296
+ARM GAS  /tmp/ccjltdQT.s 			page 296
 
 
  8973              	.L591:
@@ -17758,7 +17758,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5765:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
  9018              		.loc 1 5765 0
  9019 0072 4123     		movs	r3, #65
-ARM GAS  /tmp/cc7EHvsj.s 			page 297
+ARM GAS  /tmp/ccjltdQT.s 			page 297
 
 
  9020 0074 E35C     		ldrb	r3, [r4, r3]
@@ -17818,7 +17818,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9064 00b4 9847     		blx	r3
  9065              	.LVL787:
  9066 00b6 D7E7     		b	.L589
-ARM GAS  /tmp/cc7EHvsj.s 			page 298
+ARM GAS  /tmp/ccjltdQT.s 			page 298
 
 
  9067              	.L595:
@@ -17878,7 +17878,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9116              	.LFB99:
 5546:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   uint32_t tmpcr1value = READ_REG(hi2c->Instance->CR1);
  9117              		.loc 1 5546 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 299
+ARM GAS  /tmp/ccjltdQT.s 			page 299
 
 
  9118              		.cfi_startproc
@@ -17938,7 +17938,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9164 0034 A36B     		ldr	r3, [r4, #56]
  9165 0036 002B     		cmp	r3, #0
  9166 0038 03D0     		beq	.L602
-ARM GAS  /tmp/cc7EHvsj.s 			page 300
+ARM GAS  /tmp/ccjltdQT.s 			page 300
 
 
 5570:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
@@ -17998,7 +17998,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9211 0078 6364     		str	r3, [r4, #68]
  9212              	.L604:
 5611:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   hi2c->Mode = HAL_I2C_MODE_NONE;
-ARM GAS  /tmp/cc7EHvsj.s 			page 301
+ARM GAS  /tmp/ccjltdQT.s 			page 301
 
 
  9213              		.loc 1 5611 0
@@ -18058,7 +18058,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9256 00b4 002B     		cmp	r3, #0
  9257 00b6 C4D0     		beq	.L602
 5577:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
-ARM GAS  /tmp/cc7EHvsj.s 			page 302
+ARM GAS  /tmp/ccjltdQT.s 			page 302
 
 
  9258              		.loc 1 5577 0
@@ -18118,7 +18118,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9303              		.loc 1 5674 0
  9304              		@ sp needed
  9305              	.LVL803:
-ARM GAS  /tmp/cc7EHvsj.s 			page 303
+ARM GAS  /tmp/ccjltdQT.s 			page 303
 
 
  9306              	.LVL804:
@@ -18178,7 +18178,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4734:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   uint32_t tmpITFlags = ITFlags;
  9358              		.loc 1 4734 0
  9359 0008 C76A     		ldr	r7, [r0, #44]
-ARM GAS  /tmp/cc7EHvsj.s 			page 304
+ARM GAS  /tmp/ccjltdQT.s 			page 304
 
 
  9360              	.LVL809:
@@ -18238,7 +18238,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4775:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       }
  9405              		.loc 1 4775 0
  9406 0044 2368     		ldr	r3, [r4]
-ARM GAS  /tmp/cc7EHvsj.s 			page 305
+ARM GAS  /tmp/ccjltdQT.s 			page 305
 
 
  9407 0046 1022     		movs	r2, #16
@@ -18298,7 +18298,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9452 0078 2000     		movs	r0, r4
  9453 007a FFF7FEFF 		bl	I2C_Flush_TXDR
  9454              	.LVL819:
-ARM GAS  /tmp/cc7EHvsj.s 			page 306
+ARM GAS  /tmp/ccjltdQT.s 			page 306
 
 
 4770:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       }
@@ -18358,7 +18358,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9499 00bc 5B6A     		ldr	r3, [r3, #36]
  9500 00be 626A     		ldr	r2, [r4, #36]
  9501 00c0 1370     		strb	r3, [r2]
-ARM GAS  /tmp/cc7EHvsj.s 			page 307
+ARM GAS  /tmp/ccjltdQT.s 			page 307
 
 
 4802:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -18418,7 +18418,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9545 00fc 638D     		ldrh	r3, [r4, #42]
  9546 00fe 9BB2     		uxth	r3, r3
  9547 0100 002B     		cmp	r3, #0
-ARM GAS  /tmp/cc7EHvsj.s 			page 308
+ARM GAS  /tmp/ccjltdQT.s 			page 308
 
 
  9548 0102 13D0     		beq	.L626
@@ -18478,7 +18478,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4738:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  9594              		.loc 1 4738 0
  9595 0142 0220     		movs	r0, #2
-ARM GAS  /tmp/cc7EHvsj.s 			page 309
+ARM GAS  /tmp/ccjltdQT.s 			page 309
 
 
  9596              	.LVL826:
@@ -18538,7 +18538,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9645 001e CB06     		lsls	r3, r1, #27
  9646 0020 06D5     		bpl	.L636
 5444:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 310
+ARM GAS  /tmp/ccjltdQT.s 			page 310
 
 
  9647              		.loc 1 5444 0
@@ -18598,7 +18598,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5504:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
  9692              		.loc 1 5504 0
  9693 0062 0133     		adds	r3, r3, #1
-ARM GAS  /tmp/cc7EHvsj.s 			page 311
+ARM GAS  /tmp/ccjltdQT.s 			page 311
 
 
  9694 0064 E35C     		ldrb	r3, [r4, r3]
@@ -18658,7 +18658,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9738              		.loc 1 5489 0
  9739 009a 023A     		subs	r2, r2, #2
  9740 009c A354     		strb	r3, [r4, r2]
-ARM GAS  /tmp/cc7EHvsj.s 			page 312
+ARM GAS  /tmp/ccjltdQT.s 			page 312
 
 
 5495:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** #endif /* USE_HAL_I2C_REGISTER_CALLBACKS */
@@ -18718,7 +18718,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9789              		.loc 1 4596 0
  9790              		.cfi_startproc
  9791              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 313
+ARM GAS  /tmp/ccjltdQT.s 			page 313
 
 
  9792              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -18778,7 +18778,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9838              		.loc 1 4622 0
  9839 0030 2368     		ldr	r3, [r4]
  9840 0032 5B6A     		ldr	r3, [r3, #36]
-ARM GAS  /tmp/cc7EHvsj.s 			page 314
+ARM GAS  /tmp/ccjltdQT.s 			page 314
 
 
  9841 0034 626A     		ldr	r2, [r4, #36]
@@ -18838,7 +18838,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9886 0066 DA61     		str	r2, [r3, #28]
 4611:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  9887              		.loc 1 4611 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 315
+ARM GAS  /tmp/ccjltdQT.s 			page 315
 
 
  9888 0068 436C     		ldr	r3, [r0, #68]
@@ -18898,7 +18898,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9932 00a6 9BB2     		uxth	r3, r3
  9933 00a8 002B     		cmp	r3, #0
  9934 00aa 2DD0     		beq	.L655
-ARM GAS  /tmp/cc7EHvsj.s 			page 316
+ARM GAS  /tmp/ccjltdQT.s 			page 316
 
 
 4643:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
@@ -18958,7 +18958,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  9981 00ee 2000     		movs	r0, r4
  9982              	.LVL858:
  9983 00f0 FFF7FEFF 		bl	I2C_TransferConfig
-ARM GAS  /tmp/cc7EHvsj.s 			page 317
+ARM GAS  /tmp/ccjltdQT.s 			page 317
 
 
  9984              	.LVL859:
@@ -19018,7 +19018,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10032              	.LCB9996:
 4683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
  10033              		.loc 1 4683 0 is_stmt 1
-ARM GAS  /tmp/cc7EHvsj.s 			page 318
+ARM GAS  /tmp/ccjltdQT.s 			page 318
 
 
  10034 012e 638D     		ldrh	r3, [r4, #42]
@@ -19078,7 +19078,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10082 016e 72E7     		b	.L661
  10083              	.LVL879:
  10084              	.L662:
-ARM GAS  /tmp/cc7EHvsj.s 			page 319
+ARM GAS  /tmp/ccjltdQT.s 			page 319
 
 
 4601:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
@@ -19138,7 +19138,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10136 0018 8354     		strb	r3, [r0, r2]
 5009:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
  10137              		.loc 1 5009 0 is_stmt 1 discriminator 2
-ARM GAS  /tmp/cc7EHvsj.s 			page 320
+ARM GAS  /tmp/ccjltdQT.s 			page 320
 
 
  10138 001a 4A09     		lsrs	r2, r1, #5
@@ -19198,7 +19198,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10182              	.L683:
 5003:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  10183              		.loc 1 5003 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 321
+ARM GAS  /tmp/ccjltdQT.s 			page 321
 
 
  10184 0054 0021     		movs	r1, #0
@@ -19258,7 +19258,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10229              	.LVL889:
  10230 0092 2BE0     		b	.L679
  10231              	.LVL890:
-ARM GAS  /tmp/cc7EHvsj.s 			page 322
+ARM GAS  /tmp/ccjltdQT.s 			page 322
 
 
  10232              	.L685:
@@ -19318,7 +19318,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5061:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  10278              		.loc 1 5061 0
  10279 00ce 2000     		movs	r0, r4
-ARM GAS  /tmp/cc7EHvsj.s 			page 323
+ARM GAS  /tmp/ccjltdQT.s 			page 323
 
 
  10280 00d0 FFF7FEFF 		bl	I2C_Flush_TXDR
@@ -19378,7 +19378,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10326              	.L682:
 5006:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  10327              		.loc 1 5006 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 324
+ARM GAS  /tmp/ccjltdQT.s 			page 324
 
 
  10328 0100 0220     		movs	r0, #2
@@ -19438,7 +19438,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10379 001e 2FD4     		bmi	.L707
  10380              	.L694:
 4889:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
-ARM GAS  /tmp/cc7EHvsj.s 			page 325
+ARM GAS  /tmp/ccjltdQT.s 			page 325
 
 
  10381              		.loc 1 4889 0 is_stmt 1
@@ -19498,7 +19498,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10427              	.LVL914:
 4922:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  10428              		.loc 1 4922 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 326
+ARM GAS  /tmp/ccjltdQT.s 			page 326
 
 
  10429 0060 638D     		ldrh	r3, [r4, #42]
@@ -19558,7 +19558,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10475 00a2 0020     		movs	r0, #0
  10476              	.L693:
 4990:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
-ARM GAS  /tmp/cc7EHvsj.s 			page 327
+ARM GAS  /tmp/ccjltdQT.s 			page 327
 
 
  10477              		.loc 1 4990 0
@@ -19618,7 +19618,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4946:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****       }
  10524              		.loc 1 4946 0
  10525 00dc 4021     		movs	r1, #64
-ARM GAS  /tmp/cc7EHvsj.s 			page 328
+ARM GAS  /tmp/ccjltdQT.s 			page 328
 
 
  10526 00de 2000     		movs	r0, r4
@@ -19678,7 +19678,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10572              	.LVL932:
  10573 011c 2000     		movs	r0, r4
  10574 011e FFF7FEFF 		bl	I2C_ITError
-ARM GAS  /tmp/cc7EHvsj.s 			page 329
+ARM GAS  /tmp/ccjltdQT.s 			page 329
 
 
  10575              	.LVL933:
@@ -19738,7 +19738,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 6027:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  10625              		.loc 1 6027 0
  10626 0004 0268     		ldr	r2, [r0]
-ARM GAS  /tmp/cc7EHvsj.s 			page 330
+ARM GAS  /tmp/ccjltdQT.s 			page 330
 
 
  10627 0006 5168     		ldr	r1, [r2, #4]
@@ -19798,7 +19798,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10676 0016 218D     		ldrh	r1, [r4, #40]
  10677 0018 636A     		ldr	r3, [r4, #36]
  10678 001a 9C46     		mov	ip, r3
-ARM GAS  /tmp/cc7EHvsj.s 			page 331
+ARM GAS  /tmp/ccjltdQT.s 			page 331
 
 
  10679 001c 6144     		add	r1, r1, ip
@@ -19858,7 +19858,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10726              	.L719:
 5905:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     }
  10727              		.loc 1 5905 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 332
+ARM GAS  /tmp/ccjltdQT.s 			page 332
 
 
  10728 0056 1021     		movs	r1, #16
@@ -19918,7 +19918,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 5967:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****     {
  10779              		.loc 1 5967 0
  10780 0020 638D     		ldrh	r3, [r4, #42]
-ARM GAS  /tmp/cc7EHvsj.s 			page 333
+ARM GAS  /tmp/ccjltdQT.s 			page 333
 
 
  10781 0022 9BB2     		uxth	r3, r3
@@ -19978,7 +19978,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10828 005a FFF7FEFF 		bl	I2C_ITError
  10829              	.LVL964:
  10830 005e F1E7     		b	.L722
-ARM GAS  /tmp/cc7EHvsj.s 			page 334
+ARM GAS  /tmp/ccjltdQT.s 			page 334
 
 
  10831              	.L731:
@@ -20038,7 +20038,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10880 001a 6400     		lsls	r4, r4, #1
  10881 001c D461     		str	r4, [r2, #28]
  10882              	.L733:
-ARM GAS  /tmp/cc7EHvsj.s 			page 335
+ARM GAS  /tmp/ccjltdQT.s 			page 335
 
 
 4332:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c ****   {
@@ -20098,7 +20098,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
 4357:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  10927              		.loc 1 4357 0
  10928              		@ sp needed
-ARM GAS  /tmp/cc7EHvsj.s 			page 336
+ARM GAS  /tmp/ccjltdQT.s 			page 336
 
 
  10929 0056 70BD     		pop	{r4, r5, r6, pc}
@@ -20158,7 +20158,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  10977              	.L738:
 6068:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c **** 
  10978              		.loc 1 6068 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 337
+ARM GAS  /tmp/ccjltdQT.s 			page 337
 
 
  10979              		@ sp needed
@@ -20218,7 +20218,7 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  11031              		.loc 1 4560 0
  11032              		.cfi_startproc
  11033              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cc7EHvsj.s 			page 338
+ARM GAS  /tmp/ccjltdQT.s 			page 338
 
 
  11034              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -20264,8 +20264,8 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  11071              	.LFE88:
  11073              		.text
  11074              	.Letext0:
- 11075              		.file 2 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machin
- 11076              		.file 3 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_s
+ 11075              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 11076              		.file 3 "/usr/include/newlib/sys/_stdint.h"
  11077              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
  11078              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
  11079              		.file 6 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h"
@@ -20273,224 +20273,224 @@ ARM GAS  /tmp/cc7EHvsj.s 			page 1
  11081              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
  11082              		.file 9 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h"
  11083              		.file 10 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
-ARM GAS  /tmp/cc7EHvsj.s 			page 339
+ARM GAS  /tmp/ccjltdQT.s 			page 339
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f0xx_hal_i2c.c
-     /tmp/cc7EHvsj.s:16     .text.I2C_Flush_TXDR:0000000000000000 $t
-     /tmp/cc7EHvsj.s:22     .text.I2C_Flush_TXDR:0000000000000000 I2C_Flush_TXDR
-     /tmp/cc7EHvsj.s:58     .text.I2C_TransferConfig:0000000000000000 $t
-     /tmp/cc7EHvsj.s:64     .text.I2C_TransferConfig:0000000000000000 I2C_TransferConfig
-     /tmp/cc7EHvsj.s:108    .text.I2C_TransferConfig:0000000000000028 $d
-     /tmp/cc7EHvsj.s:113    .text.I2C_Enable_IRQ:0000000000000000 $t
-     /tmp/cc7EHvsj.s:119    .text.I2C_Enable_IRQ:0000000000000000 I2C_Enable_IRQ
-     /tmp/cc7EHvsj.s:240    .text.I2C_Enable_IRQ:0000000000000074 $d
-     /tmp/cc7EHvsj.s:10345  .text.I2C_Master_ISR_DMA:0000000000000000 I2C_Master_ISR_DMA
-     /tmp/cc7EHvsj.s:10103  .text.I2C_Slave_ISR_DMA:0000000000000000 I2C_Slave_ISR_DMA
-     /tmp/cc7EHvsj.s:246    .text.I2C_Disable_IRQ:0000000000000000 $t
-     /tmp/cc7EHvsj.s:252    .text.I2C_Disable_IRQ:0000000000000000 I2C_Disable_IRQ
-     /tmp/cc7EHvsj.s:371    .text.I2C_ConvertOtherXferOptions:0000000000000000 $t
-     /tmp/cc7EHvsj.s:377    .text.I2C_ConvertOtherXferOptions:0000000000000000 I2C_ConvertOtherXferOptions
-     /tmp/cc7EHvsj.s:415    .text.I2C_IsAcknowledgeFailed:0000000000000000 $t
-     /tmp/cc7EHvsj.s:421    .text.I2C_IsAcknowledgeFailed:0000000000000000 I2C_IsAcknowledgeFailed
-     /tmp/cc7EHvsj.s:533    .text.I2C_IsAcknowledgeFailed:000000000000007c $d
-     /tmp/cc7EHvsj.s:538    .text.I2C_WaitOnTXISFlagUntilTimeout:0000000000000000 $t
-     /tmp/cc7EHvsj.s:544    .text.I2C_WaitOnTXISFlagUntilTimeout:0000000000000000 I2C_WaitOnTXISFlagUntilTimeout
-     /tmp/cc7EHvsj.s:626    .text.I2C_WaitOnFlagUntilTimeout:0000000000000000 $t
-     /tmp/cc7EHvsj.s:632    .text.I2C_WaitOnFlagUntilTimeout:0000000000000000 I2C_WaitOnFlagUntilTimeout
-     /tmp/cc7EHvsj.s:709    .text.I2C_RequestMemoryWrite:0000000000000000 $t
-     /tmp/cc7EHvsj.s:715    .text.I2C_RequestMemoryWrite:0000000000000000 I2C_RequestMemoryWrite
-     /tmp/cc7EHvsj.s:812    .text.I2C_RequestMemoryWrite:0000000000000070 $d
-     /tmp/cc7EHvsj.s:817    .text.I2C_RequestMemoryRead:0000000000000000 $t
-     /tmp/cc7EHvsj.s:823    .text.I2C_RequestMemoryRead:0000000000000000 I2C_RequestMemoryRead
-     /tmp/cc7EHvsj.s:917    .text.I2C_RequestMemoryRead:000000000000006c $d
-     /tmp/cc7EHvsj.s:922    .text.I2C_WaitOnSTOPFlagUntilTimeout:0000000000000000 $t
-     /tmp/cc7EHvsj.s:928    .text.I2C_WaitOnSTOPFlagUntilTimeout:0000000000000000 I2C_WaitOnSTOPFlagUntilTimeout
-     /tmp/cc7EHvsj.s:1007   .text.I2C_WaitOnRXNEFlagUntilTimeout:0000000000000000 $t
-     /tmp/cc7EHvsj.s:1013   .text.I2C_WaitOnRXNEFlagUntilTimeout:0000000000000000 I2C_WaitOnRXNEFlagUntilTimeout
-     /tmp/cc7EHvsj.s:1127   .text.I2C_WaitOnRXNEFlagUntilTimeout:0000000000000080 $d
-     /tmp/cc7EHvsj.s:1132   .text.HAL_I2C_MspInit:0000000000000000 $t
-     /tmp/cc7EHvsj.s:1139   .text.HAL_I2C_MspInit:0000000000000000 HAL_I2C_MspInit
-     /tmp/cc7EHvsj.s:1154   .text.HAL_I2C_Init:0000000000000000 $t
-     /tmp/cc7EHvsj.s:1161   .text.HAL_I2C_Init:0000000000000000 HAL_I2C_Init
-     /tmp/cc7EHvsj.s:1309   .text.HAL_I2C_Init:00000000000000c0 $d
-     /tmp/cc7EHvsj.s:1316   .text.HAL_I2C_MspDeInit:0000000000000000 $t
-     /tmp/cc7EHvsj.s:1323   .text.HAL_I2C_MspDeInit:0000000000000000 HAL_I2C_MspDeInit
-     /tmp/cc7EHvsj.s:1338   .text.HAL_I2C_DeInit:0000000000000000 $t
-     /tmp/cc7EHvsj.s:1345   .text.HAL_I2C_DeInit:0000000000000000 HAL_I2C_DeInit
-     /tmp/cc7EHvsj.s:1405   .text.HAL_I2C_Master_Transmit:0000000000000000 $t
-     /tmp/cc7EHvsj.s:1412   .text.HAL_I2C_Master_Transmit:0000000000000000 HAL_I2C_Master_Transmit
-     /tmp/cc7EHvsj.s:1680   .text.HAL_I2C_Master_Transmit:0000000000000164 $d
-     /tmp/cc7EHvsj.s:1686   .text.HAL_I2C_Master_Receive:0000000000000000 $t
-     /tmp/cc7EHvsj.s:1693   .text.HAL_I2C_Master_Receive:0000000000000000 HAL_I2C_Master_Receive
-     /tmp/cc7EHvsj.s:1961   .text.HAL_I2C_Master_Receive:0000000000000164 $d
-     /tmp/cc7EHvsj.s:1967   .text.HAL_I2C_Slave_Transmit:0000000000000000 $t
-     /tmp/cc7EHvsj.s:1974   .text.HAL_I2C_Slave_Transmit:0000000000000000 HAL_I2C_Slave_Transmit
-     /tmp/cc7EHvsj.s:2276   .text.HAL_I2C_Slave_Transmit:0000000000000194 $d
-     /tmp/cc7EHvsj.s:2281   .text.HAL_I2C_Slave_Receive:0000000000000000 $t
-     /tmp/cc7EHvsj.s:2288   .text.HAL_I2C_Slave_Receive:0000000000000000 HAL_I2C_Slave_Receive
-     /tmp/cc7EHvsj.s:2571   .text.HAL_I2C_Slave_Receive:0000000000000178 $d
-     /tmp/cc7EHvsj.s:2576   .text.HAL_I2C_Master_Transmit_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:2583   .text.HAL_I2C_Master_Transmit_IT:0000000000000000 HAL_I2C_Master_Transmit_IT
-ARM GAS  /tmp/cc7EHvsj.s 			page 340
+     /tmp/ccjltdQT.s:16     .text.I2C_Flush_TXDR:0000000000000000 $t
+     /tmp/ccjltdQT.s:22     .text.I2C_Flush_TXDR:0000000000000000 I2C_Flush_TXDR
+     /tmp/ccjltdQT.s:58     .text.I2C_TransferConfig:0000000000000000 $t
+     /tmp/ccjltdQT.s:64     .text.I2C_TransferConfig:0000000000000000 I2C_TransferConfig
+     /tmp/ccjltdQT.s:108    .text.I2C_TransferConfig:0000000000000028 $d
+     /tmp/ccjltdQT.s:113    .text.I2C_Enable_IRQ:0000000000000000 $t
+     /tmp/ccjltdQT.s:119    .text.I2C_Enable_IRQ:0000000000000000 I2C_Enable_IRQ
+     /tmp/ccjltdQT.s:240    .text.I2C_Enable_IRQ:0000000000000074 $d
+     /tmp/ccjltdQT.s:10345  .text.I2C_Master_ISR_DMA:0000000000000000 I2C_Master_ISR_DMA
+     /tmp/ccjltdQT.s:10103  .text.I2C_Slave_ISR_DMA:0000000000000000 I2C_Slave_ISR_DMA
+     /tmp/ccjltdQT.s:246    .text.I2C_Disable_IRQ:0000000000000000 $t
+     /tmp/ccjltdQT.s:252    .text.I2C_Disable_IRQ:0000000000000000 I2C_Disable_IRQ
+     /tmp/ccjltdQT.s:371    .text.I2C_ConvertOtherXferOptions:0000000000000000 $t
+     /tmp/ccjltdQT.s:377    .text.I2C_ConvertOtherXferOptions:0000000000000000 I2C_ConvertOtherXferOptions
+     /tmp/ccjltdQT.s:415    .text.I2C_IsAcknowledgeFailed:0000000000000000 $t
+     /tmp/ccjltdQT.s:421    .text.I2C_IsAcknowledgeFailed:0000000000000000 I2C_IsAcknowledgeFailed
+     /tmp/ccjltdQT.s:533    .text.I2C_IsAcknowledgeFailed:000000000000007c $d
+     /tmp/ccjltdQT.s:538    .text.I2C_WaitOnTXISFlagUntilTimeout:0000000000000000 $t
+     /tmp/ccjltdQT.s:544    .text.I2C_WaitOnTXISFlagUntilTimeout:0000000000000000 I2C_WaitOnTXISFlagUntilTimeout
+     /tmp/ccjltdQT.s:626    .text.I2C_WaitOnFlagUntilTimeout:0000000000000000 $t
+     /tmp/ccjltdQT.s:632    .text.I2C_WaitOnFlagUntilTimeout:0000000000000000 I2C_WaitOnFlagUntilTimeout
+     /tmp/ccjltdQT.s:709    .text.I2C_RequestMemoryWrite:0000000000000000 $t
+     /tmp/ccjltdQT.s:715    .text.I2C_RequestMemoryWrite:0000000000000000 I2C_RequestMemoryWrite
+     /tmp/ccjltdQT.s:812    .text.I2C_RequestMemoryWrite:0000000000000070 $d
+     /tmp/ccjltdQT.s:817    .text.I2C_RequestMemoryRead:0000000000000000 $t
+     /tmp/ccjltdQT.s:823    .text.I2C_RequestMemoryRead:0000000000000000 I2C_RequestMemoryRead
+     /tmp/ccjltdQT.s:917    .text.I2C_RequestMemoryRead:000000000000006c $d
+     /tmp/ccjltdQT.s:922    .text.I2C_WaitOnSTOPFlagUntilTimeout:0000000000000000 $t
+     /tmp/ccjltdQT.s:928    .text.I2C_WaitOnSTOPFlagUntilTimeout:0000000000000000 I2C_WaitOnSTOPFlagUntilTimeout
+     /tmp/ccjltdQT.s:1007   .text.I2C_WaitOnRXNEFlagUntilTimeout:0000000000000000 $t
+     /tmp/ccjltdQT.s:1013   .text.I2C_WaitOnRXNEFlagUntilTimeout:0000000000000000 I2C_WaitOnRXNEFlagUntilTimeout
+     /tmp/ccjltdQT.s:1127   .text.I2C_WaitOnRXNEFlagUntilTimeout:0000000000000080 $d
+     /tmp/ccjltdQT.s:1132   .text.HAL_I2C_MspInit:0000000000000000 $t
+     /tmp/ccjltdQT.s:1139   .text.HAL_I2C_MspInit:0000000000000000 HAL_I2C_MspInit
+     /tmp/ccjltdQT.s:1154   .text.HAL_I2C_Init:0000000000000000 $t
+     /tmp/ccjltdQT.s:1161   .text.HAL_I2C_Init:0000000000000000 HAL_I2C_Init
+     /tmp/ccjltdQT.s:1309   .text.HAL_I2C_Init:00000000000000c0 $d
+     /tmp/ccjltdQT.s:1316   .text.HAL_I2C_MspDeInit:0000000000000000 $t
+     /tmp/ccjltdQT.s:1323   .text.HAL_I2C_MspDeInit:0000000000000000 HAL_I2C_MspDeInit
+     /tmp/ccjltdQT.s:1338   .text.HAL_I2C_DeInit:0000000000000000 $t
+     /tmp/ccjltdQT.s:1345   .text.HAL_I2C_DeInit:0000000000000000 HAL_I2C_DeInit
+     /tmp/ccjltdQT.s:1405   .text.HAL_I2C_Master_Transmit:0000000000000000 $t
+     /tmp/ccjltdQT.s:1412   .text.HAL_I2C_Master_Transmit:0000000000000000 HAL_I2C_Master_Transmit
+     /tmp/ccjltdQT.s:1680   .text.HAL_I2C_Master_Transmit:0000000000000164 $d
+     /tmp/ccjltdQT.s:1686   .text.HAL_I2C_Master_Receive:0000000000000000 $t
+     /tmp/ccjltdQT.s:1693   .text.HAL_I2C_Master_Receive:0000000000000000 HAL_I2C_Master_Receive
+     /tmp/ccjltdQT.s:1961   .text.HAL_I2C_Master_Receive:0000000000000164 $d
+     /tmp/ccjltdQT.s:1967   .text.HAL_I2C_Slave_Transmit:0000000000000000 $t
+     /tmp/ccjltdQT.s:1974   .text.HAL_I2C_Slave_Transmit:0000000000000000 HAL_I2C_Slave_Transmit
+     /tmp/ccjltdQT.s:2276   .text.HAL_I2C_Slave_Transmit:0000000000000194 $d
+     /tmp/ccjltdQT.s:2281   .text.HAL_I2C_Slave_Receive:0000000000000000 $t
+     /tmp/ccjltdQT.s:2288   .text.HAL_I2C_Slave_Receive:0000000000000000 HAL_I2C_Slave_Receive
+     /tmp/ccjltdQT.s:2571   .text.HAL_I2C_Slave_Receive:0000000000000178 $d
+     /tmp/ccjltdQT.s:2576   .text.HAL_I2C_Master_Transmit_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:2583   .text.HAL_I2C_Master_Transmit_IT:0000000000000000 HAL_I2C_Master_Transmit_IT
+ARM GAS  /tmp/ccjltdQT.s 			page 340
 
 
-     /tmp/cc7EHvsj.s:2712   .text.HAL_I2C_Master_Transmit_IT:0000000000000088 $d
-     /tmp/cc7EHvsj.s:9787   .text.I2C_Master_ISR_IT:0000000000000000 I2C_Master_ISR_IT
-     /tmp/cc7EHvsj.s:2719   .text.HAL_I2C_Master_Receive_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:2726   .text.HAL_I2C_Master_Receive_IT:0000000000000000 HAL_I2C_Master_Receive_IT
-     /tmp/cc7EHvsj.s:2855   .text.HAL_I2C_Master_Receive_IT:0000000000000088 $d
-     /tmp/cc7EHvsj.s:2862   .text.HAL_I2C_Slave_Transmit_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:2869   .text.HAL_I2C_Slave_Transmit_IT:0000000000000000 HAL_I2C_Slave_Transmit_IT
-     /tmp/cc7EHvsj.s:2957   .text.HAL_I2C_Slave_Transmit_IT:0000000000000058 $d
-     /tmp/cc7EHvsj.s:9339   .text.I2C_Slave_ISR_IT:0000000000000000 I2C_Slave_ISR_IT
-     /tmp/cc7EHvsj.s:2964   .text.HAL_I2C_Slave_Receive_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:2971   .text.HAL_I2C_Slave_Receive_IT:0000000000000000 HAL_I2C_Slave_Receive_IT
-     /tmp/cc7EHvsj.s:3059   .text.HAL_I2C_Slave_Receive_IT:0000000000000058 $d
-     /tmp/cc7EHvsj.s:3066   .text.HAL_I2C_Master_Transmit_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:3073   .text.HAL_I2C_Master_Transmit_DMA:0000000000000000 HAL_I2C_Master_Transmit_DMA
-     /tmp/cc7EHvsj.s:3332   .text.HAL_I2C_Master_Transmit_DMA:000000000000013c $d
-     /tmp/cc7EHvsj.s:10649  .text.I2C_DMAMasterTransmitCplt:0000000000000000 I2C_DMAMasterTransmitCplt
-     /tmp/cc7EHvsj.s:10610  .text.I2C_DMAError:0000000000000000 I2C_DMAError
-     /tmp/cc7EHvsj.s:3342   .text.HAL_I2C_Master_Receive_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:3349   .text.HAL_I2C_Master_Receive_DMA:0000000000000000 HAL_I2C_Master_Receive_DMA
-     /tmp/cc7EHvsj.s:3607   .text.HAL_I2C_Master_Receive_DMA:000000000000013c $d
-     /tmp/cc7EHvsj.s:10747  .text.I2C_DMAMasterReceiveCplt:0000000000000000 I2C_DMAMasterReceiveCplt
-     /tmp/cc7EHvsj.s:3617   .text.HAL_I2C_Slave_Transmit_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:3624   .text.HAL_I2C_Slave_Transmit_DMA:0000000000000000 HAL_I2C_Slave_Transmit_DMA
-     /tmp/cc7EHvsj.s:3811   .text.HAL_I2C_Slave_Transmit_DMA:00000000000000e0 $d
-     /tmp/cc7EHvsj.s:8434   .text.I2C_DMASlaveTransmitCplt:0000000000000000 I2C_DMASlaveTransmitCplt
-     /tmp/cc7EHvsj.s:3820   .text.HAL_I2C_Slave_Receive_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:3827   .text.HAL_I2C_Slave_Receive_DMA:0000000000000000 HAL_I2C_Slave_Receive_DMA
-     /tmp/cc7EHvsj.s:4017   .text.HAL_I2C_Slave_Receive_DMA:00000000000000e4 $d
-     /tmp/cc7EHvsj.s:8489   .text.I2C_DMASlaveReceiveCplt:0000000000000000 I2C_DMASlaveReceiveCplt
-     /tmp/cc7EHvsj.s:4026   .text.HAL_I2C_Mem_Write:0000000000000000 $t
-     /tmp/cc7EHvsj.s:4033   .text.HAL_I2C_Mem_Write:0000000000000000 HAL_I2C_Mem_Write
-     /tmp/cc7EHvsj.s:4340   .text.HAL_I2C_Mem_Write:000000000000019c $d
-     /tmp/cc7EHvsj.s:4345   .text.HAL_I2C_Mem_Read:0000000000000000 $t
-     /tmp/cc7EHvsj.s:4352   .text.HAL_I2C_Mem_Read:0000000000000000 HAL_I2C_Mem_Read
-     /tmp/cc7EHvsj.s:4661   .text.HAL_I2C_Mem_Read:00000000000001a0 $d
-     /tmp/cc7EHvsj.s:4667   .text.HAL_I2C_Mem_Write_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:4674   .text.HAL_I2C_Mem_Write_IT:0000000000000000 HAL_I2C_Mem_Write_IT
-     /tmp/cc7EHvsj.s:4849   .text.HAL_I2C_Mem_Write_IT:00000000000000cc $d
-     /tmp/cc7EHvsj.s:4855   .text.HAL_I2C_Mem_Read_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:4862   .text.HAL_I2C_Mem_Read_IT:0000000000000000 HAL_I2C_Mem_Read_IT
-     /tmp/cc7EHvsj.s:5038   .text.HAL_I2C_Mem_Read_IT:00000000000000cc $d
-     /tmp/cc7EHvsj.s:5045   .text.HAL_I2C_Mem_Write_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:5052   .text.HAL_I2C_Mem_Write_DMA:0000000000000000 HAL_I2C_Mem_Write_DMA
-     /tmp/cc7EHvsj.s:5327   .text.HAL_I2C_Mem_Write_DMA:0000000000000158 $d
-     /tmp/cc7EHvsj.s:5335   .text.HAL_I2C_Mem_Read_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:5342   .text.HAL_I2C_Mem_Read_DMA:0000000000000000 HAL_I2C_Mem_Read_DMA
-     /tmp/cc7EHvsj.s:5618   .text.HAL_I2C_Mem_Read_DMA:0000000000000158 $d
-     /tmp/cc7EHvsj.s:5627   .text.HAL_I2C_IsDeviceReady:0000000000000000 $t
-     /tmp/cc7EHvsj.s:5634   .text.HAL_I2C_IsDeviceReady:0000000000000000 HAL_I2C_IsDeviceReady
-     /tmp/cc7EHvsj.s:5939   .text.HAL_I2C_IsDeviceReady:000000000000017c $d
-     /tmp/cc7EHvsj.s:5944   .text.HAL_I2C_Master_Seq_Transmit_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:5951   .text.HAL_I2C_Master_Seq_Transmit_IT:0000000000000000 HAL_I2C_Master_Seq_Transmit_IT
-     /tmp/cc7EHvsj.s:6116   .text.HAL_I2C_Master_Seq_Transmit_IT:00000000000000b0 $d
-     /tmp/cc7EHvsj.s:6122   .text.HAL_I2C_Master_Seq_Transmit_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:6129   .text.HAL_I2C_Master_Seq_Transmit_DMA:0000000000000000 HAL_I2C_Master_Seq_Transmit_DMA
-     /tmp/cc7EHvsj.s:6416   .text.HAL_I2C_Master_Seq_Transmit_DMA:000000000000015c $d
-     /tmp/cc7EHvsj.s:6425   .text.HAL_I2C_Master_Seq_Receive_IT:0000000000000000 $t
-ARM GAS  /tmp/cc7EHvsj.s 			page 341
+     /tmp/ccjltdQT.s:2712   .text.HAL_I2C_Master_Transmit_IT:0000000000000088 $d
+     /tmp/ccjltdQT.s:9787   .text.I2C_Master_ISR_IT:0000000000000000 I2C_Master_ISR_IT
+     /tmp/ccjltdQT.s:2719   .text.HAL_I2C_Master_Receive_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:2726   .text.HAL_I2C_Master_Receive_IT:0000000000000000 HAL_I2C_Master_Receive_IT
+     /tmp/ccjltdQT.s:2855   .text.HAL_I2C_Master_Receive_IT:0000000000000088 $d
+     /tmp/ccjltdQT.s:2862   .text.HAL_I2C_Slave_Transmit_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:2869   .text.HAL_I2C_Slave_Transmit_IT:0000000000000000 HAL_I2C_Slave_Transmit_IT
+     /tmp/ccjltdQT.s:2957   .text.HAL_I2C_Slave_Transmit_IT:0000000000000058 $d
+     /tmp/ccjltdQT.s:9339   .text.I2C_Slave_ISR_IT:0000000000000000 I2C_Slave_ISR_IT
+     /tmp/ccjltdQT.s:2964   .text.HAL_I2C_Slave_Receive_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:2971   .text.HAL_I2C_Slave_Receive_IT:0000000000000000 HAL_I2C_Slave_Receive_IT
+     /tmp/ccjltdQT.s:3059   .text.HAL_I2C_Slave_Receive_IT:0000000000000058 $d
+     /tmp/ccjltdQT.s:3066   .text.HAL_I2C_Master_Transmit_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:3073   .text.HAL_I2C_Master_Transmit_DMA:0000000000000000 HAL_I2C_Master_Transmit_DMA
+     /tmp/ccjltdQT.s:3332   .text.HAL_I2C_Master_Transmit_DMA:000000000000013c $d
+     /tmp/ccjltdQT.s:10649  .text.I2C_DMAMasterTransmitCplt:0000000000000000 I2C_DMAMasterTransmitCplt
+     /tmp/ccjltdQT.s:10610  .text.I2C_DMAError:0000000000000000 I2C_DMAError
+     /tmp/ccjltdQT.s:3342   .text.HAL_I2C_Master_Receive_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:3349   .text.HAL_I2C_Master_Receive_DMA:0000000000000000 HAL_I2C_Master_Receive_DMA
+     /tmp/ccjltdQT.s:3607   .text.HAL_I2C_Master_Receive_DMA:000000000000013c $d
+     /tmp/ccjltdQT.s:10747  .text.I2C_DMAMasterReceiveCplt:0000000000000000 I2C_DMAMasterReceiveCplt
+     /tmp/ccjltdQT.s:3617   .text.HAL_I2C_Slave_Transmit_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:3624   .text.HAL_I2C_Slave_Transmit_DMA:0000000000000000 HAL_I2C_Slave_Transmit_DMA
+     /tmp/ccjltdQT.s:3811   .text.HAL_I2C_Slave_Transmit_DMA:00000000000000e0 $d
+     /tmp/ccjltdQT.s:8434   .text.I2C_DMASlaveTransmitCplt:0000000000000000 I2C_DMASlaveTransmitCplt
+     /tmp/ccjltdQT.s:3820   .text.HAL_I2C_Slave_Receive_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:3827   .text.HAL_I2C_Slave_Receive_DMA:0000000000000000 HAL_I2C_Slave_Receive_DMA
+     /tmp/ccjltdQT.s:4017   .text.HAL_I2C_Slave_Receive_DMA:00000000000000e4 $d
+     /tmp/ccjltdQT.s:8489   .text.I2C_DMASlaveReceiveCplt:0000000000000000 I2C_DMASlaveReceiveCplt
+     /tmp/ccjltdQT.s:4026   .text.HAL_I2C_Mem_Write:0000000000000000 $t
+     /tmp/ccjltdQT.s:4033   .text.HAL_I2C_Mem_Write:0000000000000000 HAL_I2C_Mem_Write
+     /tmp/ccjltdQT.s:4340   .text.HAL_I2C_Mem_Write:000000000000019c $d
+     /tmp/ccjltdQT.s:4345   .text.HAL_I2C_Mem_Read:0000000000000000 $t
+     /tmp/ccjltdQT.s:4352   .text.HAL_I2C_Mem_Read:0000000000000000 HAL_I2C_Mem_Read
+     /tmp/ccjltdQT.s:4661   .text.HAL_I2C_Mem_Read:00000000000001a0 $d
+     /tmp/ccjltdQT.s:4667   .text.HAL_I2C_Mem_Write_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:4674   .text.HAL_I2C_Mem_Write_IT:0000000000000000 HAL_I2C_Mem_Write_IT
+     /tmp/ccjltdQT.s:4849   .text.HAL_I2C_Mem_Write_IT:00000000000000cc $d
+     /tmp/ccjltdQT.s:4855   .text.HAL_I2C_Mem_Read_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:4862   .text.HAL_I2C_Mem_Read_IT:0000000000000000 HAL_I2C_Mem_Read_IT
+     /tmp/ccjltdQT.s:5038   .text.HAL_I2C_Mem_Read_IT:00000000000000cc $d
+     /tmp/ccjltdQT.s:5045   .text.HAL_I2C_Mem_Write_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:5052   .text.HAL_I2C_Mem_Write_DMA:0000000000000000 HAL_I2C_Mem_Write_DMA
+     /tmp/ccjltdQT.s:5327   .text.HAL_I2C_Mem_Write_DMA:0000000000000158 $d
+     /tmp/ccjltdQT.s:5335   .text.HAL_I2C_Mem_Read_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:5342   .text.HAL_I2C_Mem_Read_DMA:0000000000000000 HAL_I2C_Mem_Read_DMA
+     /tmp/ccjltdQT.s:5618   .text.HAL_I2C_Mem_Read_DMA:0000000000000158 $d
+     /tmp/ccjltdQT.s:5627   .text.HAL_I2C_IsDeviceReady:0000000000000000 $t
+     /tmp/ccjltdQT.s:5634   .text.HAL_I2C_IsDeviceReady:0000000000000000 HAL_I2C_IsDeviceReady
+     /tmp/ccjltdQT.s:5939   .text.HAL_I2C_IsDeviceReady:000000000000017c $d
+     /tmp/ccjltdQT.s:5944   .text.HAL_I2C_Master_Seq_Transmit_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:5951   .text.HAL_I2C_Master_Seq_Transmit_IT:0000000000000000 HAL_I2C_Master_Seq_Transmit_IT
+     /tmp/ccjltdQT.s:6116   .text.HAL_I2C_Master_Seq_Transmit_IT:00000000000000b0 $d
+     /tmp/ccjltdQT.s:6122   .text.HAL_I2C_Master_Seq_Transmit_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:6129   .text.HAL_I2C_Master_Seq_Transmit_DMA:0000000000000000 HAL_I2C_Master_Seq_Transmit_DMA
+     /tmp/ccjltdQT.s:6416   .text.HAL_I2C_Master_Seq_Transmit_DMA:000000000000015c $d
+     /tmp/ccjltdQT.s:6425   .text.HAL_I2C_Master_Seq_Receive_IT:0000000000000000 $t
+ARM GAS  /tmp/ccjltdQT.s 			page 341
 
 
-     /tmp/cc7EHvsj.s:6432   .text.HAL_I2C_Master_Seq_Receive_IT:0000000000000000 HAL_I2C_Master_Seq_Receive_IT
-     /tmp/cc7EHvsj.s:6597   .text.HAL_I2C_Master_Seq_Receive_IT:00000000000000b0 $d
-     /tmp/cc7EHvsj.s:6603   .text.HAL_I2C_Master_Seq_Receive_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:6610   .text.HAL_I2C_Master_Seq_Receive_DMA:0000000000000000 HAL_I2C_Master_Seq_Receive_DMA
-     /tmp/cc7EHvsj.s:6897   .text.HAL_I2C_Master_Seq_Receive_DMA:000000000000015c $d
-     /tmp/cc7EHvsj.s:6906   .text.HAL_I2C_Slave_Seq_Transmit_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:6913   .text.HAL_I2C_Slave_Seq_Transmit_IT:0000000000000000 HAL_I2C_Slave_Seq_Transmit_IT
-     /tmp/cc7EHvsj.s:7083   .text.HAL_I2C_Slave_Seq_Transmit_IT:00000000000000c8 $d
-     /tmp/cc7EHvsj.s:10947  .text.I2C_DMAAbort:0000000000000000 I2C_DMAAbort
-     /tmp/cc7EHvsj.s:7090   .text.HAL_I2C_Slave_Seq_Transmit_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:7097   .text.HAL_I2C_Slave_Seq_Transmit_DMA:0000000000000000 HAL_I2C_Slave_Seq_Transmit_DMA
-     /tmp/cc7EHvsj.s:7395   .text.HAL_I2C_Slave_Seq_Transmit_DMA:0000000000000180 $d
-     /tmp/cc7EHvsj.s:7405   .text.HAL_I2C_Slave_Seq_Receive_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:7412   .text.HAL_I2C_Slave_Seq_Receive_IT:0000000000000000 HAL_I2C_Slave_Seq_Receive_IT
-     /tmp/cc7EHvsj.s:7582   .text.HAL_I2C_Slave_Seq_Receive_IT:00000000000000c8 $d
-     /tmp/cc7EHvsj.s:7590   .text.HAL_I2C_Slave_Seq_Receive_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:7597   .text.HAL_I2C_Slave_Seq_Receive_DMA:0000000000000000 HAL_I2C_Slave_Seq_Receive_DMA
-     /tmp/cc7EHvsj.s:7896   .text.HAL_I2C_Slave_Seq_Receive_DMA:0000000000000180 $d
-     /tmp/cc7EHvsj.s:7906   .text.HAL_I2C_EnableListen_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:7913   .text.HAL_I2C_EnableListen_IT:0000000000000000 HAL_I2C_EnableListen_IT
-     /tmp/cc7EHvsj.s:7956   .text.HAL_I2C_EnableListen_IT:0000000000000024 $d
-     /tmp/cc7EHvsj.s:7961   .text.HAL_I2C_DisableListen_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:7968   .text.HAL_I2C_DisableListen_IT:0000000000000000 HAL_I2C_DisableListen_IT
-     /tmp/cc7EHvsj.s:8027   .text.HAL_I2C_Master_Abort_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8034   .text.HAL_I2C_Master_Abort_IT:0000000000000000 HAL_I2C_Master_Abort_IT
-     /tmp/cc7EHvsj.s:8122   .text.HAL_I2C_Master_Abort_IT:0000000000000060 $d
-     /tmp/cc7EHvsj.s:8127   .text.HAL_I2C_EV_IRQHandler:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8134   .text.HAL_I2C_EV_IRQHandler:0000000000000000 HAL_I2C_EV_IRQHandler
-     /tmp/cc7EHvsj.s:8168   .text.HAL_I2C_MasterTxCpltCallback:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8175   .text.HAL_I2C_MasterTxCpltCallback:0000000000000000 HAL_I2C_MasterTxCpltCallback
-     /tmp/cc7EHvsj.s:8190   .text.HAL_I2C_MasterRxCpltCallback:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8197   .text.HAL_I2C_MasterRxCpltCallback:0000000000000000 HAL_I2C_MasterRxCpltCallback
-     /tmp/cc7EHvsj.s:8212   .text.I2C_ITMasterSeqCplt:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8218   .text.I2C_ITMasterSeqCplt:0000000000000000 I2C_ITMasterSeqCplt
-     /tmp/cc7EHvsj.s:8296   .text.HAL_I2C_SlaveTxCpltCallback:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8303   .text.HAL_I2C_SlaveTxCpltCallback:0000000000000000 HAL_I2C_SlaveTxCpltCallback
-     /tmp/cc7EHvsj.s:8318   .text.HAL_I2C_SlaveRxCpltCallback:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8325   .text.HAL_I2C_SlaveRxCpltCallback:0000000000000000 HAL_I2C_SlaveRxCpltCallback
-     /tmp/cc7EHvsj.s:8340   .text.I2C_ITSlaveSeqCplt:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8346   .text.I2C_ITSlaveSeqCplt:0000000000000000 I2C_ITSlaveSeqCplt
-     /tmp/cc7EHvsj.s:8428   .text.I2C_DMASlaveTransmitCplt:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8478   .text.I2C_DMASlaveTransmitCplt:0000000000000024 $d
-     /tmp/cc7EHvsj.s:8483   .text.I2C_DMASlaveReceiveCplt:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8534   .text.I2C_DMASlaveReceiveCplt:0000000000000028 $d
-     /tmp/cc7EHvsj.s:8540   .text.HAL_I2C_AddrCallback:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8547   .text.HAL_I2C_AddrCallback:0000000000000000 HAL_I2C_AddrCallback
-     /tmp/cc7EHvsj.s:8562   .text.I2C_ITAddrCplt:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8568   .text.I2C_ITAddrCplt:0000000000000000 I2C_ITAddrCplt
-     /tmp/cc7EHvsj.s:8708   .text.HAL_I2C_ListenCpltCallback:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8715   .text.HAL_I2C_ListenCpltCallback:0000000000000000 HAL_I2C_ListenCpltCallback
-     /tmp/cc7EHvsj.s:8730   .text.I2C_ITListenCplt:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8736   .text.I2C_ITListenCplt:0000000000000000 I2C_ITListenCplt
-     /tmp/cc7EHvsj.s:8820   .text.I2C_ITListenCplt:0000000000000060 $d
-     /tmp/cc7EHvsj.s:8825   .text.HAL_I2C_MemTxCpltCallback:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8832   .text.HAL_I2C_MemTxCpltCallback:0000000000000000 HAL_I2C_MemTxCpltCallback
-     /tmp/cc7EHvsj.s:8847   .text.HAL_I2C_MemRxCpltCallback:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8854   .text.HAL_I2C_MemRxCpltCallback:0000000000000000 HAL_I2C_MemRxCpltCallback
-ARM GAS  /tmp/cc7EHvsj.s 			page 342
+     /tmp/ccjltdQT.s:6432   .text.HAL_I2C_Master_Seq_Receive_IT:0000000000000000 HAL_I2C_Master_Seq_Receive_IT
+     /tmp/ccjltdQT.s:6597   .text.HAL_I2C_Master_Seq_Receive_IT:00000000000000b0 $d
+     /tmp/ccjltdQT.s:6603   .text.HAL_I2C_Master_Seq_Receive_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:6610   .text.HAL_I2C_Master_Seq_Receive_DMA:0000000000000000 HAL_I2C_Master_Seq_Receive_DMA
+     /tmp/ccjltdQT.s:6897   .text.HAL_I2C_Master_Seq_Receive_DMA:000000000000015c $d
+     /tmp/ccjltdQT.s:6906   .text.HAL_I2C_Slave_Seq_Transmit_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:6913   .text.HAL_I2C_Slave_Seq_Transmit_IT:0000000000000000 HAL_I2C_Slave_Seq_Transmit_IT
+     /tmp/ccjltdQT.s:7083   .text.HAL_I2C_Slave_Seq_Transmit_IT:00000000000000c8 $d
+     /tmp/ccjltdQT.s:10947  .text.I2C_DMAAbort:0000000000000000 I2C_DMAAbort
+     /tmp/ccjltdQT.s:7090   .text.HAL_I2C_Slave_Seq_Transmit_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:7097   .text.HAL_I2C_Slave_Seq_Transmit_DMA:0000000000000000 HAL_I2C_Slave_Seq_Transmit_DMA
+     /tmp/ccjltdQT.s:7395   .text.HAL_I2C_Slave_Seq_Transmit_DMA:0000000000000180 $d
+     /tmp/ccjltdQT.s:7405   .text.HAL_I2C_Slave_Seq_Receive_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:7412   .text.HAL_I2C_Slave_Seq_Receive_IT:0000000000000000 HAL_I2C_Slave_Seq_Receive_IT
+     /tmp/ccjltdQT.s:7582   .text.HAL_I2C_Slave_Seq_Receive_IT:00000000000000c8 $d
+     /tmp/ccjltdQT.s:7590   .text.HAL_I2C_Slave_Seq_Receive_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:7597   .text.HAL_I2C_Slave_Seq_Receive_DMA:0000000000000000 HAL_I2C_Slave_Seq_Receive_DMA
+     /tmp/ccjltdQT.s:7896   .text.HAL_I2C_Slave_Seq_Receive_DMA:0000000000000180 $d
+     /tmp/ccjltdQT.s:7906   .text.HAL_I2C_EnableListen_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:7913   .text.HAL_I2C_EnableListen_IT:0000000000000000 HAL_I2C_EnableListen_IT
+     /tmp/ccjltdQT.s:7956   .text.HAL_I2C_EnableListen_IT:0000000000000024 $d
+     /tmp/ccjltdQT.s:7961   .text.HAL_I2C_DisableListen_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:7968   .text.HAL_I2C_DisableListen_IT:0000000000000000 HAL_I2C_DisableListen_IT
+     /tmp/ccjltdQT.s:8027   .text.HAL_I2C_Master_Abort_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:8034   .text.HAL_I2C_Master_Abort_IT:0000000000000000 HAL_I2C_Master_Abort_IT
+     /tmp/ccjltdQT.s:8122   .text.HAL_I2C_Master_Abort_IT:0000000000000060 $d
+     /tmp/ccjltdQT.s:8127   .text.HAL_I2C_EV_IRQHandler:0000000000000000 $t
+     /tmp/ccjltdQT.s:8134   .text.HAL_I2C_EV_IRQHandler:0000000000000000 HAL_I2C_EV_IRQHandler
+     /tmp/ccjltdQT.s:8168   .text.HAL_I2C_MasterTxCpltCallback:0000000000000000 $t
+     /tmp/ccjltdQT.s:8175   .text.HAL_I2C_MasterTxCpltCallback:0000000000000000 HAL_I2C_MasterTxCpltCallback
+     /tmp/ccjltdQT.s:8190   .text.HAL_I2C_MasterRxCpltCallback:0000000000000000 $t
+     /tmp/ccjltdQT.s:8197   .text.HAL_I2C_MasterRxCpltCallback:0000000000000000 HAL_I2C_MasterRxCpltCallback
+     /tmp/ccjltdQT.s:8212   .text.I2C_ITMasterSeqCplt:0000000000000000 $t
+     /tmp/ccjltdQT.s:8218   .text.I2C_ITMasterSeqCplt:0000000000000000 I2C_ITMasterSeqCplt
+     /tmp/ccjltdQT.s:8296   .text.HAL_I2C_SlaveTxCpltCallback:0000000000000000 $t
+     /tmp/ccjltdQT.s:8303   .text.HAL_I2C_SlaveTxCpltCallback:0000000000000000 HAL_I2C_SlaveTxCpltCallback
+     /tmp/ccjltdQT.s:8318   .text.HAL_I2C_SlaveRxCpltCallback:0000000000000000 $t
+     /tmp/ccjltdQT.s:8325   .text.HAL_I2C_SlaveRxCpltCallback:0000000000000000 HAL_I2C_SlaveRxCpltCallback
+     /tmp/ccjltdQT.s:8340   .text.I2C_ITSlaveSeqCplt:0000000000000000 $t
+     /tmp/ccjltdQT.s:8346   .text.I2C_ITSlaveSeqCplt:0000000000000000 I2C_ITSlaveSeqCplt
+     /tmp/ccjltdQT.s:8428   .text.I2C_DMASlaveTransmitCplt:0000000000000000 $t
+     /tmp/ccjltdQT.s:8478   .text.I2C_DMASlaveTransmitCplt:0000000000000024 $d
+     /tmp/ccjltdQT.s:8483   .text.I2C_DMASlaveReceiveCplt:0000000000000000 $t
+     /tmp/ccjltdQT.s:8534   .text.I2C_DMASlaveReceiveCplt:0000000000000028 $d
+     /tmp/ccjltdQT.s:8540   .text.HAL_I2C_AddrCallback:0000000000000000 $t
+     /tmp/ccjltdQT.s:8547   .text.HAL_I2C_AddrCallback:0000000000000000 HAL_I2C_AddrCallback
+     /tmp/ccjltdQT.s:8562   .text.I2C_ITAddrCplt:0000000000000000 $t
+     /tmp/ccjltdQT.s:8568   .text.I2C_ITAddrCplt:0000000000000000 I2C_ITAddrCplt
+     /tmp/ccjltdQT.s:8708   .text.HAL_I2C_ListenCpltCallback:0000000000000000 $t
+     /tmp/ccjltdQT.s:8715   .text.HAL_I2C_ListenCpltCallback:0000000000000000 HAL_I2C_ListenCpltCallback
+     /tmp/ccjltdQT.s:8730   .text.I2C_ITListenCplt:0000000000000000 $t
+     /tmp/ccjltdQT.s:8736   .text.I2C_ITListenCplt:0000000000000000 I2C_ITListenCplt
+     /tmp/ccjltdQT.s:8820   .text.I2C_ITListenCplt:0000000000000060 $d
+     /tmp/ccjltdQT.s:8825   .text.HAL_I2C_MemTxCpltCallback:0000000000000000 $t
+     /tmp/ccjltdQT.s:8832   .text.HAL_I2C_MemTxCpltCallback:0000000000000000 HAL_I2C_MemTxCpltCallback
+     /tmp/ccjltdQT.s:8847   .text.HAL_I2C_MemRxCpltCallback:0000000000000000 $t
+     /tmp/ccjltdQT.s:8854   .text.HAL_I2C_MemRxCpltCallback:0000000000000000 HAL_I2C_MemRxCpltCallback
+ARM GAS  /tmp/ccjltdQT.s 			page 342
 
 
-     /tmp/cc7EHvsj.s:8869   .text.HAL_I2C_ErrorCallback:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8876   .text.HAL_I2C_ErrorCallback:0000000000000000 HAL_I2C_ErrorCallback
-     /tmp/cc7EHvsj.s:8891   .text.HAL_I2C_AbortCpltCallback:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8898   .text.HAL_I2C_AbortCpltCallback:0000000000000000 HAL_I2C_AbortCpltCallback
-     /tmp/cc7EHvsj.s:8913   .text.I2C_ITError:0000000000000000 $t
-     /tmp/cc7EHvsj.s:8919   .text.I2C_ITError:0000000000000000 I2C_ITError
-     /tmp/cc7EHvsj.s:9100   .text.I2C_ITError:00000000000000e4 $d
-     /tmp/cc7EHvsj.s:9109   .text.I2C_ITSlaveCplt:0000000000000000 $t
-     /tmp/cc7EHvsj.s:9115   .text.I2C_ITSlaveCplt:0000000000000000 I2C_ITSlaveCplt
-     /tmp/cc7EHvsj.s:9327   .text.I2C_ITSlaveCplt:0000000000000110 $d
-     /tmp/cc7EHvsj.s:9333   .text.I2C_Slave_ISR_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:9601   .text.I2C_Slave_ISR_IT:0000000000000148 $d
-     /tmp/cc7EHvsj.s:9606   .text.I2C_ITMasterCplt:0000000000000000 $t
-     /tmp/cc7EHvsj.s:9612   .text.I2C_ITMasterCplt:0000000000000000 I2C_ITMasterCplt
-     /tmp/cc7EHvsj.s:9775   .text.I2C_ITMasterCplt:00000000000000cc $d
-     /tmp/cc7EHvsj.s:9781   .text.I2C_Master_ISR_IT:0000000000000000 $t
-     /tmp/cc7EHvsj.s:10092  .text.I2C_Master_ISR_IT:0000000000000174 $d
-     /tmp/cc7EHvsj.s:10097  .text.I2C_Slave_ISR_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:10334  .text.I2C_Slave_ISR_DMA:0000000000000104 $d
-     /tmp/cc7EHvsj.s:10339  .text.I2C_Master_ISR_DMA:0000000000000000 $t
-     /tmp/cc7EHvsj.s:10599  .text.I2C_Master_ISR_DMA:0000000000000138 $d
-     /tmp/cc7EHvsj.s:10604  .text.I2C_DMAError:0000000000000000 $t
-     /tmp/cc7EHvsj.s:10643  .text.I2C_DMAMasterTransmitCplt:0000000000000000 $t
-     /tmp/cc7EHvsj.s:10736  .text.I2C_DMAMasterTransmitCplt:0000000000000060 $d
-     /tmp/cc7EHvsj.s:10741  .text.I2C_DMAMasterReceiveCplt:0000000000000000 $t
-     /tmp/cc7EHvsj.s:10834  .text.I2C_DMAMasterReceiveCplt:0000000000000060 $d
-     /tmp/cc7EHvsj.s:10839  .text.HAL_I2C_ER_IRQHandler:0000000000000000 $t
-     /tmp/cc7EHvsj.s:10846  .text.HAL_I2C_ER_IRQHandler:0000000000000000 HAL_I2C_ER_IRQHandler
-     /tmp/cc7EHvsj.s:10941  .text.I2C_DMAAbort:0000000000000000 $t
-     /tmp/cc7EHvsj.s:10995  .text.HAL_I2C_GetState:0000000000000000 $t
-     /tmp/cc7EHvsj.s:11002  .text.HAL_I2C_GetState:0000000000000000 HAL_I2C_GetState
-     /tmp/cc7EHvsj.s:11022  .text.HAL_I2C_GetMode:0000000000000000 $t
-     /tmp/cc7EHvsj.s:11029  .text.HAL_I2C_GetMode:0000000000000000 HAL_I2C_GetMode
-     /tmp/cc7EHvsj.s:11049  .text.HAL_I2C_GetError:0000000000000000 $t
-     /tmp/cc7EHvsj.s:11056  .text.HAL_I2C_GetError:0000000000000000 HAL_I2C_GetError
+     /tmp/ccjltdQT.s:8869   .text.HAL_I2C_ErrorCallback:0000000000000000 $t
+     /tmp/ccjltdQT.s:8876   .text.HAL_I2C_ErrorCallback:0000000000000000 HAL_I2C_ErrorCallback
+     /tmp/ccjltdQT.s:8891   .text.HAL_I2C_AbortCpltCallback:0000000000000000 $t
+     /tmp/ccjltdQT.s:8898   .text.HAL_I2C_AbortCpltCallback:0000000000000000 HAL_I2C_AbortCpltCallback
+     /tmp/ccjltdQT.s:8913   .text.I2C_ITError:0000000000000000 $t
+     /tmp/ccjltdQT.s:8919   .text.I2C_ITError:0000000000000000 I2C_ITError
+     /tmp/ccjltdQT.s:9100   .text.I2C_ITError:00000000000000e4 $d
+     /tmp/ccjltdQT.s:9109   .text.I2C_ITSlaveCplt:0000000000000000 $t
+     /tmp/ccjltdQT.s:9115   .text.I2C_ITSlaveCplt:0000000000000000 I2C_ITSlaveCplt
+     /tmp/ccjltdQT.s:9327   .text.I2C_ITSlaveCplt:0000000000000110 $d
+     /tmp/ccjltdQT.s:9333   .text.I2C_Slave_ISR_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:9601   .text.I2C_Slave_ISR_IT:0000000000000148 $d
+     /tmp/ccjltdQT.s:9606   .text.I2C_ITMasterCplt:0000000000000000 $t
+     /tmp/ccjltdQT.s:9612   .text.I2C_ITMasterCplt:0000000000000000 I2C_ITMasterCplt
+     /tmp/ccjltdQT.s:9775   .text.I2C_ITMasterCplt:00000000000000cc $d
+     /tmp/ccjltdQT.s:9781   .text.I2C_Master_ISR_IT:0000000000000000 $t
+     /tmp/ccjltdQT.s:10092  .text.I2C_Master_ISR_IT:0000000000000174 $d
+     /tmp/ccjltdQT.s:10097  .text.I2C_Slave_ISR_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:10334  .text.I2C_Slave_ISR_DMA:0000000000000104 $d
+     /tmp/ccjltdQT.s:10339  .text.I2C_Master_ISR_DMA:0000000000000000 $t
+     /tmp/ccjltdQT.s:10599  .text.I2C_Master_ISR_DMA:0000000000000138 $d
+     /tmp/ccjltdQT.s:10604  .text.I2C_DMAError:0000000000000000 $t
+     /tmp/ccjltdQT.s:10643  .text.I2C_DMAMasterTransmitCplt:0000000000000000 $t
+     /tmp/ccjltdQT.s:10736  .text.I2C_DMAMasterTransmitCplt:0000000000000060 $d
+     /tmp/ccjltdQT.s:10741  .text.I2C_DMAMasterReceiveCplt:0000000000000000 $t
+     /tmp/ccjltdQT.s:10834  .text.I2C_DMAMasterReceiveCplt:0000000000000060 $d
+     /tmp/ccjltdQT.s:10839  .text.HAL_I2C_ER_IRQHandler:0000000000000000 $t
+     /tmp/ccjltdQT.s:10846  .text.HAL_I2C_ER_IRQHandler:0000000000000000 HAL_I2C_ER_IRQHandler
+     /tmp/ccjltdQT.s:10941  .text.I2C_DMAAbort:0000000000000000 $t
+     /tmp/ccjltdQT.s:10995  .text.HAL_I2C_GetState:0000000000000000 $t
+     /tmp/ccjltdQT.s:11002  .text.HAL_I2C_GetState:0000000000000000 HAL_I2C_GetState
+     /tmp/ccjltdQT.s:11022  .text.HAL_I2C_GetMode:0000000000000000 $t
+     /tmp/ccjltdQT.s:11029  .text.HAL_I2C_GetMode:0000000000000000 HAL_I2C_GetMode
+     /tmp/ccjltdQT.s:11049  .text.HAL_I2C_GetError:0000000000000000 $t
+     /tmp/ccjltdQT.s:11056  .text.HAL_I2C_GetError:0000000000000000 HAL_I2C_GetError
 
 UNDEFINED SYMBOLS
 HAL_GetTick

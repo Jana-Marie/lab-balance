@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccGj9eJm.s 			page 1
+ARM GAS  /tmp/cc5U55pU.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
   31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****          (##) Initialize the related GPIO clocks
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****          (##) Configure PCD pin-out
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****          (##) Configure PCD NVIC interrupt
-ARM GAS  /tmp/ccGj9eJm.s 			page 2
+ARM GAS  /tmp/cc5U55pU.s 			page 2
 
 
   34:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
   88:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
   89:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
   90:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** static HAL_StatusTypeDef PCD_EP_ISR_Handler(PCD_HandleTypeDef *hpcd);
-ARM GAS  /tmp/ccGj9eJm.s 			page 3
+ARM GAS  /tmp/cc5U55pU.s 			page 3
 
 
   91:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  145:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     hpcd->DisconnectCallback = HAL_PCD_DisconnectCallback;
  146:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     hpcd->DataOutStageCallback = HAL_PCD_DataOutStageCallback;
  147:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     hpcd->DataInStageCallback = HAL_PCD_DataInStageCallback;
-ARM GAS  /tmp/ccGj9eJm.s 			page 4
+ARM GAS  /tmp/cc5U55pU.s 			page 4
 
 
  148:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     hpcd->ISOOUTIncompleteCallback = HAL_PCD_ISOOUTIncompleteCallback;
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  202:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   /* Activate LPM */
  203:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   if (hpcd->Init.lpm_enable == 1U)
  204:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   {
-ARM GAS  /tmp/ccGj9eJm.s 			page 5
+ARM GAS  /tmp/cc5U55pU.s 			page 5
 
 
  205:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     (void)HAL_PCDEx_ActivateLPM(hpcd);
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
   31              	.LVL0:
  254:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   /* Prevent unused argument(s) compilation warning */
  255:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   UNUSED(hpcd);
-ARM GAS  /tmp/ccGj9eJm.s 			page 6
+ARM GAS  /tmp/cc5U55pU.s 			page 6
 
 
  256:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
   78 0018 FFF7FEFF 		bl	USB_DisableGlobalInt
   79              	.LVL3:
  172:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   {
-ARM GAS  /tmp/ccGj9eJm.s 			page 7
+ARM GAS  /tmp/cc5U55pU.s 			page 7
 
 
   80              		.loc 1 172 0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  124 0054 DBB2     		uxtb	r3, r3
  125              	.LVL8:
  126              	.L5:
-ARM GAS  /tmp/ccGj9eJm.s 			page 8
+ARM GAS  /tmp/cc5U55pU.s 			page 8
 
 
  172:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   {
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  197:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
  171              		.loc 1 197 0 is_stmt 1
  172 0090 6A46     		mov	r2, sp
-ARM GAS  /tmp/ccGj9eJm.s 			page 9
+ARM GAS  /tmp/cc5U55pU.s 			page 9
 
 
  173              	.LVL12:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  219              	.LVL18:
  220 00ce F6E7     		b	.L3
  221              	.L14:
-ARM GAS  /tmp/ccGj9eJm.s 			page 10
+ARM GAS  /tmp/cc5U55pU.s 			page 10
 
 
  222              		.align	2
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  281:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  hpcd USB PCD handle
  282:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  CallbackID ID of the callback to be registered
  283:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   *         This parameter can be one of the following values:
-ARM GAS  /tmp/ccGj9eJm.s 			page 11
+ARM GAS  /tmp/cc5U55pU.s 			page 11
 
 
  284:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   *          @arg @ref HAL_PCD_SOF_CB_ID USB PCD SOF callback ID
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  338:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         hpcd->DisconnectCallback = pCallback;
  339:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         break;
  340:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 12
+ARM GAS  /tmp/cc5U55pU.s 			page 12
 
 
  341:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****       case HAL_PCD_MSPINIT_CB_ID :
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  395:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   *         This parameter can be one of the following values:
  396:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   *          @arg @ref HAL_PCD_SOF_CB_ID USB PCD SOF callback ID
  397:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   *          @arg @ref HAL_PCD_SETUPSTAGE_CB_ID USB PCD Setup callback ID
-ARM GAS  /tmp/ccGj9eJm.s 			page 13
+ARM GAS  /tmp/cc5U55pU.s 			page 13
 
 
  398:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   *          @arg @ref HAL_PCD_RESET_CB_ID USB PCD Reset callback ID
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  452:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         hpcd->MspDeInitCallback = HAL_PCD_MspDeInit;
  453:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         break;
  454:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 14
+ARM GAS  /tmp/cc5U55pU.s 			page 14
 
 
  455:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****       default :
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  509:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
  510:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   if (pCallback == NULL)
  511:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   {
-ARM GAS  /tmp/ccGj9eJm.s 			page 15
+ARM GAS  /tmp/cc5U55pU.s 			page 15
 
 
  512:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     /* Update the error code */
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  566:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   /* Release Lock */
  567:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   __HAL_UNLOCK(hpcd);
  568:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 16
+ARM GAS  /tmp/cc5U55pU.s 			page 16
 
 
  569:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   return status;
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  623:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   /* Process locked */
  624:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   __HAL_LOCK(hpcd);
  625:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 17
+ARM GAS  /tmp/cc5U55pU.s 			page 17
 
 
  626:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   if (hpcd->State == HAL_PCD_STATE_READY)
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  680:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   /* Release Lock */
  681:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   __HAL_UNLOCK(hpcd);
  682:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 18
+ARM GAS  /tmp/cc5U55pU.s 			page 18
 
 
  683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   return status;
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  737:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   /* Process locked */
  738:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   __HAL_LOCK(hpcd);
  739:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 19
+ARM GAS  /tmp/cc5U55pU.s 			page 19
 
 
  740:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   if (hpcd->State == HAL_PCD_STATE_READY)
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  794:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  hpcd PCD handle
  795:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  pCallback pointer to the USB PCD BCD Callback function
  796:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @retval HAL status
-ARM GAS  /tmp/ccGj9eJm.s 			page 20
+ARM GAS  /tmp/cc5U55pU.s 			page 20
 
 
  797:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  851:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     /* Update the error code */
  852:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     hpcd->ErrorCode |= HAL_PCD_ERROR_INVALID_CALLBACK;
  853:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 21
+ARM GAS  /tmp/cc5U55pU.s 			page 21
 
 
  854:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     /* Return error status */
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  908:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  hpcd PCD handle
  909:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @retval HAL status
  910:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
-ARM GAS  /tmp/ccGj9eJm.s 			page 22
+ARM GAS  /tmp/cc5U55pU.s 			page 22
 
 
  911:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** HAL_StatusTypeDef HAL_PCD_UnRegisterLpmCallback(PCD_HandleTypeDef *hpcd)
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  261              		.cfi_startproc
  262              		@ args = 0, pretend = 0, frame = 0
  263              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccGj9eJm.s 			page 23
+ARM GAS  /tmp/cc5U55pU.s 			page 23
 
 
  264              	.LVL20:
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  312              		.section	.text.HAL_PCD_Stop,"ax",%progbits
  313              		.align	1
  314              		.global	HAL_PCD_Stop
-ARM GAS  /tmp/ccGj9eJm.s 			page 24
+ARM GAS  /tmp/cc5U55pU.s 			page 24
 
 
  315              		.syntax unified
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  356 0022 0023     		movs	r3, #0
  357 0024 6355     		strb	r3, [r4, r5]
  984:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 25
+ARM GAS  /tmp/cc5U55pU.s 			page 25
 
 
  985:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   return HAL_OK;
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  406              		.loc 1 239 0
  407 0010 2000     		movs	r0, r4
  408 0012 FFF7FEFF 		bl	HAL_PCD_MspDeInit
-ARM GAS  /tmp/ccGj9eJm.s 			page 26
+ARM GAS  /tmp/cc5U55pU.s 			page 26
 
 
  409              	.LVL36:
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1005:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     __HAL_PCD_CLEAR_FLAG(hpcd, USB_ISTR_RESET);
 1006:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
 1007:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** #if (USE_HAL_PCD_REGISTER_CALLBACKS == 1U)
-ARM GAS  /tmp/ccGj9eJm.s 			page 27
+ARM GAS  /tmp/cc5U55pU.s 			page 27
 
 
 1008:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     hpcd->ResetCallback(hpcd);
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1062:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** #if (USE_HAL_PCD_REGISTER_CALLBACKS == 1U)
 1063:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****       hpcd->SuspendCallback(hpcd);
 1064:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** #else
-ARM GAS  /tmp/ccGj9eJm.s 			page 28
+ARM GAS  /tmp/cc5U55pU.s 			page 28
 
 
 1065:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****       HAL_PCD_SuspendCallback(hpcd);
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1119:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  hpcd PCD handle
 1120:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  epnum endpoint number
 1121:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @retval None
-ARM GAS  /tmp/ccGj9eJm.s 			page 29
+ARM GAS  /tmp/cc5U55pU.s 			page 29
 
 
 1122:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  471              		.loc 1 1149 0
  472              		@ sp needed
  473 0000 7047     		bx	lr
-ARM GAS  /tmp/ccGj9eJm.s 			page 30
+ARM GAS  /tmp/cc5U55pU.s 			page 30
 
 
  474              		.cfi_endproc
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  510              		.cfi_startproc
  511              		@ args = 0, pretend = 0, frame = 0
  512              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccGj9eJm.s 			page 31
+ARM GAS  /tmp/cc5U55pU.s 			page 31
 
 
  513              		@ link register save eliminated.
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  548              		.thumb_func
  549              		.fpu softvfp
  551              	HAL_PCD_SuspendCallback:
-ARM GAS  /tmp/ccGj9eJm.s 			page 32
+ARM GAS  /tmp/cc5U55pU.s 			page 32
 
 
  552              	.LFB52:
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1221:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****             the HAL_PCD_ResumeCallback could be implemented in the user file
 1222:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****    */
 1223:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** }
-ARM GAS  /tmp/ccGj9eJm.s 			page 33
+ARM GAS  /tmp/cc5U55pU.s 			page 33
 
 
  581              		.loc 1 1223 0
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1244:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  hpcd PCD handle
 1245:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  epnum endpoint number
 1246:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @retval None
-ARM GAS  /tmp/ccGj9eJm.s 			page 34
+ARM GAS  /tmp/cc5U55pU.s 			page 34
 
 
 1247:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  649 0000 7047     		bx	lr
  650              		.cfi_endproc
  651              	.LFE56:
-ARM GAS  /tmp/ccGj9eJm.s 			page 35
+ARM GAS  /tmp/cc5U55pU.s 			page 35
 
 
  653              		.section	.text.HAL_PCD_DisconnectCallback,"ax",%progbits
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1298:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****                       ##### Peripheral Control functions #####
 1299:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****  ===============================================================================
 1300:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     [..]
-ARM GAS  /tmp/ccGj9eJm.s 			page 36
+ARM GAS  /tmp/cc5U55pU.s 			page 36
 
 
 1301:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     This subsection provides a set of functions allowing to control the PCD data
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  720              		.loc 1 1319 0
  721              		@ sp needed
  722              	.LVL54:
-ARM GAS  /tmp/ccGj9eJm.s 			page 37
+ARM GAS  /tmp/cc5U55pU.s 			page 37
 
 
  723 0022 70BD     		pop	{r4, r5, r6, pc}
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  768 0016 0068     		ldr	r0, [r0]
  769              	.LVL58:
  770 0018 FFF7FEFF 		bl	USB_DevDisconnect
-ARM GAS  /tmp/ccGj9eJm.s 			page 38
+ARM GAS  /tmp/cc5U55pU.s 			page 38
 
 
  771              	.LVL59:
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1342:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   __HAL_LOCK(hpcd);
  814              		.loc 1 1342 0
  815 0004 8A23     		movs	r3, #138
-ARM GAS  /tmp/ccGj9eJm.s 			page 39
+ARM GAS  /tmp/cc5U55pU.s 			page 39
 
 
  816 0006 9B00     		lsls	r3, r3, #2
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1352:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  ep_mps endpoint max packet size
 1353:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  ep_type endpoint type
 1354:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @retval HAL status
-ARM GAS  /tmp/ccGj9eJm.s 			page 40
+ARM GAS  /tmp/cc5U55pU.s 			page 40
 
 
 1355:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  898 0022 0724     		movs	r4, #7
  899 0024 2140     		ands	r1, r4
  900              	.LVL73:
-ARM GAS  /tmp/ccGj9eJm.s 			page 41
+ARM GAS  /tmp/cc5U55pU.s 			page 41
 
 
  901 0026 0170     		strb	r1, [r0]
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  938 0052 0023     		movs	r3, #0
  939 0054 2B55     		strb	r3, [r5, r4]
 1390:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 42
+ARM GAS  /tmp/cc5U55pU.s 			page 42
 
 
 1391:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   return ret;
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1395:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @brief  Deactivate an endpoint.
 1396:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  hpcd PCD handle
 1397:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  ep_addr endpoint address
-ARM GAS  /tmp/ccGj9eJm.s 			page 43
+ARM GAS  /tmp/cc5U55pU.s 			page 43
 
 
 1398:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @retval HAL status
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1025              	.LVL88:
  1026 0026 1170     		strb	r1, [r2]
 1415:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 44
+ARM GAS  /tmp/cc5U55pU.s 			page 44
 
 
 1416:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   __HAL_LOCK(hpcd);
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1073 0060 0220     		movs	r0, #2
  1074 0062 F1E7     		b	.L59
  1075              		.cfi_endproc
-ARM GAS  /tmp/ccGj9eJm.s 			page 45
+ARM GAS  /tmp/cc5U55pU.s 			page 45
 
 
  1076              	.LFE62:
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1114 0016 FF36     		adds	r6, r6, #255
  1115 0018 3260     		str	r2, [r6]
 1439:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   ep->xfer_len = len;
-ARM GAS  /tmp/ccGj9eJm.s 			page 46
+ARM GAS  /tmp/cc5U55pU.s 			page 46
 
 
  1116              		.loc 1 1439 0
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1446:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   }
  1155              		.loc 1 1446 0
  1156 0044 0068     		ldr	r0, [r0]
-ARM GAS  /tmp/ccGj9eJm.s 			page 47
+ARM GAS  /tmp/cc5U55pU.s 			page 47
 
 
  1157              	.LVL107:
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1204              	HAL_PCD_EP_Transmit:
  1205              	.LFB65:
 1466:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** /**
-ARM GAS  /tmp/ccGj9eJm.s 			page 48
+ARM GAS  /tmp/cc5U55pU.s 			page 48
 
 
 1467:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @brief  Send an amount of data
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1242 001e 2300     		movs	r3, r4
  1243 0020 2933     		adds	r3, r3, #41
  1244 0022 0122     		movs	r2, #1
-ARM GAS  /tmp/ccGj9eJm.s 			page 49
+ARM GAS  /tmp/cc5U55pU.s 			page 49
 
 
  1245              	.LVL118:
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1500:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @brief  Set a STALL condition over an endpoint
 1501:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  hpcd PCD handle
 1502:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  ep_addr endpoint address
-ARM GAS  /tmp/ccGj9eJm.s 			page 50
+ARM GAS  /tmp/cc5U55pU.s 			page 50
 
 
 1503:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @retval HAL status
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1557:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     ep = &hpcd->IN_ep[ep_addr & EP_ADDR_MSK];
 1558:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     ep->is_in = 1U;
 1559:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   }
-ARM GAS  /tmp/ccGj9eJm.s 			page 51
+ARM GAS  /tmp/cc5U55pU.s 			page 51
 
 
 1560:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   else
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1614:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
 1615:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** /** @defgroup PCD_Exported_Functions_Group4 Peripheral State functions
 1616:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****  *  @brief   Peripheral State functions
-ARM GAS  /tmp/ccGj9eJm.s 			page 52
+ARM GAS  /tmp/cc5U55pU.s 			page 52
 
 
 1617:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****  *
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1295              		.cfi_offset 6, -12
  1296              		.cfi_offset 7, -8
  1297              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccGj9eJm.s 			page 53
+ARM GAS  /tmp/cc5U55pU.s 			page 53
 
 
  1298 0002 C646     		mov	lr, r8
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1681:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         /* DIR = 0 */
 1682:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
 1683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         /* DIR = 0      => IN  int */
-ARM GAS  /tmp/ccGj9eJm.s 			page 54
+ARM GAS  /tmp/cc5U55pU.s 			page 54
 
 
 1684:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         /* DIR = 0 implies that (EP_CTR_TX = 1) always  */
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1729:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** #endif /* USE_HAL_PCD_REGISTER_CALLBACKS */
 1730:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         }
 1731:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 55
+ARM GAS  /tmp/cc5U55pU.s 			page 55
 
 
 1732:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         else if ((wEPVal & USB_EP_CTR_RX) != 0U)
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1385 0074 1400     		movs	r4, r2
  1386              	.LVL135:
  1387 0076 D288     		ldrh	r2, [r2, #6]
-ARM GAS  /tmp/ccGj9eJm.s 			page 56
+ARM GAS  /tmp/cc5U55pU.s 			page 56
 
 
  1388 0078 FFF7FEFF 		bl	USB_ReadPMA
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1429              	.LBE4:
  1430              	.LBE3:
  1431              	.LBB6:
-ARM GAS  /tmp/ccGj9eJm.s 			page 57
+ARM GAS  /tmp/cc5U55pU.s 			page 57
 
 
 1755:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****           PCD_SET_EP_RX_STATUS(hpcd->Instance, PCD_ENDP0, USB_EP_RX_VALID);
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1482 00fa 9446     		mov	ip, r2
  1483 00fc 6344     		add	r3, r3, ip
  1484 00fe EB63     		str	r3, [r5, #60]
-ARM GAS  /tmp/ccGj9eJm.s 			page 58
+ARM GAS  /tmp/cc5U55pU.s 			page 58
 
 
 1695:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** #endif /* USE_HAL_PCD_REGISTER_CALLBACKS */
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1533 014a 9B05     		lsls	r3, r3, #22
  1534 014c 9B0D     		lsrs	r3, r3, #22
  1535 014e 2A00     		movs	r2, r5
-ARM GAS  /tmp/ccGj9eJm.s 			page 59
+ARM GAS  /tmp/cc5U55pU.s 			page 59
 
 
  1536 0150 2932     		adds	r2, r2, #41
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1583 0188 94E7     		b	.L79
  1584              	.L80:
 1754:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****           PCD_SET_EP_RX_STATUS(hpcd->Instance, PCD_ENDP0, USB_EP_RX_VALID);
-ARM GAS  /tmp/ccGj9eJm.s 			page 60
+ARM GAS  /tmp/cc5U55pU.s 			page 60
 
 
  1585              		.loc 1 1754 0 discriminator 4
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1774:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****           count = (uint16_t)PCD_GET_EP_RX_CNT(hpcd->Instance, ep->num);
 1775:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****           if (count != 0U)
 1776:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****           {
-ARM GAS  /tmp/ccGj9eJm.s 			page 61
+ARM GAS  /tmp/cc5U55pU.s 			page 61
 
 
 1777:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****             USB_ReadPMA(hpcd->Instance, ep->xfer_buff, ep->pmaadress, count);
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1824:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****       {
 1825:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         ep = &hpcd->IN_ep[epindex];
 1826:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/ccGj9eJm.s 			page 62
+ARM GAS  /tmp/cc5U55pU.s 			page 62
 
 
 1827:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         /* clear int flag */
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1671 01fc 002B     		cmp	r3, #0
  1672 01fe 00D0     		beq	.LCB1481
  1673 0200 ACE0     		b	.L90	@long jump
-ARM GAS  /tmp/ccGj9eJm.s 			page 63
+ARM GAS  /tmp/cc5U55pU.s 			page 63
 
 
  1674              	.LCB1481:
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1719 0240 4D4A     		ldr	r2, .L97+4
  1720 0242 9446     		mov	ip, r2
  1721 0244 6344     		add	r3, r3, ip
-ARM GAS  /tmp/ccGj9eJm.s 			page 64
+ARM GAS  /tmp/cc5U55pU.s 			page 64
 
 
  1722 0246 1F88     		ldrh	r7, [r3]
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1771              	.L87:
  1772              	.LBB12:
 1801:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         }
-ARM GAS  /tmp/ccGj9eJm.s 			page 65
+ARM GAS  /tmp/cc5U55pU.s 			page 65
 
 
  1773              		.loc 1 1801 0 discriminator 1
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1823 02e6 9142     		cmp	r1, r2
  1824 02e8 2ED2     		bcs	.L89
  1825              	.L88:
-ARM GAS  /tmp/ccGj9eJm.s 			page 66
+ARM GAS  /tmp/cc5U55pU.s 			page 66
 
 
 1813:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** #endif /* USE_HAL_PCD_REGISTER_CALLBACKS */
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1875 0338 1288     		ldrh	r2, [r2]
  1876 033a 3D33     		adds	r3, r3, #61
  1877 033c FF33     		adds	r3, r3, #255
-ARM GAS  /tmp/ccGj9eJm.s 			page 67
+ARM GAS  /tmp/cc5U55pU.s 			page 67
 
 
  1878 033e 1968     		ldr	r1, [r3]
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1920 0374 8F0F0000 		.word	3983
  1921 0378 06040000 		.word	1030
  1922 037c FF83FFFF 		.word	-31745
-ARM GAS  /tmp/ccGj9eJm.s 			page 68
+ARM GAS  /tmp/cc5U55pU.s 			page 68
 
 
  1923 0380 0080FFFF 		.word	-32768
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  1975              		.loc 1 1016 0
  1976 001c 2068     		ldr	r0, [r4]
  1977 001e FFF7FEFF 		bl	USB_ReadInterrupts
-ARM GAS  /tmp/ccGj9eJm.s 			page 69
+ARM GAS  /tmp/cc5U55pU.s 			page 69
 
 
  1978              	.LVL201:
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2025 006c E35C     		ldrb	r3, [r4, r3]
  2026 006e 012B     		cmp	r3, #1
  2027 0070 5CD0     		beq	.L113
-ARM GAS  /tmp/ccGj9eJm.s 			page 70
+ARM GAS  /tmp/cc5U55pU.s 			page 70
 
 
  2028              	.L105:
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2074              		.loc 1 1078 0
  2075 00ba 2168     		ldr	r1, [r4]
  2076 00bc CA5A     		ldrh	r2, [r1, r3]
-ARM GAS  /tmp/ccGj9eJm.s 			page 71
+ARM GAS  /tmp/cc5U55pU.s 			page 71
 
 
  2077 00be 0820     		movs	r0, #8
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2124              	.LVL210:
  2125 0106 70BD     		pop	{r4, r5, r6, pc}
  2126              	.LVL211:
-ARM GAS  /tmp/ccGj9eJm.s 			page 72
+ARM GAS  /tmp/cc5U55pU.s 			page 72
 
 
  2127              	.L111:
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2173 014c 4421     		movs	r1, #68
  2174 014e 425A     		ldrh	r2, [r0, r1]
  2175 0150 144D     		ldr	r5, .L116+20
-ARM GAS  /tmp/ccGj9eJm.s 			page 73
+ARM GAS  /tmp/cc5U55pU.s 			page 73
 
 
  2176 0152 2A40     		ands	r2, r5
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2224 01a4 FFF7FFFF 		.word	-2049
  2225 01a8 FFFDFFFF 		.word	-513
  2226              		.cfi_endproc
-ARM GAS  /tmp/ccGj9eJm.s 			page 74
+ARM GAS  /tmp/cc5U55pU.s 			page 74
 
 
  2227              	.LFE46:
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2277              		.loc 1 1525 0
  2278 0028 0123     		movs	r3, #1
  2279 002a 8B70     		strb	r3, [r1, #2]
-ARM GAS  /tmp/ccGj9eJm.s 			page 75
+ARM GAS  /tmp/cc5U55pU.s 			page 75
 
 
 1526:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2325              	.LVL228:
  2326              	.L126:
 1533:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   }
-ARM GAS  /tmp/ccGj9eJm.s 			page 76
+ARM GAS  /tmp/cc5U55pU.s 			page 76
 
 
  2327              		.loc 1 1533 0
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2378 0004 0F23     		movs	r3, #15
  2379 0006 0B40     		ands	r3, r1
  2380 0008 4268     		ldr	r2, [r0, #4]
-ARM GAS  /tmp/ccGj9eJm.s 			page 77
+ARM GAS  /tmp/cc5U55pU.s 			page 77
 
 
  2381 000a 9342     		cmp	r3, r2
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2427              	.LVL239:
 1571:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
  2428              		.loc 1 1571 0 discriminator 2
-ARM GAS  /tmp/ccGj9eJm.s 			page 78
+ARM GAS  /tmp/cc5U55pU.s 			page 78
 
 
  2429 0050 0023     		movs	r3, #0
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
 1583:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   /* Prevent unused argument(s) compilation warning */
  2479              		.loc 1 1583 0
  2480              		.cfi_startproc
-ARM GAS  /tmp/ccGj9eJm.s 			page 79
+ARM GAS  /tmp/cc5U55pU.s 			page 79
 
 
  2481              		@ args = 0, pretend = 0, frame = 0
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2534              		.loc 1 1607 0
  2535              		.cfi_startproc
  2536              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccGj9eJm.s 			page 80
+ARM GAS  /tmp/cc5U55pU.s 			page 80
 
 
  2537              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -4794,11 +4794,11 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2584              	.LFE71:
  2586              		.text
  2587              	.Letext0:
- 2588              		.file 2 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machin
- 2589              		.file 3 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_s
+ 2588              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 2589              		.file 3 "/usr/include/newlib/sys/_stdint.h"
  2590              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
  2591              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
-ARM GAS  /tmp/ccGj9eJm.s 			page 81
+ARM GAS  /tmp/cc5U55pU.s 			page 81
 
 
  2592              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
@@ -4806,85 +4806,85 @@ ARM GAS  /tmp/ccGj9eJm.s 			page 1
  2594              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pcd.h"
  2595              		.file 9 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
  2596              		.file 10 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pcd_ex.h"
-ARM GAS  /tmp/ccGj9eJm.s 			page 82
+ARM GAS  /tmp/cc5U55pU.s 			page 82
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f0xx_hal_pcd.c
-     /tmp/ccGj9eJm.s:16     .text.HAL_PCD_MspInit:0000000000000000 $t
-     /tmp/ccGj9eJm.s:23     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
-     /tmp/ccGj9eJm.s:39     .text.HAL_PCD_Init:0000000000000000 $t
-     /tmp/ccGj9eJm.s:46     .text.HAL_PCD_Init:0000000000000000 HAL_PCD_Init
-     /tmp/ccGj9eJm.s:224    .text.HAL_PCD_Init:00000000000000d0 $d
-     /tmp/ccGj9eJm.s:229    .text.HAL_PCD_MspDeInit:0000000000000000 $t
-     /tmp/ccGj9eJm.s:236    .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
-     /tmp/ccGj9eJm.s:251    .text.HAL_PCD_Start:0000000000000000 $t
-     /tmp/ccGj9eJm.s:258    .text.HAL_PCD_Start:0000000000000000 HAL_PCD_Start
-     /tmp/ccGj9eJm.s:313    .text.HAL_PCD_Stop:0000000000000000 $t
-     /tmp/ccGj9eJm.s:320    .text.HAL_PCD_Stop:0000000000000000 HAL_PCD_Stop
-     /tmp/ccGj9eJm.s:375    .text.HAL_PCD_DeInit:0000000000000000 $t
-     /tmp/ccGj9eJm.s:382    .text.HAL_PCD_DeInit:0000000000000000 HAL_PCD_DeInit
-     /tmp/ccGj9eJm.s:429    .text.HAL_PCD_DeInit:0000000000000024 $d
-     /tmp/ccGj9eJm.s:434    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
-     /tmp/ccGj9eJm.s:441    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
-     /tmp/ccGj9eJm.s:456    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
-     /tmp/ccGj9eJm.s:463    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
-     /tmp/ccGj9eJm.s:478    .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
-     /tmp/ccGj9eJm.s:485    .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
-     /tmp/ccGj9eJm.s:500    .text.HAL_PCD_SOFCallback:0000000000000000 $t
-     /tmp/ccGj9eJm.s:507    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
-     /tmp/ccGj9eJm.s:522    .text.HAL_PCD_ResetCallback:0000000000000000 $t
-     /tmp/ccGj9eJm.s:529    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
-     /tmp/ccGj9eJm.s:544    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
-     /tmp/ccGj9eJm.s:551    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
-     /tmp/ccGj9eJm.s:566    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
-     /tmp/ccGj9eJm.s:573    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
-     /tmp/ccGj9eJm.s:588    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
-     /tmp/ccGj9eJm.s:595    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
-     /tmp/ccGj9eJm.s:610    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
-     /tmp/ccGj9eJm.s:617    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
-     /tmp/ccGj9eJm.s:632    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
-     /tmp/ccGj9eJm.s:639    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
-     /tmp/ccGj9eJm.s:654    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
-     /tmp/ccGj9eJm.s:661    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
-     /tmp/ccGj9eJm.s:676    .text.HAL_PCD_DevConnect:0000000000000000 $t
-     /tmp/ccGj9eJm.s:683    .text.HAL_PCD_DevConnect:0000000000000000 HAL_PCD_DevConnect
-     /tmp/ccGj9eJm.s:734    .text.HAL_PCD_DevDisconnect:0000000000000000 $t
-     /tmp/ccGj9eJm.s:741    .text.HAL_PCD_DevDisconnect:0000000000000000 HAL_PCD_DevDisconnect
-     /tmp/ccGj9eJm.s:792    .text.HAL_PCD_SetAddress:0000000000000000 $t
-     /tmp/ccGj9eJm.s:799    .text.HAL_PCD_SetAddress:0000000000000000 HAL_PCD_SetAddress
-     /tmp/ccGj9eJm.s:853    .text.HAL_PCD_EP_Open:0000000000000000 $t
-     /tmp/ccGj9eJm.s:860    .text.HAL_PCD_EP_Open:0000000000000000 HAL_PCD_EP_Open
-     /tmp/ccGj9eJm.s:979    .text.HAL_PCD_EP_Close:0000000000000000 $t
-     /tmp/ccGj9eJm.s:986    .text.HAL_PCD_EP_Close:0000000000000000 HAL_PCD_EP_Close
-     /tmp/ccGj9eJm.s:1079   .text.HAL_PCD_EP_Receive:0000000000000000 $t
-     /tmp/ccGj9eJm.s:1086   .text.HAL_PCD_EP_Receive:0000000000000000 HAL_PCD_EP_Receive
-     /tmp/ccGj9eJm.s:1165   .text.HAL_PCD_EP_GetRxCount:0000000000000000 $t
-     /tmp/ccGj9eJm.s:1172   .text.HAL_PCD_EP_GetRxCount:0000000000000000 HAL_PCD_EP_GetRxCount
-     /tmp/ccGj9eJm.s:1197   .text.HAL_PCD_EP_Transmit:0000000000000000 $t
-     /tmp/ccGj9eJm.s:1204   .text.HAL_PCD_EP_Transmit:0000000000000000 HAL_PCD_EP_Transmit
-     /tmp/ccGj9eJm.s:1277   .text.PCD_EP_ISR_Handler:0000000000000000 $t
-     /tmp/ccGj9eJm.s:1283   .text.PCD_EP_ISR_Handler:0000000000000000 PCD_EP_ISR_Handler
-     /tmp/ccGj9eJm.s:1920   .text.PCD_EP_ISR_Handler:0000000000000374 $d
-ARM GAS  /tmp/ccGj9eJm.s 			page 83
+     /tmp/cc5U55pU.s:16     .text.HAL_PCD_MspInit:0000000000000000 $t
+     /tmp/cc5U55pU.s:23     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
+     /tmp/cc5U55pU.s:39     .text.HAL_PCD_Init:0000000000000000 $t
+     /tmp/cc5U55pU.s:46     .text.HAL_PCD_Init:0000000000000000 HAL_PCD_Init
+     /tmp/cc5U55pU.s:224    .text.HAL_PCD_Init:00000000000000d0 $d
+     /tmp/cc5U55pU.s:229    .text.HAL_PCD_MspDeInit:0000000000000000 $t
+     /tmp/cc5U55pU.s:236    .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
+     /tmp/cc5U55pU.s:251    .text.HAL_PCD_Start:0000000000000000 $t
+     /tmp/cc5U55pU.s:258    .text.HAL_PCD_Start:0000000000000000 HAL_PCD_Start
+     /tmp/cc5U55pU.s:313    .text.HAL_PCD_Stop:0000000000000000 $t
+     /tmp/cc5U55pU.s:320    .text.HAL_PCD_Stop:0000000000000000 HAL_PCD_Stop
+     /tmp/cc5U55pU.s:375    .text.HAL_PCD_DeInit:0000000000000000 $t
+     /tmp/cc5U55pU.s:382    .text.HAL_PCD_DeInit:0000000000000000 HAL_PCD_DeInit
+     /tmp/cc5U55pU.s:429    .text.HAL_PCD_DeInit:0000000000000024 $d
+     /tmp/cc5U55pU.s:434    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
+     /tmp/cc5U55pU.s:441    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
+     /tmp/cc5U55pU.s:456    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
+     /tmp/cc5U55pU.s:463    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
+     /tmp/cc5U55pU.s:478    .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
+     /tmp/cc5U55pU.s:485    .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
+     /tmp/cc5U55pU.s:500    .text.HAL_PCD_SOFCallback:0000000000000000 $t
+     /tmp/cc5U55pU.s:507    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
+     /tmp/cc5U55pU.s:522    .text.HAL_PCD_ResetCallback:0000000000000000 $t
+     /tmp/cc5U55pU.s:529    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
+     /tmp/cc5U55pU.s:544    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
+     /tmp/cc5U55pU.s:551    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
+     /tmp/cc5U55pU.s:566    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
+     /tmp/cc5U55pU.s:573    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
+     /tmp/cc5U55pU.s:588    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
+     /tmp/cc5U55pU.s:595    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
+     /tmp/cc5U55pU.s:610    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
+     /tmp/cc5U55pU.s:617    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
+     /tmp/cc5U55pU.s:632    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
+     /tmp/cc5U55pU.s:639    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
+     /tmp/cc5U55pU.s:654    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
+     /tmp/cc5U55pU.s:661    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
+     /tmp/cc5U55pU.s:676    .text.HAL_PCD_DevConnect:0000000000000000 $t
+     /tmp/cc5U55pU.s:683    .text.HAL_PCD_DevConnect:0000000000000000 HAL_PCD_DevConnect
+     /tmp/cc5U55pU.s:734    .text.HAL_PCD_DevDisconnect:0000000000000000 $t
+     /tmp/cc5U55pU.s:741    .text.HAL_PCD_DevDisconnect:0000000000000000 HAL_PCD_DevDisconnect
+     /tmp/cc5U55pU.s:792    .text.HAL_PCD_SetAddress:0000000000000000 $t
+     /tmp/cc5U55pU.s:799    .text.HAL_PCD_SetAddress:0000000000000000 HAL_PCD_SetAddress
+     /tmp/cc5U55pU.s:853    .text.HAL_PCD_EP_Open:0000000000000000 $t
+     /tmp/cc5U55pU.s:860    .text.HAL_PCD_EP_Open:0000000000000000 HAL_PCD_EP_Open
+     /tmp/cc5U55pU.s:979    .text.HAL_PCD_EP_Close:0000000000000000 $t
+     /tmp/cc5U55pU.s:986    .text.HAL_PCD_EP_Close:0000000000000000 HAL_PCD_EP_Close
+     /tmp/cc5U55pU.s:1079   .text.HAL_PCD_EP_Receive:0000000000000000 $t
+     /tmp/cc5U55pU.s:1086   .text.HAL_PCD_EP_Receive:0000000000000000 HAL_PCD_EP_Receive
+     /tmp/cc5U55pU.s:1165   .text.HAL_PCD_EP_GetRxCount:0000000000000000 $t
+     /tmp/cc5U55pU.s:1172   .text.HAL_PCD_EP_GetRxCount:0000000000000000 HAL_PCD_EP_GetRxCount
+     /tmp/cc5U55pU.s:1197   .text.HAL_PCD_EP_Transmit:0000000000000000 $t
+     /tmp/cc5U55pU.s:1204   .text.HAL_PCD_EP_Transmit:0000000000000000 HAL_PCD_EP_Transmit
+     /tmp/cc5U55pU.s:1277   .text.PCD_EP_ISR_Handler:0000000000000000 $t
+     /tmp/cc5U55pU.s:1283   .text.PCD_EP_ISR_Handler:0000000000000000 PCD_EP_ISR_Handler
+     /tmp/cc5U55pU.s:1920   .text.PCD_EP_ISR_Handler:0000000000000374 $d
+ARM GAS  /tmp/cc5U55pU.s 			page 83
 
 
-     /tmp/ccGj9eJm.s:1934   .text.HAL_PCD_IRQHandler:0000000000000000 $t
-     /tmp/ccGj9eJm.s:1941   .text.HAL_PCD_IRQHandler:0000000000000000 HAL_PCD_IRQHandler
-     /tmp/ccGj9eJm.s:2219   .text.HAL_PCD_IRQHandler:0000000000000190 $d
-     /tmp/ccGj9eJm.s:2230   .text.HAL_PCD_EP_SetStall:0000000000000000 $t
-     /tmp/ccGj9eJm.s:2237   .text.HAL_PCD_EP_SetStall:0000000000000000 HAL_PCD_EP_SetStall
-     /tmp/ccGj9eJm.s:2355   .text.HAL_PCD_EP_ClrStall:0000000000000000 $t
-     /tmp/ccGj9eJm.s:2362   .text.HAL_PCD_EP_ClrStall:0000000000000000 HAL_PCD_EP_ClrStall
-     /tmp/ccGj9eJm.s:2470   .text.HAL_PCD_EP_Flush:0000000000000000 $t
-     /tmp/ccGj9eJm.s:2477   .text.HAL_PCD_EP_Flush:0000000000000000 HAL_PCD_EP_Flush
-     /tmp/ccGj9eJm.s:2494   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccGj9eJm.s:2501   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 HAL_PCD_ActivateRemoteWakeup
-     /tmp/ccGj9eJm.s:2525   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccGj9eJm.s:2532   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 HAL_PCD_DeActivateRemoteWakeup
-     /tmp/ccGj9eJm.s:2556   .text.HAL_PCD_GetState:0000000000000000 $t
-     /tmp/ccGj9eJm.s:2563   .text.HAL_PCD_GetState:0000000000000000 HAL_PCD_GetState
-     /tmp/ccGj9eJm.s:2582   .text.HAL_PCD_GetState:0000000000000008 $d
+     /tmp/cc5U55pU.s:1934   .text.HAL_PCD_IRQHandler:0000000000000000 $t
+     /tmp/cc5U55pU.s:1941   .text.HAL_PCD_IRQHandler:0000000000000000 HAL_PCD_IRQHandler
+     /tmp/cc5U55pU.s:2219   .text.HAL_PCD_IRQHandler:0000000000000190 $d
+     /tmp/cc5U55pU.s:2230   .text.HAL_PCD_EP_SetStall:0000000000000000 $t
+     /tmp/cc5U55pU.s:2237   .text.HAL_PCD_EP_SetStall:0000000000000000 HAL_PCD_EP_SetStall
+     /tmp/cc5U55pU.s:2355   .text.HAL_PCD_EP_ClrStall:0000000000000000 $t
+     /tmp/cc5U55pU.s:2362   .text.HAL_PCD_EP_ClrStall:0000000000000000 HAL_PCD_EP_ClrStall
+     /tmp/cc5U55pU.s:2470   .text.HAL_PCD_EP_Flush:0000000000000000 $t
+     /tmp/cc5U55pU.s:2477   .text.HAL_PCD_EP_Flush:0000000000000000 HAL_PCD_EP_Flush
+     /tmp/cc5U55pU.s:2494   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 $t
+     /tmp/cc5U55pU.s:2501   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 HAL_PCD_ActivateRemoteWakeup
+     /tmp/cc5U55pU.s:2525   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 $t
+     /tmp/cc5U55pU.s:2532   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 HAL_PCD_DeActivateRemoteWakeup
+     /tmp/cc5U55pU.s:2556   .text.HAL_PCD_GetState:0000000000000000 $t
+     /tmp/cc5U55pU.s:2563   .text.HAL_PCD_GetState:0000000000000000 HAL_PCD_GetState
+     /tmp/cc5U55pU.s:2582   .text.HAL_PCD_GetState:0000000000000008 $d
 
 UNDEFINED SYMBOLS
 USB_DisableGlobalInt

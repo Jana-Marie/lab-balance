@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccswHSmH.s 			page 1
+ARM GAS  /tmp/ccJY9V17.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccswHSmH.s 			page 1
   31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c **** /** @defgroup SPIEx SPIEx
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   * @brief SPI Extended HAL module driver
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   * @{
-ARM GAS  /tmp/ccswHSmH.s 			page 2
+ARM GAS  /tmp/ccJY9V17.s 			page 2
 
 
   34:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccswHSmH.s 			page 1
   32              	.LCFI0:
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 4, -8
-ARM GAS  /tmp/ccswHSmH.s 			page 3
+ARM GAS  /tmp/ccJY9V17.s 			page 3
 
 
   35              		.cfi_offset 14, -4
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccswHSmH.s 			page 1
   74              		.loc 1 94 0
   75 0026 0020     		movs	r0, #0
   76              	.LVL7:
-ARM GAS  /tmp/ccswHSmH.s 			page 4
+ARM GAS  /tmp/ccJY9V17.s 			page 4
 
 
   77 0028 FBE7     		b	.L3
@@ -186,20 +186,20 @@ ARM GAS  /tmp/ccswHSmH.s 			page 1
   79              	.LFE40:
   81              		.text
   82              	.Letext0:
-  83              		.file 2 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machin
-  84              		.file 3 "/home/janhenrik/programme/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_s
+  83              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+  84              		.file 3 "/usr/include/newlib/sys/_stdint.h"
   85              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
   86              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
   87              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
   88              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
   89              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi.h"
   90              		.file 9 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
-ARM GAS  /tmp/ccswHSmH.s 			page 5
+ARM GAS  /tmp/ccJY9V17.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f0xx_hal_spi_ex.c
-     /tmp/ccswHSmH.s:16     .text.HAL_SPIEx_FlushRxFifo:0000000000000000 $t
-     /tmp/ccswHSmH.s:23     .text.HAL_SPIEx_FlushRxFifo:0000000000000000 HAL_SPIEx_FlushRxFifo
+     /tmp/ccJY9V17.s:16     .text.HAL_SPIEx_FlushRxFifo:0000000000000000 $t
+     /tmp/ccJY9V17.s:23     .text.HAL_SPIEx_FlushRxFifo:0000000000000000 HAL_SPIEx_FlushRxFifo
 
 NO UNDEFINED SYMBOLS
