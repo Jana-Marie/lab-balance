@@ -40,25 +40,29 @@ struct HX711_t{
   int32_t raw_data_avg;
   int32_t delta;
   float weight_g;
+  int32_t pcs;
   uint8_t gain;
   uint8_t rate;
   uint8_t clock;
-} HX711 = {.gain = HX_GAIN_128};
+} HX711 = {.gain = HX_GAIN_64};
 
 struct cal_t{
-  float tara;
   float g_100;
   float g_0;
   float g_cal;
   uint8_t tara_active;
-  uint8_t g_100_active;
-} cal = {.g_cal = 100.0f, .g_100 = 1973725.0f, .tara = 0.0f, .g_0 = -138500.0f};
+  uint8_t tara_pcs_active;
+  float pcs_cal;
+} cal = {.g_cal = 50.0f, .g_100 = -356620.0f, .g_0 = -138500.0f, .tara_active = 1, .pcs_cal = 1.0f};
+//} cal = {.g_cal = 50.0f, .g_100 = -356620.0f, .g_0 = -138500.0f, .tara_active = 1}; // gain 64
+// } cal = {.g_cal = 50.0f, .g_100 = -703400.0f, .g_0 = -138500.0f, .tara_active = 1}; //gain 128
 
 struct touch_t{
   uint8_t button[2];
   uint16_t offset[2];
   uint16_t value[2];
   uint8_t idx_bank;
+  uint8_t mode;
 } t = {};
 
 extern struct IPS_t IPS = {.backlight = 999, .update_time = 10};
@@ -91,39 +95,87 @@ int main(void)
 
   HAL_TSC_Start_IT(&htsc);
 
+  HAL_TIM_Base_Start(&htim1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
+
   while (1)
   {
-    if(t.button[1]) cal.tara_active = 1;
-    if(t.button[0]) cal.g_100_active = 1;
+    if(t.button[1]) {
+      cal.tara_active = 1;
+      uint8_t cnt = 0;
+      while (t.button[1]){
+        if(cnt < 200) cnt++;
+        HAL_Delay(2);
+      }
+      if(cnt >= 200){
+       cal.tara_active = 0;
+       cal.tara_pcs_active = 1;
+      }
+    }
+
+    if(t.button[0]) {
+      while(t.button[0]) {
+        HAL_Delay(1);
+      }
+      t.mode++;
+      t.mode = t.mode % 2;
+      if(t.mode == 1){
+        cal.tara_active = 1;
+      }
+    }
 
     if(cal.tara_active){
-      if(abs(HX711.delta) < 5) cal.tara_active++;
+      if(abs(HX711.delta) < 30) cal.tara_active++;
       else cal.tara_active = 1;
       if(cal.tara_active > 20) cal.g_0 = HX711.raw_data_avg;
     }
 
+    if (cal.tara_pcs_active){
+      cal.pcs_cal = HX711.weight_g;
+      cal.tara_pcs_active = 0;
+    }
+
+    /*
     if(cal.g_100_active){
-      if(abs(HX711.delta) < 5) cal.g_100_active++;
+      cal.tara_active = 0;
+      if(abs(HX711.delta) < 30) cal.g_100_active++;
       else cal.g_100_active = 1;
       if(cal.g_100_active > 20) cal.g_100 = HX711.raw_data_avg;
     }
+    */
 
     if(!HAL_GPIO_ReadPin(GPIOB,HX_INT_Pin)){
       HX_Get_Value(HX711.gain);
       HAL_GPIO_TogglePin(GPIOA, LED_Pin);
       _ms = HAL_GetTick()-start;
       start = HAL_GetTick();
+
+      if(abs(HX711.delta) <= 2 && (int)((HX711.weight_g-(int)HX711.weight_g)*1000.0f) == 0){
+        cal.g_0 -= HX711.delta;
+      } /* else if(abs(HX711.delta) <= 2) {
+        cal.g_0 -= HX711.delta;
+        cal.g_100 -= HX711.delta;
+      }
+      */
     } else {
       HAL_Delay(1);
       HAL_GPIO_WritePin(GPIOB,HX_SPS_Pin, HX711.rate);
     }
 
+
+
     if(HAL_GetTick() + IPS.update_time > IPS.update){
-      if(HX711.weight_g > -999.9 && HX711.weight_g < 999.9){
-        sprintf(IPS.buf,"%03d.%03dg", abs((int)HX711.weight_g), abs((int)((HX711.weight_g-(int)HX711.weight_g)*1000.0f))); // HX711.weight_g > 0 ? ' ' : '-',
-        //sprintf(IPS.buf,"%d", HX711.raw_data_avg); // HX711.weight_g > 0 ? ' ' : '-',
-        IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
-        IPS_WriteBuf(10,45);
+      if(HX711.weight_g > -99.9 && HX711.weight_g < 99.9){
+        if(t.mode == 0){
+          sprintf(IPS.buf,"%c%02d.%03dg", HX711.weight_g >= -0.001 ? ' ' : '-' , abs((int)HX711.weight_g), abs((int)((HX711.weight_g-(int)HX711.weight_g)*1000.0f))); // HX711.weight_g > 0 ? ' ' : '-',
+          IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
+          IPS_WriteBuf(10,45);
+        } else if (t.mode == 1){
+          sprintf(IPS.buf,"%c%04dpcs", HX711.weight_g >= -0.001 ? ' ' : '-' , (int)roundf(HX711.weight_g / cal.pcs_cal)); // HX711.weight_g > 0 ? ' ' : '-', /(int)(abs(HX711.weight_g / cal.pcs_cal))
+          IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
+          IPS_WriteBuf(10,45);
+        }
       }
       IPS.update = HAL_GetTick();
     }
@@ -131,11 +183,6 @@ int main(void)
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-float y1 = 20.0; // calibrated mass to be added
-long x1 = 0L;
-long x0 = 0L;
-float avg_size = 10.0; // amount of averages for each mass measurement
 
 void HX_Get_Value(uint8_t gain) {
 
@@ -156,14 +203,16 @@ void HX_Get_Value(uint8_t gain) {
   if(abs(HX711.delta) > 1000) {
     HX711.rate = 1;
     HX711.raw_data_avg = HX711.raw_data;
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
   }
-  else if(abs(HX711.delta) > 30) {
+  else if(abs(HX711.delta) > 20) {
     HX711.rate = 0;
     HX711.raw_data_avg = HX711.raw_data;
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
   }
   else {
     HX711.rate = 0;
-    //HX711.raw_data_avg = HX711.raw_data;
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 50);
   }
 
 
@@ -276,7 +325,7 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 1000;
+  htim1.Init.Period = 10;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -291,7 +340,7 @@ static void MX_TIM1_Init(void)
   HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig);
 
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 500;
+  sConfigOC.Pulse = 50;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
