@@ -44,7 +44,7 @@ struct HX711_t{
   uint8_t gain;
   uint8_t rate;
   uint8_t clock;
-} HX711 = {.gain = HX_GAIN_64};
+} HX711 = {.gain = HX_GAIN_128};
 
 struct cal_t{
   float g_100;
@@ -53,7 +53,7 @@ struct cal_t{
   uint8_t tara_active;
   uint8_t tara_pcs_active;
   float pcs_cal;
-} cal = {.g_cal = 50.0f, .g_100 = -356620.0f, .g_0 = -138500.0f, .tara_active = 1, .pcs_cal = 1.0f};
+} cal = {.g_cal = 50.093f, .g_100 = -701550.0f, .g_0 = -138500.0f, .tara_active = 1, .pcs_cal = 1.0f};
 //} cal = {.g_cal = 50.0f, .g_100 = -356620.0f, .g_0 = -138500.0f, .tara_active = 1}; // gain 64
 // } cal = {.g_cal = 50.0f, .g_100 = -703400.0f, .g_0 = -138500.0f, .tara_active = 1}; //gain 128
 
@@ -119,16 +119,19 @@ int main(void)
         HAL_Delay(1);
       }
       t.mode++;
-      t.mode = t.mode % 2;
-      if(t.mode == 1){
-        cal.tara_active = 1;
-      }
+      t.mode = t.mode % 3;
     }
 
-    if(cal.tara_active){
+    if(cal.tara_active && t.mode != 2){
       if(abs(HX711.delta) < 30) cal.tara_active++;
       else cal.tara_active = 1;
       if(cal.tara_active > 20) cal.g_0 = HX711.raw_data_avg;
+    } else if(cal.tara_active && t.mode == 2){
+      if(abs(HX711.delta) < 30) cal.tara_active++;
+      else cal.tara_active = 1;
+      if(cal.tara_active > 20) {
+        cal.g_100 = HX711.raw_data_avg;
+      }
     }
 
     if (cal.tara_pcs_active){
@@ -153,11 +156,11 @@ int main(void)
 
       if(abs(HX711.delta) <= 2 && (int)((HX711.weight_g-(int)HX711.weight_g)*1000.0f) == 0){
         cal.g_0 -= HX711.delta;
-      } /* else if(abs(HX711.delta) <= 2) {
+      } else if(abs(HX711.delta) <= 2) {
         cal.g_0 -= HX711.delta;
         cal.g_100 -= HX711.delta;
       }
-      */
+
     } else {
       HAL_Delay(1);
       HAL_GPIO_WritePin(GPIOB,HX_SPS_Pin, HX711.rate);
@@ -172,10 +175,18 @@ int main(void)
           IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
           IPS_WriteBuf(10,45);
         } else if (t.mode == 1){
-          sprintf(IPS.buf,"%c%04dpcs", HX711.weight_g >= -0.001 ? ' ' : '-' , (int)roundf(HX711.weight_g / cal.pcs_cal)); // HX711.weight_g > 0 ? ' ' : '-', /(int)(abs(HX711.weight_g / cal.pcs_cal))
+          sprintf(IPS.buf,"%c%04dpcs", HX711.weight_g >= -0.001 ? ' ' : '-' , abs((int)roundf(HX711.weight_g / cal.pcs_cal))); // HX711.weight_g > 0 ? ' ' : '-', /(int)(abs(HX711.weight_g / cal.pcs_cal))
+          IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
+          IPS_WriteBuf(10,45);
+        } else if (t.mode == 2){
+          sprintf(IPS.buf,"%07d", HX711.raw_data_avg); // HX711.weight_g > 0 ? ' ' : '-', /(int)(abs(HX711.weight_g / cal.pcs_cal))
           IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
           IPS_WriteBuf(10,45);
         }
+      } else {
+        sprintf(IPS.buf,"  max!  "); // HX711.weight_g > 0 ? ' ' : '-', /(int)(abs(HX711.weight_g / cal.pcs_cal))
+        IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
+        IPS_WriteBuf(10,45);
       }
       IPS.update = HAL_GetTick();
     }
