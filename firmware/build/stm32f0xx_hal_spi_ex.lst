@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccJY9V17.s 			page 1
+ARM GAS  /tmp/cc24yRND.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -18,13 +18,15 @@ ARM GAS  /tmp/ccJY9V17.s 			page 1
   15              		.section	.text.HAL_SPIEx_FlushRxFifo,"ax",%progbits
   16              		.align	1
   17              		.global	HAL_SPIEx_FlushRxFifo
-  18              		.syntax unified
-  19              		.code	16
-  20              		.thumb_func
-  21              		.fpu softvfp
-  23              	HAL_SPIEx_FlushRxFifo:
-  24              	.LFB40:
-  25              		.file 1 "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c"
+  18              		.arch armv6s-m
+  19              		.syntax unified
+  20              		.code	16
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	HAL_SPIEx_FlushRxFifo:
+  25              	.LVL0:
+  26              	.LFB40:
+  27              		.file 1 "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c"
    1:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c **** /**
    2:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   ******************************************************************************
    3:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   * @file    stm32f0xx_hal_spi_ex.c
@@ -56,11 +58,11 @@ ARM GAS  /tmp/ccJY9V17.s 			page 1
   29:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   */
   30:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c **** 
   31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c **** /** @defgroup SPIEx SPIEx
+ARM GAS  /tmp/cc24yRND.s 			page 2
+
+
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   * @brief SPI Extended HAL module driver
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   * @{
-ARM GAS  /tmp/ccJY9V17.s 			page 2
-
-
   34:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   */
   35:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c **** #ifdef HAL_SPI_MODULE_ENABLED
   36:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c **** 
@@ -109,97 +111,111 @@ ARM GAS  /tmp/ccJY9V17.s 			page 1
   79:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   */
   80:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c **** HAL_StatusTypeDef HAL_SPIEx_FlushRxFifo(SPI_HandleTypeDef *hspi)
   81:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c **** {
-  26              		.loc 1 81 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 8
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              	.LVL0:
-  31 0000 10B5     		push	{r4, lr}
-  32              	.LCFI0:
-  33              		.cfi_def_cfa_offset 8
-  34              		.cfi_offset 4, -8
-ARM GAS  /tmp/ccJY9V17.s 			page 3
+  28              		.loc 1 81 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 81 1 is_stmt 0 view .LVU1
+  33 0000 10B5     		push	{r4, lr}
+  34              	.LCFI0:
+ARM GAS  /tmp/cc24yRND.s 			page 3
 
 
-  35              		.cfi_offset 14, -4
-  36 0002 82B0     		sub	sp, sp, #8
-  37              	.LCFI1:
-  38              		.cfi_def_cfa_offset 16
-  39              	.LVL1:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  38 0002 82B0     		sub	sp, sp, #8
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 16
   82:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   __IO uint32_t tmpreg;
+  41              		.loc 1 82 3 is_stmt 1 view .LVU2
   83:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   uint8_t  count = 0U;
-  40              		.loc 1 83 0
-  41 0004 0023     		movs	r3, #0
-  42              	.LVL2:
-  43              	.L2:
+  42              		.loc 1 83 3 view .LVU3
+  43              	.LVL1:
   84:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   while ((hspi->Instance->SR & SPI_FLAG_FRLVL) !=  SPI_FRLVL_EMPTY)
-  44              		.loc 1 84 0
-  45 0006 0268     		ldr	r2, [r0]
-  46 0008 9468     		ldr	r4, [r2, #8]
-  47 000a C021     		movs	r1, #192
-  48 000c C900     		lsls	r1, r1, #3
-  49 000e 0C42     		tst	r4, r1
-  50 0010 09D0     		beq	.L6
+  44              		.loc 1 84 3 view .LVU4
+  83:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   uint8_t  count = 0U;
+  45              		.loc 1 83 12 is_stmt 0 view .LVU5
+  46 0004 0023     		movs	r3, #0
+  47              	.LVL2:
+  48              	.L2:
+  49              		.loc 1 84 9 is_stmt 1 view .LVU6
+  50              		.loc 1 84 15 is_stmt 0 view .LVU7
+  51 0006 0268     		ldr	r2, [r0]
+  52              		.loc 1 84 25 view .LVU8
+  53 0008 9468     		ldr	r4, [r2, #8]
+  54              		.loc 1 84 30 view .LVU9
+  55 000a C021     		movs	r1, #192
+  56 000c C900     		lsls	r1, r1, #3
+  57              		.loc 1 84 9 view .LVU10
+  58 000e 0C42     		tst	r4, r1
+  59 0010 09D0     		beq	.L6
   85:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   {
   86:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****     count++;
-  51              		.loc 1 86 0
-  52 0012 0133     		adds	r3, r3, #1
-  53              	.LVL3:
-  54 0014 DBB2     		uxtb	r3, r3
-  55              	.LVL4:
+  60              		.loc 1 86 5 is_stmt 1 view .LVU11
+  61              		.loc 1 86 10 is_stmt 0 view .LVU12
+  62 0012 0133     		adds	r3, r3, #1
+  63              	.LVL3:
+  64              		.loc 1 86 10 view .LVU13
+  65 0014 DBB2     		uxtb	r3, r3
+  66              	.LVL4:
   87:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****     tmpreg = hspi->Instance->DR;
-  56              		.loc 1 87 0
-  57 0016 D268     		ldr	r2, [r2, #12]
-  58 0018 0192     		str	r2, [sp, #4]
+  67              		.loc 1 87 5 is_stmt 1 view .LVU14
+  68              		.loc 1 87 28 is_stmt 0 view .LVU15
+  69 0016 D268     		ldr	r2, [r2, #12]
+  70              		.loc 1 87 12 view .LVU16
+  71 0018 0192     		str	r2, [sp, #4]
   88:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****     UNUSED(tmpreg); /* To avoid GCC warning */
-  59              		.loc 1 88 0
-  60 001a 019A     		ldr	r2, [sp, #4]
+  72              		.loc 1 88 5 is_stmt 1 view .LVU17
+  73 001a 019A     		ldr	r2, [sp, #4]
   89:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****     if (count == SPI_FIFO_SIZE)
-  61              		.loc 1 89 0
-  62 001c 042B     		cmp	r3, #4
-  63 001e F2D1     		bne	.L2
+  74              		.loc 1 89 5 view .LVU18
+  75              		.loc 1 89 8 is_stmt 0 view .LVU19
+  76 001c 042B     		cmp	r3, #4
+  77 001e F2D1     		bne	.L2
   90:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****     {
   91:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****       return HAL_TIMEOUT;
-  64              		.loc 1 91 0
-  65 0020 0320     		movs	r0, #3
-  66              	.LVL5:
-  67              	.L3:
+  78              		.loc 1 91 14 view .LVU20
+  79 0020 0320     		movs	r0, #3
+  80              	.LVL5:
+ARM GAS  /tmp/cc24yRND.s 			page 4
+
+
+  81              	.L3:
   92:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****     }
   93:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   }
   94:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c ****   return HAL_OK;
   95:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c **** }
-  68              		.loc 1 95 0
-  69 0022 02B0     		add	sp, sp, #8
-  70              		@ sp needed
-  71 0024 10BD     		pop	{r4, pc}
-  72              	.LVL6:
-  73              	.L6:
+  82              		.loc 1 95 1 view .LVU21
+  83 0022 02B0     		add	sp, sp, #8
+  84              		@ sp needed
+  85 0024 10BD     		pop	{r4, pc}
+  86              	.LVL6:
+  87              	.L6:
   94:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c **** }
-  74              		.loc 1 94 0
-  75 0026 0020     		movs	r0, #0
-  76              	.LVL7:
-ARM GAS  /tmp/ccJY9V17.s 			page 4
-
-
-  77 0028 FBE7     		b	.L3
-  78              		.cfi_endproc
-  79              	.LFE40:
-  81              		.text
-  82              	.Letext0:
-  83              		.file 2 "/usr/include/newlib/machine/_default_types.h"
-  84              		.file 3 "/usr/include/newlib/sys/_stdint.h"
-  85              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
-  86              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
-  87              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
-  88              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
-  89              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi.h"
-  90              		.file 9 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
-ARM GAS  /tmp/ccJY9V17.s 			page 5
+  88              		.loc 1 94 10 view .LVU22
+  89 0026 0020     		movs	r0, #0
+  90              	.LVL7:
+  94:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c **** }
+  91              		.loc 1 94 10 view .LVU23
+  92 0028 FBE7     		b	.L3
+  93              		.cfi_endproc
+  94              	.LFE40:
+  96              		.text
+  97              	.Letext0:
+  98              		.file 2 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
+  99              		.file 3 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
+ 100              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
+ 101              		.file 5 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+ 102              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
+ 103              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi.h"
+ 104              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
+ARM GAS  /tmp/cc24yRND.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f0xx_hal_spi_ex.c
-     /tmp/ccJY9V17.s:16     .text.HAL_SPIEx_FlushRxFifo:0000000000000000 $t
-     /tmp/ccJY9V17.s:23     .text.HAL_SPIEx_FlushRxFifo:0000000000000000 HAL_SPIEx_FlushRxFifo
+     /tmp/cc24yRND.s:16     .text.HAL_SPIEx_FlushRxFifo:0000000000000000 $t
+     /tmp/cc24yRND.s:24     .text.HAL_SPIEx_FlushRxFifo:0000000000000000 HAL_SPIEx_FlushRxFifo
 
 NO UNDEFINED SYMBOLS

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccdIu2oD.s 			page 1
+ARM GAS  /tmp/cczP4HC8.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -17,13 +17,15 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
   14              		.cfi_sections	.debug_frame
   15              		.section	.text.TSC_extract_groups,"ax",%progbits
   16              		.align	1
-  17              		.syntax unified
-  18              		.code	16
-  19              		.thumb_func
-  20              		.fpu softvfp
-  22              	TSC_extract_groups:
-  23              	.LFB57:
-  24              		.file 1 "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c"
+  17              		.arch armv6s-m
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	TSC_extract_groups:
+  24              	.LVL0:
+  25              	.LFB57:
+  26              		.file 1 "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c"
    1:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
    2:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   ******************************************************************************
    3:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @file    stm32f0xx_hal_tsc.c
@@ -56,11 +58,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
   30:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
   31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Programmable sampling capacitor I/O pin
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ARM GAS  /tmp/cczP4HC8.s 			page 2
+
+
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Programmable channel I/O pin
   34:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
-ARM GAS  /tmp/ccdIu2oD.s 			page 2
-
-
   35:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Programmable max count value to avoid long acquisition when a channel is faulty
   36:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
   37:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   (#) Dedicated end of acquisition and max count error flags with interrupt capability
@@ -116,11 +118,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
   87:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
   88:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      Function @ref HAL_TSC_RegisterCallback() allows to register following callbacks:
   89:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) ConvCpltCallback   : callback for conversion complete process.
+ARM GAS  /tmp/cczP4HC8.s 			page 3
+
+
   90:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) ErrorCallback      : callback for error detection.
   91:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) MspInitCallback    : callback for Msp Init.
-ARM GAS  /tmp/ccdIu2oD.s 			page 3
-
-
   92:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****        (+) MspDeInitCallback  : callback for Msp DeInit.
   93:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   [..]
   94:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****      This function takes as parameters the HAL peripheral handle, the Callback ID
@@ -176,11 +178,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  144:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *                        opensource.org/licenses/BSD-3-Clause
  145:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *
  146:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   ******************************************************************************
+ARM GAS  /tmp/cczP4HC8.s 			page 4
+
+
  147:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
  148:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
-ARM GAS  /tmp/ccdIu2oD.s 			page 4
-
-
  149:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /* Includes ------------------------------------------------------------------*/
  150:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #include "stm32f0xx_hal.h"
  151:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
@@ -236,11 +238,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  201:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
  202:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     return HAL_ERROR;
  203:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ARM GAS  /tmp/cczP4HC8.s 			page 5
+
+
  204:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  205:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
-ARM GAS  /tmp/ccdIu2oD.s 			page 5
-
-
  206:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
  207:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_CTPH(htsc->Init.CTPulseHighLength));
  208:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_CTPL(htsc->Init.CTPulseLowLength));
@@ -296,11 +298,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  258:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.SpreadSpectrumPrescaler |
  259:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.PulseGeneratorPrescaler |
  260:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.MaxCountValue |
+ARM GAS  /tmp/cczP4HC8.s 			page 6
+
+
  261:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.SynchroPinPolarity |
  262:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.AcquisitionMode);
-ARM GAS  /tmp/ccdIu2oD.s 			page 6
-
-
  263:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  264:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Spread spectrum */
  265:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (htsc->Init.SpreadSpectrum == ENABLE)
@@ -356,11 +358,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  315:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  316:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
  317:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   if (htsc->MspDeInitCallback == NULL)
+ARM GAS  /tmp/cczP4HC8.s 			page 7
+
+
  318:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
  319:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     htsc->MspDeInitCallback = HAL_TSC_MspDeInit; /* Legacy weak MspDeInit  */
-ARM GAS  /tmp/ccdIu2oD.s 			page 7
-
-
  320:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
  321:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  322:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* DeInit the low level hardware: GPIO, CLOCK, NVIC */
@@ -416,11 +418,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  372:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
  373:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @brief  Register a User TSC Callback
  374:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         To be used instead of the weak predefined callback
+ARM GAS  /tmp/cczP4HC8.s 			page 8
+
+
  375:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
  376:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *                the configuration information for the specified TSC.
-ARM GAS  /tmp/ccdIu2oD.s 			page 8
-
-
  377:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  CallbackID ID of the callback to be registered
  378:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         This parameter can be one of the following values:
  379:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *          @arg @ref HAL_TSC_CONV_COMPLETE_CB_ID Conversion completed callback ID
@@ -476,11 +478,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  429:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   else if (HAL_TSC_STATE_RESET == htsc->State)
  430:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
  431:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     switch (CallbackID)
+ARM GAS  /tmp/cczP4HC8.s 			page 9
+
+
  432:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
  433:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_MSPINIT_CB_ID :
-ARM GAS  /tmp/ccdIu2oD.s 			page 9
-
-
  434:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->MspInitCallback = pCallback;
  435:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
  436:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
@@ -536,11 +538,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  486:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
  487:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     switch (CallbackID)
  488:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
+ARM GAS  /tmp/cczP4HC8.s 			page 10
+
+
  489:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_CONV_COMPLETE_CB_ID :
  490:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         htsc->ConvCpltCallback = HAL_TSC_ConvCpltCallback;       /* Legacy weak ConvCpltCallback   
-ARM GAS  /tmp/ccdIu2oD.s 			page 10
-
-
  491:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****         break;
  492:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  493:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       case HAL_TSC_ERROR_CB_ID :
@@ -596,11 +598,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  543:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  544:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Release Lock */
  545:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
+ARM GAS  /tmp/cczP4HC8.s 			page 11
+
+
  546:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return status;
  547:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
-ARM GAS  /tmp/ccdIu2oD.s 			page 11
-
-
  548:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  549:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
  550:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
@@ -656,11 +658,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  600:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_SET_IODEF_OUTPPLOW(htsc);
  601:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
  602:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   else
+ARM GAS  /tmp/cczP4HC8.s 			page 12
+
+
  603:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
  604:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_SET_IODEF_INFLOAT(htsc);
-ARM GAS  /tmp/ccdIu2oD.s 			page 12
-
-
  605:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
  606:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  607:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Launch the acquisition */
@@ -716,11 +718,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  657:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
  658:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     __HAL_TSC_SET_IODEF_INFLOAT(htsc);
  659:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ARM GAS  /tmp/cczP4HC8.s 			page 13
+
+
  660:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  661:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Launch the acquisition */
-ARM GAS  /tmp/ccdIu2oD.s 			page 13
-
-
  662:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_START_ACQ(htsc);
  663:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  664:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process unlocked */
@@ -776,11 +778,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  714:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  715:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process locked */
  716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_LOCK(htsc);
+ARM GAS  /tmp/cczP4HC8.s 			page 14
+
+
  717:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  718:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Stop the acquisition */
-ARM GAS  /tmp/ccdIu2oD.s 			page 14
-
-
  719:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_TSC_STOP_ACQ(htsc);
  720:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  721:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Set touch sensing IOs in low power mode (output push-pull) */
@@ -836,11 +838,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  771:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
  772:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  gx_index Index of the group
  773:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval Group status
+ARM GAS  /tmp/cczP4HC8.s 			page 15
+
+
  774:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
  775:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** TSC_GroupStatusTypeDef HAL_TSC_GroupGetStatus(TSC_HandleTypeDef *htsc, uint32_t gx_index)
-ARM GAS  /tmp/ccdIu2oD.s 			page 15
-
-
  776:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
  777:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
  778:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
@@ -896,11 +898,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  828:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
  829:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
  830:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ALL_INSTANCE(htsc->Instance));
+ARM GAS  /tmp/cczP4HC8.s 			page 16
+
+
  831:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(config->ChannelIOs));
  832:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(config->ShieldIOs));
-ARM GAS  /tmp/ccdIu2oD.s 			page 16
-
-
  833:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(config->SamplingIOs));
  834:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  835:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Process locked */
@@ -956,11 +958,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  885:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   __HAL_UNLOCK(htsc);
  886:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  887:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Return the group acquisition counter */
+ARM GAS  /tmp/cczP4HC8.s 			page 17
+
+
  888:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return HAL_OK;
  889:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
-ARM GAS  /tmp/ccdIu2oD.s 			page 17
-
-
  890:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  891:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
  892:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @}
@@ -1016,11 +1018,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  942:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
  943:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  944:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /**
+ARM GAS  /tmp/cczP4HC8.s 			page 18
+
+
  945:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @}
  946:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
-ARM GAS  /tmp/ccdIu2oD.s 			page 18
-
-
  947:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
  948:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** /** @defgroup TSC_IRQ_Handler_and_Callbacks IRQ Handler and Callbacks
  949:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****  * @{
@@ -1076,11 +1078,11 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
  999:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @param  htsc Pointer to a TSC_HandleTypeDef structure that contains
 1000:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   *         the configuration information for the specified TSC.
 1001:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   * @retval None
+ARM GAS  /tmp/cczP4HC8.s 			page 19
+
+
 1002:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
 1003:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** __weak void HAL_TSC_ConvCpltCallback(TSC_HandleTypeDef *htsc)
-ARM GAS  /tmp/ccdIu2oD.s 			page 19
-
-
 1004:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
 1005:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
 1006:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   UNUSED(htsc);
@@ -1126,1305 +1128,1704 @@ ARM GAS  /tmp/ccdIu2oD.s 			page 1
 1046:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   */
 1047:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** static uint32_t TSC_extract_groups(uint32_t iomask)
 1048:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** {
-  25              		.loc 1 1048 0
-  26              		.cfi_startproc
-  27              		@ args = 0, pretend = 0, frame = 0
-  28              		@ frame_needed = 0, uses_anonymous_args = 0
-  29              	.LVL0:
-  30 0000 10B5     		push	{r4, lr}
-  31              	.LCFI0:
-  32              		.cfi_def_cfa_offset 8
-  33              		.cfi_offset 4, -8
-  34              		.cfi_offset 14, -4
-  35 0002 0400     		movs	r4, r0
-  36              	.LVL1:
-ARM GAS  /tmp/ccdIu2oD.s 			page 20
+  27              		.loc 1 1048 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		.loc 1 1048 1 is_stmt 0 view .LVU1
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+ARM GAS  /tmp/cczP4HC8.s 			page 20
 
 
+  37 0002 0400     		movs	r4, r0
 1049:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   uint32_t groups = 0UL;
+  38              		.loc 1 1049 3 is_stmt 1 view .LVU2
+  39              	.LVL1:
 1050:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   uint32_t idx;
+  40              		.loc 1 1050 3 view .LVU3
 1051:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
 1052:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   for (idx = 0UL; idx < (uint32_t)TSC_NB_OF_GROUPS; idx++)
-  37              		.loc 1 1052 0
-  38 0004 0023     		movs	r3, #0
-1049:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   uint32_t groups = 0UL;
-  39              		.loc 1 1049 0
-  40 0006 0020     		movs	r0, #0
-  41              	.LVL2:
-  42              		.loc 1 1052 0
-  43 0008 00E0     		b	.L2
-  44              	.LVL3:
-  45              	.L3:
-  46              		.loc 1 1052 0 is_stmt 0 discriminator 2
-  47 000a 0133     		adds	r3, r3, #1
-  48              	.LVL4:
-  49              	.L2:
-  50              		.loc 1 1052 0 discriminator 1
-  51 000c 072B     		cmp	r3, #7
-  52 000e 08D8     		bhi	.L5
+  41              		.loc 1 1052 3 view .LVU4
+  42              		.loc 1 1052 12 is_stmt 0 view .LVU5
+  43 0004 0023     		movs	r3, #0
+1049:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   uint32_t idx;
+  44              		.loc 1 1049 12 view .LVU6
+  45 0006 0020     		movs	r0, #0
+  46              	.LVL2:
+  47              		.loc 1 1052 3 view .LVU7
+  48 0008 00E0     		b	.L2
+  49              	.LVL3:
+  50              	.L3:
+  51              		.loc 1 1052 53 is_stmt 1 discriminator 2 view .LVU8
+  52              		.loc 1 1052 56 is_stmt 0 discriminator 2 view .LVU9
+  53 000a 0133     		adds	r3, r3, #1
+  54              	.LVL4:
+  55              	.L2:
+  56              		.loc 1 1052 19 is_stmt 1 discriminator 1 view .LVU10
+  57              		.loc 1 1052 3 is_stmt 0 discriminator 1 view .LVU11
+  58 000c 072B     		cmp	r3, #7
+  59 000e 08D8     		bhi	.L5
 1053:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
 1054:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     if ((iomask & (0x0FUL << (idx * 4UL))) != 0UL )
-  53              		.loc 1 1054 0 is_stmt 1
-  54 0010 9900     		lsls	r1, r3, #2
-  55 0012 0F22     		movs	r2, #15
-  56 0014 8A40     		lsls	r2, r2, r1
-  57 0016 1442     		tst	r4, r2
-  58 0018 F7D0     		beq	.L3
+  60              		.loc 1 1054 5 is_stmt 1 view .LVU12
+  61              		.loc 1 1054 35 is_stmt 0 view .LVU13
+  62 0010 9900     		lsls	r1, r3, #2
+  63              		.loc 1 1054 27 view .LVU14
+  64 0012 0F22     		movs	r2, #15
+  65 0014 8A40     		lsls	r2, r2, r1
+  66              		.loc 1 1054 8 view .LVU15
+  67 0016 1442     		tst	r4, r2
+  68 0018 F7D0     		beq	.L3
 1055:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
 1056:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       groups |= (1UL << idx);
-  59              		.loc 1 1056 0
-  60 001a 0122     		movs	r2, #1
-  61 001c 9A40     		lsls	r2, r2, r3
-  62 001e 1043     		orrs	r0, r2
-  63              	.LVL5:
-  64 0020 F3E7     		b	.L3
-  65              	.L5:
+  69              		.loc 1 1056 7 is_stmt 1 view .LVU16
+  70              		.loc 1 1056 22 is_stmt 0 view .LVU17
+  71 001a 0122     		movs	r2, #1
+  72 001c 9A40     		lsls	r2, r2, r3
+  73              		.loc 1 1056 14 view .LVU18
+  74 001e 1043     		orrs	r0, r2
+  75              	.LVL5:
+  76              		.loc 1 1056 14 view .LVU19
+  77 0020 F3E7     		b	.L3
+  78              	.L5:
 1057:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     }
 1058:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
 1059:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
 1060:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   return groups;
 1061:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
-  66              		.loc 1 1061 0
-  67              		@ sp needed
-  68              	.LVL6:
-  69 0022 10BD     		pop	{r4, pc}
-  70              		.cfi_endproc
-  71              	.LFE57:
-  73              		.section	.text.HAL_TSC_MspInit,"ax",%progbits
-  74              		.align	1
-  75              		.weak	HAL_TSC_MspInit
-  76              		.syntax unified
-  77              		.code	16
-  78              		.thumb_func
-  79              		.fpu softvfp
-  81              	HAL_TSC_MspInit:
-ARM GAS  /tmp/ccdIu2oD.s 			page 21
+  79              		.loc 1 1061 1 view .LVU20
+ARM GAS  /tmp/cczP4HC8.s 			page 21
 
 
-  82              	.LFB42:
+  80              		@ sp needed
+  81              	.LVL6:
+  82              		.loc 1 1061 1 view .LVU21
+  83 0022 10BD     		pop	{r4, pc}
+  84              		.cfi_endproc
+  85              	.LFE57:
+  87              		.section	.text.HAL_TSC_MspInit,"ax",%progbits
+  88              		.align	1
+  89              		.weak	HAL_TSC_MspInit
+  90              		.syntax unified
+  91              		.code	16
+  92              		.thumb_func
+  93              		.fpu softvfp
+  95              	HAL_TSC_MspInit:
+  96              	.LVL7:
+  97              	.LFB42:
  346:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
-  83              		.loc 1 346 0
-  84              		.cfi_startproc
-  85              		@ args = 0, pretend = 0, frame = 0
-  86              		@ frame_needed = 0, uses_anonymous_args = 0
-  87              		@ link register save eliminated.
-  88              	.LVL7:
+  98              		.loc 1 346 1 is_stmt 1 view -0
+  99              		.cfi_startproc
+ 100              		@ args = 0, pretend = 0, frame = 0
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102              		@ link register save eliminated.
+ 348:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 103              		.loc 1 348 3 view .LVU23
  353:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
-  89              		.loc 1 353 0
-  90              		@ sp needed
-  91 0000 7047     		bx	lr
-  92              		.cfi_endproc
-  93              	.LFE42:
-  95              		.section	.text.HAL_TSC_Init,"ax",%progbits
-  96              		.align	1
-  97              		.global	HAL_TSC_Init
-  98              		.syntax unified
-  99              		.code	16
- 100              		.thumb_func
- 101              		.fpu softvfp
- 103              	HAL_TSC_Init:
- 104              	.LFB40:
+ 104              		.loc 1 353 1 is_stmt 0 view .LVU24
+ 105              		@ sp needed
+ 106 0000 7047     		bx	lr
+ 107              		.cfi_endproc
+ 108              	.LFE42:
+ 110              		.section	.text.HAL_TSC_Init,"ax",%progbits
+ 111              		.align	1
+ 112              		.global	HAL_TSC_Init
+ 113              		.syntax unified
+ 114              		.code	16
+ 115              		.thumb_func
+ 116              		.fpu softvfp
+ 118              	HAL_TSC_Init:
+ 119              	.LVL8:
+ 120              	.LFB40:
  198:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check TSC handle allocation */
- 105              		.loc 1 198 0
- 106              		.cfi_startproc
- 107              		@ args = 0, pretend = 0, frame = 0
- 108              		@ frame_needed = 0, uses_anonymous_args = 0
- 109              	.LVL8:
- 110 0000 70B5     		push	{r4, r5, r6, lr}
- 111              	.LCFI1:
- 112              		.cfi_def_cfa_offset 16
- 113              		.cfi_offset 4, -16
- 114              		.cfi_offset 5, -12
- 115              		.cfi_offset 6, -8
- 116              		.cfi_offset 14, -4
- 117 0002 041E     		subs	r4, r0, #0
+ 121              		.loc 1 198 1 is_stmt 1 view -0
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+ 198:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check TSC handle allocation */
+ 125              		.loc 1 198 1 is_stmt 0 view .LVU26
+ 126 0000 70B5     		push	{r4, r5, r6, lr}
+ 127              	.LCFI1:
+ 128              		.cfi_def_cfa_offset 16
+ 129              		.cfi_offset 4, -16
+ 130              		.cfi_offset 5, -12
+ 131              		.cfi_offset 6, -8
+ 132              		.cfi_offset 14, -4
+ 133 0002 041E     		subs	r4, r0, #0
  200:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 118              		.loc 1 200 0
- 119 0004 4ED0     		beq	.L11
+ 134              		.loc 1 200 3 is_stmt 1 view .LVU27
+ARM GAS  /tmp/cczP4HC8.s 			page 22
+
+
+ 200:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 135              		.loc 1 200 6 is_stmt 0 view .LVU28
+ 136 0004 4ED0     		beq	.L11
+ 206:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_CTPH(htsc->Init.CTPulseHighLength));
+ 137              		.loc 1 206 3 is_stmt 1 view .LVU29
+ 207:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_CTPL(htsc->Init.CTPulseLowLength));
+ 138              		.loc 1 207 3 view .LVU30
+ 208:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_SS(htsc->Init.SpreadSpectrum));
+ 139              		.loc 1 208 3 view .LVU31
+ 209:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_SSD(htsc->Init.SpreadSpectrumDeviation));
+ 140              		.loc 1 209 3 view .LVU32
+ 210:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_SS_PRESC(htsc->Init.SpreadSpectrumPrescaler));
+ 141              		.loc 1 210 3 view .LVU33
+ 211:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_PG_PRESC(htsc->Init.PulseGeneratorPrescaler));
+ 142              		.loc 1 211 3 view .LVU34
+ 212:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_MCV(htsc->Init.MaxCountValue));
+ 143              		.loc 1 212 3 view .LVU35
+ 213:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_IODEF(htsc->Init.IODefaultMode));
+ 144              		.loc 1 213 3 view .LVU36
+ 214:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_SYNC_POL(htsc->Init.SynchroPinPolarity));
+ 145              		.loc 1 214 3 view .LVU37
+ 215:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_ACQ_MODE(htsc->Init.AcquisitionMode));
+ 146              		.loc 1 215 3 view .LVU38
+ 216:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_MCE_IT(htsc->Init.MaxCountInterrupt));
+ 147              		.loc 1 216 3 view .LVU39
+ 217:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(htsc->Init.ChannelIOs));
+ 148              		.loc 1 217 3 view .LVU40
+ 218:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(htsc->Init.ShieldIOs));
+ 149              		.loc 1 218 3 view .LVU41
+ 219:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(htsc->Init.SamplingIOs));
+ 150              		.loc 1 219 3 view .LVU42
+ 220:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 151              		.loc 1 220 3 view .LVU43
  222:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 120              		.loc 1 222 0
- 121 0006 3C23     		movs	r3, #60
- 122 0008 C35C     		ldrb	r3, [r0, r3]
- 123 000a 002B     		cmp	r3, #0
- 124 000c 3DD0     		beq	.L12
- 125              	.LVL9:
- 126              	.L9:
+ 152              		.loc 1 222 3 view .LVU44
+ 222:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 153              		.loc 1 222 11 is_stmt 0 view .LVU45
+ 154 0006 3C23     		movs	r3, #60
+ 155 0008 C35C     		ldrb	r3, [r0, r3]
+ 222:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 156              		.loc 1 222 6 view .LVU46
+ 157 000a 002B     		cmp	r3, #0
+ 158 000c 3DD0     		beq	.L12
+ 159              	.LVL9:
+ 160              	.L9:
  246:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 127              		.loc 1 246 0
- 128 000e 3C23     		movs	r3, #60
- 129 0010 0222     		movs	r2, #2
- 130 0012 E254     		strb	r2, [r4, r3]
+ 161              		.loc 1 246 3 is_stmt 1 view .LVU47
+ 246:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 162              		.loc 1 246 15 is_stmt 0 view .LVU48
+ 163 000e 3C23     		movs	r3, #60
+ 164 0010 0222     		movs	r2, #2
+ 165 0012 E254     		strb	r2, [r4, r3]
  252:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 131              		.loc 1 252 0
- 132 0014 2368     		ldr	r3, [r4]
- 133 0016 013A     		subs	r2, r2, #1
-ARM GAS  /tmp/ccdIu2oD.s 			page 22
+ 166              		.loc 1 252 3 is_stmt 1 view .LVU49
+ 252:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 167              		.loc 1 252 7 is_stmt 0 view .LVU50
+ 168 0014 2368     		ldr	r3, [r4]
+ARM GAS  /tmp/cczP4HC8.s 			page 23
 
 
- 134 0018 1A60     		str	r2, [r3]
+ 252:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 169              		.loc 1 252 22 view .LVU51
+ 170 0016 013A     		subs	r2, r2, #1
+ 171 0018 1A60     		str	r2, [r3]
  255:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.CTPulseLowLength |
- 135              		.loc 1 255 0
- 136 001a 2068     		ldr	r0, [r4]
- 137 001c 0268     		ldr	r2, [r0]
- 138 001e 6368     		ldr	r3, [r4, #4]
- 139 0020 A168     		ldr	r1, [r4, #8]
- 140 0022 0B43     		orrs	r3, r1
+ 172              		.loc 1 255 3 is_stmt 1 view .LVU52
+ 255:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.CTPulseLowLength |
+ 173              		.loc 1 255 7 is_stmt 0 view .LVU53
+ 174 001a 2068     		ldr	r0, [r4]
+ 255:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.CTPulseLowLength |
+ 175              		.loc 1 255 22 view .LVU54
+ 176 001c 0268     		ldr	r2, [r0]
+ 255:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.CTPulseLowLength |
+ 177              		.loc 1 255 55 view .LVU55
+ 178 001e 6368     		ldr	r3, [r4, #4]
+ 179 0020 A168     		ldr	r1, [r4, #8]
+ 180 0022 0B43     		orrs	r3, r1
  257:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.SpreadSpectrumPrescaler |
- 141              		.loc 1 257 0
- 142 0024 2169     		ldr	r1, [r4, #16]
- 143 0026 4904     		lsls	r1, r1, #17
+ 181              		.loc 1 257 62 view .LVU56
+ 182 0024 2169     		ldr	r1, [r4, #16]
+ 183 0026 4904     		lsls	r1, r1, #17
  256:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          (htsc->Init.SpreadSpectrumDeviation << TSC_CR_SSD_Pos) |
- 144              		.loc 1 256 0
- 145 0028 0B43     		orrs	r3, r1
+ 184              		.loc 1 256 54 view .LVU57
+ 185 0028 0B43     		orrs	r3, r1
  257:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.SpreadSpectrumPrescaler |
- 146              		.loc 1 257 0
- 147 002a 6169     		ldr	r1, [r4, #20]
- 148 002c 0B43     		orrs	r3, r1
+ 186              		.loc 1 257 81 view .LVU58
+ 187 002a 6169     		ldr	r1, [r4, #20]
+ 188 002c 0B43     		orrs	r3, r1
  258:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.PulseGeneratorPrescaler |
- 149              		.loc 1 258 0
- 150 002e A169     		ldr	r1, [r4, #24]
- 151 0030 0B43     		orrs	r3, r1
+ 189              		.loc 1 258 61 view .LVU59
+ 190 002e A169     		ldr	r1, [r4, #24]
+ 191 0030 0B43     		orrs	r3, r1
  259:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.MaxCountValue |
- 152              		.loc 1 259 0
- 153 0032 E169     		ldr	r1, [r4, #28]
- 154 0034 0B43     		orrs	r3, r1
+ 192              		.loc 1 259 61 view .LVU60
+ 193 0032 E169     		ldr	r1, [r4, #28]
+ 194 0034 0B43     		orrs	r3, r1
  260:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.SynchroPinPolarity |
- 155              		.loc 1 260 0
- 156 0036 616A     		ldr	r1, [r4, #36]
- 157 0038 0B43     		orrs	r3, r1
+ 195              		.loc 1 260 51 view .LVU61
+ 196 0036 616A     		ldr	r1, [r4, #36]
+ 197 0038 0B43     		orrs	r3, r1
  261:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.AcquisitionMode);
- 158              		.loc 1 261 0
- 159 003a A16A     		ldr	r1, [r4, #40]
- 160 003c 0B43     		orrs	r3, r1
+ 198              		.loc 1 261 56 view .LVU62
+ 199 003a A16A     		ldr	r1, [r4, #40]
+ 200 003c 0B43     		orrs	r3, r1
  255:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****                          htsc->Init.CTPulseLowLength |
- 161              		.loc 1 255 0
- 162 003e 1343     		orrs	r3, r2
- 163 0040 0360     		str	r3, [r0]
+ 201              		.loc 1 255 22 view .LVU63
+ 202 003e 1343     		orrs	r3, r2
+ 203 0040 0360     		str	r3, [r0]
  265:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 164              		.loc 1 265 0
- 165 0042 237B     		ldrb	r3, [r4, #12]
- 166 0044 012B     		cmp	r3, #1
- 167 0046 26D0     		beq	.L13
- 168              	.L10:
+ 204              		.loc 1 265 3 is_stmt 1 view .LVU64
+ 265:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 205              		.loc 1 265 17 is_stmt 0 view .LVU65
+ 206 0042 237B     		ldrb	r3, [r4, #12]
+ 265:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 207              		.loc 1 265 6 view .LVU66
+ 208 0044 012B     		cmp	r3, #1
+ 209 0046 26D0     		beq	.L13
+ARM GAS  /tmp/cczP4HC8.s 			page 24
+
+
+ 210              	.L10:
  271:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 169              		.loc 1 271 0
- 170 0048 236B     		ldr	r3, [r4, #48]
- 171 004a 626B     		ldr	r2, [r4, #52]
- 172 004c 1343     		orrs	r3, r2
- 173 004e A26B     		ldr	r2, [r4, #56]
- 174 0050 1343     		orrs	r3, r2
- 175 0052 2268     		ldr	r2, [r4]
- 176 0054 DB43     		mvns	r3, r3
- 177 0056 1361     		str	r3, [r2, #16]
+ 211              		.loc 1 271 3 is_stmt 1 view .LVU67
+ 271:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 212              		.loc 1 271 52 is_stmt 0 view .LVU68
+ 213 0048 236B     		ldr	r3, [r4, #48]
+ 214 004a 626B     		ldr	r2, [r4, #52]
+ 215 004c 1343     		orrs	r3, r2
+ 271:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 216              		.loc 1 271 75 view .LVU69
+ 217 004e A26B     		ldr	r2, [r4, #56]
+ 218 0050 1343     		orrs	r3, r2
+ 271:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 219              		.loc 1 271 7 view .LVU70
+ 220 0052 2268     		ldr	r2, [r4]
+ 271:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 221              		.loc 1 271 28 view .LVU71
+ 222 0054 DB43     		mvns	r3, r3
+ 271:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 223              		.loc 1 271 25 view .LVU72
+ 224 0056 1361     		str	r3, [r2, #16]
  274:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 178              		.loc 1 274 0
-ARM GAS  /tmp/ccdIu2oD.s 			page 23
-
-
- 179 0058 2268     		ldr	r2, [r4]
- 180 005a 236B     		ldr	r3, [r4, #48]
- 181 005c 616B     		ldr	r1, [r4, #52]
- 182 005e 0B43     		orrs	r3, r1
- 183 0060 9362     		str	r3, [r2, #40]
+ 225              		.loc 1 274 3 is_stmt 1 view .LVU73
+ 274:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 226              		.loc 1 274 7 is_stmt 0 view .LVU74
+ 227 0058 2268     		ldr	r2, [r4]
+ 274:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 228              		.loc 1 274 50 view .LVU75
+ 229 005a 236B     		ldr	r3, [r4, #48]
+ 230 005c 616B     		ldr	r1, [r4, #52]
+ 231 005e 0B43     		orrs	r3, r1
+ 274:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 232              		.loc 1 274 25 view .LVU76
+ 233 0060 9362     		str	r3, [r2, #40]
  277:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 184              		.loc 1 277 0
- 185 0062 2368     		ldr	r3, [r4]
- 186 0064 A26B     		ldr	r2, [r4, #56]
- 187 0066 1A62     		str	r2, [r3, #32]
+ 234              		.loc 1 277 3 is_stmt 1 view .LVU77
+ 277:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 235              		.loc 1 277 7 is_stmt 0 view .LVU78
+ 236 0062 2368     		ldr	r3, [r4]
+ 277:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 237              		.loc 1 277 25 view .LVU79
+ 238 0064 A26B     		ldr	r2, [r4, #56]
+ 239 0066 1A62     		str	r2, [r3, #32]
  280:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 188              		.loc 1 280 0
- 189 0068 2568     		ldr	r5, [r4]
- 190 006a 206B     		ldr	r0, [r4, #48]
- 191 006c FFF7FEFF 		bl	TSC_extract_groups
- 192              	.LVL10:
- 193 0070 2863     		str	r0, [r5, #48]
+ 240              		.loc 1 280 3 is_stmt 1 view .LVU80
+ 280:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 241              		.loc 1 280 7 is_stmt 0 view .LVU81
+ 242 0068 2568     		ldr	r5, [r4]
+ 280:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 243              		.loc 1 280 28 view .LVU82
+ 244 006a 206B     		ldr	r0, [r4, #48]
+ 245 006c FFF7FEFF 		bl	TSC_extract_groups
+ 246              	.LVL10:
+ 280:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 247              		.loc 1 280 26 view .LVU83
+ 248 0070 2863     		str	r0, [r5, #48]
  283:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 194              		.loc 1 283 0
- 195 0072 2168     		ldr	r1, [r4]
- 196 0074 4B68     		ldr	r3, [r1, #4]
- 197 0076 0322     		movs	r2, #3
- 198 0078 9343     		bics	r3, r2
- 199 007a 4B60     		str	r3, [r1, #4]
+ARM GAS  /tmp/cczP4HC8.s 			page 25
+
+
+ 249              		.loc 1 283 3 is_stmt 1 view .LVU84
+ 283:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 250              		.loc 1 283 7 is_stmt 0 view .LVU85
+ 251 0072 2168     		ldr	r1, [r4]
+ 283:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 252              		.loc 1 283 23 view .LVU86
+ 253 0074 4B68     		ldr	r3, [r1, #4]
+ 254 0076 0322     		movs	r2, #3
+ 255 0078 9343     		bics	r3, r2
+ 256 007a 4B60     		str	r3, [r1, #4]
  286:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 200              		.loc 1 286 0
- 201 007c 2368     		ldr	r3, [r4]
- 202 007e 9A60     		str	r2, [r3, #8]
+ 257              		.loc 1 286 3 is_stmt 1 view .LVU87
+ 286:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 258              		.loc 1 286 7 is_stmt 0 view .LVU88
+ 259 007c 2368     		ldr	r3, [r4]
+ 286:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 260              		.loc 1 286 23 view .LVU89
+ 261 007e 9A60     		str	r2, [r3, #8]
  291:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 203              		.loc 1 291 0
- 204 0080 3C23     		movs	r3, #60
- 205 0082 023A     		subs	r2, r2, #2
- 206 0084 E254     		strb	r2, [r4, r3]
+ 262              		.loc 1 291 3 is_stmt 1 view .LVU90
+ 291:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 263              		.loc 1 291 15 is_stmt 0 view .LVU91
+ 264 0080 3C23     		movs	r3, #60
+ 265 0082 023A     		subs	r2, r2, #2
+ 266 0084 E254     		strb	r2, [r4, r3]
  294:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 207              		.loc 1 294 0
- 208 0086 0020     		movs	r0, #0
- 209              	.L8:
+ 267              		.loc 1 294 3 is_stmt 1 view .LVU92
+ 294:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 268              		.loc 1 294 10 is_stmt 0 view .LVU93
+ 269 0086 0020     		movs	r0, #0
+ 270              	.L8:
  295:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 210              		.loc 1 295 0
- 211              		@ sp needed
- 212              	.LVL11:
- 213 0088 70BD     		pop	{r4, r5, r6, pc}
- 214              	.LVL12:
- 215              	.L12:
+ 271              		.loc 1 295 1 view .LVU94
+ 272              		@ sp needed
+ 273              	.LVL11:
+ 295:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 274              		.loc 1 295 1 view .LVU95
+ 275 0088 70BD     		pop	{r4, r5, r6, pc}
+ 276              	.LVL12:
+ 277              	.L12:
  225:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 216              		.loc 1 225 0
- 217 008a 3D33     		adds	r3, r3, #61
- 218 008c 0022     		movs	r2, #0
- 219 008e C254     		strb	r2, [r0, r3]
+ 278              		.loc 1 225 5 is_stmt 1 view .LVU96
+ 225:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 279              		.loc 1 225 16 is_stmt 0 view .LVU97
+ 280 008a 3D33     		adds	r3, r3, #61
+ 281 008c 0022     		movs	r2, #0
+ 282 008e C254     		strb	r2, [r0, r3]
  241:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
- 220              		.loc 1 241 0
- 221 0090 FFF7FEFF 		bl	HAL_TSC_MspInit
- 222              	.LVL13:
- 223 0094 BBE7     		b	.L9
- 224              	.L13:
+ 283              		.loc 1 241 5 is_stmt 1 view .LVU98
+ 284 0090 FFF7FEFF 		bl	HAL_TSC_MspInit
+ 285              	.LVL13:
+ 241:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
+ 286              		.loc 1 241 5 is_stmt 0 view .LVU99
+ 287 0094 BBE7     		b	.L9
+ 288              	.L13:
  267:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 225              		.loc 1 267 0
-ARM GAS  /tmp/ccdIu2oD.s 			page 24
+ 289              		.loc 1 267 5 is_stmt 1 view .LVU100
+ARM GAS  /tmp/cczP4HC8.s 			page 26
 
 
- 226 0096 2268     		ldr	r2, [r4]
- 227 0098 1168     		ldr	r1, [r2]
- 228 009a 8023     		movs	r3, #128
- 229 009c 5B02     		lsls	r3, r3, #9
- 230 009e 0B43     		orrs	r3, r1
- 231 00a0 1360     		str	r3, [r2]
- 232 00a2 D1E7     		b	.L10
- 233              	.LVL14:
- 234              	.L11:
+ 267:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 290              		.loc 1 267 9 is_stmt 0 view .LVU101
+ 291 0096 2268     		ldr	r2, [r4]
+ 267:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 292              		.loc 1 267 24 view .LVU102
+ 293 0098 1168     		ldr	r1, [r2]
+ 294 009a 8023     		movs	r3, #128
+ 295 009c 5B02     		lsls	r3, r3, #9
+ 296 009e 0B43     		orrs	r3, r1
+ 297 00a0 1360     		str	r3, [r2]
+ 298 00a2 D1E7     		b	.L10
+ 299              	.LVL14:
+ 300              	.L11:
  202:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 235              		.loc 1 202 0
- 236 00a4 0120     		movs	r0, #1
- 237              	.LVL15:
- 238 00a6 EFE7     		b	.L8
- 239              		.cfi_endproc
- 240              	.LFE40:
- 242              		.section	.text.HAL_TSC_MspDeInit,"ax",%progbits
- 243              		.align	1
- 244              		.weak	HAL_TSC_MspDeInit
- 245              		.syntax unified
- 246              		.code	16
- 247              		.thumb_func
- 248              		.fpu softvfp
- 250              	HAL_TSC_MspDeInit:
- 251              	.LFB43:
+ 301              		.loc 1 202 12 view .LVU103
+ 302 00a4 0120     		movs	r0, #1
+ 303              	.LVL15:
+ 202:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 304              		.loc 1 202 12 view .LVU104
+ 305 00a6 EFE7     		b	.L8
+ 306              		.cfi_endproc
+ 307              	.LFE40:
+ 309              		.section	.text.HAL_TSC_MspDeInit,"ax",%progbits
+ 310              		.align	1
+ 311              		.weak	HAL_TSC_MspDeInit
+ 312              		.syntax unified
+ 313              		.code	16
+ 314              		.thumb_func
+ 315              		.fpu softvfp
+ 317              	HAL_TSC_MspDeInit:
+ 318              	.LVL16:
+ 319              	.LFB43:
  362:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
- 252              		.loc 1 362 0
- 253              		.cfi_startproc
- 254              		@ args = 0, pretend = 0, frame = 0
- 255              		@ frame_needed = 0, uses_anonymous_args = 0
- 256              		@ link register save eliminated.
- 257              	.LVL16:
+ 320              		.loc 1 362 1 is_stmt 1 view -0
+ 321              		.cfi_startproc
+ 322              		@ args = 0, pretend = 0, frame = 0
+ 323              		@ frame_needed = 0, uses_anonymous_args = 0
+ 324              		@ link register save eliminated.
+ 364:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 325              		.loc 1 364 3 view .LVU106
  369:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 258              		.loc 1 369 0
- 259              		@ sp needed
- 260 0000 7047     		bx	lr
- 261              		.cfi_endproc
- 262              	.LFE43:
- 264              		.section	.text.HAL_TSC_DeInit,"ax",%progbits
- 265              		.align	1
- 266              		.global	HAL_TSC_DeInit
- 267              		.syntax unified
- 268              		.code	16
- 269              		.thumb_func
- 270              		.fpu softvfp
- 272              	HAL_TSC_DeInit:
- 273              	.LFB41:
+ 326              		.loc 1 369 1 is_stmt 0 view .LVU107
+ 327              		@ sp needed
+ 328 0000 7047     		bx	lr
+ 329              		.cfi_endproc
+ 330              	.LFE43:
+ 332              		.section	.text.HAL_TSC_DeInit,"ax",%progbits
+ 333              		.align	1
+ 334              		.global	HAL_TSC_DeInit
+ 335              		.syntax unified
+ 336              		.code	16
+ 337              		.thumb_func
+ 338              		.fpu softvfp
+ 340              	HAL_TSC_DeInit:
+ 341              	.LVL17:
+ 342              	.LFB41:
  303:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check TSC handle allocation */
- 274              		.loc 1 303 0
- 275              		.cfi_startproc
- 276              		@ args = 0, pretend = 0, frame = 0
- 277              		@ frame_needed = 0, uses_anonymous_args = 0
- 278              	.LVL17:
- 279 0000 70B5     		push	{r4, r5, r6, lr}
- 280              	.LCFI2:
- 281              		.cfi_def_cfa_offset 16
- 282              		.cfi_offset 4, -16
-ARM GAS  /tmp/ccdIu2oD.s 			page 25
+ARM GAS  /tmp/cczP4HC8.s 			page 27
 
 
- 283              		.cfi_offset 5, -12
- 284              		.cfi_offset 6, -8
- 285              		.cfi_offset 14, -4
- 286 0002 041E     		subs	r4, r0, #0
+ 343              		.loc 1 303 1 is_stmt 1 view -0
+ 344              		.cfi_startproc
+ 345              		@ args = 0, pretend = 0, frame = 0
+ 346              		@ frame_needed = 0, uses_anonymous_args = 0
+ 303:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check TSC handle allocation */
+ 347              		.loc 1 303 1 is_stmt 0 view .LVU109
+ 348 0000 70B5     		push	{r4, r5, r6, lr}
+ 349              	.LCFI2:
+ 350              		.cfi_def_cfa_offset 16
+ 351              		.cfi_offset 4, -16
+ 352              		.cfi_offset 5, -12
+ 353              		.cfi_offset 6, -8
+ 354              		.cfi_offset 14, -4
+ 355 0002 041E     		subs	r4, r0, #0
  305:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 287              		.loc 1 305 0
- 288 0004 0AD0     		beq	.L17
+ 356              		.loc 1 305 3 is_stmt 1 view .LVU110
+ 305:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 357              		.loc 1 305 6 is_stmt 0 view .LVU111
+ 358 0004 0AD0     		beq	.L17
+ 311:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 359              		.loc 1 311 3 is_stmt 1 view .LVU112
  314:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 289              		.loc 1 314 0
- 290 0006 3C25     		movs	r5, #60
- 291 0008 0223     		movs	r3, #2
- 292 000a 4355     		strb	r3, [r0, r5]
+ 360              		.loc 1 314 3 view .LVU113
+ 314:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 361              		.loc 1 314 15 is_stmt 0 view .LVU114
+ 362 0006 3C25     		movs	r5, #60
+ 363 0008 0223     		movs	r3, #2
+ 364 000a 4355     		strb	r3, [r0, r5]
  326:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
- 293              		.loc 1 326 0
- 294 000c FFF7FEFF 		bl	HAL_TSC_MspDeInit
- 295              	.LVL18:
+ 365              		.loc 1 326 3 is_stmt 1 view .LVU115
+ 366 000c FFF7FEFF 		bl	HAL_TSC_MspDeInit
+ 367              	.LVL18:
  330:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 296              		.loc 1 330 0
- 297 0010 0023     		movs	r3, #0
- 298 0012 6355     		strb	r3, [r4, r5]
+ 368              		.loc 1 330 3 view .LVU116
+ 330:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 369              		.loc 1 330 15 is_stmt 0 view .LVU117
+ 370 0010 0023     		movs	r3, #0
+ 371 0012 6355     		strb	r3, [r4, r5]
  333:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 299              		.loc 1 333 0
- 300 0014 3D22     		movs	r2, #61
- 301 0016 A354     		strb	r3, [r4, r2]
+ 372              		.loc 1 333 3 is_stmt 1 view .LVU118
+ 333:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 373              		.loc 1 333 3 view .LVU119
+ 374 0014 3D22     		movs	r2, #61
+ 375 0016 A354     		strb	r3, [r4, r2]
+ 333:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 376              		.loc 1 333 3 view .LVU120
  336:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 302              		.loc 1 336 0
- 303 0018 0020     		movs	r0, #0
- 304              	.L16:
+ 377              		.loc 1 336 3 view .LVU121
+ 336:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 378              		.loc 1 336 10 is_stmt 0 view .LVU122
+ 379 0018 0020     		movs	r0, #0
+ 380              	.L16:
  337:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 305              		.loc 1 337 0
- 306              		@ sp needed
- 307              	.LVL19:
- 308 001a 70BD     		pop	{r4, r5, r6, pc}
- 309              	.LVL20:
- 310              	.L17:
- 307:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 311              		.loc 1 307 0
- 312 001c 0120     		movs	r0, #1
- 313              	.LVL21:
- 314 001e FCE7     		b	.L16
- 315              		.cfi_endproc
- 316              	.LFE41:
- 318              		.section	.text.HAL_TSC_Start,"ax",%progbits
- 319              		.align	1
- 320              		.global	HAL_TSC_Start
- 321              		.syntax unified
- 322              		.code	16
- 323              		.thumb_func
- 324              		.fpu softvfp
- 326              	HAL_TSC_Start:
- 327              	.LFB44:
- 581:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
- 328              		.loc 1 581 0
- 329              		.cfi_startproc
- 330              		@ args = 0, pretend = 0, frame = 0
- 331              		@ frame_needed = 0, uses_anonymous_args = 0
- 332              		@ link register save eliminated.
-ARM GAS  /tmp/ccdIu2oD.s 			page 26
-
-
- 333              	.LVL22:
- 586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 334              		.loc 1 586 0
- 335 0000 3D23     		movs	r3, #61
- 336 0002 C35C     		ldrb	r3, [r0, r3]
- 337 0004 012B     		cmp	r3, #1
- 338 0006 24D0     		beq	.L22
- 586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 339              		.loc 1 586 0 is_stmt 0 discriminator 2
- 340 0008 3D23     		movs	r3, #61
- 341 000a 0122     		movs	r2, #1
- 342 000c C254     		strb	r2, [r0, r3]
- 589:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 343              		.loc 1 589 0 is_stmt 1 discriminator 2
- 344 000e 013B     		subs	r3, r3, #1
- 345 0010 0132     		adds	r2, r2, #1
- 346 0012 C254     		strb	r2, [r0, r3]
- 592:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 347              		.loc 1 592 0 discriminator 2
- 348 0014 0168     		ldr	r1, [r0]
- 349 0016 4B68     		ldr	r3, [r1, #4]
- 350 0018 0132     		adds	r2, r2, #1
- 351 001a 9343     		bics	r3, r2
- 352 001c 4B60     		str	r3, [r1, #4]
- 595:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 353              		.loc 1 595 0 discriminator 2
- 354 001e 0368     		ldr	r3, [r0]
- 355 0020 9A60     		str	r2, [r3, #8]
- 598:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 356              		.loc 1 598 0 discriminator 2
- 357 0022 036A     		ldr	r3, [r0, #32]
- 358 0024 002B     		cmp	r3, #0
- 359 0026 0ED1     		bne	.L20
- 600:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 360              		.loc 1 600 0
- 361 0028 0268     		ldr	r2, [r0]
- 362 002a 1368     		ldr	r3, [r2]
- 363 002c 1021     		movs	r1, #16
- 364 002e 8B43     		bics	r3, r1
- 365 0030 1360     		str	r3, [r2]
- 366              	.L21:
- 608:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 367              		.loc 1 608 0
- 368 0032 0268     		ldr	r2, [r0]
- 369 0034 1368     		ldr	r3, [r2]
- 370 0036 0221     		movs	r1, #2
- 371 0038 0B43     		orrs	r3, r1
- 372 003a 1360     		str	r3, [r2]
- 611:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 373              		.loc 1 611 0
- 374 003c 3D23     		movs	r3, #61
- 375 003e 0022     		movs	r2, #0
- 376 0040 C254     		strb	r2, [r0, r3]
- 614:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 377              		.loc 1 614 0
- 378 0042 0020     		movs	r0, #0
- 379              	.LVL23:
-ARM GAS  /tmp/ccdIu2oD.s 			page 27
-
-
- 380              	.L19:
- 615:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 381              		.loc 1 615 0
+ 381              		.loc 1 337 1 view .LVU123
  382              		@ sp needed
- 383 0044 7047     		bx	lr
- 384              	.LVL24:
- 385              	.L20:
- 604:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 386              		.loc 1 604 0
- 387 0046 0268     		ldr	r2, [r0]
- 388 0048 1368     		ldr	r3, [r2]
- 389 004a 1021     		movs	r1, #16
- 390 004c 0B43     		orrs	r3, r1
- 391 004e 1360     		str	r3, [r2]
- 392 0050 EFE7     		b	.L21
- 393              	.L22:
+ 383              	.LVL19:
+ 337:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ARM GAS  /tmp/cczP4HC8.s 			page 28
+
+
+ 384              		.loc 1 337 1 view .LVU124
+ 385 001a 70BD     		pop	{r4, r5, r6, pc}
+ 386              	.LVL20:
+ 387              	.L17:
+ 307:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 388              		.loc 1 307 12 view .LVU125
+ 389 001c 0120     		movs	r0, #1
+ 390              	.LVL21:
+ 307:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 391              		.loc 1 307 12 view .LVU126
+ 392 001e FCE7     		b	.L16
+ 393              		.cfi_endproc
+ 394              	.LFE41:
+ 396              		.section	.text.HAL_TSC_Start,"ax",%progbits
+ 397              		.align	1
+ 398              		.global	HAL_TSC_Start
+ 399              		.syntax unified
+ 400              		.code	16
+ 401              		.thumb_func
+ 402              		.fpu softvfp
+ 404              	HAL_TSC_Start:
+ 405              	.LVL22:
+ 406              	.LFB44:
+ 581:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 407              		.loc 1 581 1 is_stmt 1 view -0
+ 408              		.cfi_startproc
+ 409              		@ args = 0, pretend = 0, frame = 0
+ 410              		@ frame_needed = 0, uses_anonymous_args = 0
+ 411              		@ link register save eliminated.
+ 583:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 412              		.loc 1 583 3 view .LVU128
  586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 394              		.loc 1 586 0
- 395 0052 0220     		movs	r0, #2
- 396              	.LVL25:
- 397 0054 F6E7     		b	.L19
- 398              		.cfi_endproc
- 399              	.LFE44:
- 401              		.section	.text.HAL_TSC_Start_IT,"ax",%progbits
- 402              		.align	1
- 403              		.global	HAL_TSC_Start_IT
- 404              		.syntax unified
- 405              		.code	16
- 406              		.thumb_func
- 407              		.fpu softvfp
- 409              	HAL_TSC_Start_IT:
- 410              	.LFB45:
+ 413              		.loc 1 586 3 view .LVU129
+ 586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 414              		.loc 1 586 3 view .LVU130
+ 415 0000 3D23     		movs	r3, #61
+ 416 0002 C35C     		ldrb	r3, [r0, r3]
+ 417 0004 012B     		cmp	r3, #1
+ 418 0006 24D0     		beq	.L22
+ 586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 419              		.loc 1 586 3 discriminator 2 view .LVU131
+ 420 0008 3D23     		movs	r3, #61
+ 421 000a 0122     		movs	r2, #1
+ 422 000c C254     		strb	r2, [r0, r3]
+ 586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 423              		.loc 1 586 3 discriminator 2 view .LVU132
+ 589:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 424              		.loc 1 589 3 discriminator 2 view .LVU133
+ 589:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 425              		.loc 1 589 15 is_stmt 0 discriminator 2 view .LVU134
+ 426 000e 013B     		subs	r3, r3, #1
+ 427 0010 0132     		adds	r2, r2, #1
+ 428 0012 C254     		strb	r2, [r0, r3]
+ 592:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 429              		.loc 1 592 3 is_stmt 1 discriminator 2 view .LVU135
+ 430 0014 0168     		ldr	r1, [r0]
+ 431 0016 4B68     		ldr	r3, [r1, #4]
+ARM GAS  /tmp/cczP4HC8.s 			page 29
+
+
+ 432 0018 0132     		adds	r2, r2, #1
+ 433 001a 9343     		bics	r3, r2
+ 434 001c 4B60     		str	r3, [r1, #4]
+ 595:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 435              		.loc 1 595 3 discriminator 2 view .LVU136
+ 436 001e 0368     		ldr	r3, [r0]
+ 437 0020 9A60     		str	r2, [r3, #8]
+ 598:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 438              		.loc 1 598 3 discriminator 2 view .LVU137
+ 598:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 439              		.loc 1 598 6 is_stmt 0 discriminator 2 view .LVU138
+ 440 0022 036A     		ldr	r3, [r0, #32]
+ 441 0024 002B     		cmp	r3, #0
+ 442 0026 0ED1     		bne	.L20
+ 600:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 443              		.loc 1 600 5 is_stmt 1 view .LVU139
+ 444 0028 0268     		ldr	r2, [r0]
+ 445 002a 1368     		ldr	r3, [r2]
+ 446 002c 1021     		movs	r1, #16
+ 447 002e 8B43     		bics	r3, r1
+ 448 0030 1360     		str	r3, [r2]
+ 449              	.L21:
+ 608:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 450              		.loc 1 608 3 view .LVU140
+ 451 0032 0268     		ldr	r2, [r0]
+ 452 0034 1368     		ldr	r3, [r2]
+ 453 0036 0221     		movs	r1, #2
+ 454 0038 0B43     		orrs	r3, r1
+ 455 003a 1360     		str	r3, [r2]
+ 611:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 456              		.loc 1 611 3 view .LVU141
+ 611:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 457              		.loc 1 611 3 view .LVU142
+ 458 003c 3D23     		movs	r3, #61
+ 459 003e 0022     		movs	r2, #0
+ 460 0040 C254     		strb	r2, [r0, r3]
+ 611:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 461              		.loc 1 611 3 view .LVU143
+ 614:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 462              		.loc 1 614 3 view .LVU144
+ 614:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 463              		.loc 1 614 10 is_stmt 0 view .LVU145
+ 464 0042 0020     		movs	r0, #0
+ 465              	.LVL23:
+ 466              	.L19:
+ 615:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 467              		.loc 1 615 1 view .LVU146
+ 468              		@ sp needed
+ 469 0044 7047     		bx	lr
+ 470              	.LVL24:
+ 471              	.L20:
+ 604:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 472              		.loc 1 604 5 is_stmt 1 view .LVU147
+ 473 0046 0268     		ldr	r2, [r0]
+ 474 0048 1368     		ldr	r3, [r2]
+ 475 004a 1021     		movs	r1, #16
+ 476 004c 0B43     		orrs	r3, r1
+ARM GAS  /tmp/cczP4HC8.s 			page 30
+
+
+ 477 004e 1360     		str	r3, [r2]
+ 478 0050 EFE7     		b	.L21
+ 479              	.L22:
+ 586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 480              		.loc 1 586 3 is_stmt 0 view .LVU148
+ 481 0052 0220     		movs	r0, #2
+ 482              	.LVL25:
+ 586:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 483              		.loc 1 586 3 view .LVU149
+ 484 0054 F6E7     		b	.L19
+ 485              		.cfi_endproc
+ 486              	.LFE44:
+ 488              		.section	.text.HAL_TSC_Start_IT,"ax",%progbits
+ 489              		.align	1
+ 490              		.global	HAL_TSC_Start_IT
+ 491              		.syntax unified
+ 492              		.code	16
+ 493              		.thumb_func
+ 494              		.fpu softvfp
+ 496              	HAL_TSC_Start_IT:
+ 497              	.LVL26:
+ 498              	.LFB45:
  624:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
- 411              		.loc 1 624 0
- 412              		.cfi_startproc
- 413              		@ args = 0, pretend = 0, frame = 0
- 414              		@ frame_needed = 0, uses_anonymous_args = 0
- 415              		@ link register save eliminated.
- 416              	.LVL26:
+ 499              		.loc 1 624 1 is_stmt 1 view -0
+ 500              		.cfi_startproc
+ 501              		@ args = 0, pretend = 0, frame = 0
+ 502              		@ frame_needed = 0, uses_anonymous_args = 0
+ 503              		@ link register save eliminated.
+ 626:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_MCE_IT(htsc->Init.MaxCountInterrupt));
+ 504              		.loc 1 626 3 view .LVU151
+ 627:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 505              		.loc 1 627 3 view .LVU152
  630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 417              		.loc 1 630 0
- 418 0000 3D23     		movs	r3, #61
- 419 0002 C35C     		ldrb	r3, [r0, r3]
- 420 0004 012B     		cmp	r3, #1
- 421 0006 33D0     		beq	.L29
+ 506              		.loc 1 630 3 view .LVU153
  630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 422              		.loc 1 630 0 is_stmt 0 discriminator 2
- 423 0008 0121     		movs	r1, #1
- 424 000a 3D23     		movs	r3, #61
- 425 000c C154     		strb	r1, [r0, r3]
+ 507              		.loc 1 630 3 view .LVU154
+ 508 0000 3D23     		movs	r3, #61
+ 509 0002 C35C     		ldrb	r3, [r0, r3]
+ 510 0004 012B     		cmp	r3, #1
+ 511 0006 33D0     		beq	.L29
+ 630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 512              		.loc 1 630 3 discriminator 2 view .LVU155
+ 513 0008 0121     		movs	r1, #1
+ 514 000a 3D23     		movs	r3, #61
+ 515 000c C154     		strb	r1, [r0, r3]
+ 630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 516              		.loc 1 630 3 discriminator 2 view .LVU156
  633:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 426              		.loc 1 633 0 is_stmt 1 discriminator 2
- 427 000e 013B     		subs	r3, r3, #1
- 428 0010 0222     		movs	r2, #2
- 429 0012 C254     		strb	r2, [r0, r3]
+ 517              		.loc 1 633 3 discriminator 2 view .LVU157
+ 633:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 518              		.loc 1 633 15 is_stmt 0 discriminator 2 view .LVU158
+ 519 000e 013B     		subs	r3, r3, #1
+ 520 0010 0222     		movs	r2, #2
+ 521 0012 C254     		strb	r2, [r0, r3]
  636:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 430              		.loc 1 636 0 discriminator 2
-ARM GAS  /tmp/ccdIu2oD.s 			page 28
+ 522              		.loc 1 636 3 is_stmt 1 discriminator 2 view .LVU159
+ 523 0014 0268     		ldr	r2, [r0]
+ARM GAS  /tmp/cczP4HC8.s 			page 31
 
 
- 431 0014 0268     		ldr	r2, [r0]
- 432 0016 5368     		ldr	r3, [r2, #4]
- 433 0018 0B43     		orrs	r3, r1
- 434 001a 5360     		str	r3, [r2, #4]
+ 524 0016 5368     		ldr	r3, [r2, #4]
+ 525 0018 0B43     		orrs	r3, r1
+ 526 001a 5360     		str	r3, [r2, #4]
  639:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 435              		.loc 1 639 0 discriminator 2
- 436 001c 2C23     		movs	r3, #44
- 437 001e C35C     		ldrb	r3, [r0, r3]
- 438 0020 012B     		cmp	r3, #1
- 439 0022 19D0     		beq	.L30
+ 527              		.loc 1 639 3 discriminator 2 view .LVU160
+ 639:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 528              		.loc 1 639 17 is_stmt 0 discriminator 2 view .LVU161
+ 529 001c 2C23     		movs	r3, #44
+ 530 001e C35C     		ldrb	r3, [r0, r3]
+ 639:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 531              		.loc 1 639 6 discriminator 2 view .LVU162
+ 532 0020 012B     		cmp	r3, #1
+ 533 0022 19D0     		beq	.L30
  645:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 440              		.loc 1 645 0
- 441 0024 0268     		ldr	r2, [r0]
- 442 0026 5368     		ldr	r3, [r2, #4]
- 443 0028 0221     		movs	r1, #2
- 444 002a 8B43     		bics	r3, r1
- 445 002c 5360     		str	r3, [r2, #4]
- 446              	.L26:
+ 534              		.loc 1 645 5 is_stmt 1 view .LVU163
+ 535 0024 0268     		ldr	r2, [r0]
+ 536 0026 5368     		ldr	r3, [r2, #4]
+ 537 0028 0221     		movs	r1, #2
+ 538 002a 8B43     		bics	r3, r1
+ 539 002c 5360     		str	r3, [r2, #4]
+ 540              	.L26:
  649:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 447              		.loc 1 649 0
- 448 002e 0368     		ldr	r3, [r0]
- 449 0030 0322     		movs	r2, #3
- 450 0032 9A60     		str	r2, [r3, #8]
+ 541              		.loc 1 649 3 view .LVU164
+ 542 002e 0368     		ldr	r3, [r0]
+ 543 0030 0322     		movs	r2, #3
+ 544 0032 9A60     		str	r2, [r3, #8]
  652:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 451              		.loc 1 652 0
- 452 0034 036A     		ldr	r3, [r0, #32]
- 453 0036 002B     		cmp	r3, #0
- 454 0038 14D1     		bne	.L27
+ 545              		.loc 1 652 3 view .LVU165
+ 652:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 546              		.loc 1 652 6 is_stmt 0 view .LVU166
+ 547 0034 036A     		ldr	r3, [r0, #32]
+ 548 0036 002B     		cmp	r3, #0
+ 549 0038 14D1     		bne	.L27
  654:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 455              		.loc 1 654 0
- 456 003a 0268     		ldr	r2, [r0]
- 457 003c 1368     		ldr	r3, [r2]
- 458 003e 1021     		movs	r1, #16
- 459 0040 8B43     		bics	r3, r1
- 460 0042 1360     		str	r3, [r2]
- 461              	.L28:
+ 550              		.loc 1 654 5 is_stmt 1 view .LVU167
+ 551 003a 0268     		ldr	r2, [r0]
+ 552 003c 1368     		ldr	r3, [r2]
+ 553 003e 1021     		movs	r1, #16
+ 554 0040 8B43     		bics	r3, r1
+ 555 0042 1360     		str	r3, [r2]
+ 556              	.L28:
  662:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 462              		.loc 1 662 0
- 463 0044 0268     		ldr	r2, [r0]
- 464 0046 1368     		ldr	r3, [r2]
- 465 0048 0221     		movs	r1, #2
- 466 004a 0B43     		orrs	r3, r1
- 467 004c 1360     		str	r3, [r2]
+ 557              		.loc 1 662 3 view .LVU168
+ 558 0044 0268     		ldr	r2, [r0]
+ 559 0046 1368     		ldr	r3, [r2]
+ 560 0048 0221     		movs	r1, #2
+ 561 004a 0B43     		orrs	r3, r1
+ 562 004c 1360     		str	r3, [r2]
  665:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 468              		.loc 1 665 0
- 469 004e 3D23     		movs	r3, #61
- 470 0050 0022     		movs	r2, #0
- 471 0052 C254     		strb	r2, [r0, r3]
+ 563              		.loc 1 665 3 view .LVU169
+ 665:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 564              		.loc 1 665 3 view .LVU170
+ 565 004e 3D23     		movs	r3, #61
+ 566 0050 0022     		movs	r2, #0
+ 567 0052 C254     		strb	r2, [r0, r3]
+ 665:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 568              		.loc 1 665 3 view .LVU171
+ARM GAS  /tmp/cczP4HC8.s 			page 32
+
+
  668:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 472              		.loc 1 668 0
- 473 0054 0020     		movs	r0, #0
- 474              	.LVL27:
- 475              	.L24:
+ 569              		.loc 1 668 3 view .LVU172
+ 668:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 570              		.loc 1 668 10 is_stmt 0 view .LVU173
+ 571 0054 0020     		movs	r0, #0
+ 572              	.LVL27:
+ 573              	.L24:
  669:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 476              		.loc 1 669 0
- 477              		@ sp needed
- 478 0056 7047     		bx	lr
-ARM GAS  /tmp/ccdIu2oD.s 			page 29
-
-
- 479              	.LVL28:
- 480              	.L30:
+ 574              		.loc 1 669 1 view .LVU174
+ 575              		@ sp needed
+ 576 0056 7047     		bx	lr
+ 577              	.LVL28:
+ 578              	.L30:
  641:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 481              		.loc 1 641 0
- 482 0058 0268     		ldr	r2, [r0]
- 483 005a 5368     		ldr	r3, [r2, #4]
- 484 005c 0131     		adds	r1, r1, #1
- 485 005e 0B43     		orrs	r3, r1
- 486 0060 5360     		str	r3, [r2, #4]
- 487 0062 E4E7     		b	.L26
- 488              	.L27:
+ 579              		.loc 1 641 5 is_stmt 1 view .LVU175
+ 580 0058 0268     		ldr	r2, [r0]
+ 581 005a 5368     		ldr	r3, [r2, #4]
+ 582 005c 0131     		adds	r1, r1, #1
+ 583 005e 0B43     		orrs	r3, r1
+ 584 0060 5360     		str	r3, [r2, #4]
+ 585 0062 E4E7     		b	.L26
+ 586              	.L27:
  658:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 489              		.loc 1 658 0
- 490 0064 0268     		ldr	r2, [r0]
- 491 0066 1368     		ldr	r3, [r2]
- 492 0068 1021     		movs	r1, #16
- 493 006a 0B43     		orrs	r3, r1
- 494 006c 1360     		str	r3, [r2]
- 495 006e E9E7     		b	.L28
- 496              	.L29:
+ 587              		.loc 1 658 5 view .LVU176
+ 588 0064 0268     		ldr	r2, [r0]
+ 589 0066 1368     		ldr	r3, [r2]
+ 590 0068 1021     		movs	r1, #16
+ 591 006a 0B43     		orrs	r3, r1
+ 592 006c 1360     		str	r3, [r2]
+ 593 006e E9E7     		b	.L28
+ 594              	.L29:
  630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 497              		.loc 1 630 0
- 498 0070 0220     		movs	r0, #2
- 499              	.LVL29:
- 500 0072 F0E7     		b	.L24
- 501              		.cfi_endproc
- 502              	.LFE45:
- 504              		.section	.text.HAL_TSC_Stop,"ax",%progbits
- 505              		.align	1
- 506              		.global	HAL_TSC_Stop
- 507              		.syntax unified
- 508              		.code	16
- 509              		.thumb_func
- 510              		.fpu softvfp
- 512              	HAL_TSC_Stop:
- 513              	.LFB46:
+ 595              		.loc 1 630 3 is_stmt 0 view .LVU177
+ 596 0070 0220     		movs	r0, #2
+ 597              	.LVL29:
+ 630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 598              		.loc 1 630 3 view .LVU178
+ 599 0072 F0E7     		b	.L24
+ 600              		.cfi_endproc
+ 601              	.LFE45:
+ 603              		.section	.text.HAL_TSC_Stop,"ax",%progbits
+ 604              		.align	1
+ 605              		.global	HAL_TSC_Stop
+ 606              		.syntax unified
+ 607              		.code	16
+ 608              		.thumb_func
+ 609              		.fpu softvfp
+ 611              	HAL_TSC_Stop:
+ 612              	.LVL30:
+ 613              	.LFB46:
  678:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
- 514              		.loc 1 678 0
- 515              		.cfi_startproc
- 516              		@ args = 0, pretend = 0, frame = 0
- 517              		@ frame_needed = 0, uses_anonymous_args = 0
- 518              	.LVL30:
- 519 0000 30B5     		push	{r4, r5, lr}
- 520              	.LCFI3:
- 521              		.cfi_def_cfa_offset 12
- 522              		.cfi_offset 4, -12
- 523              		.cfi_offset 5, -8
- 524              		.cfi_offset 14, -4
- 683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 525              		.loc 1 683 0
- 526 0002 3D23     		movs	r3, #61
- 527 0004 C35C     		ldrb	r3, [r0, r3]
- 528 0006 012B     		cmp	r3, #1
- 529 0008 15D0     		beq	.L33
- 683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 530              		.loc 1 683 0 is_stmt 0 discriminator 2
- 531 000a 3D22     		movs	r2, #61
-ARM GAS  /tmp/ccdIu2oD.s 			page 30
+ 614              		.loc 1 678 1 is_stmt 1 view -0
+ 615              		.cfi_startproc
+ 616              		@ args = 0, pretend = 0, frame = 0
+ 617              		@ frame_needed = 0, uses_anonymous_args = 0
+ 678:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 618              		.loc 1 678 1 is_stmt 0 view .LVU180
+ARM GAS  /tmp/cczP4HC8.s 			page 33
 
 
- 532 000c 0121     		movs	r1, #1
- 533 000e 8154     		strb	r1, [r0, r2]
+ 619 0000 30B5     		push	{r4, r5, lr}
+ 620              	.LCFI3:
+ 621              		.cfi_def_cfa_offset 12
+ 622              		.cfi_offset 4, -12
+ 623              		.cfi_offset 5, -8
+ 624              		.cfi_offset 14, -4
+ 680:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 625              		.loc 1 680 3 is_stmt 1 view .LVU181
+ 683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 626              		.loc 1 683 3 view .LVU182
+ 683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 627              		.loc 1 683 3 view .LVU183
+ 628 0002 3D23     		movs	r3, #61
+ 629 0004 C35C     		ldrb	r3, [r0, r3]
+ 630 0006 012B     		cmp	r3, #1
+ 631 0008 15D0     		beq	.L33
+ 683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 632              		.loc 1 683 3 discriminator 2 view .LVU184
+ 633 000a 3D22     		movs	r2, #61
+ 634 000c 0121     		movs	r1, #1
+ 635 000e 8154     		strb	r1, [r0, r2]
+ 683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 636              		.loc 1 683 3 discriminator 2 view .LVU185
  686:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 534              		.loc 1 686 0 is_stmt 1 discriminator 2
- 535 0010 0468     		ldr	r4, [r0]
- 536 0012 2368     		ldr	r3, [r4]
- 537 0014 0225     		movs	r5, #2
- 538 0016 AB43     		bics	r3, r5
- 539 0018 2360     		str	r3, [r4]
+ 637              		.loc 1 686 3 discriminator 2 view .LVU186
+ 638 0010 0468     		ldr	r4, [r0]
+ 639 0012 2368     		ldr	r3, [r4]
+ 640 0014 0225     		movs	r5, #2
+ 641 0016 AB43     		bics	r3, r5
+ 642 0018 2360     		str	r3, [r4]
  689:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 540              		.loc 1 689 0 discriminator 2
- 541 001a 0468     		ldr	r4, [r0]
- 542 001c 2368     		ldr	r3, [r4]
- 543 001e 0E35     		adds	r5, r5, #14
- 544 0020 AB43     		bics	r3, r5
- 545 0022 2360     		str	r3, [r4]
+ 643              		.loc 1 689 3 discriminator 2 view .LVU187
+ 644 001a 0468     		ldr	r4, [r0]
+ 645 001c 2368     		ldr	r3, [r4]
+ 646 001e 0E35     		adds	r5, r5, #14
+ 647 0020 AB43     		bics	r3, r5
+ 648 0022 2360     		str	r3, [r4]
  692:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 546              		.loc 1 692 0 discriminator 2
- 547 0024 0368     		ldr	r3, [r0]
- 548 0026 0324     		movs	r4, #3
- 549 0028 9C60     		str	r4, [r3, #8]
+ 649              		.loc 1 692 3 discriminator 2 view .LVU188
+ 650 0024 0368     		ldr	r3, [r0]
+ 651 0026 0324     		movs	r4, #3
+ 652 0028 9C60     		str	r4, [r3, #8]
  695:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 550              		.loc 1 695 0 discriminator 2
- 551 002a 3C23     		movs	r3, #60
- 552 002c C154     		strb	r1, [r0, r3]
+ 653              		.loc 1 695 3 discriminator 2 view .LVU189
+ 695:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 654              		.loc 1 695 15 is_stmt 0 discriminator 2 view .LVU190
+ 655 002a 3C23     		movs	r3, #60
+ 656 002c C154     		strb	r1, [r0, r3]
  698:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 553              		.loc 1 698 0 discriminator 2
- 554 002e 0023     		movs	r3, #0
- 555 0030 8354     		strb	r3, [r0, r2]
+ 657              		.loc 1 698 3 is_stmt 1 discriminator 2 view .LVU191
+ 698:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 658              		.loc 1 698 3 discriminator 2 view .LVU192
+ 659 002e 0023     		movs	r3, #0
+ 660 0030 8354     		strb	r3, [r0, r2]
+ 698:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 661              		.loc 1 698 3 discriminator 2 view .LVU193
  701:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 556              		.loc 1 701 0 discriminator 2
- 557 0032 0020     		movs	r0, #0
- 558              	.LVL31:
- 559              	.L32:
+ARM GAS  /tmp/cczP4HC8.s 			page 34
+
+
+ 662              		.loc 1 701 3 discriminator 2 view .LVU194
+ 701:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 663              		.loc 1 701 10 is_stmt 0 discriminator 2 view .LVU195
+ 664 0032 0020     		movs	r0, #0
+ 665              	.LVL31:
+ 666              	.L32:
  702:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 560              		.loc 1 702 0
- 561              		@ sp needed
- 562 0034 30BD     		pop	{r4, r5, pc}
- 563              	.LVL32:
- 564              	.L33:
+ 667              		.loc 1 702 1 view .LVU196
+ 668              		@ sp needed
+ 669 0034 30BD     		pop	{r4, r5, pc}
+ 670              	.LVL32:
+ 671              	.L33:
  683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 565              		.loc 1 683 0
- 566 0036 0220     		movs	r0, #2
- 567              	.LVL33:
- 568 0038 FCE7     		b	.L32
- 569              		.cfi_endproc
- 570              	.LFE46:
- 572              		.section	.text.HAL_TSC_Stop_IT,"ax",%progbits
- 573              		.align	1
- 574              		.global	HAL_TSC_Stop_IT
- 575              		.syntax unified
- 576              		.code	16
- 577              		.thumb_func
- 578              		.fpu softvfp
- 580              	HAL_TSC_Stop_IT:
- 581              	.LFB47:
+ 672              		.loc 1 683 3 view .LVU197
+ 673 0036 0220     		movs	r0, #2
+ 674              	.LVL33:
+ 683:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 675              		.loc 1 683 3 view .LVU198
+ 676 0038 FCE7     		b	.L32
+ 677              		.cfi_endproc
+ 678              	.LFE46:
+ 680              		.section	.text.HAL_TSC_Stop_IT,"ax",%progbits
+ 681              		.align	1
+ 682              		.global	HAL_TSC_Stop_IT
+ 683              		.syntax unified
+ 684              		.code	16
+ 685              		.thumb_func
+ 686              		.fpu softvfp
+ 688              	HAL_TSC_Stop_IT:
+ 689              	.LVL34:
+ 690              	.LFB47:
  711:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
-ARM GAS  /tmp/ccdIu2oD.s 			page 31
-
-
- 582              		.loc 1 711 0
- 583              		.cfi_startproc
- 584              		@ args = 0, pretend = 0, frame = 0
- 585              		@ frame_needed = 0, uses_anonymous_args = 0
- 586              	.LVL34:
- 587 0000 30B5     		push	{r4, r5, lr}
- 588              	.LCFI4:
- 589              		.cfi_def_cfa_offset 12
- 590              		.cfi_offset 4, -12
- 591              		.cfi_offset 5, -8
- 592              		.cfi_offset 14, -4
- 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 593              		.loc 1 716 0
- 594 0002 3D23     		movs	r3, #61
- 595 0004 C35C     		ldrb	r3, [r0, r3]
- 596 0006 012B     		cmp	r3, #1
- 597 0008 19D0     		beq	.L36
- 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 598              		.loc 1 716 0 is_stmt 0 discriminator 2
- 599 000a 3D22     		movs	r2, #61
- 600 000c 0121     		movs	r1, #1
- 601 000e 8154     		strb	r1, [r0, r2]
- 719:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 602              		.loc 1 719 0 is_stmt 1 discriminator 2
- 603 0010 0468     		ldr	r4, [r0]
- 604 0012 2368     		ldr	r3, [r4]
- 605 0014 0225     		movs	r5, #2
- 606 0016 AB43     		bics	r3, r5
- 607 0018 2360     		str	r3, [r4]
- 722:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 608              		.loc 1 722 0 discriminator 2
- 609 001a 0468     		ldr	r4, [r0]
- 610 001c 2368     		ldr	r3, [r4]
- 611 001e 0E35     		adds	r5, r5, #14
- 612 0020 AB43     		bics	r3, r5
- 613 0022 2360     		str	r3, [r4]
- 725:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 614              		.loc 1 725 0 discriminator 2
- 615 0024 0568     		ldr	r5, [r0]
- 616 0026 6B68     		ldr	r3, [r5, #4]
- 617 0028 0324     		movs	r4, #3
- 618 002a A343     		bics	r3, r4
- 619 002c 6B60     		str	r3, [r5, #4]
- 728:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 620              		.loc 1 728 0 discriminator 2
- 621 002e 0368     		ldr	r3, [r0]
- 622 0030 9C60     		str	r4, [r3, #8]
- 731:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 623              		.loc 1 731 0 discriminator 2
- 624 0032 3C23     		movs	r3, #60
- 625 0034 C154     		strb	r1, [r0, r3]
- 734:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 626              		.loc 1 734 0 discriminator 2
- 627 0036 0023     		movs	r3, #0
- 628 0038 8354     		strb	r3, [r0, r2]
- 737:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 629              		.loc 1 737 0 discriminator 2
-ARM GAS  /tmp/ccdIu2oD.s 			page 32
-
-
- 630 003a 0020     		movs	r0, #0
- 631              	.LVL35:
- 632              	.L35:
- 738:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 633              		.loc 1 738 0
- 634              		@ sp needed
- 635 003c 30BD     		pop	{r4, r5, pc}
- 636              	.LVL36:
- 637              	.L36:
- 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 638              		.loc 1 716 0
- 639 003e 0220     		movs	r0, #2
- 640              	.LVL37:
- 641 0040 FCE7     		b	.L35
- 642              		.cfi_endproc
- 643              	.LFE47:
- 645              		.section	.text.HAL_TSC_GroupGetStatus,"ax",%progbits
- 646              		.align	1
- 647              		.global	HAL_TSC_GroupGetStatus
- 648              		.syntax unified
- 649              		.code	16
- 650              		.thumb_func
- 651              		.fpu softvfp
- 653              	HAL_TSC_GroupGetStatus:
- 654              	.LFB49:
- 776:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
- 655              		.loc 1 776 0
- 656              		.cfi_startproc
- 657              		@ args = 0, pretend = 0, frame = 0
- 658              		@ frame_needed = 0, uses_anonymous_args = 0
- 659              		@ link register save eliminated.
- 660              	.LVL38:
- 782:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 661              		.loc 1 782 0
- 662 0000 0368     		ldr	r3, [r0]
- 663 0002 1A6B     		ldr	r2, [r3, #48]
- 664 0004 0F23     		movs	r3, #15
- 665 0006 1940     		ands	r1, r3
- 666              	.LVL39:
- 667 0008 1031     		adds	r1, r1, #16
- 668 000a 0120     		movs	r0, #1
- 669              	.LVL40:
- 670 000c 8840     		lsls	r0, r0, r1
- 671 000e 9043     		bics	r0, r2
- 672 0010 4342     		rsbs	r3, r0, #0
- 673 0012 5841     		adcs	r0, r0, r3
- 674 0014 C0B2     		uxtb	r0, r0
- 783:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 675              		.loc 1 783 0
- 676              		@ sp needed
- 677 0016 7047     		bx	lr
- 678              		.cfi_endproc
- 679              	.LFE49:
- 681              		.section	.text.HAL_TSC_GroupGetValue,"ax",%progbits
- 682              		.align	1
- 683              		.global	HAL_TSC_GroupGetValue
- 684              		.syntax unified
-ARM GAS  /tmp/ccdIu2oD.s 			page 33
-
-
- 685              		.code	16
- 686              		.thumb_func
- 687              		.fpu softvfp
- 689              	HAL_TSC_GroupGetValue:
- 690              	.LFB50:
- 793:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
- 691              		.loc 1 793 0
+ 691              		.loc 1 711 1 is_stmt 1 view -0
  692              		.cfi_startproc
  693              		@ args = 0, pretend = 0, frame = 0
  694              		@ frame_needed = 0, uses_anonymous_args = 0
- 695              		@ link register save eliminated.
- 696              	.LVL41:
+ 711:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 695              		.loc 1 711 1 is_stmt 0 view .LVU200
+ 696 0000 30B5     		push	{r4, r5, lr}
+ 697              	.LCFI4:
+ 698              		.cfi_def_cfa_offset 12
+ 699              		.cfi_offset 4, -12
+ 700              		.cfi_offset 5, -8
+ 701              		.cfi_offset 14, -4
+ 713:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 702              		.loc 1 713 3 is_stmt 1 view .LVU201
+ 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 703              		.loc 1 716 3 view .LVU202
+ 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 704              		.loc 1 716 3 view .LVU203
+ 705 0002 3D23     		movs	r3, #61
+ 706 0004 C35C     		ldrb	r3, [r0, r3]
+ 707 0006 012B     		cmp	r3, #1
+ 708 0008 19D0     		beq	.L36
+ 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 709              		.loc 1 716 3 discriminator 2 view .LVU204
+ 710 000a 3D22     		movs	r2, #61
+ARM GAS  /tmp/cczP4HC8.s 			page 35
+
+
+ 711 000c 0121     		movs	r1, #1
+ 712 000e 8154     		strb	r1, [r0, r2]
+ 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 713              		.loc 1 716 3 discriminator 2 view .LVU205
+ 719:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 714              		.loc 1 719 3 discriminator 2 view .LVU206
+ 715 0010 0468     		ldr	r4, [r0]
+ 716 0012 2368     		ldr	r3, [r4]
+ 717 0014 0225     		movs	r5, #2
+ 718 0016 AB43     		bics	r3, r5
+ 719 0018 2360     		str	r3, [r4]
+ 722:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 720              		.loc 1 722 3 discriminator 2 view .LVU207
+ 721 001a 0468     		ldr	r4, [r0]
+ 722 001c 2368     		ldr	r3, [r4]
+ 723 001e 0E35     		adds	r5, r5, #14
+ 724 0020 AB43     		bics	r3, r5
+ 725 0022 2360     		str	r3, [r4]
+ 725:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 726              		.loc 1 725 3 discriminator 2 view .LVU208
+ 727 0024 0568     		ldr	r5, [r0]
+ 728 0026 6B68     		ldr	r3, [r5, #4]
+ 729 0028 0324     		movs	r4, #3
+ 730 002a A343     		bics	r3, r4
+ 731 002c 6B60     		str	r3, [r5, #4]
+ 728:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 732              		.loc 1 728 3 discriminator 2 view .LVU209
+ 733 002e 0368     		ldr	r3, [r0]
+ 734 0030 9C60     		str	r4, [r3, #8]
+ 731:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 735              		.loc 1 731 3 discriminator 2 view .LVU210
+ 731:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 736              		.loc 1 731 15 is_stmt 0 discriminator 2 view .LVU211
+ 737 0032 3C23     		movs	r3, #60
+ 738 0034 C154     		strb	r1, [r0, r3]
+ 734:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 739              		.loc 1 734 3 is_stmt 1 discriminator 2 view .LVU212
+ 734:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 740              		.loc 1 734 3 discriminator 2 view .LVU213
+ 741 0036 0023     		movs	r3, #0
+ 742 0038 8354     		strb	r3, [r0, r2]
+ 734:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 743              		.loc 1 734 3 discriminator 2 view .LVU214
+ 737:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 744              		.loc 1 737 3 discriminator 2 view .LVU215
+ 737:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 745              		.loc 1 737 10 is_stmt 0 discriminator 2 view .LVU216
+ 746 003a 0020     		movs	r0, #0
+ 747              	.LVL35:
+ 748              	.L35:
+ 738:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 749              		.loc 1 738 1 view .LVU217
+ 750              		@ sp needed
+ 751 003c 30BD     		pop	{r4, r5, pc}
+ 752              	.LVL36:
+ 753              	.L36:
+ 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ARM GAS  /tmp/cczP4HC8.s 			page 36
+
+
+ 754              		.loc 1 716 3 view .LVU218
+ 755 003e 0220     		movs	r0, #2
+ 756              	.LVL37:
+ 716:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 757              		.loc 1 716 3 view .LVU219
+ 758 0040 FCE7     		b	.L35
+ 759              		.cfi_endproc
+ 760              	.LFE47:
+ 762              		.section	.text.HAL_TSC_GroupGetStatus,"ax",%progbits
+ 763              		.align	1
+ 764              		.global	HAL_TSC_GroupGetStatus
+ 765              		.syntax unified
+ 766              		.code	16
+ 767              		.thumb_func
+ 768              		.fpu softvfp
+ 770              	HAL_TSC_GroupGetStatus:
+ 771              	.LVL38:
+ 772              	.LFB49:
+ 776:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 773              		.loc 1 776 1 is_stmt 1 view -0
+ 774              		.cfi_startproc
+ 775              		@ args = 0, pretend = 0, frame = 0
+ 776              		@ frame_needed = 0, uses_anonymous_args = 0
+ 777              		@ link register save eliminated.
+ 778:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP_INDEX(gx_index));
+ 778              		.loc 1 778 3 view .LVU221
+ 779:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 779              		.loc 1 779 3 view .LVU222
+ 782:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 780              		.loc 1 782 3 view .LVU223
+ 782:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 781              		.loc 1 782 11 is_stmt 0 view .LVU224
+ 782 0000 0368     		ldr	r3, [r0]
+ 783 0002 1A6B     		ldr	r2, [r3, #48]
+ 784 0004 0F23     		movs	r3, #15
+ 785 0006 0B40     		ands	r3, r1
+ 786 0008 1033     		adds	r3, r3, #16
+ 787 000a 0120     		movs	r0, #1
+ 788              	.LVL39:
+ 782:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 789              		.loc 1 782 11 view .LVU225
+ 790 000c 9840     		lsls	r0, r0, r3
+ 791 000e 9043     		bics	r0, r2
+ 792 0010 4342     		rsbs	r3, r0, #0
+ 793 0012 5841     		adcs	r0, r0, r3
+ 794 0014 C0B2     		uxtb	r0, r0
+ 783:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 795              		.loc 1 783 1 view .LVU226
+ 796              		@ sp needed
+ 797 0016 7047     		bx	lr
+ 798              		.cfi_endproc
+ 799              	.LFE49:
+ 801              		.section	.text.HAL_TSC_GroupGetValue,"ax",%progbits
+ 802              		.align	1
+ 803              		.global	HAL_TSC_GroupGetValue
+ 804              		.syntax unified
+ 805              		.code	16
+ARM GAS  /tmp/cczP4HC8.s 			page 37
+
+
+ 806              		.thumb_func
+ 807              		.fpu softvfp
+ 809              	HAL_TSC_GroupGetValue:
+ 810              	.LVL40:
+ 811              	.LFB50:
+ 793:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 812              		.loc 1 793 1 is_stmt 1 view -0
+ 813              		.cfi_startproc
+ 814              		@ args = 0, pretend = 0, frame = 0
+ 815              		@ frame_needed = 0, uses_anonymous_args = 0
+ 816              		@ link register save eliminated.
+ 795:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP_INDEX(gx_index));
+ 817              		.loc 1 795 3 view .LVU228
+ 796:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 818              		.loc 1 796 3 view .LVU229
  799:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 697              		.loc 1 799 0
- 698 0000 0368     		ldr	r3, [r0]
- 699 0002 0C31     		adds	r1, r1, #12
- 700              	.LVL42:
- 701 0004 8900     		lsls	r1, r1, #2
- 702              	.LVL43:
- 703 0006 5918     		adds	r1, r3, r1
- 704 0008 4868     		ldr	r0, [r1, #4]
- 705              	.LVL44:
+ 819              		.loc 1 799 3 view .LVU230
+ 799:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 820              		.loc 1 799 14 is_stmt 0 view .LVU231
+ 821 0000 0368     		ldr	r3, [r0]
+ 799:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 822              		.loc 1 799 32 view .LVU232
+ 823 0002 0C31     		adds	r1, r1, #12
+ 824              	.LVL41:
+ 799:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 825              		.loc 1 799 32 view .LVU233
+ 826 0004 8900     		lsls	r1, r1, #2
+ 827              	.LVL42:
+ 799:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 828              		.loc 1 799 32 view .LVU234
+ 829 0006 5918     		adds	r1, r3, r1
+ 830 0008 4868     		ldr	r0, [r1, #4]
+ 831              	.LVL43:
  800:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 706              		.loc 1 800 0
- 707              		@ sp needed
- 708 000a 7047     		bx	lr
- 709              		.cfi_endproc
- 710              	.LFE50:
- 712              		.section	.text.HAL_TSC_IOConfig,"ax",%progbits
- 713              		.align	1
- 714              		.global	HAL_TSC_IOConfig
- 715              		.syntax unified
- 716              		.code	16
- 717              		.thumb_func
- 718              		.fpu softvfp
- 720              	HAL_TSC_IOConfig:
- 721              	.LFB51:
+ 832              		.loc 1 800 1 view .LVU235
+ 833              		@ sp needed
+ 834 000a 7047     		bx	lr
+ 835              		.cfi_endproc
+ 836              	.LFE50:
+ 838              		.section	.text.HAL_TSC_IOConfig,"ax",%progbits
+ 839              		.align	1
+ 840              		.global	HAL_TSC_IOConfig
+ 841              		.syntax unified
+ 842              		.code	16
+ 843              		.thumb_func
+ 844              		.fpu softvfp
+ 846              	HAL_TSC_IOConfig:
+ 847              	.LVL44:
+ 848              	.LFB51:
  828:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
- 722              		.loc 1 828 0
- 723              		.cfi_startproc
- 724              		@ args = 0, pretend = 0, frame = 0
- 725              		@ frame_needed = 0, uses_anonymous_args = 0
- 726              	.LVL45:
- 727 0000 70B5     		push	{r4, r5, r6, lr}
- 728              	.LCFI5:
- 729              		.cfi_def_cfa_offset 16
- 730              		.cfi_offset 4, -16
- 731              		.cfi_offset 5, -12
- 732              		.cfi_offset 6, -8
- 733              		.cfi_offset 14, -4
- 734 0002 0400     		movs	r4, r0
- 836:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 735              		.loc 1 836 0
- 736 0004 3D23     		movs	r3, #61
- 737 0006 C35C     		ldrb	r3, [r0, r3]
- 738 0008 012B     		cmp	r3, #1
- 739 000a 20D0     		beq	.L41
-ARM GAS  /tmp/ccdIu2oD.s 			page 34
+ 849              		.loc 1 828 1 is_stmt 1 view -0
+ 850              		.cfi_startproc
+ 851              		@ args = 0, pretend = 0, frame = 0
+ 852              		@ frame_needed = 0, uses_anonymous_args = 0
+ 828:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 853              		.loc 1 828 1 is_stmt 0 view .LVU237
+ 854 0000 70B5     		push	{r4, r5, r6, lr}
+ARM GAS  /tmp/cczP4HC8.s 			page 38
 
 
+ 855              	.LCFI5:
+ 856              		.cfi_def_cfa_offset 16
+ 857              		.cfi_offset 4, -16
+ 858              		.cfi_offset 5, -12
+ 859              		.cfi_offset 6, -8
+ 860              		.cfi_offset 14, -4
+ 861 0002 0400     		movs	r4, r0
+ 830:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(config->ChannelIOs));
+ 862              		.loc 1 830 3 is_stmt 1 view .LVU238
+ 831:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(config->ShieldIOs));
+ 863              		.loc 1 831 3 view .LVU239
+ 832:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   assert_param(IS_TSC_GROUP(config->SamplingIOs));
+ 864              		.loc 1 832 3 view .LVU240
+ 833:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 865              		.loc 1 833 3 view .LVU241
  836:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 740              		.loc 1 836 0 is_stmt 0 discriminator 2
- 741 000c 3D25     		movs	r5, #61
- 742 000e 0123     		movs	r3, #1
- 743 0010 4355     		strb	r3, [r0, r5]
+ 866              		.loc 1 836 3 view .LVU242
+ 836:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 867              		.loc 1 836 3 view .LVU243
+ 868 0004 3D23     		movs	r3, #61
+ 869 0006 C35C     		ldrb	r3, [r0, r3]
+ 870 0008 012B     		cmp	r3, #1
+ 871 000a 20D0     		beq	.L41
+ 836:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 872              		.loc 1 836 3 discriminator 2 view .LVU244
+ 873 000c 3D25     		movs	r5, #61
+ 874 000e 0123     		movs	r3, #1
+ 875 0010 4355     		strb	r3, [r0, r5]
+ 836:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 876              		.loc 1 836 3 discriminator 2 view .LVU245
  839:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 744              		.loc 1 839 0 is_stmt 1 discriminator 2
- 745 0012 0268     		ldr	r2, [r0]
- 746 0014 1368     		ldr	r3, [r2]
- 747 0016 0220     		movs	r0, #2
- 748              	.LVL46:
- 749 0018 8343     		bics	r3, r0
- 750 001a 1360     		str	r3, [r2]
+ 877              		.loc 1 839 3 discriminator 2 view .LVU246
+ 878 0012 0268     		ldr	r2, [r0]
+ 879 0014 1368     		ldr	r3, [r2]
+ 880 0016 0220     		movs	r0, #2
+ 881              	.LVL45:
+ 839:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 882              		.loc 1 839 3 is_stmt 0 discriminator 2 view .LVU247
+ 883 0018 8343     		bics	r3, r0
+ 884 001a 1360     		str	r3, [r2]
  842:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 751              		.loc 1 842 0 discriminator 2
- 752 001c 0B68     		ldr	r3, [r1]
- 753 001e 4A68     		ldr	r2, [r1, #4]
- 754 0020 1343     		orrs	r3, r2
- 755 0022 8A68     		ldr	r2, [r1, #8]
- 756 0024 1343     		orrs	r3, r2
- 757 0026 2268     		ldr	r2, [r4]
- 758 0028 DB43     		mvns	r3, r3
- 759 002a 1361     		str	r3, [r2, #16]
+ 885              		.loc 1 842 3 is_stmt 1 discriminator 2 view .LVU248
+ 842:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 886              		.loc 1 842 49 is_stmt 0 discriminator 2 view .LVU249
+ 887 001c 0B68     		ldr	r3, [r1]
+ 888 001e 4A68     		ldr	r2, [r1, #4]
+ 889 0020 1343     		orrs	r3, r2
+ 842:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 890              		.loc 1 842 69 discriminator 2 view .LVU250
+ 891 0022 8A68     		ldr	r2, [r1, #8]
+ 892 0024 1343     		orrs	r3, r2
+ 842:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 893              		.loc 1 842 7 discriminator 2 view .LVU251
+ 894 0026 2268     		ldr	r2, [r4]
+ 842:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 895              		.loc 1 842 28 discriminator 2 view .LVU252
+ 896 0028 DB43     		mvns	r3, r3
+ARM GAS  /tmp/cczP4HC8.s 			page 39
+
+
+ 842:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 897              		.loc 1 842 25 discriminator 2 view .LVU253
+ 898 002a 1361     		str	r3, [r2, #16]
  845:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 760              		.loc 1 845 0 discriminator 2
- 761 002c 2268     		ldr	r2, [r4]
- 762 002e 0B68     		ldr	r3, [r1]
- 763 0030 4868     		ldr	r0, [r1, #4]
- 764 0032 0343     		orrs	r3, r0
- 765 0034 9362     		str	r3, [r2, #40]
+ 899              		.loc 1 845 3 is_stmt 1 discriminator 2 view .LVU254
+ 845:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 900              		.loc 1 845 7 is_stmt 0 discriminator 2 view .LVU255
+ 901 002c 2268     		ldr	r2, [r4]
+ 845:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 902              		.loc 1 845 47 discriminator 2 view .LVU256
+ 903 002e 0B68     		ldr	r3, [r1]
+ 904 0030 4868     		ldr	r0, [r1, #4]
+ 905 0032 0343     		orrs	r3, r0
+ 845:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 906              		.loc 1 845 25 discriminator 2 view .LVU257
+ 907 0034 9362     		str	r3, [r2, #40]
  848:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 766              		.loc 1 848 0 discriminator 2
- 767 0036 2368     		ldr	r3, [r4]
- 768 0038 8A68     		ldr	r2, [r1, #8]
- 769 003a 1A62     		str	r2, [r3, #32]
+ 908              		.loc 1 848 3 is_stmt 1 discriminator 2 view .LVU258
+ 848:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 909              		.loc 1 848 7 is_stmt 0 discriminator 2 view .LVU259
+ 910 0036 2368     		ldr	r3, [r4]
+ 848:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 911              		.loc 1 848 25 discriminator 2 view .LVU260
+ 912 0038 8A68     		ldr	r2, [r1, #8]
+ 913 003a 1A62     		str	r2, [r3, #32]
  851:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 770              		.loc 1 851 0 discriminator 2
- 771 003c 2668     		ldr	r6, [r4]
- 772 003e 0868     		ldr	r0, [r1]
- 773 0040 FFF7FEFF 		bl	TSC_extract_groups
- 774              	.LVL47:
- 775 0044 3063     		str	r0, [r6, #48]
+ 914              		.loc 1 851 3 is_stmt 1 discriminator 2 view .LVU261
+ 851:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 915              		.loc 1 851 7 is_stmt 0 discriminator 2 view .LVU262
+ 916 003c 2668     		ldr	r6, [r4]
+ 851:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 917              		.loc 1 851 28 discriminator 2 view .LVU263
+ 918 003e 0868     		ldr	r0, [r1]
+ 919 0040 FFF7FEFF 		bl	TSC_extract_groups
+ 920              	.LVL46:
+ 851:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 921              		.loc 1 851 26 discriminator 2 view .LVU264
+ 922 0044 3063     		str	r0, [r6, #48]
  854:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 776              		.loc 1 854 0 discriminator 2
- 777 0046 0023     		movs	r3, #0
- 778 0048 6355     		strb	r3, [r4, r5]
+ 923              		.loc 1 854 3 is_stmt 1 discriminator 2 view .LVU265
+ 854:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 924              		.loc 1 854 3 discriminator 2 view .LVU266
+ 925 0046 0023     		movs	r3, #0
+ 926 0048 6355     		strb	r3, [r4, r5]
+ 854:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 927              		.loc 1 854 3 discriminator 2 view .LVU267
  857:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 779              		.loc 1 857 0 discriminator 2
- 780 004a 0020     		movs	r0, #0
- 781              	.L40:
+ 928              		.loc 1 857 3 discriminator 2 view .LVU268
+ 857:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 929              		.loc 1 857 10 is_stmt 0 discriminator 2 view .LVU269
+ 930 004a 0020     		movs	r0, #0
+ 931              	.L40:
  858:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 782              		.loc 1 858 0
- 783              		@ sp needed
- 784              	.LVL48:
- 785 004c 70BD     		pop	{r4, r5, r6, pc}
- 786              	.LVL49:
- 787              	.L41:
-ARM GAS  /tmp/ccdIu2oD.s 			page 35
+ 932              		.loc 1 858 1 view .LVU270
+ 933              		@ sp needed
+ 934              	.LVL47:
+ 858:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ARM GAS  /tmp/cczP4HC8.s 			page 40
 
 
+ 935              		.loc 1 858 1 view .LVU271
+ 936 004c 70BD     		pop	{r4, r5, r6, pc}
+ 937              	.LVL48:
+ 938              	.L41:
  836:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 788              		.loc 1 836 0
- 789 004e 0220     		movs	r0, #2
- 790              	.LVL50:
- 791 0050 FCE7     		b	.L40
- 792              		.cfi_endproc
- 793              	.LFE51:
- 795              		.section	.text.HAL_TSC_IODischarge,"ax",%progbits
- 796              		.align	1
- 797              		.global	HAL_TSC_IODischarge
- 798              		.syntax unified
- 799              		.code	16
- 800              		.thumb_func
- 801              		.fpu softvfp
- 803              	HAL_TSC_IODischarge:
- 804              	.LFB52:
+ 939              		.loc 1 836 3 view .LVU272
+ 940 004e 0220     		movs	r0, #2
+ 941              	.LVL49:
+ 836:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 942              		.loc 1 836 3 view .LVU273
+ 943 0050 FCE7     		b	.L40
+ 944              		.cfi_endproc
+ 945              	.LFE51:
+ 947              		.section	.text.HAL_TSC_IODischarge,"ax",%progbits
+ 948              		.align	1
+ 949              		.global	HAL_TSC_IODischarge
+ 950              		.syntax unified
+ 951              		.code	16
+ 952              		.thumb_func
+ 953              		.fpu softvfp
+ 955              	HAL_TSC_IODischarge:
+ 956              	.LVL50:
+ 957              	.LFB52:
  868:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
- 805              		.loc 1 868 0
- 806              		.cfi_startproc
- 807              		@ args = 0, pretend = 0, frame = 0
- 808              		@ frame_needed = 0, uses_anonymous_args = 0
- 809              		@ link register save eliminated.
- 810              	.LVL51:
+ 958              		.loc 1 868 1 is_stmt 1 view -0
+ 959              		.cfi_startproc
+ 960              		@ args = 0, pretend = 0, frame = 0
+ 961              		@ frame_needed = 0, uses_anonymous_args = 0
+ 962              		@ link register save eliminated.
+ 870:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 963              		.loc 1 870 3 view .LVU275
  873:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 811              		.loc 1 873 0
- 812 0000 3D23     		movs	r3, #61
- 813 0002 C35C     		ldrb	r3, [r0, r3]
- 814 0004 012B     		cmp	r3, #1
- 815 0006 14D0     		beq	.L46
+ 964              		.loc 1 873 3 view .LVU276
  873:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 816              		.loc 1 873 0 is_stmt 0 discriminator 2
- 817 0008 3D23     		movs	r3, #61
- 818 000a 0122     		movs	r2, #1
- 819 000c C254     		strb	r2, [r0, r3]
+ 965              		.loc 1 873 3 view .LVU277
+ 966 0000 3D23     		movs	r3, #61
+ 967 0002 C35C     		ldrb	r3, [r0, r3]
+ 968 0004 012B     		cmp	r3, #1
+ 969 0006 14D0     		beq	.L46
+ 873:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 970              		.loc 1 873 3 discriminator 2 view .LVU278
+ 971 0008 3D23     		movs	r3, #61
+ 972 000a 0122     		movs	r2, #1
+ 973 000c C254     		strb	r2, [r0, r3]
+ 873:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 974              		.loc 1 873 3 discriminator 2 view .LVU279
  875:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 820              		.loc 1 875 0 is_stmt 1 discriminator 2
- 821 000e 0129     		cmp	r1, #1
- 822 0010 09D0     		beq	.L47
+ 975              		.loc 1 875 3 discriminator 2 view .LVU280
+ 875:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 976              		.loc 1 875 6 is_stmt 0 discriminator 2 view .LVU281
+ 977 000e 0129     		cmp	r1, #1
+ 978 0010 09D0     		beq	.L47
  881:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 823              		.loc 1 881 0
- 824 0012 0268     		ldr	r2, [r0]
- 825 0014 1368     		ldr	r3, [r2]
- 826 0016 1021     		movs	r1, #16
- 827              	.LVL52:
- 828 0018 0B43     		orrs	r3, r1
- 829 001a 1360     		str	r3, [r2]
- 830              	.L45:
+ 979              		.loc 1 881 5 is_stmt 1 view .LVU282
+ 980 0012 0268     		ldr	r2, [r0]
+ 981 0014 1368     		ldr	r3, [r2]
+ 982 0016 1021     		movs	r1, #16
+ARM GAS  /tmp/cczP4HC8.s 			page 41
+
+
+ 983              	.LVL51:
+ 881:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 984              		.loc 1 881 5 is_stmt 0 view .LVU283
+ 985 0018 0B43     		orrs	r3, r1
+ 986 001a 1360     		str	r3, [r2]
+ 987              	.L45:
  885:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 831              		.loc 1 885 0
- 832 001c 3D23     		movs	r3, #61
- 833 001e 0022     		movs	r2, #0
- 834 0020 C254     		strb	r2, [r0, r3]
+ 988              		.loc 1 885 3 is_stmt 1 view .LVU284
+ 885:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 989              		.loc 1 885 3 view .LVU285
+ 990 001c 3D23     		movs	r3, #61
+ 991 001e 0022     		movs	r2, #0
+ 992 0020 C254     		strb	r2, [r0, r3]
+ 885:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 993              		.loc 1 885 3 view .LVU286
  888:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 835              		.loc 1 888 0
- 836 0022 0020     		movs	r0, #0
- 837              	.LVL53:
- 838              	.L43:
-ARM GAS  /tmp/ccdIu2oD.s 			page 36
-
-
+ 994              		.loc 1 888 3 view .LVU287
+ 888:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 995              		.loc 1 888 10 is_stmt 0 view .LVU288
+ 996 0022 0020     		movs	r0, #0
+ 997              	.LVL52:
+ 998              	.L43:
  889:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 839              		.loc 1 889 0
- 840              		@ sp needed
- 841 0024 7047     		bx	lr
- 842              	.LVL54:
- 843              	.L47:
+ 999              		.loc 1 889 1 view .LVU289
+ 1000              		@ sp needed
+ 1001 0024 7047     		bx	lr
+ 1002              	.LVL53:
+ 1003              	.L47:
  877:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 844              		.loc 1 877 0
- 845 0026 0268     		ldr	r2, [r0]
- 846 0028 1368     		ldr	r3, [r2]
- 847 002a 0F31     		adds	r1, r1, #15
- 848              	.LVL55:
- 849 002c 8B43     		bics	r3, r1
- 850 002e 1360     		str	r3, [r2]
- 851 0030 F4E7     		b	.L45
- 852              	.LVL56:
- 853              	.L46:
+ 1004              		.loc 1 877 5 is_stmt 1 view .LVU290
+ 1005 0026 0268     		ldr	r2, [r0]
+ 1006 0028 1368     		ldr	r3, [r2]
+ 1007 002a 0F31     		adds	r1, r1, #15
+ 1008              	.LVL54:
+ 877:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
+ 1009              		.loc 1 877 5 is_stmt 0 view .LVU291
+ 1010 002c 8B43     		bics	r3, r1
+ 1011 002e 1360     		str	r3, [r2]
+ 1012 0030 F4E7     		b	.L45
+ 1013              	.LVL55:
+ 1014              	.L46:
  873:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 854              		.loc 1 873 0
- 855 0032 0220     		movs	r0, #2
- 856              	.LVL57:
- 857 0034 F6E7     		b	.L43
- 858              		.cfi_endproc
- 859              	.LFE52:
- 861              		.section	.text.HAL_TSC_GetState,"ax",%progbits
- 862              		.align	1
- 863              		.global	HAL_TSC_GetState
- 864              		.syntax unified
- 865              		.code	16
- 866              		.thumb_func
- 867              		.fpu softvfp
- 869              	HAL_TSC_GetState:
- 870              	.LFB53:
+ 1015              		.loc 1 873 3 view .LVU292
+ 1016 0032 0220     		movs	r0, #2
+ 1017              	.LVL56:
+ 873:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1018              		.loc 1 873 3 view .LVU293
+ 1019 0034 F6E7     		b	.L43
+ 1020              		.cfi_endproc
+ 1021              	.LFE52:
+ 1023              		.section	.text.HAL_TSC_GetState,"ax",%progbits
+ 1024              		.align	1
+ 1025              		.global	HAL_TSC_GetState
+ 1026              		.syntax unified
+ 1027              		.code	16
+ 1028              		.thumb_func
+ 1029              		.fpu softvfp
+ARM GAS  /tmp/cczP4HC8.s 			page 42
+
+
+ 1031              	HAL_TSC_GetState:
+ 1032              	.LVL57:
+ 1033              	.LFB53:
  917:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
- 871              		.loc 1 917 0
- 872              		.cfi_startproc
- 873              		@ args = 0, pretend = 0, frame = 0
- 874              		@ frame_needed = 0, uses_anonymous_args = 0
- 875              		@ link register save eliminated.
- 876              	.LVL58:
+ 1034              		.loc 1 917 1 is_stmt 1 view -0
+ 1035              		.cfi_startproc
+ 1036              		@ args = 0, pretend = 0, frame = 0
+ 1037              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1038              		@ link register save eliminated.
+ 919:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1039              		.loc 1 919 3 view .LVU295
  921:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 877              		.loc 1 921 0
- 878 0000 3C23     		movs	r3, #60
- 879 0002 C35C     		ldrb	r3, [r0, r3]
- 880 0004 022B     		cmp	r3, #2
- 881 0006 03D0     		beq	.L51
- 882              	.L49:
+ 1040              		.loc 1 921 3 view .LVU296
+ 921:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 1041              		.loc 1 921 11 is_stmt 0 view .LVU297
+ 1042 0000 3C23     		movs	r3, #60
+ 1043 0002 C35C     		ldrb	r3, [r0, r3]
+ 921:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 1044              		.loc 1 921 6 view .LVU298
+ 1045 0004 022B     		cmp	r3, #2
+ 1046 0006 03D0     		beq	.L51
+ 1047              	.L49:
  941:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 883              		.loc 1 941 0
- 884 0008 3C23     		movs	r3, #60
- 885 000a C05C     		ldrb	r0, [r0, r3]
- 886              	.LVL59:
- 887 000c C0B2     		uxtb	r0, r0
+ 1048              		.loc 1 941 3 is_stmt 1 view .LVU299
+ 941:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 1049              		.loc 1 941 14 is_stmt 0 view .LVU300
+ 1050 0008 3C23     		movs	r3, #60
+ 1051 000a C05C     		ldrb	r0, [r0, r3]
+ 1052              	.LVL58:
+ 941:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 1053              		.loc 1 941 14 view .LVU301
+ 1054 000c C0B2     		uxtb	r0, r0
  942:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 888              		.loc 1 942 0
- 889              		@ sp needed
- 890 000e 7047     		bx	lr
-ARM GAS  /tmp/ccdIu2oD.s 			page 37
-
-
- 891              	.LVL60:
- 892              	.L51:
+ 1055              		.loc 1 942 1 view .LVU302
+ 1056              		@ sp needed
+ 1057 000e 7047     		bx	lr
+ 1058              	.LVL59:
+ 1059              	.L51:
  924:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
- 893              		.loc 1 924 0
- 894 0010 0368     		ldr	r3, [r0]
- 895 0012 DA68     		ldr	r2, [r3, #12]
- 896 0014 D207     		lsls	r2, r2, #31
- 897 0016 F7D5     		bpl	.L49
+ 1060              		.loc 1 924 5 is_stmt 1 view .LVU303
+ 924:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
+ 1061              		.loc 1 924 9 is_stmt 0 view .LVU304
+ 1062 0010 0368     		ldr	r3, [r0]
+ 1063 0012 DA68     		ldr	r2, [r3, #12]
+ 924:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     {
+ 1064              		.loc 1 924 8 view .LVU305
+ 1065 0014 D207     		lsls	r2, r2, #31
+ 1066 0016 F7D5     		bpl	.L49
  927:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       {
- 898              		.loc 1 927 0
- 899 0018 DB68     		ldr	r3, [r3, #12]
- 900 001a 9B07     		lsls	r3, r3, #30
- 901 001c 03D4     		bmi	.L52
- 935:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       }
- 902              		.loc 1 935 0
- 903 001e 3C23     		movs	r3, #60
- 904 0020 0122     		movs	r2, #1
- 905 0022 C254     		strb	r2, [r0, r3]
- 906 0024 F0E7     		b	.L49
- 907              	.L52:
+ 1067              		.loc 1 927 7 is_stmt 1 view .LVU306
+ 927:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       {
+ 1068              		.loc 1 927 11 is_stmt 0 view .LVU307
+ 1069 0018 DB68     		ldr	r3, [r3, #12]
+ 927:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       {
+ 1070              		.loc 1 927 10 view .LVU308
+ 1071 001a 9B07     		lsls	r3, r3, #30
+ 1072 001c 03D5     		bpl	.L50
+ARM GAS  /tmp/cczP4HC8.s 			page 43
+
+
  930:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       }
- 908              		.loc 1 930 0
- 909 0026 3C23     		movs	r3, #60
- 910 0028 0322     		movs	r2, #3
- 911 002a C254     		strb	r2, [r0, r3]
- 912 002c ECE7     		b	.L49
- 913              		.cfi_endproc
- 914              	.LFE53:
- 916              		.section	.text.HAL_TSC_PollForAcquisition,"ax",%progbits
- 917              		.align	1
- 918              		.global	HAL_TSC_PollForAcquisition
- 919              		.syntax unified
- 920              		.code	16
- 921              		.thumb_func
- 922              		.fpu softvfp
- 924              	HAL_TSC_PollForAcquisition:
- 925              	.LFB48:
+ 1073              		.loc 1 930 9 is_stmt 1 view .LVU309
+ 930:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       }
+ 1074              		.loc 1 930 21 is_stmt 0 view .LVU310
+ 1075 001e 3C23     		movs	r3, #60
+ 1076 0020 0322     		movs	r2, #3
+ 1077 0022 C254     		strb	r2, [r0, r3]
+ 1078 0024 F0E7     		b	.L49
+ 1079              	.L50:
+ 935:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       }
+ 1080              		.loc 1 935 9 is_stmt 1 view .LVU311
+ 935:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****       }
+ 1081              		.loc 1 935 21 is_stmt 0 view .LVU312
+ 1082 0026 3C23     		movs	r3, #60
+ 1083 0028 0122     		movs	r2, #1
+ 1084 002a C254     		strb	r2, [r0, r3]
+ 1085 002c ECE7     		b	.L49
+ 1086              		.cfi_endproc
+ 1087              	.LFE53:
+ 1089              		.section	.text.HAL_TSC_PollForAcquisition,"ax",%progbits
+ 1090              		.align	1
+ 1091              		.global	HAL_TSC_PollForAcquisition
+ 1092              		.syntax unified
+ 1093              		.code	16
+ 1094              		.thumb_func
+ 1095              		.fpu softvfp
+ 1097              	HAL_TSC_PollForAcquisition:
+ 1098              	.LVL60:
+ 1099              	.LFB48:
  749:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
- 926              		.loc 1 749 0
- 927              		.cfi_startproc
- 928              		@ args = 0, pretend = 0, frame = 0
- 929              		@ frame_needed = 0, uses_anonymous_args = 0
- 930              	.LVL61:
- 931 0000 10B5     		push	{r4, lr}
- 932              	.LCFI6:
- 933              		.cfi_def_cfa_offset 8
- 934              		.cfi_offset 4, -8
- 935              		.cfi_offset 14, -4
- 936 0002 0400     		movs	r4, r0
+ 1100              		.loc 1 749 1 is_stmt 1 view -0
+ 1101              		.cfi_startproc
+ 1102              		@ args = 0, pretend = 0, frame = 0
+ 1103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 749:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 1104              		.loc 1 749 1 is_stmt 0 view .LVU314
+ 1105 0000 10B5     		push	{r4, lr}
+ 1106              	.LCFI6:
+ 1107              		.cfi_def_cfa_offset 8
+ 1108              		.cfi_offset 4, -8
+ 1109              		.cfi_offset 14, -4
+ 1110 0002 0400     		movs	r4, r0
+ 751:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1111              		.loc 1 751 3 is_stmt 1 view .LVU315
  754:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 937              		.loc 1 754 0
- 938 0004 3D23     		movs	r3, #61
- 939 0006 C35C     		ldrb	r3, [r0, r3]
- 940 0008 012B     		cmp	r3, #1
- 941 000a 0CD0     		beq	.L56
+ 1112              		.loc 1 754 3 view .LVU316
  754:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 942              		.loc 1 754 0 is_stmt 0 discriminator 2
-ARM GAS  /tmp/ccdIu2oD.s 			page 38
+ 1113              		.loc 1 754 3 view .LVU317
+ 1114 0004 3D23     		movs	r3, #61
+ 1115 0006 C35C     		ldrb	r3, [r0, r3]
+ 1116 0008 012B     		cmp	r3, #1
+ 1117 000a 0CD0     		beq	.L55
+ 754:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1118              		.loc 1 754 3 discriminator 2 view .LVU318
+ 1119 000c 3D23     		movs	r3, #61
+ 1120 000e 0122     		movs	r2, #1
+ 1121 0010 C254     		strb	r2, [r0, r3]
+ARM GAS  /tmp/cczP4HC8.s 			page 44
 
 
- 943 000c 3D23     		movs	r3, #61
- 944 000e 0122     		movs	r2, #1
- 945 0010 C254     		strb	r2, [r0, r3]
- 946              	.LVL62:
- 947              	.L55:
+ 754:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1122              		.loc 1 754 3 discriminator 2 view .LVU319
  757:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 948              		.loc 1 757 0 is_stmt 1 discriminator 1
- 949 0012 2000     		movs	r0, r4
- 950 0014 FFF7FEFF 		bl	HAL_TSC_GetState
- 951              	.LVL63:
- 952 0018 0228     		cmp	r0, #2
- 953 001a FAD0     		beq	.L55
+ 1123              		.loc 1 757 3 discriminator 2 view .LVU320
+ 1124              	.LVL61:
+ 1125              	.L54:
+ 760:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1126              		.loc 1 760 3 discriminator 1 view .LVU321
+ 757:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 1127              		.loc 1 757 9 discriminator 1 view .LVU322
+ 757:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 1128              		.loc 1 757 10 is_stmt 0 discriminator 1 view .LVU323
+ 1129 0012 2000     		movs	r0, r4
+ 1130 0014 FFF7FEFF 		bl	HAL_TSC_GetState
+ 1131              	.LVL62:
+ 757:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 1132              		.loc 1 757 9 discriminator 1 view .LVU324
+ 1133 0018 0228     		cmp	r0, #2
+ 1134 001a FAD0     		beq	.L54
  763:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 954              		.loc 1 763 0
- 955 001c 3D23     		movs	r3, #61
- 956 001e 0022     		movs	r2, #0
- 957 0020 E254     		strb	r2, [r4, r3]
+ 1135              		.loc 1 763 3 is_stmt 1 view .LVU325
+ 763:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1136              		.loc 1 763 3 view .LVU326
+ 1137 001c 3D23     		movs	r3, #61
+ 1138 001e 0022     		movs	r2, #0
+ 1139 0020 E254     		strb	r2, [r4, r3]
+ 763:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1140              		.loc 1 763 3 view .LVU327
  765:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
- 958              		.loc 1 765 0
- 959 0022 0020     		movs	r0, #0
- 960              	.L54:
+ 1141              		.loc 1 765 3 view .LVU328
+ 765:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** }
+ 1142              		.loc 1 765 10 is_stmt 0 view .LVU329
+ 1143 0022 0020     		movs	r0, #0
+ 1144              	.L53:
  766:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 961              		.loc 1 766 0
- 962              		@ sp needed
- 963              	.LVL64:
- 964 0024 10BD     		pop	{r4, pc}
- 965              	.LVL65:
- 966              	.L56:
+ 1145              		.loc 1 766 1 view .LVU330
+ 1146              		@ sp needed
+ 1147              	.LVL63:
+ 766:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1148              		.loc 1 766 1 view .LVU331
+ 1149 0024 10BD     		pop	{r4, pc}
+ 1150              	.LVL64:
+ 1151              	.L55:
  754:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 967              		.loc 1 754 0
- 968 0026 0220     		movs	r0, #2
- 969              	.LVL66:
- 970 0028 FCE7     		b	.L54
- 971              		.cfi_endproc
- 972              	.LFE48:
- 974              		.section	.text.HAL_TSC_ConvCpltCallback,"ax",%progbits
- 975              		.align	1
- 976              		.weak	HAL_TSC_ConvCpltCallback
- 977              		.syntax unified
- 978              		.code	16
- 979              		.thumb_func
- 980              		.fpu softvfp
- 982              	HAL_TSC_ConvCpltCallback:
- 983              	.LFB55:
+ 1152              		.loc 1 754 3 view .LVU332
+ 1153 0026 0220     		movs	r0, #2
+ 1154              	.LVL65:
+ 754:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1155              		.loc 1 754 3 view .LVU333
+ 1156 0028 FCE7     		b	.L53
+ 1157              		.cfi_endproc
+ 1158              	.LFE48:
+ 1160              		.section	.text.HAL_TSC_ConvCpltCallback,"ax",%progbits
+ 1161              		.align	1
+ 1162              		.weak	HAL_TSC_ConvCpltCallback
+ 1163              		.syntax unified
+ 1164              		.code	16
+ARM GAS  /tmp/cczP4HC8.s 			page 45
+
+
+ 1165              		.thumb_func
+ 1166              		.fpu softvfp
+ 1168              	HAL_TSC_ConvCpltCallback:
+ 1169              	.LVL66:
+ 1170              	.LFB55:
 1004:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
- 984              		.loc 1 1004 0
- 985              		.cfi_startproc
- 986              		@ args = 0, pretend = 0, frame = 0
- 987              		@ frame_needed = 0, uses_anonymous_args = 0
- 988              		@ link register save eliminated.
- 989              	.LVL67:
+ 1171              		.loc 1 1004 1 is_stmt 1 view -0
+ 1172              		.cfi_startproc
+ 1173              		@ args = 0, pretend = 0, frame = 0
+ 1174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1175              		@ link register save eliminated.
+1006:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1176              		.loc 1 1006 3 view .LVU335
 1011:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 990              		.loc 1 1011 0
- 991              		@ sp needed
- 992 0000 7047     		bx	lr
- 993              		.cfi_endproc
- 994              	.LFE55:
-ARM GAS  /tmp/ccdIu2oD.s 			page 39
-
-
- 996              		.section	.text.HAL_TSC_ErrorCallback,"ax",%progbits
- 997              		.align	1
- 998              		.weak	HAL_TSC_ErrorCallback
- 999              		.syntax unified
- 1000              		.code	16
- 1001              		.thumb_func
- 1002              		.fpu softvfp
- 1004              	HAL_TSC_ErrorCallback:
- 1005              	.LFB56:
+ 1177              		.loc 1 1011 1 is_stmt 0 view .LVU336
+ 1178              		@ sp needed
+ 1179 0000 7047     		bx	lr
+ 1180              		.cfi_endproc
+ 1181              	.LFE55:
+ 1183              		.section	.text.HAL_TSC_ErrorCallback,"ax",%progbits
+ 1184              		.align	1
+ 1185              		.weak	HAL_TSC_ErrorCallback
+ 1186              		.syntax unified
+ 1187              		.code	16
+ 1188              		.thumb_func
+ 1189              		.fpu softvfp
+ 1191              	HAL_TSC_ErrorCallback:
+ 1192              	.LVL67:
+ 1193              	.LFB56:
 1020:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Prevent unused argument(s) compilation warning */
- 1006              		.loc 1 1020 0
- 1007              		.cfi_startproc
- 1008              		@ args = 0, pretend = 0, frame = 0
- 1009              		@ frame_needed = 0, uses_anonymous_args = 0
- 1010              		@ link register save eliminated.
- 1011              	.LVL68:
+ 1194              		.loc 1 1020 1 is_stmt 1 view -0
+ 1195              		.cfi_startproc
+ 1196              		@ args = 0, pretend = 0, frame = 0
+ 1197              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1198              		@ link register save eliminated.
+1022:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1199              		.loc 1 1022 3 view .LVU338
 1027:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 1012              		.loc 1 1027 0
- 1013              		@ sp needed
- 1014 0000 7047     		bx	lr
- 1015              		.cfi_endproc
- 1016              	.LFE56:
- 1018              		.section	.text.HAL_TSC_IRQHandler,"ax",%progbits
- 1019              		.align	1
- 1020              		.global	HAL_TSC_IRQHandler
- 1021              		.syntax unified
- 1022              		.code	16
- 1023              		.thumb_func
- 1024              		.fpu softvfp
- 1026              	HAL_TSC_IRQHandler:
- 1027              	.LFB54:
+ 1200              		.loc 1 1027 1 is_stmt 0 view .LVU339
+ 1201              		@ sp needed
+ 1202 0000 7047     		bx	lr
+ 1203              		.cfi_endproc
+ 1204              	.LFE56:
+ 1206              		.section	.text.HAL_TSC_IRQHandler,"ax",%progbits
+ 1207              		.align	1
+ 1208              		.global	HAL_TSC_IRQHandler
+ 1209              		.syntax unified
+ 1210              		.code	16
+ 1211              		.thumb_func
+ 1212              		.fpu softvfp
+ 1214              	HAL_TSC_IRQHandler:
+ 1215              	.LVL68:
+ 1216              	.LFB54:
  959:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
- 1028              		.loc 1 959 0
- 1029              		.cfi_startproc
- 1030              		@ args = 0, pretend = 0, frame = 0
- 1031              		@ frame_needed = 0, uses_anonymous_args = 0
- 1032              	.LVL69:
- 1033 0000 10B5     		push	{r4, lr}
- 1034              	.LCFI7:
- 1035              		.cfi_def_cfa_offset 8
- 1036              		.cfi_offset 4, -8
- 1037              		.cfi_offset 14, -4
+ 1217              		.loc 1 959 1 is_stmt 1 view -0
+ 1218              		.cfi_startproc
+ 1219              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/cczP4HC8.s 			page 46
+
+
+ 1220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 959:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   /* Check the parameters */
+ 1221              		.loc 1 959 1 is_stmt 0 view .LVU341
+ 1222 0000 10B5     		push	{r4, lr}
+ 1223              	.LCFI7:
+ 1224              		.cfi_def_cfa_offset 8
+ 1225              		.cfi_offset 4, -8
+ 1226              		.cfi_offset 14, -4
+ 961:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1227              		.loc 1 961 3 is_stmt 1 view .LVU342
  964:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 1038              		.loc 1 964 0
- 1039 0002 0368     		ldr	r3, [r0]
- 1040 0004 DA68     		ldr	r2, [r3, #12]
- 1041 0006 D207     		lsls	r2, r2, #31
- 1042 0008 01D5     		bpl	.L60
+ 1228              		.loc 1 964 3 view .LVU343
+ 964:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 1229              		.loc 1 964 7 is_stmt 0 view .LVU344
+ 1230 0002 0368     		ldr	r3, [r0]
+ 1231 0004 DA68     		ldr	r2, [r3, #12]
+ 964:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 1232              		.loc 1 964 6 view .LVU345
+ 1233 0006 D207     		lsls	r2, r2, #31
+ 1234 0008 01D5     		bpl	.L59
  967:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   }
- 1043              		.loc 1 967 0
- 1044 000a 0122     		movs	r2, #1
- 1045 000c 9A60     		str	r2, [r3, #8]
- 1046              	.L60:
+ 1235              		.loc 1 967 5 is_stmt 1 view .LVU346
+ 1236 000a 0122     		movs	r2, #1
+ 1237 000c 9A60     		str	r2, [r3, #8]
+ 1238              	.L59:
  971:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
- 1047              		.loc 1 971 0
- 1048 000e 0368     		ldr	r3, [r0]
- 1049 0010 DA68     		ldr	r2, [r3, #12]
-ARM GAS  /tmp/ccdIu2oD.s 			page 40
-
-
- 1050 0012 9207     		lsls	r2, r2, #30
- 1051 0014 05D4     		bmi	.L63
- 987:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
- 1052              		.loc 1 987 0
- 1053 0016 3C23     		movs	r3, #60
- 1054 0018 0122     		movs	r2, #1
- 1055 001a C254     		strb	r2, [r0, r3]
- 992:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
- 1056              		.loc 1 992 0
- 1057 001c FFF7FEFF 		bl	HAL_TSC_ConvCpltCallback
- 1058              	.LVL70:
- 1059              	.L59:
- 995:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
- 1060              		.loc 1 995 0
- 1061              		@ sp needed
- 1062 0020 10BD     		pop	{r4, pc}
- 1063              	.LVL71:
- 1064              	.L63:
+ 1239              		.loc 1 971 3 view .LVU347
+ 971:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 1240              		.loc 1 971 7 is_stmt 0 view .LVU348
+ 1241 000e 0368     		ldr	r3, [r0]
+ 1242 0010 DA68     		ldr	r2, [r3, #12]
+ 971:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****   {
+ 1243              		.loc 1 971 6 view .LVU349
+ 1244 0012 9207     		lsls	r2, r2, #30
+ 1245 0014 07D5     		bpl	.L60
  974:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c ****     /* Change TSC state */
- 1065              		.loc 1 974 0
- 1066 0022 0222     		movs	r2, #2
- 1067 0024 9A60     		str	r2, [r3, #8]
+ 1246              		.loc 1 974 5 is_stmt 1 view .LVU350
+ 1247 0016 0222     		movs	r2, #2
+ 1248 0018 9A60     		str	r2, [r3, #8]
  976:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
- 1068              		.loc 1 976 0
- 1069 0026 3C23     		movs	r3, #60
- 1070 0028 0132     		adds	r2, r2, #1
- 1071 002a C254     		strb	r2, [r0, r3]
+ 1249              		.loc 1 976 5 view .LVU351
+ 976:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
+ 1250              		.loc 1 976 17 is_stmt 0 view .LVU352
+ 1251 001a 3C23     		movs	r3, #60
+ 1252 001c 0132     		adds	r2, r2, #1
+ 1253 001e C254     		strb	r2, [r0, r3]
  981:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
- 1072              		.loc 1 981 0
- 1073 002c FFF7FEFF 		bl	HAL_TSC_ErrorCallback
- 1074              	.LVL72:
- 1075 0030 F6E7     		b	.L59
- 1076              		.cfi_endproc
- 1077              	.LFE54:
- 1079              		.text
- 1080              	.Letext0:
- 1081              		.file 2 "/usr/include/newlib/machine/_default_types.h"
- 1082              		.file 3 "/usr/include/newlib/sys/_stdint.h"
- 1083              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
- 1084              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
- 1085              		.file 6 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h"
- 1086              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
- 1087              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tsc.h"
- 1088              		.file 9 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
-ARM GAS  /tmp/ccdIu2oD.s 			page 41
+ 1254              		.loc 1 981 5 is_stmt 1 view .LVU353
+ 1255 0020 FFF7FEFF 		bl	HAL_TSC_ErrorCallback
+ 1256              	.LVL69:
+ 1257              	.L58:
+ 995:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1258              		.loc 1 995 1 is_stmt 0 view .LVU354
+ 1259              		@ sp needed
+ 1260 0024 10BD     		pop	{r4, pc}
+ 1261              	.LVL70:
+ 1262              	.L60:
+ARM GAS  /tmp/cczP4HC8.s 			page 47
+
+
+ 987:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
+ 1263              		.loc 1 987 5 is_stmt 1 view .LVU355
+ 987:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #if (USE_HAL_TSC_REGISTER_CALLBACKS == 1)
+ 1264              		.loc 1 987 17 is_stmt 0 view .LVU356
+ 1265 0026 3C23     		movs	r3, #60
+ 1266 0028 0122     		movs	r2, #1
+ 1267 002a C254     		strb	r2, [r0, r3]
+ 992:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** #endif /* USE_HAL_TSC_REGISTER_CALLBACKS */
+ 1268              		.loc 1 992 5 is_stmt 1 view .LVU357
+ 1269 002c FFF7FEFF 		bl	HAL_TSC_ConvCpltCallback
+ 1270              	.LVL71:
+ 995:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tsc.c **** 
+ 1271              		.loc 1 995 1 is_stmt 0 view .LVU358
+ 1272 0030 F8E7     		b	.L58
+ 1273              		.cfi_endproc
+ 1274              	.LFE54:
+ 1276              		.text
+ 1277              	.Letext0:
+ 1278              		.file 2 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
+ 1279              		.file 3 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
+ 1280              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
+ 1281              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h"
+ 1282              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+ 1283              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tsc.h"
+ 1284              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
+ARM GAS  /tmp/cczP4HC8.s 			page 48
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f0xx_hal_tsc.c
-     /tmp/ccdIu2oD.s:16     .text.TSC_extract_groups:0000000000000000 $t
-     /tmp/ccdIu2oD.s:22     .text.TSC_extract_groups:0000000000000000 TSC_extract_groups
-     /tmp/ccdIu2oD.s:74     .text.HAL_TSC_MspInit:0000000000000000 $t
-     /tmp/ccdIu2oD.s:81     .text.HAL_TSC_MspInit:0000000000000000 HAL_TSC_MspInit
-     /tmp/ccdIu2oD.s:96     .text.HAL_TSC_Init:0000000000000000 $t
-     /tmp/ccdIu2oD.s:103    .text.HAL_TSC_Init:0000000000000000 HAL_TSC_Init
-     /tmp/ccdIu2oD.s:243    .text.HAL_TSC_MspDeInit:0000000000000000 $t
-     /tmp/ccdIu2oD.s:250    .text.HAL_TSC_MspDeInit:0000000000000000 HAL_TSC_MspDeInit
-     /tmp/ccdIu2oD.s:265    .text.HAL_TSC_DeInit:0000000000000000 $t
-     /tmp/ccdIu2oD.s:272    .text.HAL_TSC_DeInit:0000000000000000 HAL_TSC_DeInit
-     /tmp/ccdIu2oD.s:319    .text.HAL_TSC_Start:0000000000000000 $t
-     /tmp/ccdIu2oD.s:326    .text.HAL_TSC_Start:0000000000000000 HAL_TSC_Start
-     /tmp/ccdIu2oD.s:402    .text.HAL_TSC_Start_IT:0000000000000000 $t
-     /tmp/ccdIu2oD.s:409    .text.HAL_TSC_Start_IT:0000000000000000 HAL_TSC_Start_IT
-     /tmp/ccdIu2oD.s:505    .text.HAL_TSC_Stop:0000000000000000 $t
-     /tmp/ccdIu2oD.s:512    .text.HAL_TSC_Stop:0000000000000000 HAL_TSC_Stop
-     /tmp/ccdIu2oD.s:573    .text.HAL_TSC_Stop_IT:0000000000000000 $t
-     /tmp/ccdIu2oD.s:580    .text.HAL_TSC_Stop_IT:0000000000000000 HAL_TSC_Stop_IT
-     /tmp/ccdIu2oD.s:646    .text.HAL_TSC_GroupGetStatus:0000000000000000 $t
-     /tmp/ccdIu2oD.s:653    .text.HAL_TSC_GroupGetStatus:0000000000000000 HAL_TSC_GroupGetStatus
-     /tmp/ccdIu2oD.s:682    .text.HAL_TSC_GroupGetValue:0000000000000000 $t
-     /tmp/ccdIu2oD.s:689    .text.HAL_TSC_GroupGetValue:0000000000000000 HAL_TSC_GroupGetValue
-     /tmp/ccdIu2oD.s:713    .text.HAL_TSC_IOConfig:0000000000000000 $t
-     /tmp/ccdIu2oD.s:720    .text.HAL_TSC_IOConfig:0000000000000000 HAL_TSC_IOConfig
-     /tmp/ccdIu2oD.s:796    .text.HAL_TSC_IODischarge:0000000000000000 $t
-     /tmp/ccdIu2oD.s:803    .text.HAL_TSC_IODischarge:0000000000000000 HAL_TSC_IODischarge
-     /tmp/ccdIu2oD.s:862    .text.HAL_TSC_GetState:0000000000000000 $t
-     /tmp/ccdIu2oD.s:869    .text.HAL_TSC_GetState:0000000000000000 HAL_TSC_GetState
-     /tmp/ccdIu2oD.s:917    .text.HAL_TSC_PollForAcquisition:0000000000000000 $t
-     /tmp/ccdIu2oD.s:924    .text.HAL_TSC_PollForAcquisition:0000000000000000 HAL_TSC_PollForAcquisition
-     /tmp/ccdIu2oD.s:975    .text.HAL_TSC_ConvCpltCallback:0000000000000000 $t
-     /tmp/ccdIu2oD.s:982    .text.HAL_TSC_ConvCpltCallback:0000000000000000 HAL_TSC_ConvCpltCallback
-     /tmp/ccdIu2oD.s:997    .text.HAL_TSC_ErrorCallback:0000000000000000 $t
-     /tmp/ccdIu2oD.s:1004   .text.HAL_TSC_ErrorCallback:0000000000000000 HAL_TSC_ErrorCallback
-     /tmp/ccdIu2oD.s:1019   .text.HAL_TSC_IRQHandler:0000000000000000 $t
-     /tmp/ccdIu2oD.s:1026   .text.HAL_TSC_IRQHandler:0000000000000000 HAL_TSC_IRQHandler
+     /tmp/cczP4HC8.s:16     .text.TSC_extract_groups:0000000000000000 $t
+     /tmp/cczP4HC8.s:23     .text.TSC_extract_groups:0000000000000000 TSC_extract_groups
+     /tmp/cczP4HC8.s:88     .text.HAL_TSC_MspInit:0000000000000000 $t
+     /tmp/cczP4HC8.s:95     .text.HAL_TSC_MspInit:0000000000000000 HAL_TSC_MspInit
+     /tmp/cczP4HC8.s:111    .text.HAL_TSC_Init:0000000000000000 $t
+     /tmp/cczP4HC8.s:118    .text.HAL_TSC_Init:0000000000000000 HAL_TSC_Init
+     /tmp/cczP4HC8.s:310    .text.HAL_TSC_MspDeInit:0000000000000000 $t
+     /tmp/cczP4HC8.s:317    .text.HAL_TSC_MspDeInit:0000000000000000 HAL_TSC_MspDeInit
+     /tmp/cczP4HC8.s:333    .text.HAL_TSC_DeInit:0000000000000000 $t
+     /tmp/cczP4HC8.s:340    .text.HAL_TSC_DeInit:0000000000000000 HAL_TSC_DeInit
+     /tmp/cczP4HC8.s:397    .text.HAL_TSC_Start:0000000000000000 $t
+     /tmp/cczP4HC8.s:404    .text.HAL_TSC_Start:0000000000000000 HAL_TSC_Start
+     /tmp/cczP4HC8.s:489    .text.HAL_TSC_Start_IT:0000000000000000 $t
+     /tmp/cczP4HC8.s:496    .text.HAL_TSC_Start_IT:0000000000000000 HAL_TSC_Start_IT
+     /tmp/cczP4HC8.s:604    .text.HAL_TSC_Stop:0000000000000000 $t
+     /tmp/cczP4HC8.s:611    .text.HAL_TSC_Stop:0000000000000000 HAL_TSC_Stop
+     /tmp/cczP4HC8.s:681    .text.HAL_TSC_Stop_IT:0000000000000000 $t
+     /tmp/cczP4HC8.s:688    .text.HAL_TSC_Stop_IT:0000000000000000 HAL_TSC_Stop_IT
+     /tmp/cczP4HC8.s:763    .text.HAL_TSC_GroupGetStatus:0000000000000000 $t
+     /tmp/cczP4HC8.s:770    .text.HAL_TSC_GroupGetStatus:0000000000000000 HAL_TSC_GroupGetStatus
+     /tmp/cczP4HC8.s:802    .text.HAL_TSC_GroupGetValue:0000000000000000 $t
+     /tmp/cczP4HC8.s:809    .text.HAL_TSC_GroupGetValue:0000000000000000 HAL_TSC_GroupGetValue
+     /tmp/cczP4HC8.s:839    .text.HAL_TSC_IOConfig:0000000000000000 $t
+     /tmp/cczP4HC8.s:846    .text.HAL_TSC_IOConfig:0000000000000000 HAL_TSC_IOConfig
+     /tmp/cczP4HC8.s:948    .text.HAL_TSC_IODischarge:0000000000000000 $t
+     /tmp/cczP4HC8.s:955    .text.HAL_TSC_IODischarge:0000000000000000 HAL_TSC_IODischarge
+     /tmp/cczP4HC8.s:1024   .text.HAL_TSC_GetState:0000000000000000 $t
+     /tmp/cczP4HC8.s:1031   .text.HAL_TSC_GetState:0000000000000000 HAL_TSC_GetState
+     /tmp/cczP4HC8.s:1090   .text.HAL_TSC_PollForAcquisition:0000000000000000 $t
+     /tmp/cczP4HC8.s:1097   .text.HAL_TSC_PollForAcquisition:0000000000000000 HAL_TSC_PollForAcquisition
+     /tmp/cczP4HC8.s:1161   .text.HAL_TSC_ConvCpltCallback:0000000000000000 $t
+     /tmp/cczP4HC8.s:1168   .text.HAL_TSC_ConvCpltCallback:0000000000000000 HAL_TSC_ConvCpltCallback
+     /tmp/cczP4HC8.s:1184   .text.HAL_TSC_ErrorCallback:0000000000000000 $t
+     /tmp/cczP4HC8.s:1191   .text.HAL_TSC_ErrorCallback:0000000000000000 HAL_TSC_ErrorCallback
+     /tmp/cczP4HC8.s:1207   .text.HAL_TSC_IRQHandler:0000000000000000 $t
+     /tmp/cczP4HC8.s:1214   .text.HAL_TSC_IRQHandler:0000000000000000 HAL_TSC_IRQHandler
 
 NO UNDEFINED SYMBOLS
