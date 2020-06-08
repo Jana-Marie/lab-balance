@@ -38,4 +38,4 @@ bom/
 # Gerber export output
 out/
 
-# End of https://www.gitignore.io/api/kicad
+firmware/build/*
