@@ -19,7 +19,7 @@ def generate_header(file):
     of.write("#ifndef __{}_H\r\n".format(nm.upper()))
     of.write("#define __{}_H\r\n".format(nm.upper()))
     of.write("\r\n")
-    of.write("uint16_t {}[] = {{\r\n".format(nm.lower()))
+    of.write("const uint16_t {}[] = {{\r\n".format(nm.lower()))
     for index,i in enumerate(pixel_values):
         of.write("{}".format(rgb_hex565(*i[:3])))
         if(index < len(pixel_values)-1):

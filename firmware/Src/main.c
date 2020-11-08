@@ -7,6 +7,7 @@
 #include "image_header.h"
 
 //#define ENABLE_CAL
+//#define ENABLESERIAL
 
 #define HX_GAIN_128 25
 #define HX_GAIN_64  27
@@ -24,10 +25,12 @@ DMA_HandleTypeDef hdma_spi1_tx;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim16;
+TIM_HandleTypeDef htim3;
 
 TSC_HandleTypeDef htsc;
 TSC_IOConfigTypeDef IoConfig;
 
+USBD_HandleTypeDef USBD_Device;
 
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
@@ -37,12 +40,14 @@ static void MX_SPI1_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM16_Init(void);
 static void MX_TSC_Init(void);
+static void TIM3_Init();
 
 void HX_Get_Value(uint8_t gain);
 void HX_Delay(uint32_t u);
 void write_tara_bar(uint8_t pos);
 void clear_tara_bar(void);
 void write_cal_flash(float cal);
+void USB_printfloat(float _buf);
 
 struct HX711_t{
   int32_t raw_data;
@@ -80,6 +85,9 @@ extern struct IPS_t IPS;
 uint32_t start = 0;
 uint32_t _ms;
 
+extern uint8_t UserTxBuffer[APP_TX_DATA_SIZE];/* Received Data over UART (CDC interface) are stored in this buffer */
+uint32_t sendDataUSB;
+
 int main(void)
 {
   HAL_Init();
@@ -92,11 +100,12 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM16_Init();
   MX_TSC_Init();
+  TIM3_Init();
 
   HAL_GPIO_WritePin(GPIOB,HX_CLK_Pin,0);
 
   IPS.backlight = 999;
-  IPS.update_time = 10;
+  IPS.update_time = 20;
 
   #ifdef ENABLE_CAL
   cal.g_50 = *((float *) FLASH_ADDR);
@@ -114,6 +123,15 @@ int main(void)
   HAL_TIM_Base_Start(&htim1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
+
+  #ifdef ENABLESERIAL
+      //start USB CDC
+      USBD_Init(&USBD_Device, &VCP_Desc, 0);
+      USBD_RegisterClass(&USBD_Device, &USBD_CDC);
+      USBD_CDC_RegisterInterface(&USBD_Device, &USBD_CDC_fops);
+      HAL_TIM_Base_Start_IT(&htim3);
+      USBD_Start(&USBD_Device);
+  #endif
 
   while (1)
   {
@@ -224,6 +242,10 @@ int main(void)
       }
       IPS.update = HAL_GetTick();
     }
+    #ifdef ENABLESERIAL
+      // send temperature via USB CDC
+      USB_printfloat(HX711.weight_g);
+    #endif
   }
 }
 
@@ -338,6 +360,29 @@ void write_cal_flash(float cal){
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+#ifdef ENABLESERIAL
+void USB_printfloat(float _buf){
+  memset(UserTxBuffer, 0, APP_TX_DATA_SIZE);
+  sprintf(UserTxBuffer, "%02d.%04d \r\n", (uint16_t)_buf,(uint16_t)((_buf-(uint16_t)_buf)*1000.0f));
+  sendDataUSB = 1;
+}
+#endif
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) //send USB cdc data
+{
+  if(sendDataUSB) // WIP need to fix this, should me timer based only
+  {
+    sendDataUSB = 0;
+
+    USBD_CDC_SetTxBuffer(&USBD_Device, (uint8_t*)&UserTxBuffer[0], APP_TX_DATA_SIZE);
+    USBD_CDC_TransmitPacket(&USBD_Device);
+  }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -440,6 +485,33 @@ static void MX_TIM1_Init(void)
   HAL_TIM_MspPostInit(&htim1);
 }
 
+
+static void TIM3_Init(void)
+{
+  __HAL_RCC_TIM3_CLK_ENABLE();
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+
+  /*
+       + Period = 10000 - 1
+       + Prescaler = ((8000000/2)/10000) - 1
+
+  */
+  htim3.Instance = TIM3;
+  htim3.Init.Period = (CDC_POLLING_INTERVAL*1000) - 1;
+  htim3.Init.Prescaler = 399;
+  htim3.Init.ClockDivision = 0;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if(HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    /* Initialization Error */
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig);
+}
+
+
 static void MX_TIM16_Init(void)
 {
   TIM_OC_InitTypeDef sConfigOC = {0};
@@ -509,6 +581,9 @@ static void MX_DMA_Init(void)
 
   HAL_NVIC_SetPriority(DMA1_Channel2_3_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
+
+  HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(TIM3_IRQn);
 }
 
 static void MX_GPIO_Init(void)
