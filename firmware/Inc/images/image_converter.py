@@ -1,5 +1,4 @@
 #!/bin/python3.8
-
 from PIL import Image
 import sys
 import os
@@ -10,6 +9,9 @@ def rgb_hex565(red, green, blue):
 def generate_header(file):
     nm = os.path.splitext(file)[0]
     of = open(nm+".h","w+")
+    hf = open('image_header.h', 'a+')
+    hf.write("#include \"" + nm + ".h\"\r\n")
+    hf.close()
     im = Image.open(file, 'r')
     width, height = im.size
     pixel_values = list(im.transpose(Image.ROTATE_180).getdata())
@@ -29,8 +31,18 @@ def generate_header(file):
     of.write("#endif\r\n")
     of.close()
 
+hf = open('image_header.h', 'w+')
+hf.write("#ifndef __IMAGE_HEADERS_H\r\n")
+hf.write("#define __IMAGE_HEADERS_H\r\n")
+hf.write("\r\n")
+hf.close()
 
 for file in os.listdir(sys.argv[1]):
     if file.endswith(".png"):
         print(os.path.join(sys.argv[1], file))
         generate_header(file)
+
+hf = open('image_header.h', 'a+')
+hf.write("\r\n")
+hf.write("#endif")
+hf.close()
