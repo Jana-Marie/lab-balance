@@ -6,12 +6,17 @@
 #include <stdio.h>
 #include "image_header.h"
 
+//#define ENABLE_CAL
+//#define ENABLESERIAL
+
 #define HX_GAIN_128 25
 #define HX_GAIN_64  27
 #define HX_GAIN_32  26
 #define MULTIPLIER (72000000/4000000)
 
 #define DATAFILT 0.99f
+
+#define FLASH_ADDR 0x0800e400
 
 I2C_HandleTypeDef hi2c2;
 
@@ -24,7 +29,7 @@ TIM_HandleTypeDef htim16;
 TSC_HandleTypeDef htsc;
 TSC_IOConfigTypeDef IoConfig;
 
-PCD_HandleTypeDef hpcd_USB_FS;
+USBD_HandleTypeDef USBD_Device;
 
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
@@ -40,6 +45,8 @@ void HX_Get_Value(uint8_t gain);
 void HX_Delay(uint32_t u);
 void write_tara_bar(uint8_t pos);
 void clear_tara_bar(void);
+void write_cal_flash(float cal);
+void USB_printfloat(float _buf);
 
 struct HX711_t{
   int32_t raw_data;
@@ -60,7 +67,7 @@ struct cal_t{
   uint8_t tara_active;
   uint8_t tara_pcs_active;
   float pcs_cal;
-} cal = {.g_cal = 50.000f, .g_50 = -701550.0f, .g_0 = -138500.0f, .tara_active = 1, .pcs_cal = 1.0f};
+} cal = {.g_cal = 50.093f, .g_50 = -701550.0f, .g_0 = -138500.0f, .tara_active = 1, .pcs_cal = 1.0f};
 //50.093
 
 struct touch_t{
@@ -96,6 +103,10 @@ int main(void)
   IPS.backlight = 999;
   IPS.update_time = 10;
 
+  #ifdef ENABLE_CAL
+  cal.g_50 = *((float *) FLASH_ADDR);
+  #endif
+
   IPS_Init();
   HAL_TIM_Base_Start(&htim16);
   HAL_TIM_PWM_Start(&htim16, TIM_CHANNEL_1);
@@ -109,6 +120,15 @@ int main(void)
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
 
+  #ifdef ENABLESERIAL
+  //start USB CDC
+  USBD_Init(&USBD_Device, &VCP_Desc, 0);
+  USBD_RegisterClass(&USBD_Device, &USBD_CDC);
+  USBD_CDC_RegisterInterface(&USBD_Device, &USBD_CDC_fops);
+  HAL_TIM_Base_Start_IT(&htim3);
+  USBD_Start(&USBD_Device);
+  #endif
+
   while (1)
   {
     if(t.button[1]) {
@@ -119,8 +139,15 @@ int main(void)
         HAL_Delay(2);
       }
       if(cnt >= 200){
-       cal.tara_active = 0;
-       cal.tara_pcs_active = 1;
+        if(t.mode == 2){
+        #ifdef ENABLE_CAL
+          write_cal_flash(cal.g_50);
+          HAL_NVIC_SystemReset();
+        #endif
+        } else {
+         cal.tara_pcs_active = 1;
+        }
+      cal.tara_active = 0;
       }
     }
 
@@ -211,6 +238,10 @@ int main(void)
       }
       IPS.update = HAL_GetTick();
     }
+
+    #ifdef ENABLESERIAL
+    USB_printfloat(HX711.weight_g);
+    #endif
   }
 }
 
@@ -309,6 +340,31 @@ void clear_tara_bar(){
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+void write_cal_flash(float cal){
+  HAL_FLASH_Unlock();
+  FLASH->CR |= FLASH_CR_PER;
+  FLASH->AR = FLASH_ADDR;
+  FLASH->CR |= FLASH_CR_STRT;
+  while ((FLASH->SR & FLASH_SR_BSY) != 0){}
+  if ((FLASH->SR & FLASH_SR_EOP) != 0){
+    FLASH->SR |= FLASH_SR_EOP;
+    FLASH->CR &= ~FLASH_CR_PER;
+    HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, FLASH_ADDR, cal);
+    HAL_FLASH_Lock();
+  }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#ifdef ENABLESERIAL
+void USB_printfloat(float _buf){
+  memset(UserTxBuffer, 0, APP_TX_DATA_SIZE);
+  sprintf(UserTxBuffer, "%d.%d \r\n", (uint16_t)_buf,(uint16_t)((_buf-(uint16_t)_buf)*10.0f));
+  sendDataUSB = 1;
+}
+#endif
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void SystemClock_Config(void)
 {
