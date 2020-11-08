@@ -1,6 +1,10 @@
 
 #include "main.h"
 #include "graphics.h"
+#include "math.h"
+#include "stdlib.h"
+#include <stdio.h>
+#include "image_header.h"
 
 #define HX_GAIN_128 25
 #define HX_GAIN_64  27
@@ -44,6 +48,7 @@ struct HX711_t{
   uint8_t gain;
   uint8_t rate;
   uint8_t clock;
+  uint8_t is_stable;
 } HX711 = {.gain = HX_GAIN_128};
 
 struct cal_t{
@@ -63,9 +68,10 @@ struct touch_t{
   uint16_t value[2];
   uint8_t idx_bank;
   uint8_t mode;
-} t = {};
+  uint8_t new_mode;
+} t = {.new_mode = 1};
 
-extern struct IPS_t IPS = {.backlight = 999, .update_time = 10};
+extern struct IPS_t IPS;
 
 uint32_t start = 0;
 uint32_t _ms;
@@ -85,6 +91,9 @@ int main(void)
   MX_USB_PCD_Init();
 
   HAL_GPIO_WritePin(GPIOB,HX_CLK_Pin,0);
+
+  IPS.backlight = 999;
+  IPS.update_time = 10;
 
   IPS_Init();
   HAL_TIM_Base_Start(&htim16);
@@ -120,17 +129,22 @@ int main(void)
       }
       t.mode++;
       t.mode = t.mode % 3;
+      t.new_mode = 1;
     }
 
     if(cal.tara_active && t.mode != 2){
       if(abs(HX711.delta) < 30) cal.tara_active++;
       else cal.tara_active = 1;
-      if(cal.tara_active > 20) cal.g_0 = HX711.raw_data_avg;
+      if(cal.tara_active > 20){
+        cal.g_0 = HX711.raw_data_avg;
+        cal.tara_active = 0;
+      }
     } else if(cal.tara_active && t.mode == 2){
       if(abs(HX711.delta) < 30) cal.tara_active++;
       else cal.tara_active = 1;
       if(cal.tara_active > 20) {
         cal.g_100 = HX711.raw_data_avg;
+        cal.tara_active = 0;
       }
     }
 
@@ -171,22 +185,31 @@ int main(void)
     if(HAL_GetTick() + IPS.update_time > IPS.update){
       if(HX711.weight_g > -99.9 && HX711.weight_g < 99.9){
         if(t.mode == 0){
-          sprintf(IPS.buf,"%c%02d.%03dg", HX711.weight_g >= -0.001 ? ' ' : '-' , abs((int)HX711.weight_g), abs((int)((HX711.weight_g-(int)HX711.weight_g)*1000.0f))); // HX711.weight_g > 0 ? ' ' : '-',
+          sprintf(IPS.buf,"%c%02d.%03dg", HX711.weight_g >= -0.001 ? ' ' : '-' , abs((int)HX711.weight_g), abs((int)((HX711.weight_g-(int)HX711.weight_g)*1000.0f)));
           IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
           IPS_WriteBuf(10,45);
         } else if (t.mode == 1){
-          sprintf(IPS.buf,"%c%04dpcs", HX711.weight_g >= -0.001 ? ' ' : '-' , abs((int)roundf(HX711.weight_g / cal.pcs_cal))); // HX711.weight_g > 0 ? ' ' : '-', /(int)(abs(HX711.weight_g / cal.pcs_cal))
+          sprintf(IPS.buf,"%c%04dpcs", HX711.weight_g >= -0.001 ? ' ' : '-' , abs((int)roundf(HX711.weight_g / cal.pcs_cal)));
           IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
           IPS_WriteBuf(10,45);
         } else if (t.mode == 2){
-          sprintf(IPS.buf,"%07d", HX711.raw_data_avg); // HX711.weight_g > 0 ? ' ' : '-', /(int)(abs(HX711.weight_g / cal.pcs_cal))
+          sprintf(IPS.buf,"%07d", HX711.raw_data_avg);
           IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
           IPS_WriteBuf(10,45);
         }
       } else {
-        sprintf(IPS.buf,"  max!  "); // HX711.weight_g > 0 ? ' ' : '-', /(int)(abs(HX711.weight_g / cal.pcs_cal))
+        sprintf(IPS.buf,"  max!  ");
         IPS_DrawString_Buf(0, 0, IPS.buf, 8, &Font24, BLACK, WHITE);
         IPS_WriteBuf(10,45);
+      }
+      HAL_Delay(4);
+      if(t.new_mode == 1){
+        if      (t.mode == 0) IPS_WriteBitmap(5 , 5, gram, 32, 20);
+        else if (t.mode == 1) IPS_WriteBitmap(5 , 5, cnt, 32, 20);
+        else if (t.mode == 2) IPS_WriteBitmap(5 , 5, cal_n, 32, 20);
+        t.new_mode = 0;
+      } else {
+        IPS_WriteBitmap(116, 8, HX711.is_stable == 1 ? tara_green : tara_red, 32, 20);
       }
       IPS.update = HAL_GetTick();
     }
@@ -214,15 +237,18 @@ void HX_Get_Value(uint8_t gain) {
   if(abs(HX711.delta) > 1000) {
     HX711.rate = 1;
     HX711.raw_data_avg = HX711.raw_data;
+    HX711.is_stable = 0;
     __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
   }
   else if(abs(HX711.delta) > 20) {
     HX711.rate = 0;
     HX711.raw_data_avg = HX711.raw_data;
+    HX711.is_stable = 0;
     __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
   }
   else {
     HX711.rate = 0;
+    HX711.is_stable = 1;
     __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 50);
   }
 
@@ -316,7 +342,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
