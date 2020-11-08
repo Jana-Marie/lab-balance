@@ -23,6 +23,8 @@
 #include "stm32f0xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+extern PCD_HandleTypeDef hpcd;
+extern USBD_HandleTypeDef USBD_Device;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -171,6 +173,9 @@ void DMA1_Channel2_3_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-
+void USB_IRQHandler(void)
+{
+  HAL_PCD_IRQHandler(&hpcd);
+}
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
