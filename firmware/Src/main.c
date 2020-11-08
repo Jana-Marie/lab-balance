@@ -38,6 +38,8 @@ static void MX_USB_PCD_Init(void);
 
 void HX_Get_Value(uint8_t gain);
 void HX_Delay(uint32_t u);
+void write_tara_bar(uint8_t pos);
+void clear_tara_bar(void);
 
 struct HX711_t{
   int32_t raw_data;
@@ -52,15 +54,14 @@ struct HX711_t{
 } HX711 = {.gain = HX_GAIN_128};
 
 struct cal_t{
-  float g_100;
+  float g_50;
   float g_0;
   float g_cal;
   uint8_t tara_active;
   uint8_t tara_pcs_active;
   float pcs_cal;
-} cal = {.g_cal = 50.093f, .g_100 = -701550.0f, .g_0 = -138500.0f, .tara_active = 1, .pcs_cal = 1.0f};
-//} cal = {.g_cal = 50.0f, .g_100 = -356620.0f, .g_0 = -138500.0f, .tara_active = 1}; // gain 64
-// } cal = {.g_cal = 50.0f, .g_100 = -703400.0f, .g_0 = -138500.0f, .tara_active = 1}; //gain 128
+} cal = {.g_cal = 50.000f, .g_50 = -701550.0f, .g_0 = -138500.0f, .tara_active = 1, .pcs_cal = 1.0f};
+//50.093
 
 struct touch_t{
   uint8_t button[2];
@@ -135,32 +136,31 @@ int main(void)
     if(cal.tara_active && t.mode != 2){
       if(abs(HX711.delta) < 30) cal.tara_active++;
       else cal.tara_active = 1;
+      write_tara_bar(cal.tara_active);
       if(cal.tara_active > 20){
         cal.g_0 = HX711.raw_data_avg;
         cal.tara_active = 0;
+        clear_tara_bar();
       }
     } else if(cal.tara_active && t.mode == 2){
       if(abs(HX711.delta) < 30) cal.tara_active++;
       else cal.tara_active = 1;
+      write_tara_bar(cal.tara_active);
       if(cal.tara_active > 20) {
-        cal.g_100 = HX711.raw_data_avg;
+        cal.g_50 = HX711.raw_data_avg;
         cal.tara_active = 0;
+        clear_tara_bar();
       }
     }
 
     if (cal.tara_pcs_active){
       cal.pcs_cal = HX711.weight_g;
       cal.tara_pcs_active = 0;
+      for(int i = 0; i <= 20; i++){
+        write_tara_bar(i);
+      }
+      clear_tara_bar();
     }
-
-    /*
-    if(cal.g_100_active){
-      cal.tara_active = 0;
-      if(abs(HX711.delta) < 30) cal.g_100_active++;
-      else cal.g_100_active = 1;
-      if(cal.g_100_active > 20) cal.g_100 = HX711.raw_data_avg;
-    }
-    */
 
     if(!HAL_GPIO_ReadPin(GPIOB,HX_INT_Pin)){
       HX_Get_Value(HX711.gain);
@@ -172,15 +172,13 @@ int main(void)
         cal.g_0 -= HX711.delta;
       } else if(abs(HX711.delta) <= 2) {
         cal.g_0 -= HX711.delta;
-        cal.g_100 -= HX711.delta;
+        cal.g_50 -= HX711.delta;
       }
 
     } else {
       HAL_Delay(1);
       HAL_GPIO_WritePin(GPIOB,HX_SPS_Pin, HX711.rate);
     }
-
-
 
     if(HAL_GetTick() + IPS.update_time > IPS.update){
       if(HX711.weight_g > -99.9 && HX711.weight_g < 99.9){
@@ -255,7 +253,7 @@ void HX_Get_Value(uint8_t gain) {
 
   HX711.raw_data_avg = (HX711.raw_data_avg * DATAFILT + (HX711.raw_data * (1.0f - DATAFILT)));
   HX711.delta = last_data - HX711.raw_data_avg;
-  HX711.weight_g = (cal.g_cal*((HX711.raw_data_avg-cal.g_0)/(cal.g_100-cal.g_0)));
+  HX711.weight_g = (cal.g_cal*((HX711.raw_data_avg-cal.g_0)/(cal.g_50-cal.g_0)));
 }
 
 void HX_Delay(uint32_t u) {
@@ -291,6 +289,24 @@ void TSC_task(void) {
     break;
   }
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+void write_tara_bar(uint8_t pos){
+  HAL_Delay(4);
+  IPS_WriteBitmap(97 - (pos*2), 5, bar, 2, 20);
+  HAL_Delay(1);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+void clear_tara_bar(){
+  HAL_Delay(4);
+  for(int i = 0; i <= 5; i++){
+    IPS_WriteBitmap(97 - (i*9), 5, bb, 10, 20);
+    HAL_Delay(1);
+  }
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
