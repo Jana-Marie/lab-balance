@@ -7,7 +7,6 @@
 #include "image_header.h"
 
 //#define ENABLE_CAL
-//#define ENABLESERIAL
 
 #define HX_GAIN_128 25
 #define HX_GAIN_64  27
@@ -29,7 +28,6 @@ TIM_HandleTypeDef htim16;
 TSC_HandleTypeDef htsc;
 TSC_IOConfigTypeDef IoConfig;
 
-USBD_HandleTypeDef USBD_Device;
 
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
@@ -39,14 +37,12 @@ static void MX_SPI1_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM16_Init(void);
 static void MX_TSC_Init(void);
-static void MX_USB_PCD_Init(void);
 
 void HX_Get_Value(uint8_t gain);
 void HX_Delay(uint32_t u);
 void write_tara_bar(uint8_t pos);
 void clear_tara_bar(void);
 void write_cal_flash(float cal);
-void USB_printfloat(float _buf);
 
 struct HX711_t{
   int32_t raw_data;
@@ -96,7 +92,6 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM16_Init();
   MX_TSC_Init();
-  MX_USB_PCD_Init();
 
   HAL_GPIO_WritePin(GPIOB,HX_CLK_Pin,0);
 
@@ -119,15 +114,6 @@ int main(void)
   HAL_TIM_Base_Start(&htim1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
-
-  #ifdef ENABLESERIAL
-  //start USB CDC
-  USBD_Init(&USBD_Device, &VCP_Desc, 0);
-  USBD_RegisterClass(&USBD_Device, &USBD_CDC);
-  USBD_CDC_RegisterInterface(&USBD_Device, &USBD_CDC_fops);
-  HAL_TIM_Base_Start_IT(&htim3);
-  USBD_Start(&USBD_Device);
-  #endif
 
   while (1)
   {
@@ -238,10 +224,6 @@ int main(void)
       }
       IPS.update = HAL_GetTick();
     }
-
-    #ifdef ENABLESERIAL
-    USB_printfloat(HX711.weight_g);
-    #endif
   }
 }
 
@@ -353,16 +335,6 @@ void write_cal_flash(float cal){
     HAL_FLASH_Lock();
   }
 }
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-#ifdef ENABLESERIAL
-void USB_printfloat(float _buf){
-  memset(UserTxBuffer, 0, APP_TX_DATA_SIZE);
-  sprintf(UserTxBuffer, "%d.%d \r\n", (uint16_t)_buf,(uint16_t)((_buf-(uint16_t)_buf)*10.0f));
-  sendDataUSB = 1;
-}
-#endif
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -528,18 +500,6 @@ static void MX_TSC_Init(void)
   IoConfig.ShieldIOs   = 0;
   HAL_TSC_IOConfig(&htsc, &IoConfig);
 
-}
-
-static void MX_USB_PCD_Init(void)
-{
-  hpcd_USB_FS.Instance = USB;
-  hpcd_USB_FS.Init.dev_endpoints = 8;
-  hpcd_USB_FS.Init.speed = PCD_SPEED_FULL;
-  hpcd_USB_FS.Init.phy_itface = PCD_PHY_EMBEDDED;
-  hpcd_USB_FS.Init.low_power_enable = DISABLE;
-  hpcd_USB_FS.Init.lpm_enable = DISABLE;
-  hpcd_USB_FS.Init.battery_charging_enable = DISABLE;
-  HAL_PCD_Init(&hpcd_USB_FS);
 }
 
 static void MX_DMA_Init(void)
