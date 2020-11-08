@@ -60,6 +60,14 @@ void IPS_WriteBuf(uint16_t x, uint16_t y)
 	HAL_SPI_Transmit_DMA(&hspi1, (uint16_t *)&IPS.text_buf, ((24*(17*8))*2)-1);
 }
 
+void IPS_WriteBitmap(uint16_t x, uint16_t y, uint16_t* bmp, uint16_t size_x, uint16_t size_y)
+{
+	IPS_SetCursor(x,y,x+size_x-1,y+size_y-1);
+  HAL_GPIO_WritePin(IPS_CS_GPIO_Port, IPS_CS_Pin, 0);
+  HAL_GPIO_WritePin(IPS_DC_GPIO_Port, IPS_DC_Pin, 1);
+	HAL_SPI_Transmit_DMA(&hspi1, (uint16_t *)bmp, ((size_y*size_x)*2)-1);
+}
+
 void IPS_DrawString_R(uint16_t x, uint16_t y, const char * pString, uint8_t len, sFONT* Font, uint16_t Color_Background, uint16_t Color_Foreground )
 {
   x -= (Font->Width*len);

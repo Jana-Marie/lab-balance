@@ -57,4 +57,10 @@ void IPS_DrawChar(uint16_t Xpoint, uint16_t Ypoint, const char Acsii_Char, sFONT
 void IPS_SetPixel(uint16_t Xpoint, uint16_t Ypoint, uint16_t Color);
 void IPS_SetUWORD(uint16_t x, uint16_t y, uint16_t Color);
 
+void IPS_SetPixel_buf(uint16_t Xpoint, uint16_t Ypoint, uint16_t Color);
+void IPS_WriteBuf(uint16_t x, uint16_t y);
+void IPS_DrawChar_Buf(uint16_t x, uint16_t y, const char c, sFONT* Font, uint16_t Color_Background, uint16_t Color_Foreground);
+void IPS_DrawString_Buf(uint16_t x, uint16_t y, const char * pString, uint8_t len, sFONT* Font, uint16_t Color_Background, uint16_t Color_Foreground);
+void IPS_WriteBitmap(uint16_t x, uint16_t y, uint16_t* bmp, uint16_t size_x, uint16_t size_y);
+
 #endif
